@@ -13,7 +13,7 @@ import java.io.IOException;
         }
 
         public void start(Stage stage) throws IOException {
-            Parent root = (Parent) FXMLLoader.load(this.getClass().getResource("menuScreen.fxml"));
+            Parent root = FXMLLoader.load(this.getClass().getResource("menuScreen.fxml"));
             Scene scene = new Scene(root);
             root.getStylesheets().add(this.getClass().getResource("Scene.css").toExternalForm());
             Image icon = new Image(this.getClass().getResource("GameIcon.jpeg").toExternalForm());
