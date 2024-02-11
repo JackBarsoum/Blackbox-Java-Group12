@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
-import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
 
