@@ -15,6 +15,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GameController {
+    private int atomcount = 0;
+
+    private Pane spherepane;
 
     @FXML
     private Button play;
@@ -58,21 +61,48 @@ public class GameController {
     @FXML
     private void handleButtonClick(ActionEvent event){
         // create a new sphere
-        Button b = (Button) event.getSource();
-        Sphere sphere = new Sphere(25);
-        double x = b.getLayoutX();
-        double y = b.getLayoutY();
+        if(atomcount < 6) {
+            Button b = (Button) event.getSource();
+            Sphere sphere = new Sphere(25);
+            double x = b.getLayoutX();
+            double y = b.getLayoutY();
 
-        // set the sphere color to red
-        sphere.setMaterial(new PhongMaterial(Color.RED));
-        sphere.setLayoutX(x+37);
-        sphere.setLayoutY(y+24);
+            // set the sphere color to red
+            sphere.setMaterial(new PhongMaterial(Color.RED));
+            sphere.setLayoutX(x + 37);
+            sphere.setLayoutY(y + 24);
 
-        // get the parent node of the button
-        Pane parent = (Pane) b.getParent();
+            // get the parent node of the button
+            Pane parent = (Pane) b.getParent();
+            spherepane = (Pane) b.getParent();
+            // replace the button with the sphere
+            parent.getChildren().add(sphere);
+            atomcount++;
+        }
+    }
 
-        // replace the button with the sphere
-        parent.getChildren().add(sphere);
+    @FXML
+    private void toggleAtoms(ActionEvent event)
+    {
+        //If we have a normal amount of atoms placed
+        if (atomcount >= 3 && atomcount <= 6)
+        {
+            //go through all of the children of the pane spherepane
+            for (Node child : spherepane.getChildren())
+            {
+                //if the child is a sphere
+                if(child instanceof Sphere)
+                {
+                    //make the child a sphere so we can use sphere methods
+                    Sphere sphere = (Sphere) child;
+                    //make the sphere invisible/visible depending on the return of isVisible
+                    sphere.setVisible(!sphere.isVisible());
+                }
+
+            }
+
+        }
+
     }
 
 }
