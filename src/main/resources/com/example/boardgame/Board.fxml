@@ -593,22 +593,6 @@
             <Double fx:value="-25.0" />
          </points>
       </Polygon>
-      <Polygon fill="BLACK" layoutX="660.0" layoutY="612.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.rightAnchor="211.70000076293945" AnchorPane.topAnchor="562.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
       <Polygon fill="BLACK" layoutX="621.0" layoutY="684.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="634.0">
          <points>
             <Double fx:value="0.0" />
@@ -900,6 +884,22 @@
             <Double fx:value="-25.0" />
          </points>
       </Polygon>
+      <Polygon fill="BLACK" layoutX="664.0" layoutY="611.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="-50.0" />
+            <Double fx:value="43.3" />
+            <Double fx:value="-25.0" />
+            <Double fx:value="43.3" />
+            <Double fx:value="25.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="50.0" />
+            <Double fx:value="-43.3" />
+            <Double fx:value="25.0" />
+            <Double fx:value="-43.3" />
+            <Double fx:value="-25.0" />
+         </points>
+      </Polygon>
       <Polygon fill="BLACK" layoutX="163.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
          <points>
             <Double fx:value="0.0" />
@@ -1064,7 +1064,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="button30" layoutX="623.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
+      <Button fx:id="button30" layoutX="628.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -1161,7 +1161,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="toggle" layoutX="784.0" layoutY="634.0" mnemonicParsing="false" onAction="#toggleAtoms" text="Start/End" />
+      <Button fx:id="toggle" layoutX="823.0" layoutY="583.0" mnemonicParsing="false" onAction="#toggleAtoms" text="Start/End" />
       <Line endX="88.0" endY="7.62939453125E-6" layoutX="166.0" layoutY="104.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
       <Polygon fill="#ffb700" layoutX="251.0" layoutY="125.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
       <Line endX="88.0" endY="7.62939453125E-6" layoutX="124.0" layoutY="177.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
@@ -1194,8 +1194,8 @@
       <Polygon fill="#ffb700" layoutX="787.0" layoutY="487.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
       <Line endX="88.0" endY="7.62939453125E-6" layoutX="683.0" layoutY="540.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
       <Polygon fill="#ffb700" layoutX="745.0" layoutY="561.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="637.0" layoutY="612.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="699.0" layoutY="633.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+      <Line endX="88.0" endY="7.62939453125E-6" layoutX="648.0" layoutY="608.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+      <Polygon fill="#ffb700" layoutX="704.0" layoutY="629.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
       <Line endX="88.0" endY="7.62939453125E-6" layoutX="599.0" layoutY="684.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
       <Polygon fill="#ffb700" layoutX="661.0" layoutY="705.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
       <Polygon fill="#ffb700" layoutX="683.0" layoutY="164.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
@@ -1260,8 +1260,8 @@
       <Polygon fill="#ffb700" layoutX="818.0" layoutY="438.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
       <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="635.0" layoutY="574.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
       <Polygon fill="#ffb700" layoutX="733.0" layoutY="581.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="591.0" layoutY="645.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="689.0" layoutY="652.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="596.0" layoutY="641.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
+      <Polygon fill="#ffb700" layoutX="694.0" layoutY="648.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
       <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="550.0" layoutY="719.0" startX="96.39569091796875" startY="11.083740234375" stroke="#ffb700" strokeWidth="2.0" />
       <Polygon fill="#ffb700" layoutX="648.0" layoutY="726.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
       <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="466.0" layoutY="720.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
@@ -1415,12 +1415,12 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="689.0" layoutY="635.0" text="30" textFill="#ffb700">
+      <Label layoutX="694.0" layoutY="631.0" text="30" textFill="#ffb700">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="702.0" layoutY="605.0" text="31" textFill="#ffb700">
+      <Label layoutX="736.0" layoutY="599.0" text="31" textFill="#ffb700">
          <font>
             <Font size="24.0" />
          </font>
