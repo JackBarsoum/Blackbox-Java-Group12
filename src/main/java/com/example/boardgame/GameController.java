@@ -19,6 +19,16 @@ public class GameController {
 
     private Pane spherepane;
 
+    void setAtomcount(int atomcount1)
+    {
+        this.atomcount = atomcount1;
+    }
+
+    void setSpherepane(Pane spherepane1)
+    {
+        this.spherepane = spherepane1;
+    }
+
     @FXML
     private Button play;
 
@@ -82,7 +92,7 @@ public class GameController {
     }
 
     @FXML
-    private void toggleAtoms(ActionEvent event)
+    public void toggleAtoms(ActionEvent event)
     {
         //If we have a normal amount of atoms placed
         if (atomcount >= 3 && atomcount <= 6)
