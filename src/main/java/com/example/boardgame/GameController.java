@@ -13,6 +13,7 @@ import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class GameController {
     private int atomcount = 0;
@@ -38,6 +39,7 @@ public class GameController {
     @FXML
     private Stage stage;
     private Scene scene;
+    private URL boardURL;
 
     @FXML
     void leave(ActionEvent event) {
@@ -49,7 +51,8 @@ public class GameController {
 
     @FXML
     void switchtoBoard(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Board.fxml"));
+        boardURL = getClass().getResource("Board.fxml");
+        Parent root = FXMLLoader.load(boardURL);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -115,6 +118,14 @@ public class GameController {
 
     }
 
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public URL getBoardURL() {
+        return boardURL;
+    }
 }
 
 

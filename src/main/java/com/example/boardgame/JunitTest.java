@@ -3,7 +3,11 @@ import static org.junit.Assert.*;
 import javafx.event.ActionEvent;
 import javafx.scene.shape.Sphere;
 import javafx.scene.layout.Pane;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
 
 public class JunitTest {
 
@@ -36,4 +40,23 @@ public class JunitTest {
         assertTrue(sphere3.isVisible());
 
     }
+
+    @Test @Ignore
+    public void testSwitchToBoard() throws IOException {
+        //check if file exists
+        String boardPath = GameController.class.getResource("Board.fxml").getFile();
+        File f = new File(boardPath);
+        assertTrue(f.exists());
+
+        //instance of GameController class
+        GameController gc= new GameController();
+        ActionEvent ae = new ActionEvent();
+
+        gc.switchtoBoard(ae); //method
+        assertNotNull(gc.getStage().getScene()); //scene set
+        assertTrue(gc.getStage().isShowing()); //stage is showing
+        assertEquals(boardPath, gc.getBoardURL()); //correct fxml file loaded
+    }
+
+
 }
