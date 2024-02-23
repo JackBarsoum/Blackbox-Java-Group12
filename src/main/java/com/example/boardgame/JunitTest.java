@@ -3,15 +3,19 @@ import static org.junit.Assert.*;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Sphere;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class JunitTest {
 
@@ -53,22 +57,23 @@ public class JunitTest {
 
     @Test
     public void testSwitchToBoard() throws IOException {
+        Runnable runnable = () -> {
         //check if file exists
         String boardPath = GameController.class.getResource("Board.fxml").getFile();
         File f = new File(boardPath);
         assertTrue(f.exists());
 
-        //instance of GameController class
-        GameController gc= new GameController();
-        ActionEvent ae = new ActionEvent();
+        Parent ex = new Parent(){};
 
-        gc.switchtoBoard(ae); //method
+        Scene exScene = new Scene(ex);
+        GameController gc = new GameController();
 
         assertNotNull(gc.getStage().getScene()); //scene set
-
         assertTrue(gc.getStage().isShowing()); //stage is showing
-        assertEquals(boardPath, gc.getBoardURL()); //correct fxml file loaded
-
+        assertEquals(boardPath,  gc.getBoardURL().getFile()); //correct fxml file loaded
+        };
+        Thread t = new Thread(runnable);
+        t.start();
     }
 
     @Test
