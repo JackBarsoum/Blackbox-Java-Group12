@@ -72,7 +72,7 @@ public class GameController {
 
 
     @FXML
-    private void handleButtonClick(ActionEvent event){
+    public Sphere handleButtonClick(ActionEvent event){
         // create a new sphere
         if(atomcount < 6) {
             Button b = (Button) event.getSource();
@@ -91,7 +91,10 @@ public class GameController {
             // replace the button with the sphere
             parent.getChildren().add(sphere);
             atomcount++;
+
+            return sphere;
         }
+        return null;
     }
 
     @FXML
