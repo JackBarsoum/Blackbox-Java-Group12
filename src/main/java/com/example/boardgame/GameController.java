@@ -104,26 +104,26 @@ public class GameController {
     void extendLineHorizontal(MouseEvent e) {
         Line newLine = new Line();
         Rectangle b = (Rectangle) e.getSource();
-        Pane p = (Pane) b.getParent(); // Assuming the buttons are in the same parent pane
+        Pane p = (Pane) b.getParent();
 
-        // Set the starting point of the line
-        newLine.setStartX(b.getLayoutX() + b.getWidth()); // Right side of button b
+
+        newLine.setStartX(b.getLayoutX() + b.getWidth());
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
 
         newLine.setEndX(newLine.getStartX() + 10);
         newLine.setEndY(newLine.getStartY());
-        // Add the line to the pane
+
         int flag = 0;
 
-        // Continuously increase the line's length until it intersects with another button
+
         do {
             newLine.setEndX(newLine.getEndX() + 1); // Increase the line length
 
-            // Check if the line intersects with any other button
+
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && b != node) {
-                        // Line intersects with another button
+
                         System.out.println("Ray intersects with a node " + node.getId());
                         flag = 1;
                         break;
@@ -142,22 +142,22 @@ public class GameController {
     void extendLineHorizontalL(MouseEvent e) {
         Line newLine = new Line();
         Rectangle b = (Rectangle) e.getSource();
-        Pane p = (Pane) b.getParent(); // Assuming the buttons are in the same parent pane
+        Pane p = (Pane) b.getParent();
 
-        // Set the starting point of the line
-        newLine.setStartX(b.getLayoutX() - b.getWidth()); // Right side of button b
+
+        newLine.setStartX(b.getLayoutX() - b.getWidth());
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
 
         newLine.setEndX(newLine.getStartX() - 10);
         newLine.setEndY(newLine.getStartY());
-        // Add the line to the pane
+
         int flag = 0;
 
-        // Continuously increase the line's length until it intersects with another button
+
         do {
             newLine.setEndX(newLine.getEndX() - 1); // Increase the line length
 
-            // Check if the line intersects with any other button
+
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && b != node) {
