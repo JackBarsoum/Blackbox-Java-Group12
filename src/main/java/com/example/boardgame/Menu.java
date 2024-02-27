@@ -6,8 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import javax.print.attribute.standard.Media;
 import java.io.IOException;
     public class Menu extends Application {
         public Menu() {

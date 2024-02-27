@@ -6,9 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
 
@@ -97,6 +100,82 @@ public class GameController {
         return null;
     }
 
+    @FXML
+    void extendLineHorizontal(MouseEvent e) {
+        Line newLine = new Line();
+        Rectangle b = (Rectangle) e.getSource();
+        Pane p = (Pane) b.getParent(); // Assuming the buttons are in the same parent pane
+
+        // Set the starting point of the line
+        newLine.setStartX(b.getLayoutX() + b.getWidth()); // Right side of button b
+        newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
+
+        newLine.setEndX(newLine.getStartX() + 10);
+        newLine.setEndY(newLine.getStartY());
+        // Add the line to the pane
+        int flag = 0;
+
+        // Continuously increase the line's length until it intersects with another button
+        do {
+            newLine.setEndX(newLine.getEndX() + 1); // Increase the line length
+
+            // Check if the line intersects with any other button
+            for (Node node : p.getChildren()) {
+                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
+                    if (node instanceof Rectangle && b != node) {
+                        // Line intersects with another button
+                        System.out.println("Ray intersects with a node " + node.getId());
+                        flag = 1;
+                        break;
+                    }else if (node instanceof Sphere) {
+                    System.out.println("Ray intersects with a sphere");
+                    flag = 1;
+                    }
+                }
+            }
+
+        } while (flag != 1);
+        p.getChildren().add(newLine);
+    }
+
+    @FXML
+    void extendLineHorizontalL(MouseEvent e) {
+        Line newLine = new Line();
+        Rectangle b = (Rectangle) e.getSource();
+        Pane p = (Pane) b.getParent(); // Assuming the buttons are in the same parent pane
+
+        // Set the starting point of the line
+        newLine.setStartX(b.getLayoutX() - b.getWidth()); // Right side of button b
+        newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
+
+        newLine.setEndX(newLine.getStartX() - 10);
+        newLine.setEndY(newLine.getStartY());
+        // Add the line to the pane
+        int flag = 0;
+
+        // Continuously increase the line's length until it intersects with another button
+        do {
+            newLine.setEndX(newLine.getEndX() - 1); // Increase the line length
+
+            // Check if the line intersects with any other button
+            for (Node node : p.getChildren()) {
+                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
+                    if (node instanceof Rectangle && b != node) {
+                        // Line intersects with another button
+                        System.out.println("Ray intersects with a node " + node.getId());
+                        flag = 1;
+                        break;
+                    } else if (node instanceof Sphere) {
+                        System.out.println("Ray intersects with a sphere");
+                        flag = 1;
+                    }
+                }
+
+            }
+
+        } while (flag != 1);
+        p.getChildren().add(newLine);
+    }
     @FXML
     public void toggleAtoms(ActionEvent event)
     {
