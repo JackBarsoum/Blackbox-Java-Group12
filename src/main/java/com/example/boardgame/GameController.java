@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Sphere;
@@ -38,6 +39,9 @@ public class GameController {
 
     @FXML
     private Button quit;
+
+    @FXML
+    public Rectangle N49;
 
     @FXML
     private Stage stage;
@@ -103,9 +107,11 @@ public class GameController {
     @FXML
     void extendLineHorizontal(MouseEvent e) {
         Line newLine = new Line();
+        newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
 
+        System.out.println("Ray shot from " + b.getId());
 
         newLine.setStartX(b.getLayoutX() + b.getWidth());
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
@@ -118,17 +124,15 @@ public class GameController {
 
         do {
             newLine.setEndX(newLine.getEndX() + 1); // Increase the line length
-
-
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && b != node) {
 
-                        System.out.println("Ray intersects with a node " + node.getId());
+                        System.out.println("Ray hit nothing and exited at " + node.getId());
                         flag = 1;
                         break;
-                    }else if (node instanceof Sphere) {
-                    System.out.println("Ray intersects with a sphere");
+                    }else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
+                    System.out.println("Ray hit an atom");
                     flag = 1;
                     }
                 }
@@ -141,9 +145,11 @@ public class GameController {
     @FXML
     void extendLineHorizontalL(MouseEvent e) {
         Line newLine = new Line();
+        newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
 
+        System.out.println("Ray shot from " + b.getId());
 
         newLine.setStartX(b.getLayoutX() - b.getWidth());
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
@@ -162,11 +168,11 @@ public class GameController {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && b != node) {
                         // Line intersects with another button
-                        System.out.println("Ray intersects with a node " + node.getId());
+                        System.out.println("Ray hit nothing and exited at " + node.getId());
                         flag = 1;
                         break;
-                    } else if (node instanceof Sphere) {
-                        System.out.println("Ray intersects with a sphere");
+                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
+                        System.out.println("Ray hit a node");
                         flag = 1;
                     }
                 }
@@ -176,13 +182,210 @@ public class GameController {
         } while (flag != 1);
         p.getChildren().add(newLine);
     }
+
+    @FXML
+    void extendLineDiagonalLeft_down(MouseEvent e) {
+        Line newLine = new Line();
+        newLine.setStroke(Color.RED);
+        Rectangle b = (Rectangle) e.getSource();
+        Pane p = (Pane) b.getParent();
+
+        System.out.println("Ray shot from " + b.getId());
+        // Set the starting point of the line
+        double startX = b.getLayoutX() + b.getWidth() / 2;
+        double startY = b.getLayoutY() + b.getHeight() / 2;
+
+        newLine.setStartX(startX);
+        newLine.setStartY(startY);
+
+        // Set the initial end point (same as start point)
+        newLine.setEndX(startX);
+        newLine.setEndY(startY);
+
+        // This makes the line go diagonally (Saw this method online, obviously get rid of this comment)
+        double angleRadians = Math.toRadians(120);
+        double dx = Math.cos(angleRadians); // Horizontal Distance to Increase
+        double dy = Math.sin(angleRadians); // Vertical Distance to Increase
+
+        int flag = 0;
+
+
+
+        do {
+            //Increase the length of the line
+            newLine.setEndX(newLine.getEndX() + dx);
+            newLine.setEndY(newLine.getEndY() + dy);
+
+            //Goes through each node in the parent pane
+            for (Node node : p.getChildren()) {
+                //If the line interacts with a node
+                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
+                    //Checks to see if the node is a rectangle
+                    if (node instanceof Rectangle && b != node && ((Rectangle) node).getStroke() == Color.BLUE) {
+                        System.out.println("Ray hit nothing and exited at " + node.getId());
+                        flag = 1;
+                        break;
+                        //Check to see if the line hit an atom(Sphere), checks that the line is actually inside the sphere to stop any errors
+                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
+                        System.out.println("Ray hit an atom");
+                        flag = 1;
+                    }
+                }
+            }
+        } while (flag != 1);
+
+        //Adds the line formed to the Pane, so it will be displayed
+        p.getChildren().add(newLine);
+    }
+    @FXML
+    void extendLineDiagonalRight_down(MouseEvent e) {
+        Line newLine = new Line();
+        newLine.setStroke(Color.RED);
+        Rectangle b = (Rectangle) e.getSource();
+        Pane p = (Pane) b.getParent();
+        System.out.println("Ray shot from " + b.getId());
+
+        // Set the starting point of the line
+        double startX = b.getLayoutX() + b.getWidth() / 2;
+        double startY = b.getLayoutY() + b.getHeight() / 2;
+
+        newLine.setStartX(startX);
+        newLine.setStartY(startY);
+
+        // Set the initial end point (same as start point)
+        newLine.setEndX(startX);
+        newLine.setEndY(startY);
+
+
+        double angleRadians = Math.toRadians(60);
+        double dx = Math.cos(angleRadians);
+        double dy = Math.sin(angleRadians);
+
+        int flag = 0;
+
+        do {
+            newLine.setEndX(newLine.getEndX() + dx);
+            newLine.setEndY(newLine.getEndY() + dy);
+
+            for (Node node : p.getChildren()) {
+                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
+                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == Color.RED) {
+                        // Line intersects with another rectangle
+                        System.out.println("Ray hit nothing and exited at " + node.getId());
+                        flag = 1;
+                        break;
+                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
+                        System.out.println("Ray hit at an atom");
+                        flag = 1;
+                    }
+                }
+            }
+        } while (flag != 1);
+
+        p.getChildren().add(newLine);
+    }
+
+    @FXML
+    void extendLineDiagonalRight_Up(MouseEvent e) {
+        Line newLine = new Line();
+        newLine.setStroke(Color.RED);
+        Rectangle b = (Rectangle) e.getSource();
+        Pane p = (Pane) b.getParent();
+
+        System.out.println("Ray shot from " + b.getId());
+        // Set the starting point of the line
+        double startX = b.getLayoutX() + b.getWidth() / 2;
+        double startY = b.getLayoutY() + b.getHeight() / 2;
+
+        newLine.setStartX(startX);
+        newLine.setStartY(startY);
+
+        // Set the initial end point (same as start point)
+        newLine.setEndX(startX);
+        newLine.setEndY(startY);
+
+
+        double angleRadians = Math.toRadians(120);
+        double dx = Math.cos(angleRadians);
+        double dy = Math.sin(angleRadians);
+
+        int flag = 0;
+
+        do {
+            newLine.setEndX(newLine.getEndX() - dx);
+            newLine.setEndY(newLine.getEndY() - dy);
+
+            for (Node node : p.getChildren()) {
+                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
+                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == Color.GREEN) {
+                        // Line intersects with another rectangle
+                        System.out.println("Ray exited at " + node.getId());
+                        flag = 1;
+                        break;
+                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
+                        System.out.println("Ray hit an atom");
+                        flag = 1;
+                    }
+                }
+            }
+
+        } while (flag != 1);
+
+        p.getChildren().add(newLine);
+    }
+    @FXML
+    void extendLineDiagonalLeft_Up(MouseEvent e) {
+        Line newLine = new Line();
+        newLine.setStroke(Color.RED);
+        Rectangle b = (Rectangle) e.getSource();
+        Pane p = (Pane) b.getParent();
+
+        System.out.println("Ray shot from " + b.getId());
+
+        double startX = b.getLayoutX() + b.getWidth() / 2;
+        double startY = b.getLayoutY() + b.getHeight() / 2;
+
+        newLine.setStartX(startX);
+        newLine.setStartY(startY);
+
+
+        newLine.setEndX(startX);
+        newLine.setEndY(startY);
+
+        double angleRadians = Math.toRadians(60);
+        double dx = Math.cos(angleRadians);
+        double dy = Math.sin(angleRadians);
+
+        int flag = 0;
+        do {
+            newLine.setEndX(newLine.getEndX() - dx);
+            newLine.setEndY(newLine.getEndY() - dy);
+
+            for (Node node : p.getChildren()) {
+                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
+                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == Color.YELLOW) {
+                        // Line intersects with another rectangle
+                        System.out.println("Ray hit nothing and exited at " + node.getId());
+                        flag = 1;
+                        break;
+                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
+                        System.out.println("Ray hit an atom");
+                        flag = 1;
+                    }
+                }
+            }
+        } while (flag != 1);
+
+        p.getChildren().add(newLine);
+    }
+
     @FXML
     public void toggleAtoms(ActionEvent event)
     {
         //If we have a normal amount of atoms placed
         if (atomcount >= 3 && atomcount <= 6)
         {
-            //go through all of the children of the pane spherepane
+            //go through all the children of the pane spherepane
             for (Node child : spherepane.getChildren())
             {
                 //if the child is a sphere
@@ -196,6 +399,19 @@ public class GameController {
 
             }
 
+        }
+
+    }
+
+    //Method to check that the line actually hit the atom by using the distance formula
+    public boolean isInside(Sphere x, Line l){
+        double radius = x.getRadius();
+
+        double distance = Math.sqrt(Math.pow((x.getLayoutX() - l.getEndX()), 2) + Math.pow((x.getLayoutY() - l.getEndY()), 2));
+        if(distance - 25 <= radius){
+            return true;
+        }else{
+            return false;
         }
 
     }
