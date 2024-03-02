@@ -273,6 +273,7 @@ public class GameController {
         Color ColorChoice = Color.RED;
 
         int flag = 0;
+        Node prevNode = null;
 
         do {
 
@@ -294,6 +295,7 @@ public class GameController {
                         break;
                     } else if (node instanceof Circle && checker != 2) {
                         checker = isInsideC((Circle) node, newLine, 60);
+                        prevNode = node;
                         if (checker == 1) {
                             if (line_flag == 0) {
                                 oldLine.setStroke(Color.RED);
@@ -328,7 +330,42 @@ public class GameController {
                             line_flag++;
 
                         }
-                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
+                        //Case if the ray hit 2 circles of influence at the same time
+                    }else if (node instanceof Circle && isInsideC((Circle) node, newLine, 60) != -1 && node != prevNode) {
+                        if(line_flag == 0) {
+                            //Same as the case above, store the ray before the deflection in a new line
+                            oldLine.setStroke(Color.RED);
+                            oldLine.setStartY(newLine.getStartY());
+                            oldLine.setStartX(newLine.getStartX());
+                            oldLine.setEndY(newLine.getEndY());
+                            oldLine.setEndX(newLine.getEndX());
+
+                            //The color of the line
+                            newLine.setStroke(Color.BLUE);
+
+                            //If the ray deflects at the top of the sphere of influence
+                            if (newLine.getEndY() < node.getLayoutY() - 80) {
+                                angleRadians = Math.toRadians(120);
+                                ColorChoice = Color.GREEN;
+                                //If the ray deflects at the side of the sphere of influence
+                            } else {
+                                angleRadians = Math.toRadians(180);
+                                ColorChoice = Color.BLACK;
+                            }
+
+                            //Set trajectory of the deflected ray
+                            dx = Math.cos(angleRadians);
+                            dy = Math.sin(angleRadians);
+
+                            newLine.setStartX(newLine.getEndX());
+                            newLine.setStartY(newLine.getEndY());
+                            newLine.setEndX(newLine.getEndX() + dx);
+                            newLine.setEndY(newLine.getEndY() + dy);
+                        }
+                        line_flag++;
+                    }
+                        // Handle the case where the line hits another circle at the same location
+                     else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
                         System.out.println("Ray hit at an atom");
                         flag = 1;
                     }
