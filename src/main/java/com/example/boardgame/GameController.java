@@ -19,9 +19,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
+
 public class GameController {
     private int atomcount = 0;
-
     private Pane spherepane;
 
     void setAtomcount(int atomcount1) {
@@ -114,59 +114,30 @@ public class GameController {
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
-
         System.out.println("Ray shot from " + b.getId());
 
         newLine.setStartX(b.getLayoutX() + b.getWidth());
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
-
-        newLine.setEndX(newLine.getStartX() + 10);
-        newLine.setEndY(newLine.getStartY());
-
-        int flag = 0;
-
-
-        do {
-            newLine.setEndX(newLine.getEndX() + 1); // Increase the line length
-            for (Node node: p.getChildren()) {
-                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
-                    if (node instanceof Rectangle && b != node) {
-
-                        System.out.println("Ray hit nothing and exited at " + node.getId());
-                        flag = 1;
-                        break;
-                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
-                        System.out.println("Ray hit an atom");
-                        flag = 1;
-                    }
-                }
-            }
-
-        } while (flag != 1);
-        p.getChildren().add(newLine);
+        if (b.getLayoutX() <= 250) //Case for being on the left side
+        {
+            extendRayHorizontalHelper(e,newLine,p,b,+1);
+        }
+        else if (b.getLayoutX() > 250) //Case for being to the right
+        {
+            extendRayHorizontalHelper(e, newLine, p, b, -1);
+        }
     }
 
-    @FXML
-    void extendLineHorizontalL(MouseEvent e) {
-        Line newLine = new Line();
-        newLine.setStroke(Color.RED);
-        Rectangle b = (Rectangle) e.getSource();
-        Pane p = (Pane) b.getParent();
-
-        System.out.println("Ray shot from " + b.getId());
-
-        newLine.setStartX(b.getLayoutX() - b.getWidth());
-        newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
-
-        newLine.setEndX(newLine.getStartX() - 10);
+     void extendRayHorizontalHelper(MouseEvent e, Line newLine,Pane p, Rectangle b,int x)
+    {
+        newLine.setEndX(newLine.getStartX() + x*10);
         newLine.setEndY(newLine.getStartY());
 
         int flag = 0;
 
 
         do {
-            newLine.setEndX(newLine.getEndX() - 1); // Increase the line length
-
+            newLine.setEndX(newLine.getEndX() + x); // Increase the line length
 
             for (Node node: p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
