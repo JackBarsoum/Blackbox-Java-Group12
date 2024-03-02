@@ -21,6 +21,9 @@ import java.net.URL;
 
 
 public class GameController {
+    private Color direction_tester;
+    private boolean right = false;
+    private boolean left = false;
     private int atomcount = 0;
     private Pane spherepane;
 
@@ -53,12 +56,11 @@ public class GameController {
     }
 
 
-
     @FXML
     void switchtoBoard(ActionEvent event) throws IOException {
         boardURL = getClass().getResource("Board.fxml");
         Parent root = FXMLLoader.load(boardURL);
-        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -73,7 +75,6 @@ public class GameController {
             button42, button43, button44, button45, button46, button47, button48, button49,
             button50, button51, button52, button53, button54, button55, button56, button57,
             button58, button59, button60, button61, button62;
-
 
 
     @FXML
@@ -120,26 +121,23 @@ public class GameController {
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
         if (b.getLayoutX() <= 250) //Case for being on the left side
         {
-            extendRayHorizontalHelper(e,newLine,p,b,+1);
-        }
-        else if (b.getLayoutX() > 250) //Case for being to the right
+            extendRayHorizontalHelper(e, newLine, p, b, +1);
+        } else if (b.getLayoutX() > 250) //Case for being to the right
         {
             extendRayHorizontalHelper(e, newLine, p, b, -1);
         }
     }
 
-     void extendRayHorizontalHelper(MouseEvent e, Line newLine,Pane p, Rectangle b,int x)
-    {
-        newLine.setEndX(newLine.getStartX() + x*10);
+    void extendRayHorizontalHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x) {
+        newLine.setEndX(newLine.getStartX() + x * 10);
         newLine.setEndY(newLine.getStartY());
 
         int flag = 0;
 
-
         do {
             newLine.setEndX(newLine.getEndX() + x); // Increase the line length
 
-            for (Node node: p.getChildren()) {
+            for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && b != node) {
                         // Line intersects with another button
@@ -159,7 +157,7 @@ public class GameController {
     }
 
     @FXML
-    void extendLineDiagonalLeft_down(MouseEvent e) {
+    void extendLineDiagonalDown(MouseEvent e) {
         Line newLine = new Line();
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
@@ -177,63 +175,20 @@ public class GameController {
         newLine.setEndX(startX);
         newLine.setEndY(startY);
 
-        // This makes the line go diagonally (Saw this method online, obviously get rid of this comment)
-        double angleRadians = Math.toRadians(120);
-        double dx = Math.cos(angleRadians); // Horizontal Distance to Increase
-        double dy = Math.sin(angleRadians); // Vertical Distance to Increase
+        if (left) {
+            extendLineDiagonalDownHelper(e,newLine,p,b,120,direction_tester);
 
-        int flag = 0;
-
-        do {
-            //Increase the length of the line
-            newLine.setEndX(newLine.getEndX() + dx);
-            newLine.setEndY(newLine.getEndY() + dy);
-
-            //Goes through each node in the parent pane
-            for (Node node: p.getChildren()) {
-                //If the line interacts with a node
-                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
-                    //Checks to see if the node is a rectangle
-                    if (node instanceof Rectangle && b != node && ((Rectangle) node).getStroke() == Color.BLUE) {
-                        System.out.println("Ray hit nothing and exited at " + node.getId());
-                        flag = 1;
-                        break;
-                        //Check to see if the line hit an atom(Sphere), checks that the line is actually inside the sphere to stop any errors
-                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
-                        System.out.println("Ray hit an atom");
-                        flag = 1;
-                    }
-                }
-            }
-        } while (flag != 1);
-
-        //Adds the line formed to the Pane, so it will be displayed
-        p.getChildren().add(newLine);
+        } else if (right) {
+            extendLineDiagonalDownHelper(e,newLine,p,b,60,direction_tester);
+        }
     }
-    @FXML
-    void extendLineDiagonalRight_down(MouseEvent e) {
-        Line newLine = new Line();
-        newLine.setStroke(Color.RED);
-        Rectangle b = (Rectangle) e.getSource();
-        Pane p = (Pane) b.getParent();
-        System.out.println("Ray shot from " + b.getId());
+
+    void extendLineDiagonalDownHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color)
+    {
         int checker = 0;
         int line_flag = 0;
-
-        // Set the starting point of the line
-        double startX = b.getLayoutX() + b.getWidth() / 2;
-        double startY = b.getLayoutY() + b.getHeight() / 2;
-
-        newLine.setStartX(startX);
-        newLine.setStartY(startY);
-
-        // Set the initial end point (same as start point)
-        newLine.setEndX(startX);
-        newLine.setEndY(startY);
-
-
         //Set the trajectory of the ray
-        double angleRadians = Math.toRadians(60);
+        double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);
 
@@ -241,15 +196,21 @@ public class GameController {
         Line oldLine = new Line();
 
         //What colour nodes the ray needs to be hitting to exit
-        Color ColorChoice = Color.RED;
-
+        if(direction_tester ==Color.GREEN )
+        {
+            color = Color.RED;
+        }
+        else if (direction_tester == Color.YELLOW)
+        {
+            color = Color.BLUE;
+        }
         int flag = 0;
         Node prevNode = null;
 
         do {
 
             //If the ray deflects off the circle of influence and goes up the board instead
-            if (ColorChoice == Color.GREEN) {
+            if ( (color == Color.GREEN && direction_tester == Color.GREEN) || (color == Color.YELLOW && direction_tester == Color.YELLOW) ) {
                 newLine.setEndX(newLine.getEndX() - dx);
                 newLine.setEndY(newLine.getEndY() - dy);
             } else {
@@ -257,35 +218,60 @@ public class GameController {
                 newLine.setEndY(newLine.getEndY() + dy);
             }
 
-            for (Node node: p.getChildren()) {
+            for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
-                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == ColorChoice) {
+                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color) {
                         // Line intersects with another rectangle
                         System.out.println("Ray hit nothing and exited at " + node.getId());
                         flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2) {
-                        checker = isInsideC((Circle) node, newLine, 60);
+                        checker = isInsideC((Circle) node, newLine, x);
                         prevNode = node;
                         if (checker == 1) {
                             if (line_flag == 0) {
-                                oldLine.setStroke(Color.RED);
+                                if(direction_tester == Color.GREEN) {
+                                    oldLine.setStroke(Color.RED);
+                                    newLine.setStroke(Color.BLUE);
+                                }
+                                else if(direction_tester == Color.YELLOW)
+                                {
+                                    oldLine.setStroke(Color.BLUE);
+                                    newLine.setStroke(Color.RED);
+                                }
                                 oldLine.setStartY(newLine.getStartY());
                                 oldLine.setStartX(newLine.getStartX());
                                 oldLine.setEndY(newLine.getEndY());
                                 oldLine.setEndX(newLine.getEndX());
 
                                 //The color
-                                newLine.setStroke(Color.BLUE);
 
                                 //If the ray deflects at the top of the sphere of influence
                                 if (newLine.getEndY() < node.getLayoutY() - 80) {
-                                    angleRadians = Math.toRadians(122);
-                                    ColorChoice = Color.GREEN;
+                                    if(x == 60) {
+                                        angleRadians = Math.toRadians(122);
+                                    }
+                                    else  angleRadians = Math.toRadians(58);
+                                    if(direction_tester == Color.GREEN) {
+                                        color = Color.GREEN;
+                                    }
+                                    else if (direction_tester == Color.YELLOW)
+                                    {
+                                        color = Color.YELLOW;
+                                    }
                                     //If the ray deflects at the side of the sphere of influence
                                 } else {
-                                    angleRadians = Math.toRadians(120);
-                                    ColorChoice = Color.BLUE;
+                                    if(x == 60) {
+                                        angleRadians = Math.toRadians(120);
+                                    }
+                                    else angleRadians = Math.toRadians(61);
+                                    if(direction_tester == Color.GREEN) {
+                                        color = Color.BLUE;
+                                    }
+                                    else if (direction_tester == Color.YELLOW)
+                                    {
+                                        color = Color.RED;
+                                    }
                                 }
 
                                 //Set trajectory of the deflected ray
@@ -302,26 +288,44 @@ public class GameController {
 
                         }
                         //Case if the ray hit 2 circles of influence at the same time
-                    }else if (node instanceof Circle && isInsideC((Circle) node, newLine, 60) != -1 && node != prevNode) {
-                        if(line_flag == 0) {
+                    } else if (node instanceof Circle && isInsideC((Circle) node, newLine, x) != -1 && node != prevNode) {
+                        if (line_flag == 0) {
                             //Same as the case above, store the ray before the deflection in a new line
-                            oldLine.setStroke(Color.RED);
+                            if(direction_tester == Color.GREEN) {
+                                oldLine.setStroke(Color.RED);
+                                //The color of the line
+                                newLine.setStroke(Color.BLUE);
+                            }
+                            else if(direction_tester == Color.YELLOW) {
+                                oldLine.setStroke(Color.BLUE);
+                                //The color of the line
+                                newLine.setStroke(Color.RED);
+                            }
                             oldLine.setStartY(newLine.getStartY());
                             oldLine.setStartX(newLine.getStartX());
                             oldLine.setEndY(newLine.getEndY());
                             oldLine.setEndX(newLine.getEndX());
 
-                            //The color of the line
-                            newLine.setStroke(Color.BLUE);
 
                             //If the ray deflects at the top of the sphere of influence
                             if (newLine.getEndY() < node.getLayoutY() - 80) {
-                                angleRadians = Math.toRadians(120);
-                                ColorChoice = Color.GREEN;
+                                if(x == 60) {
+                                    angleRadians = Math.toRadians(120);
+                                } else angleRadians = Math.toRadians(58);
+                                if(direction_tester == Color.GREEN) {
+                                    color = Color.GREEN;
+                                }
+                                else if (direction_tester == Color.YELLOW)
+                                {
+                                    color = Color.YELLOW;
+                                }
                                 //If the ray deflects at the side of the sphere of influence
                             } else {
-                                angleRadians = Math.toRadians(180);
-                                ColorChoice = Color.BLACK;
+                                if(x == 60) {
+                                    angleRadians = Math.toRadians(180);
+                                }
+                                else angleRadians = Math.toRadians(1);
+                                color = Color.BLACK;
                             }
 
                             //Set trajectory of the deflected ray
@@ -335,8 +339,8 @@ public class GameController {
                         }
                         line_flag++;
                     }
-                        // Handle the case where the line hits another circle at the same location
-                     else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
+                    // Handle the case where the line hits another circle at the same location
+                    else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
                         System.out.println("Ray hit at an atom");
                         flag = 1;
                     }
@@ -355,7 +359,7 @@ public class GameController {
     }
 
     @FXML
-    void extendLineDiagonalRight_Up(MouseEvent e) {
+    void extendLineDiagonalUp(MouseEvent e) {
         Line newLine = new Line();
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
@@ -373,55 +377,33 @@ public class GameController {
         newLine.setEndX(startX);
         newLine.setEndY(startY);
 
-
-        double angleRadians = Math.toRadians(120);
-        double dx = Math.cos(angleRadians);
-        double dy = Math.sin(angleRadians);
-
-        int flag = 0;
-
-        do {
-            newLine.setEndX(newLine.getEndX() - dx);
-            newLine.setEndY(newLine.getEndY() - dy);
-
-            for (Node node: p.getChildren()) {
-                if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
-                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == Color.GREEN) {
-                        // Line intersects with another rectangle
-                        System.out.println("Ray exited at " + node.getId());
-                        flag = 1;
-                        break;
-                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
-                        System.out.println("Ray hit an atom");
-                        flag = 1;
-                    }
-                }
-            }
-
-        } while (flag != 1);
-
-        p.getChildren().add(newLine);
+        if (left) {
+            extendLineDiagonalUpHelper(e, newLine, p, b, 60, direction_tester);
+        } else if (right) {
+            extendLineDiagonalUpHelper(e, newLine, p, b, 120, direction_tester);
+        }
     }
+
+    //Case for up left
     @FXML
-    void extendLineDiagonalLeft_Up(MouseEvent e) {
-        Line newLine = new Line();
-        newLine.setStroke(Color.RED);
-        Rectangle b = (Rectangle) e.getSource();
-        Pane p = (Pane) b.getParent();
+    void diagonaldirectionleft() {
+        direction_tester = Color.YELLOW;
+        left = true;
+        right = false;
+    }
 
-        System.out.println("Ray shot from " + b.getId());
+    //case for up right
+    @FXML
+    void diagonaldirectionright()
+    {
+        direction_tester = Color.GREEN;
+        right = true;
+        left = false;
+    }
 
-        double startX = b.getLayoutX() + b.getWidth() / 2;
-        double startY = b.getLayoutY() + b.getHeight() / 2;
-
-        newLine.setStartX(startX);
-        newLine.setStartY(startY);
-
-
-        newLine.setEndX(startX);
-        newLine.setEndY(startY);
-
-        double angleRadians = Math.toRadians(60);
+    void extendLineDiagonalUpHelper(MouseEvent e, Line newLine,Pane p, Rectangle b,int x,Color color)
+    {
+        double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);
 
@@ -432,7 +414,7 @@ public class GameController {
 
             for (Node node: p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
-                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == Color.YELLOW) {
+                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color) {
                         // Line intersects with another rectangle
                         System.out.println("Ray hit nothing and exited at " + node.getId());
                         flag = 1;
@@ -447,6 +429,7 @@ public class GameController {
 
         p.getChildren().add(newLine);
     }
+
 
     @FXML
     public void toggleAtoms(ActionEvent event) {
@@ -478,7 +461,6 @@ public class GameController {
         } else {
             return false;
         }
-
     }
 
     public int isInsideC(Circle c, Line l, int angle) {
