@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Sphere;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -13,6 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -105,5 +108,56 @@ public class JunitTest {
         assertTrue(mockParent.getChildren().contains(sphere1));
     }
 
+
+    @Test @Ignore
+    public void testRayDeflection(){
+        GameController gc = new GameController();
+
+        Pane temp = new Pane();
+        Rectangle r50 = new Rectangle(); //mock arrow for pos8
+
+        //r50 properties
+        r50.setLayoutX(465); r50.setLayoutY(45); r50.setId("Node_50");
+
+
+        Rectangle r1 = new Rectangle(); //mock arrow for pos1
+
+        //r1 properties
+        r1.setRotate(60); r1.setLayoutX(250); r1.setLayoutY(17); r1.setId("Node_1");
+        //javafx.scene.input.MouseEvent e = (javafx.scene.input.MouseEvent) r1.getOnMouseClicked();
+        //MouseEvent e = EventType<MouseEvent> MOUSE_CLICKED;
+
+
+        //mock spheres
+        Sphere s1 = new Sphere();
+        Sphere s2 = new Sphere();
+        Sphere s3 = new Sphere(); //need minimum 3 spheres, won't be used
+
+        //grid 8,3
+        s1.setLayoutX(332);
+        s1.setLayoutY(325);
+
+        //grid 8,1
+        s2.setLayoutX(416);
+        s2.setLayoutY(325);
+
+        temp.getChildren().addAll(s1,s2,s3);
+
+        /*
+        assertEquals("Node_50", gc.extendLineDiagonalDown(new MouseEvent(
+                MouseEvent.MOUSE_CLICKED,
+                0, 0,
+                0, 0,
+                MouseButton.PRIMARY,
+                1,
+                false, false, false, false,
+                true, true, true, true,
+                true,
+                true,
+                null
+        )));
+
+         */
+    }
 
 }
