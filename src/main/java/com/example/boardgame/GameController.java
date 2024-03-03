@@ -311,15 +311,17 @@ public class GameController {
                             //If the ray deflects at the top of the sphere of influence
                             if (newLine.getEndY() < node.getLayoutY() - 80) {
                                 if(x == 60) {
-                                    angleRadians = Math.toRadians(120);
-                                } else angleRadians = Math.toRadians(58);
-                                if(direction_tester == Color.GREEN) {
-                                    color = Color.GREEN;
+                                    angleRadians = Math.toRadians(179);
                                 }
-                                else if (direction_tester == Color.YELLOW)
-                                {
-                                    color = Color.YELLOW;
-                                }
+                                else{  angleRadians = Math.toRadians(1);}
+                                color = Color.BLACK;
+//                                if(direction_tester == Color.GREEN) {
+//                                    color = Color.GREEN;
+//                                }
+//                                else if (direction_tester == Color.YELLOW)
+//                                {
+//                                    color = Color.YELLOW;
+//                                }
                                 //If the ray deflects at the side of the sphere of influence
                             } else {
                                 if(x == 60) {
