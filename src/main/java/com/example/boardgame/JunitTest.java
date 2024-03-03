@@ -110,17 +110,39 @@ public class JunitTest {
 
 
     @Test @Ignore
+    public void testRayMiss(){
+        GameController gc = new GameController();
+
+        Pane temp = new Pane();
+        //no spheres
+
+
+        Rectangle r2 = new Rectangle();
+        r2.setLayoutX(222); r2.setLayoutY(96); r2.setId("Node_2"); //mock arrow for 2
+
+        Rectangle r45 = new Rectangle();
+        r45.setLayoutX(655); r45.setLayoutY(96); r45.setId("Node_45");
+
+        /*
+        CODE TO SHOOT THE RAY FROM R1
+         */
+
+        //assertEquals("miss", );
+
+    }
+
+    @Test @Ignore
     public void testRayDeflection(){
         GameController gc = new GameController();
 
         Pane temp = new Pane();
-        Rectangle r50 = new Rectangle(); //mock arrow for pos8
+        Rectangle r50 = new Rectangle(); //mock arrow for 8
 
         //r50 properties
         r50.setLayoutX(465); r50.setLayoutY(45); r50.setId("Node_50");
 
 
-        Rectangle r1 = new Rectangle(); //mock arrow for pos1
+        Rectangle r1 = new Rectangle(); //mock arrow for 1
 
         //r1 properties
         r1.setRotate(60); r1.setLayoutX(250); r1.setLayoutY(17); r1.setId("Node_1");
