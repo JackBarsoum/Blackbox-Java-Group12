@@ -96,6 +96,7 @@ public class GameController {
             sphere1.setLayoutY(y + 24);
             sphere1.setStroke(Color.WHITE);
             sphere1.setFill(Color.TRANSPARENT);
+            sphere1.setMouseTransparent(true);
 
             // get the parent node of the button
             Pane parent = (Pane) b.getParent();
@@ -601,6 +602,11 @@ public class GameController {
                     Sphere sphere = (Sphere) child;
                     //make the sphere invisible/visible depending on the return of isVisible
                     sphere.setVisible(!sphere.isVisible());
+                }
+                else if(child instanceof Circle){
+                    Circle circle = (Circle) child;
+
+                    circle.setVisible(!circle.isVisible());
                 }
 
             }
