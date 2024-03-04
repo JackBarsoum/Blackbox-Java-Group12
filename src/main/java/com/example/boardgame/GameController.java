@@ -311,7 +311,7 @@ public class GameController {
 
 
                             //If the ray deflects at the top of the sphere of influence
-                            if (newLine.getEndY() < node.getLayoutY() - 80) {
+                            if (newLine.getEndY() < node.getLayoutY() - 80 && right || newLine.getEndY() < prevNode.getLayoutY() - 80 && left) {
                                 if(x == 60) {
                                     angleRadians = Math.toRadians(122);
                                 }
@@ -472,6 +472,7 @@ public class GameController {
 
                                 //If the ray deflects at the bottom of the sphere of influence
                                 if (newLine.getEndY() > node.getLayoutY() + 80) {
+
                                     if(x == 60) {
                                         angleRadians = Math.toRadians(1);
                                     }
@@ -533,9 +534,10 @@ public class GameController {
 
 
                             //If the ray deflects at the bottom of the sphere of influence
-                            if (newLine.getEndY() > node.getLayoutY() + 80) {
+                            if (newLine.getEndY() > node.getLayoutY() + 80 && right || newLine.getEndY() > node.getLayoutY() + 80 && left) {
+                                System.out.println("BOTTOM");
                                 if(x == 60) {
-                                    angleRadians = Math.toRadians(58);
+                                    angleRadians = Math.toRadians(310);
                                 }
                                 else{  angleRadians = Math.toRadians(230);}
                                 //color = Color.BLACK;
@@ -548,8 +550,9 @@ public class GameController {
                                 }
                                 //If the ray deflects at the side of the sphere of influence
                             } else {
+                                System.out.println("SIDE");
                                 if(x == 60) {
-                                    angleRadians = Math.toRadians(180);
+                                    angleRadians = Math.toRadians(175);
                                 }
                                 else angleRadians = Math.toRadians(1);
                                 color = Color.BLACK;
