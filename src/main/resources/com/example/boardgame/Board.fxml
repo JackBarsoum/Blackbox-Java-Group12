@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.Double?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -12,1598 +11,1429 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1318.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.boardgame.GameController">
-   <children>
-      <Polygon fill="BLACK" layoutX="623.0" layoutY="104.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="457.0" layoutY="104.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" />
-      <Polygon fill="BLACK" layoutX="291.0" layoutY="104.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="374.0" layoutY="104.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="54.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="540.0" layoutY="104.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="500.0" layoutY="244.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="455.0" AnchorPane.topAnchor="127.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="473.0" layoutY="114.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="372.0" AnchorPane.topAnchor="127.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="473.0" layoutY="114.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="206.0" AnchorPane.topAnchor="127.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="330.0" layoutY="177.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="289.0" AnchorPane.topAnchor="127.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="583.0" layoutY="177.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="539.7000007629395" AnchorPane.topAnchor="127.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="473.0" layoutY="114.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="621.0" AnchorPane.topAnchor="127.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="792.0" layoutY="378.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="580.0" AnchorPane.topAnchor="200.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="626.0" layoutY="378.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="580.0" AnchorPane.topAnchor="200.5" />
-      <Polygon fill="BLACK" layoutX="460.0" layoutY="378.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="413.0" AnchorPane.topAnchor="200.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="543.0" layoutY="378.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="497.0" AnchorPane.topAnchor="200.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="709.0" layoutY="378.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="580.0" AnchorPane.topAnchor="200.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="752.0" layoutY="451.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="664.0" AnchorPane.topAnchor="200.5">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="207.0" layoutY="251.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="164.0" />
-      <Polygon fill="BLACK" layoutX="290.0" layoutY="251.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="201.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="333.0" layoutY="324.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="288.0" AnchorPane.topAnchor="274.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="745.0" layoutY="324.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="622.0" AnchorPane.topAnchor="274.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="645.0" layoutY="536.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="455.0" AnchorPane.topAnchor="274.0" />
-      <Polygon fill="BLACK" layoutX="374.0" layoutY="251.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="201.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="417.0" layoutY="324.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="372.0" AnchorPane.topAnchor="274.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="662.0" layoutY="324.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="539.0" AnchorPane.topAnchor="274.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="750.0" layoutY="324.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="705.0" AnchorPane.topAnchor="274.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="249.0" layoutY="332.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="274.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="166.0" layoutY="332.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="274.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="621.0" layoutY="540.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="621.0" layoutY="540.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0" />
-      <Polygon fill="BLACK" layoutX="455.0" layoutY="540.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="539.0" layoutY="540.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="621.0" layoutY="540.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="705.0" layoutY="540.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="205.0" layoutY="540.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0" />
-      <Polygon fill="BLACK" layoutX="288.0" layoutY="540.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="372.0" layoutY="540.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="490.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="496.0" layoutY="612.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="562.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="412.0" layoutY="612.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="562.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="246.0" layoutY="612.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="562.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="330.0" layoutY="612.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="562.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="580.0" layoutY="612.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="562.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="621.0" layoutY="684.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="634.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="455.0" layoutY="684.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="634.0" />
-      <Polygon fill="BLACK" layoutX="287.0" layoutY="684.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="634.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="372.0" layoutY="684.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="328.70000076293945" AnchorPane.topAnchor="634.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="538.0" layoutY="684.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.topAnchor="634.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="288.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="622.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="456.0" layoutY="397.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" />
-      <Polygon fill="BLACK" layoutX="372.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="540.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="706.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="206.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="122.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="791.0" layoutY="397.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" AnchorPane.leftAnchor="746.7000007629395">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="329.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="663.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="497.0" layoutY="467.0" points="0.0, -50.0, 43.3, -25.0, 43.3, 25.0, 0.0, 50.0, -43.3, 25.0, -43.3, -25.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0" />
-      <Polygon fill="BLACK" layoutX="413.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="581.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="747.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="247.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="664.0" layoutY="611.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fill="BLACK" layoutX="163.0" layoutY="467.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-43.3" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Button fx:id="button3" layoutX="336.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button2" layoutX="253.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button1" layoutX="169.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button0" layoutX="86.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button37" layoutX="129.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button38" layoutX="213.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button39" layoutX="295.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button40" layoutX="379.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button41" layoutX="462.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button5" layoutX="503.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button6" layoutX="587.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button7" layoutX="670.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button8" layoutX="754.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button9" layoutX="126.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button10" layoutX="210.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button11" layoutX="293.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button12" layoutX="376.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button13" layoutX="460.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button14" layoutX="545.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button15" layoutX="629.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button16" layoutX="712.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button42" layoutX="545.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button43" layoutX="630.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button44" layoutX="712.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button18" layoutX="169.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button19" layoutX="250.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button20" layoutX="336.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button21" layoutX="419.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button22" layoutX="502.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button23" layoutX="584.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button24" layoutX="670.0" layoutY="517.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button25" layoutX="209.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button26" layoutX="293.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button27" layoutX="376.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button28" layoutX="459.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button29" layoutX="542.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button30" layoutX="628.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button31" layoutX="250.0" layoutY="661.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button32" layoutX="336.0" layoutY="661.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button34" layoutX="419.0" layoutY="661.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button35" layoutX="503.0" layoutY="661.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button36" layoutX="585.0" layoutY="661.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button45" layoutX="171.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button46" layoutX="254.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button47" layoutX="338.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button48" layoutX="420.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button49" layoutX="505.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button50" layoutX="588.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button51" layoutX="673.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button52" layoutX="214.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button53" layoutX="297.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="button54" layoutX="381.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button55" layoutX="463.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button56" layoutX="546.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button57" layoutX="628.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button58" layoutX="254.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button59" layoutX="339.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button60" layoutX="420.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button61" layoutX="503.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="button62" layoutX="588.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="toggle" layoutX="937.0" layoutY="638.0" mnemonicParsing="false" onAction="#toggleAtoms" prefHeight="48.0" prefWidth="115.0" stylesheets="@Scene.css" text="Start/End">
-         <font>
-            <Font size="10.0" />
-         </font></Button>
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="166.0" layoutY="104.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="251.0" layoutY="125.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="124.0" layoutY="177.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="209.0" layoutY="198.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="602.0" layoutY="104.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="664.0" layoutY="125.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="82.0" layoutY="251.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="167.0" layoutY="272.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="40.0" layoutY="324.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="125.0" layoutY="345.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="-3.0" layoutY="396.0" startX="70.09970092773438" startY="3.0517578125E-5" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="82.0" layoutY="417.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="38.0" layoutY="467.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="123.0" layoutY="488.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="80.0" layoutY="545.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="165.0" layoutY="566.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="121.0" layoutY="612.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="206.0" layoutY="633.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="162.0" layoutY="684.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="247.0" layoutY="705.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="643.0" layoutY="175.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="705.0" layoutY="196.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="686.0" layoutY="250.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="748.0" layoutY="271.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="727.0" layoutY="322.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="789.0" layoutY="343.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="74.703857421875" layoutX="768.0" layoutY="396.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="830.0" layoutY="417.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="725.0" layoutY="466.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="787.0" layoutY="487.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="683.0" layoutY="540.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="745.0" layoutY="561.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="644.0" layoutY="608.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="704.0" layoutY="629.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="88.0" endY="7.62939453125E-6" layoutX="599.0" layoutY="684.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="661.0" layoutY="705.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Polygon fill="#ffb700" layoutX="683.0" layoutY="164.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="608.0" layoutY="121.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="722.0" layoutY="239.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="647.0" layoutY="196.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="766.0" layoutY="314.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="691.0" layoutY="271.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="806.0" layoutY="386.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="731.0" layoutY="343.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="640.0" layoutY="93.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="86.89520263671875" endY="6.99298095703125" layoutX="565.0" layoutY="50.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="556.0" layoutY="92.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="481.0" layoutY="49.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="472.0" layoutY="92.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="397.0" layoutY="49.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="307.0" layoutY="93.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="232.0" layoutY="50.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="389.0" layoutY="92.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="314.0" layoutY="49.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="2.0" layoutY="343.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="106.0" layoutY="386.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="513.0" layoutY="720.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="607.0" layoutY="739.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="175.0" layoutY="718.0" startX="78.33331298828125" startY="22.0" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="269.0" layoutY="737.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="262.0" layoutY="719.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="356.0" layoutY="738.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="347.0" layoutY="720.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="441.0" layoutY="739.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="429.0" layoutY="720.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="523.0" layoutY="739.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="254.0" layoutY="50.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="358.0" layoutY="93.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="338.0" layoutY="49.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="442.0" layoutY="92.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="420.0" layoutY="50.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="524.0" layoutY="93.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="504.0" layoutY="49.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="608.0" layoutY="92.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="89.60000610351562" endY="4.0" layoutX="170.0" layoutY="50.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="274.0" layoutY="93.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="128.0" layoutY="124.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="232.0" layoutY="167.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="86.0" layoutY="198.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="190.0" layoutY="241.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="44.0" layoutY="271.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="148.0" layoutY="314.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="10.0" layoutY="430.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="104.0" layoutY="449.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="52.0" layoutY="501.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="146.0" layoutY="520.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="93.0" layoutY="574.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="187.0" layoutY="593.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="134.0" layoutY="646.0" startX="78.85723876953125" startY="20.76214599609375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="228.0" layoutY="665.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="676.0" layoutY="501.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="774.0" layoutY="508.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="301.0" layoutY="719.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="399.0" layoutY="726.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="720.0" layoutY="431.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="818.0" layoutY="438.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="635.0" layoutY="574.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="733.0" layoutY="581.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="596.0" layoutY="641.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="694.0" layoutY="648.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="550.0" layoutY="719.0" startX="96.39569091796875" startY="11.083740234375" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="648.0" layoutY="726.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="466.0" layoutY="720.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="564.0" layoutY="727.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="383.0" layoutY="720.0" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="481.0" layoutY="727.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Line endX="90.418212890625" endY="-0.419219970703125" layoutX="216.0" layoutY="719.0" onMouseClicked="#diagonaldirectionleft" startX="99.29998779296875" startY="19.544052124023438" stroke="#ffb700" strokeWidth="2.0" />
-      <Polygon fill="#ffb700" layoutX="314.0" layoutY="726.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
-      <Label layoutX="246.0" layoutY="31.0" text="1" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="229.0" layoutY="75.0" text="2" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="188.0" layoutY="148.0" text="4" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="145.0" layoutY="222.0" text="6" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="104.0" layoutY="295.0" text="8" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="39.0" layoutY="379.0" text="10" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="205.0" layoutY="116.0" text="3" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="163.0" layoutY="190.0" text="5" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="122.0" layoutY="264.0" text="7" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="81.0" layoutY="337.0" text="9" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="65.0" layoutY="422.0" text="11" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="94.0" layoutY="462.0" text="12" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="109.0" layoutY="491.0" text="13" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="135.0" layoutY="538.0" text="14" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="149.0" layoutY="564.0" text="15" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="177.0" layoutY="605.0" text="16" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="192.0" layoutY="636.0" text="17" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="218.0" layoutY="677.0" text="18" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="223.0" layoutY="726.0" text="19" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="287.0" layoutY="732.0" text="20" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="340.0" layoutY="733.0" text="21" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="377.0" layoutY="733.0" text="22" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="425.0" layoutY="733.0" text="23" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="458.0" layoutY="733.0" text="24" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="508.0" layoutY="733.0" text="25" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="542.0" layoutY="733.0" text="26" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="591.0" layoutY="733.0" text="27" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="640.0" layoutY="726.0" text="28" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="664.0" layoutY="677.0" text="29" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="694.0" layoutY="631.0" text="30" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="736.0" layoutY="599.0" text="31" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="734.0" layoutY="564.0" text="32" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="748.0" layoutY="533.0" text="33" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="775.0" layoutY="492.0" text="34" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="790.0" layoutY="459.0" text="35" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="818.0" layoutY="421.0" text="36" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="843.0" layoutY="378.0" text="37" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="819.0" layoutY="337.0" text="38" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="791.0" layoutY="294.0" text="39" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="779.0" layoutY="265.0" text="40" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="751.0" layoutY="222.0" text="41" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="735.0" layoutY="190.0" text="42" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="707.0" layoutY="147.0" text="43" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="694.0" layoutY="118.0" text="44" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="666.0" layoutY="76.0" text="45" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="640.0" layoutY="28.0" text="46" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="591.0" layoutY="22.0" text="47" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="545.0" layoutY="22.0" text="48" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="508.0" layoutY="24.0" text="49" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="460.0" layoutY="24.0" text="50" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="426.0" layoutY="24.0" text="51" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="378.0" layoutY="24.0" text="52" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="344.0" layoutY="24.0" text="53" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="296.0" layoutY="24.0" text="54" textFill="#ffb700">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Rectangle id="Node_1" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="250.0" layoutY="56.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="33.0" />
-      <Rectangle id="Node_3" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="206.0" layoutY="128.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_5" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="163.0" layoutY="202.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_7" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="120.0" layoutY="275.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_9" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="79.0" layoutY="347.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_47" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="579.0" layoutY="44.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_49" fx:id="N49" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="494.0" layoutY="49.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_51" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="415.0" layoutY="50.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_53" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="330.0" layoutY="51.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_32" arcHeight="5.0" arcWidth="5.0" fill="RED" height="17.0" layoutX="710.0" layoutY="573.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_34" arcHeight="5.0" arcWidth="5.0" fill="#f72525" height="17.0" layoutX="750.0" layoutY="499.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_36" arcHeight="5.0" arcWidth="5.0" fill="#fd0000" height="17.0" layoutX="795.0" layoutY="429.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_28" arcHeight="5.0" arcWidth="5.0" fill="#ff2121" height="17.0" layoutX="629.0" layoutY="713.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="25.0" />
-      <Rectangle id="Node_26" arcHeight="5.0" arcWidth="5.0" fill="#f80000" height="17.0" layoutX="547.0" layoutY="726.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_24" arcHeight="5.0" arcWidth="5.0" fill="RED" height="17.0" layoutX="465.0" layoutY="728.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_22" arcHeight="5.0" arcWidth="5.0" fill="#f80000" height="17.0" layoutX="384.0" layoutY="728.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_11" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="72.0" layoutY="436.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="222.0" layoutY="96.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="179.0" layoutY="168.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="138.0" layoutY="243.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="95.0" layoutY="315.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="94.0" layoutY="458.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_14" fx:id="N14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="136.0" layoutY="536.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_16" fx:id="N16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="177.0" layoutY="603.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="218.0" layoutY="675.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_29" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="652.0" layoutY="676.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_33" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="736.0" layoutY="532.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_35" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="778.0" layoutY="458.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_39" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="780.0" layoutY="314.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_41" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="739.0" layoutY="242.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_37" fx:id="N37" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="820.0" layoutY="388.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-      <Rectangle id="Node_43" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="696.0" layoutY="167.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_45" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="655.0" layoutY="96.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_10" fx:id="Node_10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="62.0" layoutY="388.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
-      <Rectangle id="Node_54" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="18.0" layoutX="305.0" layoutY="44.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="34.0" />
-      <Rectangle id="Node_52" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="383.0" layoutY="44.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_50" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="465.0" layoutY="45.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_48" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="547.0" layoutY="46.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_46" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="18.0" layoutX="630.0" layoutY="44.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="44.0" />
-      <Rectangle id="Node_44" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="672.0" layoutY="125.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_42" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="711.0" layoutY="200.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_40" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="755.0" layoutY="275.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_38" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="795.0" layoutY="346.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_13" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="113.0" layoutY="508.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_15" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="153.0" layoutY="582.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_19" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="240.0" layoutY="721.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_21" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="324.0" layoutY="728.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_23" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="408.0" layoutY="731.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_17" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="197.0" layoutY="654.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_25" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="489.0" layoutY="731.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_27" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="574.0" layoutY="731.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_20" arcHeight="5.0" arcWidth="5.0" fill="RED" height="17.0" layoutX="298.0" layoutY="731.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_31" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="696.0" layoutY="600.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node30" arcHeight="5.0" arcWidth="5.0" fill="RED" height="17.0" layoutX="670.0" layoutY="639.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
-      <Button fx:id="button4" layoutX="420.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleButtonClick" opacity="0.0" prefHeight="45.0" prefWidth="72.0" text="Button">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <TextArea fx:id="textBox" editable="false" layoutX="963.0" layoutY="227.0" prefHeight="275.0" prefWidth="454.0" promptText="This is the area where the results of you ray shots will be displayed" styleClass="text-area" stylesheets="@Scene.css">
-         <effect>
-            <DropShadow />
-         </effect>
-      </TextArea>
-   </children>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="875.0" prefWidth="1417.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.boardgame.GameController">
+   <!-- Row of 5 above the middle -->
+   <Polygon fill="BLACK" layoutX="303.0" layoutY="99.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="393.0" layoutY="99.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="483.0" layoutY="99.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="573.0" layoutY="99.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="663.0" layoutY="99.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+
+   <!-- Row of 6 above the middle -->
+   <Polygon fill="BLACK" layoutX="258.0" layoutY="174.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="348.0" layoutY="174.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="438.0" layoutY="174.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="528.0" layoutY="174.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="618.0" layoutY="174.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="708.0" layoutY="174.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+
+   <!-- Row of 7 above the middle -->
+   <Polygon fill="BLACK" layoutX="213.0" layoutY="249.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="303.0" layoutY="249.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="393.0" layoutY="249.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="483.0" layoutY="249.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="573.0" layoutY="249.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="663.0" layoutY="249.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="753.0" layoutY="249.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+
+   <!-- Row of 8 above the middle -->
+   <Polygon fill="BLACK" layoutX="168.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="258.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="348.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="438.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="528.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="618.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="708.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="798.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <!-- Middle Row of 9 -->
+   <Polygon fill="BLACK" layoutX="123.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="213.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+
+   <Polygon fill="BLACK" layoutX="303.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+
+   <Polygon fill="BLACK" layoutX="393.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="483.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="573.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="663.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="753.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="843.0" layoutY="399.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <!--- Row of 8 under middle -->
+   <Polygon fill="BLACK" layoutX="168.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="258.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="348.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="438.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="528.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="618.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="708.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="798.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <!--- Row of 7 under middle -->
+   <Polygon fill="BLACK" layoutX="213.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="303.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="393.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="483.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="573.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="663.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="753.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <!--- Row of 6 under middle -->
+   <Polygon fill="BLACK" layoutX="258.0" layoutY="624.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Polygon fill="BLACK" layoutX="348.0" layoutY="624.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="438.0" layoutY="624.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="528.0" layoutY="624.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="618.0" layoutY="624.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="708.0" layoutY="624.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <!--- Row of 5 under middle -->
+   <Polygon fill="BLACK" layoutX="303.0" layoutY="699.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="393.0" layoutY="699.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="483.0" layoutY="699.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="573.0" layoutY="699.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+
+   <Polygon fill="BLACK" layoutX="663.0" layoutY="699.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+      <points>
+         <Double fx:value="0.0" />
+         <Double fx:value="-50.0" />
+         <Double fx:value="45" />
+         <Double fx:value="-25.0" />
+         <Double fx:value="45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="0.0" />
+         <Double fx:value="50.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="25.0" />
+         <Double fx:value="-45" />
+         <Double fx:value="-25.0" />
+      </points>
+   </Polygon>
+   <Button fx:id="toggle" layoutX="937.0" layoutY="638.0" mnemonicParsing="false" onAction="#toggleAtoms" prefHeight="48.0" prefWidth="115.0" stylesheets="@Scene.css" text="Start/End">
+      <font>
+         <Font size="10.0" />
+      </font>
+   </Button>
+   <Rectangle id="Node_41" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="793.0" layoutY="241.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <TextArea fx:id="textBox" editable="false" layoutX="963.0" layoutY="227.0" prefHeight="275.0" prefWidth="454.0" promptText="This is the area where the results of you ray shots will be displayed" styleClass="text-area" stylesheets="@Scene.css">
+      <effect>
+         <DropShadow />
+      </effect>
+   </TextArea>
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="695.0" layoutY="623.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="740.0" layoutY="547.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="785.0" layoutY="474.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="830.0" layoutY="401.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="785.0" layoutY="324.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="650.0" layoutY="697.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="740.0" layoutY="249.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="695.0" layoutY="173.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line disable="true" endX="88.0" endY="7.62939453125E-6" fill="ORANGE" layoutX="650.0" layoutY="99.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="ORANGE" strokeWidth="2.0" />
+   <Rectangle id="Node_43" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="749.0" layoutY="164.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_45" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="709.0" layoutY="92.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_39" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="843.0" layoutY="315.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_37" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="888.0" layoutY="392.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_35" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="836.0" layoutY="467.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_33" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="793.0" layoutY="537.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_31" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="751.0" layoutY="616.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_29" arcHeight="5.0" arcWidth="5.0" height="17.0" layoutX="704.0" layoutY="687.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+   <Rectangle id="Node_6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="810.0" layoutY="262.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="756.0" layoutY="274.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="711.0" layoutY="199.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="666.0" layoutY="124.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="619.0" layoutY="48.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_44" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="720.0" layoutY="116.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_46" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="28.0" layoutX="673.0" layoutY="39.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_42" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="768.0" layoutY="188.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_40" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="812.0" layoutY="262.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_38" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="855.0" layoutY="337.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="801.0" layoutY="349.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="756.0" layoutY="523.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="711.0" layoutY="598.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="619.0" layoutY="748.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_34" arcHeight="5.0" arcWidth="5.0" fill="RED" height="17.0" layoutX="810.0" layoutY="518.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_32" arcHeight="5.0" arcWidth="5.0" fill="RED" height="17.0" layoutX="768.0" layoutY="593.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="666.0" layoutY="673.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="801.0" layoutY="450.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_28" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="678.0" layoutY="742.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_30" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutX="720.0" layoutY="667.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="31.0" />
+   <Rectangle id="Node_36" arcHeight="5.0" arcWidth="5.0" fill="RED" height="23.0" layoutX="855.0" layoutY="443.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="533.0" layoutY="48.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_48" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="28.0" layoutX="587.0" layoutY="34.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="445.0" layoutY="48.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_50" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="28.0" layoutX="499.0" layoutY="34.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="354.0" layoutY="48.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_52" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="28.0" layoutX="409.0" layoutY="34.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="264.0" layoutY="48.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_54" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="321.0" layoutY="36.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="290.0" layoutY="48.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_53" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="344.0" layoutY="36.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="376.0" layoutY="48.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_51" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="431.0" layoutY="36.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="467.0" layoutY="48.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_49" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="521.0" layoutY="36.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="555.0" layoutY="48.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_47" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="611.0" layoutY="36.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="167.0" layoutY="100.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_2" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="221.0" layoutY="86.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="122.0" layoutY="172.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="176.0" layoutY="158.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99998474121094" endY="7.62939453125E-6" layoutX="76.0" layoutY="250.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="130.0" layoutY="236.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="30.0" layoutY="323.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="86.0" layoutY="308.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="92.99999237060547" layoutX="-15.0" layoutY="399.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="39.0" layoutY="385.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="197.0" layoutY="48.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_1" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="252.0" layoutY="45.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="156.0" layoutY="122.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="210.0" layoutY="108.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="109.0" layoutY="196.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="163.0" layoutY="182.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="92.96944427490234" endY="-1.1840691566467285" layoutX="18.0" layoutY="345.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="72.0" layoutY="331.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="30.0" layoutY="474.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="84.0" layoutY="460.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99998474121094" layoutX="76.0" layoutY="549.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="130.0" layoutY="535.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.00001525878906" layoutX="122.0" layoutY="622.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="176.0" layoutY="608.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="93.00003051757812" endY="1.0" layoutX="165.0" layoutY="698.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="219.0" layoutY="684.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="18.0" layoutY="450.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="72.0" layoutY="442.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="61.0" layoutY="526.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="117.0" layoutY="519.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="109.0" layoutY="601.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="165.0" layoutY="593.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="152.0" layoutY="678.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="208.0" layoutY="670.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="376.0" layoutY="749.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="431.0" layoutY="744.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="467.0" layoutY="749.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="521.0" layoutY="744.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="555.0" layoutY="749.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_27" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="611.0" layoutY="744.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="533.0" layoutY="753.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_26" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="587.0" layoutY="742.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="445.0" layoutY="753.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="499.0" layoutY="742.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Line endX="88.0" endY="7.62939453125E-6" layoutX="63.0" layoutY="270.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="117.0" layoutY="256.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
+   <Line endX="92.99999237060547" layoutX="264.0" layoutY="753.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="321.0" layoutY="744.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Line endX="92.99999237060547" layoutX="352.0" layoutY="752.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="408.0" layoutY="743.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="60.0" stroke="RED" strokeType="INSIDE" width="38.0" />
+   <Line endX="92.99999237060547" layoutX="195.0" layoutY="751.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="252.0" layoutY="741.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Line endX="92.99999237060547" layoutX="286.0" layoutY="751.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
+   <Rectangle id="Node_21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="344.0" layoutY="743.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Label layoutX="244.0" layoutY="25.0" text="1" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="215.0" layoutY="68.0" text="2" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="204.0" layoutY="104.0" text="3" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="169.0" layoutY="140.0" text="4" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="153.0" layoutY="178.0" text="5" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="123.0" layoutY="218.0" text="6" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="112.0" layoutY="246.0" text="7" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="79.0" layoutY="290.0" text="8" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="70.0" layoutY="314.0" text="9" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="32.0" layoutY="366.0" text="10" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="55.0" layoutY="437.0" text="11" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="86.0" layoutY="470.0" text="12" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="105.0" layoutY="524.0" text="13" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="130.0" layoutY="545.0" text="14" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="151.0" layoutY="599.0" text="15" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="177.0" layoutY="620.0" text="16" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="190.0" layoutY="670.0" text="17" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="222.0" layoutY="694.0" text="18" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="234.0" layoutY="754.0" text="19" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="315.0" layoutY="754.0" text="20" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="356.0" layoutY="754.0" text="21" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="410.0" layoutY="758.0" text="22" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="444.0" layoutY="758.0" text="23" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="496.0" layoutY="758.0" text="24" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="535.0" layoutY="758.0" text="25" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="584.0" layoutY="758.0" text="26" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="623.0" layoutY="758.0" text="27" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="701.0" layoutY="756.0" text="28" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="725.0" layoutY="694.0" text="29" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="754.0" layoutY="660.0" text="30" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="775.0" layoutY="620.0" text="31" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="798.0" layoutY="583.0" text="32" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="824.0" layoutY="542.0" text="33" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="843.0" layoutY="509.0" text="34" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="867.0" layoutY="470.0" text="35" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="889.0" layoutY="437.0" text="36" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="923.0" layoutY="384.0" text="37" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="889.0" layoutY="314.0" text="38" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="860.0" layoutY="290.0" text="39" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="843.0" layoutY="246.0" text="40" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="817.0" layoutY="218.0" text="41" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="798.0" layoutY="168.0" text="42" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="773.0" layoutY="140.0" text="43" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="754.0" layoutY="96.0" text="44" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="734.0" layoutY="68.0" text="45" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="702.0" layoutY="12.0" text="46" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="616.0" layoutY="7.0" text="47" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="584.0" layoutY="8.0" text="48" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="535.0" layoutY="7.0" text="49" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="496.0" layoutY="8.0" text="50" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="444.0" layoutY="7.0" text="51" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="405.0" layoutY="7.0" text="52" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="358.0" layoutY="7.0" text="53" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="315.0" layoutY="7.0" text="54" textFill="ORANGE">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Label>
 </AnchorPane>
