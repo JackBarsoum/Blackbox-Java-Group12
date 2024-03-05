@@ -86,10 +86,10 @@ public class GameController {
 
             // set the sphere color to red
             sphere.setMaterial(new PhongMaterial(Color.RED));
-            sphere.setLayoutX(x + 37);
-            sphere.setLayoutY(y + 24);
-            sphere1.setLayoutX(x + 37);
-            sphere1.setLayoutY(y + 24);
+            sphere.setLayoutX(x + 35);
+            sphere.setLayoutY(y + 22);
+            sphere1.setLayoutX(x + 35);
+            sphere1.setLayoutY(y + 18);
             sphere1.setStroke(Color.WHITE);
             sphere1.setFill(Color.TRANSPARENT);
             sphere1.setMouseTransparent(true);
@@ -582,7 +582,7 @@ public class GameController {
                                 if(x == 60) {
                                     angleRadians = Math.toRadians(302);
                                 }
-                                else{  angleRadians = Math.toRadians(230);}
+                                else{  angleRadians = Math.toRadians(235);}
                                 //color = Color.BLACK;
                                 if(direction_tester == Color.GREEN) {
                                     color = Color.RED;
