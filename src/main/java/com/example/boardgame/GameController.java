@@ -312,7 +312,7 @@ public class GameController {
                                     //If the ray deflects at the side of the sphere of influence
 
                                 } else {
-                                    if(x == 59){
+                                    if(x == 60){
                                         angleRadians = Math.toRadians(60);
                                         System.out.println("Tester");
                                         color = Color.BLACK;
@@ -593,7 +593,7 @@ public class GameController {
 //                                    }
                                     //If the ray deflects at the side of the sphere of influence
                                 } else {
-                                    if(x == 59) {
+                                    if(x == 60) {
                                         angleRadians = Math.toRadians(60);
                                         System.out.println("Tester");
                                     }
