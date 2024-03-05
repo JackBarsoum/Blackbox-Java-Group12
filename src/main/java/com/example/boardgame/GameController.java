@@ -113,7 +113,7 @@ public class GameController {
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
-        System.out.println("Ray shot from " + b.getId());
+        System.out.println("Ray shot from " + b.getId() + "\n");
         textBox.appendText("Ray shot from " + b.getId() + "\n");
 
         newLine.setStartX(b.getLayoutX() + b.getWidth());
@@ -165,7 +165,7 @@ public class GameController {
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
 
-        textBox.appendText("Ray shot from " + b.getId());
+        textBox.appendText("Ray shot from " + b.getId() + "\n");
         System.out.println("Ray shot from " + b.getId());
         // Set the starting point of the line
         double startX = b.getLayoutX() + b.getWidth() / 2;
