@@ -188,7 +188,6 @@ public class GameController {
         // Set the initial end point (same as start point)
         newLine.setEndX(startX);
         newLine.setEndY(startY);
-        System.out.println("Hello");
 
         if (left) {
             extendLineDiagonalDownHelper(e,newLine,p,b,121,direction_tester);
@@ -388,7 +387,8 @@ public class GameController {
                                     System.out.println("HHello");
                                     angleRadians = Math.toRadians(180);
                                 }
-                                else angleRadians = Math.toRadians(1);
+                                else angleRadians = Math.toRadians(0);
+                                System.out.println("HHHHHELLOOOO");
                                 color = Color.BLACK;
                             }
 
