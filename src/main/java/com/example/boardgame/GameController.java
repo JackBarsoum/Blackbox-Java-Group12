@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -37,13 +38,7 @@ public class GameController {
     }
 
     @FXML
-    private Button play;
-
-    @FXML
-    private Button quit;
-
-    @FXML
-    public Rectangle N49;
+    public TextArea textBox; //Text box where results of rays shots will be displayed
 
     @FXML
     private Stage stage;
@@ -64,6 +59,7 @@ public class GameController {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 
@@ -118,6 +114,7 @@ public class GameController {
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
         System.out.println("Ray shot from " + b.getId());
+        textBox.appendText("Ray shot from " + b.getId() + "\n");
 
         newLine.setStartX(b.getLayoutX() + b.getWidth());
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
@@ -136,6 +133,7 @@ public class GameController {
 
         int flag = 0;
 
+
         do {
             newLine.setEndX(newLine.getEndX() + x); // Increase the line length
 
@@ -144,10 +142,12 @@ public class GameController {
                     if (node instanceof Rectangle && b != node) {
                         // Line intersects with another button
                         System.out.println("Ray hit nothing and exited at " + node.getId());
+                        textBox.appendText("Ray hit nothing and exited at " + node.getId() + "\n");
                         flag = 1;
                         break;
                     } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
-                        System.out.println("Ray hit a node");
+                        System.out.println("Ray hit a atom");
+                        textBox.appendText("Ray hit an atom" + "\n");
                         flag = 1;
                     }
                 }
@@ -165,6 +165,7 @@ public class GameController {
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
 
+        textBox.appendText("Ray shot from " + b.getId());
         System.out.println("Ray shot from " + b.getId());
         // Set the starting point of the line
         double startX = b.getLayoutX() + b.getWidth() / 2;
@@ -190,6 +191,7 @@ public class GameController {
         up = false;
         int checker = 0;
         int line_flag = 0;
+        int deflection_account = 0; // This used to help display what happened to the array, e.g if this is equal to 1 the ray is deflected by 60
         //Set the trajectory of the ray
         double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
@@ -224,12 +226,30 @@ public class GameController {
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color) {
+                        System.out.println(deflection_account);
+                        String node_exit;
                         // Line intersects with another rectangle
-                        System.out.println("Ray hit nothing and exited at " + node.getId());
+                        switch (deflection_account) {
+                            case 0:
+                                textBox.appendText("Ray hit nothing and exited at " + node.getId() + "\n");
+                                System.out.println("Ray hit nothing and exited at " + node.getId());
+                                break;
+                            case 1:
+                                System.out.println("Ray deflected at 60 degrees, hit nothing and exited at " + node.getId());
+                                textBox.appendText("Ray deflected at 60 degrees, hit nothing and exited at " + node.getId() + "\n");
+                                break;
+                            case 2:
+                                System.out.println("Ray deflected at 120 degrees, hit nothing and exited at " + node.getId());
+                                textBox.appendText("Ray deflected at 120 degrees, hit nothing and exited at " + node.getId() + "\n");
+                                break;
+                        }
                         flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2) {
                         checker = isInsideC((Circle) node, newLine, x);
+                        if(checker != -1){
+                            deflection_account = 1;
+                        }
                         prevNode = node;
                         if (checker == 1) {
                             if (line_flag == 0) {
@@ -293,6 +313,7 @@ public class GameController {
                         }
                         //Case if the ray hit 2 circles of influence at the same time
                     } else if (node instanceof Circle && isInsideC((Circle) node, newLine, x) != -1 && node != prevNode) {
+                        deflection_account = 2;
                         if (line_flag == 0) {
                             //Same as the case above, store the ray before the deflection in a new line
                             if(direction_tester == Color.GREEN) {
@@ -347,6 +368,7 @@ public class GameController {
                     }
                     // Handle the case where the line hits another circle at the same location
                     else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
+                        textBox.appendText("Ray hit an atom" + "\n");
                         System.out.println("Ray hit at an atom");
                         flag = 1;
                     }
@@ -371,6 +393,7 @@ public class GameController {
         Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
 
+        textBox.appendText("Ray shot from " + b.getId() + "\n");
         System.out.println("Ray shot from " + b.getId());
         // Set the starting point of the line
         double startX = b.getLayoutX() + b.getWidth() / 2;
@@ -409,6 +432,7 @@ public class GameController {
 
     void extendLineDiagonalUpHelper(MouseEvent e, Line newLine,Pane p, Rectangle b,int x,Color color)
     {
+        int delfection_account = 0;
         up = true;
         int checker = 0;
         int line_flag = 0;
@@ -447,11 +471,28 @@ public class GameController {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color) {
                         // Line intersects with another rectangle
-                        System.out.println("Ray hit nothing and exited at " + node.getId());
+                        switch (delfection_account) {
+                            case 0:
+                                System.out.println("Ray hit nothing and exited at " + node.getId());
+                                textBox.appendText("Ray hit nothing and exited at " + node.getId() + "\n");
+                                break;
+                            case 1:
+                                System.out.println("Ray deflected at 60 degrees, hit nothing and exited " + node.getId());
+                                textBox.appendText("Ray deflected at 60 degrees, hit nothing and exited at " + node.getId() + "\n");
+                                break;
+                            case 2:
+                                System.out.println("Ray deflected at 120 degrees, hit nothing and exited " + node.getId());
+                                textBox.appendText("Ray deflected at 120 degrees, hit nothing and exited at " + node.getId() + "\n");
+                                break;
+                        }
+
                         flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2) {
                         checker = isInsideC((Circle) node, newLine, x);
+                        if(checker != -1){
+                            delfection_account = 1;
+                        }
                         prevNode = node;
                         if (checker == 1) {
                             if (line_flag == 0) {
@@ -516,6 +557,7 @@ public class GameController {
                         }
                         //Case if the ray hit 2 circles of influence at the same time
                     } else if (node instanceof Circle && isInsideC((Circle) node, newLine, x) != -1 && node != prevNode) {
+                        delfection_account = 2;
                         if (line_flag == 0) {
                             //Same as the case above, store the ray before the deflection in a new line
                             if(direction_tester == Color.GREEN) {
@@ -538,7 +580,7 @@ public class GameController {
                             if (newLine.getEndY() > node.getLayoutY() + 80 && right || newLine.getEndY() > node.getLayoutY() + 80 && left) {
                                 System.out.println("BOTTOM");
                                 if(x == 60) {
-                                    angleRadians = Math.toRadians(310);
+                                    angleRadians = Math.toRadians(302);
                                 }
                                 else{  angleRadians = Math.toRadians(230);}
                                 //color = Color.BLACK;
@@ -572,7 +614,8 @@ public class GameController {
                     }
                     // Handle the case where the line hits another circle at the same location
                     else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
-                        System.out.println("Ray hit at an atom");
+                        textBox.appendText("Ray hit an atom" + "\n");
+                        System.out.println("Ray hit an atom");
                         flag = 1;
                     }
                 }

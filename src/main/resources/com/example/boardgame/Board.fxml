@@ -4,13 +4,15 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="760.0" prefWidth="915.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.boardgame.GameController">
+<AnchorPane prefHeight="768.0" prefWidth="1318.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.boardgame.GameController">
    <children>
       <Polygon fill="BLACK" layoutX="623.0" layoutY="104.0" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
          <points>
@@ -1158,7 +1160,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="toggle" layoutX="783.0" layoutY="630.0" mnemonicParsing="false" onAction="#toggleAtoms" prefHeight="48.0" prefWidth="115.0" stylesheets="@Scene.css" text="Start/End">
+      <Button fx:id="toggle" layoutX="937.0" layoutY="638.0" mnemonicParsing="false" onAction="#toggleAtoms" prefHeight="48.0" prefWidth="115.0" stylesheets="@Scene.css" text="Start/End">
          <font>
             <Font size="10.0" />
          </font></Button>
@@ -1360,7 +1362,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="222.0" layoutY="708.0" text="19" textFill="#ffb700">
+      <Label layoutX="223.0" layoutY="726.0" text="19" textFill="#ffb700">
          <font>
             <Font size="24.0" />
          </font>
@@ -1578,14 +1580,14 @@
       <Rectangle id="Node_52" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="383.0" layoutY="44.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_50" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="465.0" layoutY="45.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_48" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="547.0" layoutY="46.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="pos46" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="18.0" layoutX="630.0" layoutY="44.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="44.0" />
+      <Rectangle id="Node_46" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="18.0" layoutX="630.0" layoutY="44.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="44.0" />
       <Rectangle id="Node_44" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="672.0" layoutY="125.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_42" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="711.0" layoutY="200.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_40" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="755.0" layoutY="275.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_38" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="17.0" layoutX="795.0" layoutY="346.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionleft" opacity="0.0" rotate="120.0" stroke="GREEN" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_13" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="113.0" layoutY="508.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_15" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="153.0" layoutY="582.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
-      <Rectangle id="Node_19" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="234.0" layoutY="728.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+      <Rectangle id="Node_19" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="240.0" layoutY="721.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_21" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="324.0" layoutY="728.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_23" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="408.0" layoutY="731.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
       <Rectangle id="Node_17" arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="17.0" layoutX="197.0" layoutY="654.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
@@ -1598,5 +1600,10 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <TextArea fx:id="textBox" editable="false" layoutX="963.0" layoutY="227.0" prefHeight="275.0" prefWidth="454.0" promptText="This is the area where the results of you ray shots will be displayed" styleClass="text-area" stylesheets="@Scene.css">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
    </children>
 </AnchorPane>

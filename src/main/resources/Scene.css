@@ -1,15 +1,24 @@
 .button {
-    -fx-background-color: linear-gradient(to bottom left, #00FFFF, #FF10F0);
+    -fx-background-color: #00FFFF;
     -fx-border-color: #00FFFF;
     -fx-border-width: 1px;
     -fx-border-radius: 10px; /* Adjust the radius for curved corners */
     -fx-font-size: 16px;
-    -fx-text-fill: white; /* White text color */
+    -fx-text-fill: white;
     -fx-padding: 10px 20px;
     -fx-effect: innershadow(gaussian, #000000, 1, 1.0, 0, 0);
     -fx-font-weight: bold;
 }
 
+.text-area {
+    -fx-border-color: #00FFFF; /* Neon blue border */
+    -fx-border-width: 3px;
+    -fx-background-color: black;
+    -fx-control-inner-background: black;
+    -fx-text-fill: yellow;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+}
 
 .anchor-pane{
     -fx-background-color: black;
