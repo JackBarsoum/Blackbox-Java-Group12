@@ -323,7 +323,7 @@ public class GameController {
                                             System.out.println("Downtest8");
                                             color = Color.RED;
                                         }else{
-                                            angleRadians = Math.toRadians(120);
+                                            angleRadians = Math.toRadians(121);
                                             System.out.println("Downtest9");
                                             color = Color.BLUE;
                                         }
