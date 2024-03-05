@@ -312,7 +312,7 @@ public class GameController {
                                     //If the ray deflects at the side of the sphere of influence
 
                                 } else {
-                                    if(x == 60){
+                                    if(x == 59){
                                         angleRadians = Math.toRadians(60);
                                         System.out.println("Tester");
                                         color = Color.BLACK;
@@ -384,7 +384,7 @@ public class GameController {
                                 }
                                 //If the ray deflects at the side of the sphere of influence
                             } else {
-                                if(x == 60) {
+                                if(x == 59) {
                                     System.out.println("HHello");
                                     angleRadians = Math.toRadians(180);
                                 }
@@ -562,7 +562,7 @@ public class GameController {
                                 if (newLine.getEndY() - 10 > node.getLayoutY()) {
                                     System.out.println(newLine.getEndY());
                                     System.out.println(node.getLayoutY());
-                                    if(x == 60) {
+                                    if(x == 59) {
                                         if(newLine.getEndX() < node.getLayoutX()) {
                                             System.out.println("Hello1");
                                             angleRadians = Math.toRadians(180);
@@ -593,7 +593,7 @@ public class GameController {
 //                                    }
                                     //If the ray deflects at the side of the sphere of influence
                                 } else {
-                                    if(x == 60) {
+                                    if(x == 59) {
                                         angleRadians = Math.toRadians(60);
                                         System.out.println("Tester");
                                     }
