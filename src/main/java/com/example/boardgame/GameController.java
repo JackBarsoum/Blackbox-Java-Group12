@@ -62,6 +62,7 @@ public class GameController {
         stage.show();
     }
 
+
     @FXML
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
             button10, button11, button12, button13, button14, button15, button16,
@@ -295,7 +296,7 @@ public class GameController {
                                         angleRadians = Math.toRadians(0);
                                         color = Color.BLACK;
                                     } else {
-                                        angleRadians = Math.toRadians(178);
+                                        angleRadians = Math.toRadians(179);
                                         System.out.println("Downtest7");
                                         color = Color.BLACK;
                                     }
@@ -565,7 +566,7 @@ public class GameController {
                                     if(x == 59) {
                                         if(newLine.getEndX() < node.getLayoutX()) {
                                             System.out.println("Hello1");
-                                            angleRadians = Math.toRadians(180);
+                                            angleRadians = Math.toRadians(1);
                                             color = Color.BLACK;
                                         }else{
                                             angleRadians = Math.toRadians(180);
