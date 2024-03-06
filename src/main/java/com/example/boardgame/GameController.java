@@ -604,7 +604,7 @@ public class GameController {
                                             System.out.println("Lol");
                                             color = Color.YELLOW;
                                         } else {
-                                            angleRadians = Math.toRadians(120);
+                                            angleRadians = Math.toRadians(121);
                                             System.out.println("LOL2");
                                             color = Color.GREEN;
                                         }
