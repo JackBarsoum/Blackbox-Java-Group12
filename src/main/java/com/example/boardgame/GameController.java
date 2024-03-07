@@ -10,14 +10,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.net.Socket;
 import java.net.URL;
-import java.sql.SQLOutput;
 
 
 public class GameController {
@@ -25,15 +21,25 @@ public class GameController {
     private Color direction_tester;
     private boolean right = false;
     private boolean left = false;
-    private int atomcount = 0;
-    private Pane spherepane;
+    private static int atomcount = 0;
+    private static Pane spherepane;
 
-    void setAtomcount(int atomcount1) {
+    private static Button start_Button;
+    private boolean testActive = false;
+
+    public int getAtomcount(){
+        return atomcount;
+    }
+    public void setAtomcount(int atomcount1) {
         this.atomcount = atomcount1;
     }
 
-    void setSpherepane(Pane spherepane1) {
-        this.spherepane = spherepane1;
+    static void setSpherepane(Pane spherepane1) {
+        spherepane = spherepane1;
+    }
+
+    public static void setAtomcount(){
+        atomcount++;
     }
 
     @FXML
@@ -44,6 +50,8 @@ public class GameController {
     private Scene scene;
     private URL boardURL;
 
+    private static Button b;
+
     @FXML
     void leave(ActionEvent event) {
         System.out.println("Quitting Game");
@@ -53,6 +61,7 @@ public class GameController {
 
     @FXML
     void switchtoBoard(ActionEvent event) throws IOException {
+        b = (Button) event.getSource();
         boardURL = getClass().getResource("Board.fxml");
         Parent root = FXMLLoader.load(boardURL);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -60,51 +69,23 @@ public class GameController {
         stage.setScene(scene);
        // stage.setFullScreen(true);
         stage.show();
+
     }
 
-
-    @FXML
-    Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
-            button10, button11, button12, button13, button14, button15, button16,
-            button18, button19, button20, button21, button22, button23, button24, button25,
-            button26, button27, button28, button29, button30, button31, button32,
-            button34, button35, button36, button37, button38, button39, button40, button41,
-            button42, button43, button44, button45, button46, button47, button48, button49,
-            button50, button51, button52, button53, button54, button55, button56, button57,
-            button58, button59, button60, button61, button62;
-
+    public static int checkTest = 0;
+    public void checkTest(MouseEvent e){
+        if(b.getId().equals("Test") && checkTest == 0){
+            TextArea textArea = textBox;
+            textArea.appendText("TESTING MODE ACTIVE\n");
+            checkTest++;
+        }
+    }
 
     @FXML
     public Sphere handleButtonClick(MouseEvent event) {
         // create a new sphere
-        if (atomcount < 6) {
-            Polygon hexagon = (Polygon) event.getSource();
-            Sphere sphere = new Sphere(30);
-            Circle sphere1 = new Circle(90);
-            double x = hexagon.getLayoutX();
-            double y = hexagon.getLayoutY();
-
-            // set the sphere color to red
-            sphere.setMaterial(new PhongMaterial(Color.RED));
-            sphere.setLayoutX(x);
-            sphere.setLayoutY(y);
-            sphere1.setLayoutX(x);
-            sphere1.setLayoutY(y);
-            sphere1.setStroke(Color.WHITE);
-            sphere1.setFill(Color.TRANSPARENT);
-            sphere1.setMouseTransparent(true);
-
-            // get the parent node of the button
-            Pane parent = (Pane) hexagon.getParent();
-            spherepane = (Pane) hexagon.getParent();
-            // replace the button with the sphere
-            parent.getChildren().add(sphere);
-            parent.getChildren().add(sphere1);
-            atomcount++;
-
-            return sphere;
-        }
-        return null;
+       Sphere sphere = Atoms.placeAtomsinHex(event, getAtomcount());
+       return sphere;
     }
 
     @FXML
@@ -155,7 +136,7 @@ public class GameController {
                         textBox.appendText("Ray hit nothing and exited at " + node.getId() + "\n");
                         flag = 1;
                         break;
-                    } else if (node instanceof Sphere && isInside((Sphere) node, newLine)) {
+                    } else if (node instanceof Sphere && CircleCalculations.isInside((Sphere) node, newLine)) {
                         System.out.println("Ray hit a atom");
                         textBox.appendText("Ray hit an atom" + "\n");
                         flag = 1;
@@ -171,26 +152,26 @@ public class GameController {
                         System.out.println("old line: " + oldLine.getStartX() + "," + oldLine.getStartY() + " | " + oldLine.getEndX() + "," + oldLine.getEndY());
 
 
-                        System.out.println("HIT CIRCLE " + node.getLayoutY());
+                        if(checkTest != 0) System.out.println("HIT CIRCLE " + node.getLayoutY());
                         if(newLine.getEndY() > node.getLayoutY() + 10){ //hits near bottom
                             if(newLine.getEndX() > node.getLayoutX()){ //hits right side
                                 angleRadians = Math.toRadians(135);
-                                System.out.println("HIT BOTTOM RIGHT");
+                                if(checkTest != 0)System.out.println("HIT BOTTOM RIGHT");
                             }
                             else{ //left side
                                 angleRadians = Math.toRadians(45);
-                                System.out.println("HIT BOTTOM LEFT");
+                                if(checkTest != 0)System.out.println("HIT BOTTOM LEFT");
                             }
 
                         }
                         else if(newLine.getEndY() + 10 < node.getLayoutY()){ //hits near top
                             if(newLine.getEndX() + 10 > node.getLayoutX()){ //hits right side
                                 angleRadians = Math.toRadians(-135);
-                                System.out.println("HIT TOP RIGHT");
+                                if(checkTest != 0)System.out.println("HIT TOP RIGHT");
                             }
                             else{ //left side
                                 angleRadians = Math.toRadians(-45);
-                                System.out.println("HIT TOP LEFT");
+                                if(checkTest != 0)System.out.println("HIT TOP LEFT");
                             }
                         }
 
@@ -211,8 +192,10 @@ public class GameController {
                 }
             }
         }
-        p.getChildren().add(newLine);
-        p.getChildren().add(oldLine);
+        if(checkTest != 0) {
+            p.getChildren().add(newLine);
+            p.getChildren().add(oldLine);
+        }
     }
 
     @FXML
@@ -291,7 +274,6 @@ public class GameController {
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && node.getBoundsInParent().intersects(newLine.getBoundsInParent())) {
-                        System.out.println(deflection_account);
                         String node_exit;
                         // Line intersects with another rectangle
                         switch (deflection_account) {
@@ -311,7 +293,7 @@ public class GameController {
                         flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2) {
-                        checker = isInsideC((Circle) node, newLine, x);
+                        checker = CircleCalculations.isInsideC((Circle) node, newLine, x, false);
                         if(checker != -1){
                             deflection_account = 1;
                         }
@@ -336,49 +318,40 @@ public class GameController {
                                 if (newLine.getEndY() + 10 < node.getLayoutY()) {
                                     if (x == 60) {
                                         if(newLine.getEndX() > node.getLayoutX()){
-                                        System.out.println("Downtest1");
+                                            if(checkTest != 0)System.out.println("Downtest1");
                                         angleRadians = Math.toRadians(180);
                                         color = Color.BLACK;
                                     } else {
                                         angleRadians = Math.toRadians(180);
                                         color = Color.BLACK;
-                                        System.out.println("Downtest2");
+                                            if(checkTest != 0)System.out.println("Downtest2");
                                     }
                                 } else {
                                     if (newLine.getEndX() > node.getLayoutX()) {
-                                        System.out.println("Downtest6");
+                                        if(checkTest != 0)System.out.println("Downtest6");
                                         angleRadians = Math.toRadians(0);
                                         color = Color.BLACK;
                                     } else {
                                         angleRadians = Math.toRadians(179);
-                                        System.out.println("Downtest7");
+                                        if(checkTest != 0)System.out.println("Downtest7");
                                         color = Color.BLACK;
                                     }
                                 }
-
-//                                    if(direction_tester == Color.GREEN) {
-//                                        color = Color.GREEN;
-//                                    }
-//                                    else if (direction_tester == Color.YELLOW)
-//                                    {
-//                                        color = Color.YELLOW;
-//                                    }
                                     //If the ray deflects at the side of the sphere of influence
-
                                 } else {
                                     if(x == 60){
                                         angleRadians = Math.toRadians(60);
-                                        System.out.println("Tester");
+                                        if(checkTest != 0)System.out.println("Tester");
                                         color = Color.BLACK;
                                     }
                                     else {
                                         if(newLine.getEndX() > node.getLayoutX()){
                                             angleRadians = Math.toRadians(58);
-                                            System.out.println("Downtest8");
+                                            if(checkTest != 0)System.out.println("Downtest8");
                                             color = Color.RED;
                                         }else{
                                             angleRadians = Math.toRadians(121);
-                                            System.out.println("Downtest9");
+                                            if(checkTest != 0)System.out.println("Downtest9");
                                             color = Color.BLUE;
                                         }
                                     }
@@ -398,7 +371,7 @@ public class GameController {
 
                         }
                         //Case if the ray hit 2 circles of influence at the same time
-                    } else if (node instanceof Circle && isInsideC((Circle) node, newLine, x) != -1 && node != prevNode) {
+                    } else if (node instanceof Circle && CircleCalculations.isInsideC((Circle) node, newLine, x, false) != -1 && node != prevNode) {
                         deflection_account = 2;
                         if (line_flag == 0) {
                             //Same as the case above, store the ray before the deflection in a new line
@@ -418,32 +391,29 @@ public class GameController {
                             oldLine.setEndX(newLine.getEndX());
 
                             double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
-                            System.out.println(newLine.getEndY());
-                            System.out.println(averageY);
                             averageY -= 45;
 
                             //If the ray deflects at the top of the sphere of influence
                             if (newLine.getEndY() < averageY && right || newLine.getEndY() < averageY && left) {
-                                System.out.println("Downtest10");
                                 if(direction_tester == Color.GREEN) {
                                     color = Color.GREEN;
-                                    System.out.println("Downtest12");
+                                    if(checkTest != 0) System.out.println("Downtest12");
                                     angleRadians = Math.toRadians(123);
                                 }
                                 else if (direction_tester == Color.YELLOW)
                                 {
-                                    System.out.println("Downtest13");
+                                    if(checkTest != 0)System.out.println("Downtest13");
                                     angleRadians = Math.toRadians(59);
                                     color = Color.YELLOW;
                                 }
                                 //If the ray deflects at the side of the sphere of influence
                             } else {
                                 if(x == 59) {
-                                    System.out.println("HHello");
+                                    if(checkTest != 0)System.out.println("HHello");
                                     angleRadians = Math.toRadians(180);
                                 }
                                 else angleRadians = Math.toRadians(0);
-                                System.out.println("HHHHHELLOOOO");
+                                if(checkTest != 0)System.out.println("HHHHHELLOOOO");
                                 color = Color.BLACK;
                             }
 
@@ -459,7 +429,7 @@ public class GameController {
                         line_flag+= 2;
                     }
                     // Handle the case where the line hits another circle at the same location
-                    else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
+                    else if (node instanceof Sphere && CircleCalculations.isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
                         textBox.appendText("Ray hit an atom" + "\n");
                         System.out.println("Ray hit at an atom");
                         flag = 1;
@@ -469,12 +439,14 @@ public class GameController {
 
         } while (flag != 1);
 
-        //If the ray was deflected then both the line before and after the ray was deflected will need to be printed
-        if (line_flag != 1) {
-            p.getChildren().add(oldLine);
-            p.getChildren().add(newLine);
-        } else {
-            p.getChildren().add(newLine);
+        //If the ray was deflected then both the line before and after the ray was deflected will need to be
+        if(checkTest != 0) {
+            if (line_flag != 1) {
+                p.getChildren().add(oldLine);
+                p.getChildren().add(newLine);
+            } else {
+                p.getChildren().add(newLine);
+            }
         }
     }
 
@@ -590,7 +562,7 @@ public class GameController {
                         flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2) {
-                        checker = isInsideC((Circle) node, newLine, x);
+                        checker = CircleCalculations.isInsideC((Circle) node, newLine, x, true);
                         if(checker != -1){
                             delfection_account = 1;
                         }
@@ -615,11 +587,9 @@ public class GameController {
 
                                 //If the ray deflects at the bottom of the sphere of influence
                                 if (newLine.getEndY() - 10 > node.getLayoutY()) {
-                                    System.out.println(newLine.getEndY());
-                                    System.out.println(node.getLayoutY());
                                     if(x == 59) {
                                         if(newLine.getEndX() < node.getLayoutX()) {
-                                            System.out.println("Hello1");
+                                            if(checkTest != 0) System.out.println("Hello1");
                                             angleRadians = Math.toRadians(1);
                                             color = Color.BLACK;
                                         }else{
@@ -630,36 +600,29 @@ public class GameController {
                                     }
                                     else{
                                         if(newLine.getEndX() < node.getLayoutX()) {
-                                            System.out.println("Hello2");
+                                            if(checkTest != 0) System.out.println("Hello2");
                                             angleRadians = Math.toRadians(1);
                                             color = Color.BLACK;
                                         }else{
                                             angleRadians = Math.toRadians(179);
-                                            System.out.println("Hell on Earth1");
+                                            if(checkTest != 0) System.out.println("Hell on Earth1");
                                             color = Color.BLACK;
                                         }
                                         }
-//                                    if(direction_tester == Color.GREEN) {
-//                                        color = Color.GREEN;
-//                                    }
-//                                    else if (direction_tester == Color.YELLOW)
-//                                    {
-//                                        color = Color.YELLOW;
-//                                    }
                                     //If the ray deflects at the side of the sphere of influence
                                 } else {
                                     if(x == 60) {
                                         angleRadians = Math.toRadians(60);
-                                        System.out.println("Tester");
+                                        if(checkTest != 0)System.out.println("Tester");
                                     }
                                     else {
                                         if (newLine.getEndX() < node.getLayoutX()) {
-                                            angleRadians = Math.toRadians(60);
-                                            System.out.println("Lol");
+                                            angleRadians = Math.toRadians(59);
+                                            if(checkTest != 0) System.out.println("Lol");
                                             color = Color.YELLOW;
                                         } else {
                                             angleRadians = Math.toRadians(121);
-                                            System.out.println("LOL2");
+                                            if(checkTest != 0)  System.out.println("LOL2");
                                             color = Color.GREEN;
                                         }
                                     }
@@ -680,7 +643,7 @@ public class GameController {
 
                         }
                         //Case if the ray hit 2 circles of influence at the same time
-                    } else if (node instanceof Circle && isInsideC((Circle) node, newLine, x) != -1 && node != prevNode) {
+                    } else if (node instanceof Circle && CircleCalculations.isInsideC((Circle) node, newLine, x,true) != -1 && node != prevNode) {
                         delfection_account = 2;
                         if (line_flag == 0) {
                             //Same as the case above, store the ray before the deflection in a new line
@@ -700,33 +663,26 @@ public class GameController {
                             oldLine.setEndX(newLine.getEndX());
 
                             double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
-                            System.out.println(newLine.getEndY());
-                            System.out.println(averageY);
                             averageY += 45;
 
                             //If the ray deflects at the bottom of the sphere of influence
                             if (newLine.getEndY() > averageY && right || newLine.getEndY() > averageY && left) {
-                                System.out.println("BOTTOM");
-
                                 //color = Color.BLACK;
-                                System.out.println("Test2");
-                                System.out.println(direction_tester);
                                 if(direction_tester == Color.GREEN) {
-                                    System.out.println("Test2.1");
+                                    if(checkTest != 0) System.out.println("Test2.1");
                                     color = Color.RED;
                                     angleRadians = Math.toRadians(238);
                                 }
                                 else if (direction_tester == Color.YELLOW)
                                 {
-                                    System.out.println("Test2.2");
+                                    if(checkTest != 0)System.out.println("Test2.2");
                                     angleRadians = Math.toRadians(302);
                                     color = Color.BLUE;
                                 }
                                 //If the ray deflects at the side of the sphere of influence
                             } else {
-                                System.out.println("SIDE");
                                 if(direction_tester == Color.GREEN) {
-                                    System.out.println("Side1");
+                                    if(checkTest != 0)System.out.println("Side1");
                                     angleRadians = Math.toRadians(0);
 
                                 }
@@ -748,7 +704,7 @@ public class GameController {
                         line_flag+= 2;
                     }
                     // Handle the case where the line hits another circle at the same location
-                    else if (node instanceof Sphere && isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
+                    else if (node instanceof Sphere && CircleCalculations.isInside((Sphere) node, newLine) && checker == 2) { //If the node hits the atom
                         textBox.appendText("Ray hit an atom" + "\n");
                         System.out.println("Ray hit an atom");
                         flag = 1;
@@ -759,109 +715,21 @@ public class GameController {
         } while (flag != 1);
 
         //If the ray was deflected then both the line before and after the ray was deflected will need to be printed
-        if (line_flag != 1) {
-            p.getChildren().add(oldLine);
-            p.getChildren().add(newLine);
-        } else {
-            p.getChildren().add(newLine);
+        if(checkTest != 0) {
+            if (line_flag != 1) {
+                p.getChildren().add(oldLine);
+                p.getChildren().add(newLine);
+            } else {
+                p.getChildren().add(newLine);
+            }
         }
     }
 
 
     @FXML
     public void toggleAtoms(ActionEvent event) {
-        //If we have a normal amount of atoms placed
-        if (atomcount >= 3 && atomcount <= 6) {
-            //go through all the children of the pane spherepane
-            for (Node child: spherepane.getChildren()) {
-                //if the child is a sphere
-                if (child instanceof Sphere) {
-                    //make the child a sphere so we can use sphere methods
-                    Sphere sphere = (Sphere) child;
-                    //make the sphere invisible/visible depending on the return of isVisible
-                    sphere.setVisible(!sphere.isVisible());
-                }
-                else if(child instanceof Circle){
-                    Circle circle = (Circle) child;
-
-                    circle.setVisible(!circle.isVisible());
-                }
-
-            }
-
-        }
-
+        Atoms.invisbleAtoms(event, getAtomcount(), spherepane);
     }
-
-    //Method to check that the line actually hit the atom by using the distance formula
-    public boolean isInside(Sphere x, Line l) {
-        double radius = x.getRadius();
-
-        double distance = Math.sqrt(Math.pow((x.getLayoutX() - l.getEndX()), 2) + Math.pow((x.getLayoutY() - l.getEndY()), 2));
-        if (distance <= radius) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public int isInsideC(Circle c, Line l, int angle) {
-        double radius = c.getRadius();
-        Pane p = (Pane) c.getParent();
-        int checker = 0;
-
-        //Distance formula to check if the ray actually hit the circle
-        double distance = Math.sqrt(Math.pow((c.getLayoutX() - l.getEndX()), 2) + Math.pow((c.getLayoutY() - l.getEndY()), 2));
-        if (distance <= radius) {
-            checker = 1;
-        } else {
-            //If it doesn't hit the circle at all
-            checker = -1;
-        }
-
-        //If the ray does hit the sphere of influence a prediction is needed to see if the ray will hit the atom or deflect
-        if (checker == 1) {
-            double tempEndX = l.getEndX();
-            double tempEndY = l.getEndY();
-
-            //Creates a sample line that starts where the ray hits the circle
-            Line lineTest = new Line();
-            lineTest.setStartX(tempEndX);
-            lineTest.setStartY(tempEndY);
-            lineTest.setEndY(tempEndY);
-            lineTest.setEndX(tempEndX);
-
-            //Sets the line to go at the trajectory that the ray is going at
-            double angleRadians = Math.toRadians(angle);
-            double dx = Math.cos(angleRadians);
-            double dy = Math.sin(angleRadians);
-
-            //Checks to see if the ray will hit the atom on its current trajectory
-            for (int i = 0; i < 90; i++) {
-                if(up)
-                {
-                    lineTest.setEndX(lineTest.getEndX() - dx);
-                    lineTest.setEndY(lineTest.getEndY() - dy);
-                }
-                else
-                {
-                    lineTest.setEndX(lineTest.getEndX() + dx);
-                    lineTest.setEndY(lineTest.getEndY() + dy);
-                }
-
-                for (Node node: p.getChildren()) {
-                    if (lineTest.getBoundsInParent().intersects(node.getBoundsInParent())) {
-                        if (node instanceof Sphere && isInside((Sphere) node, lineTest)) {
-                            checker = 2; // If the ray will hit the atom on hits current trajectory than checker is set to two
-                        }
-                    }
-                }
-            }
-        }
-
-        return checker;
-    }
-
 
     public Stage getStage() {
         return stage;
