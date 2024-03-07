@@ -142,11 +142,9 @@ public class GameController {
         double hx = x;
         double hy = 0;
 
-        boolean side = false; //if either top or bottom sides are hit (not middle)
-
         int checker = 0;
 
-
+        Node prevNode = null;
 
         do {
             newLine.setEndX(newLine.getEndX() + hx); // Increase the line length
@@ -180,7 +178,6 @@ public class GameController {
 
                         System.out.println("HIT CIRCLE " + node.getLayoutY());
                         if(newLine.getEndY() > node.getLayoutY() + 10){ //hits near bottom
-                            side = true;
                             if(newLine.getEndX() > node.getLayoutX()){ //hits right side
                                 angleRadians = Math.toRadians(125);
                                 System.out.println("HIT BOTTOM RIGHT");
@@ -192,7 +189,6 @@ public class GameController {
 
                         }
                         else{ //hits near top
-                            side = true;
                             if(newLine.getEndX() + 10 > node.getLayoutX()){ //hits right side
                                 angleRadians = Math.toRadians(-125);
                                 System.out.println("HIT TOP RIGHT");
@@ -207,6 +203,41 @@ public class GameController {
 
                         checker = 1;
 
+                    } else if(false){ //if it hits 2 adjacent circles
+                        //copy newLine onto oldLine
+                        oldLine.setStartY(newLine.getStartY());
+                        oldLine.setStartX(newLine.getStartX());
+                        oldLine.setEndY(newLine.getEndY());
+                        oldLine.setEndX(newLine.getEndX() + (40*x));
+
+                        newLine.setStartX(oldLine.getEndX());
+                        newLine.setStartY(oldLine.getEndY());
+
+                        if(newLine.getEndY() > node.getLayoutY() + 10){ //hits near bottom
+                            if(newLine.getEndX() > node.getLayoutX()){ //hits right side
+                                angleRadians = Math.toRadians(67);
+                                System.out.println("HIT BOTTOM RIGHT");
+                            }
+                            else{ //left side
+                                angleRadians = Math.toRadians(110);
+                                System.out.println("HIT BOTTOM LEFT");
+                            }
+
+                        }
+                        else{ //hits near top
+                            if(newLine.getEndX() + 10 > node.getLayoutX()){ //hits right side
+                                angleRadians = Math.toRadians(-69);
+                                System.out.println("HIT TOP RIGHT");
+                            }
+                            else{ //left side
+                                angleRadians = Math.toRadians(-110);
+                                System.out.println("HIT TOP LEFT");
+                            }
+                        }
+                        hx = Math.cos(angleRadians);
+                        hy = Math.sin(angleRadians);
+
+                        checker = 1;
                     }
                 }
             }
@@ -215,7 +246,6 @@ public class GameController {
 
         p.getChildren().add(oldLine);
         p.getChildren().add(newLine);
-
 
     }
 
