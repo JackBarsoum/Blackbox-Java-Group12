@@ -139,13 +139,18 @@ public class GameController {
         double angleRadians = Math.toRadians(x);
 
         int flag = 0;
-        double hx;
-        double hy;
+        double hx = x;
+        double hy = 0;
+
+        boolean side = false; //if either top or bottom sides are hit (not middle)
+
+        int checker = 0;
 
 
 
         do {
-            newLine.setEndX(newLine.getEndX() + x); // Increase the line length
+            newLine.setEndX(newLine.getEndX() + hx); // Increase the line length
+            newLine.setEndY(newLine.getEndY() + hy);
 
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
@@ -159,8 +164,10 @@ public class GameController {
                         System.out.println("Ray hit a atom");
                         textBox.appendText("Ray hit an atom" + "\n");
                         flag = 1;
-                    } else if(node instanceof Circle){
+                    } else if(node instanceof Circle && ((newLine.getEndY() > node.getLayoutY() + 10) || (newLine.getEndY() + 10 < node.getLayoutY())) && checker != 1){
                         //line intersects with a circle of influence
+
+                        //copy newLine onto oldLine
                         oldLine.setStartY(newLine.getStartY());
                         oldLine.setStartX(newLine.getStartX());
                         oldLine.setEndY(newLine.getEndY());
@@ -173,46 +180,43 @@ public class GameController {
 
                         System.out.println("HIT CIRCLE " + node.getLayoutY());
                         if(newLine.getEndY() > node.getLayoutY() + 10){ //hits near bottom
+                            side = true;
                             if(newLine.getEndX() > node.getLayoutX()){ //hits right side
-                                angleRadians = Math.toRadians(135);
+                                angleRadians = Math.toRadians(125);
                                 System.out.println("HIT BOTTOM RIGHT");
                             }
                             else{ //left side
-                                angleRadians = Math.toRadians(45);
+                                angleRadians = Math.toRadians(55);
                                 System.out.println("HIT BOTTOM LEFT");
                             }
 
                         }
-                        else if(newLine.getEndY() + 10 < node.getLayoutY()){ //hits near top
+                        else{ //hits near top
+                            side = true;
                             if(newLine.getEndX() + 10 > node.getLayoutX()){ //hits right side
-                                angleRadians = Math.toRadians(-135);
+                                angleRadians = Math.toRadians(-125);
                                 System.out.println("HIT TOP RIGHT");
                             }
                             else{ //left side
-                                angleRadians = Math.toRadians(-45);
+                                angleRadians = Math.toRadians(-55);
                                 System.out.println("HIT TOP LEFT");
                             }
                         }
+                        hx = Math.cos(angleRadians);
+                        hy = Math.sin(angleRadians);
 
-                        flag = 1;
+                        checker = 1;
+
                     }
                 }
             }
 
         } while (flag != 1);
 
-        hx = Math.cos(angleRadians);
-        hy = Math.sin(angleRadians);
-        for (Node node : p.getChildren()) {
-            if (newLine.getBoundsInParent().intersects(node.getBoundsInParent()) || true) {
-                if(!(node instanceof Rectangle)) {
-                    newLine.setEndX(newLine.getEndX() + hx);
-                    newLine.setEndY(newLine.getEndY() + hy);
-                }
-            }
-        }
-        p.getChildren().add(newLine);
         p.getChildren().add(oldLine);
+        p.getChildren().add(newLine);
+
+
     }
 
     @FXML
