@@ -1165,6 +1165,60 @@
    <Rectangle id="Node_19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="252.0" layoutY="741.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
    <Line endX="92.99999237060547" layoutX="286.0" layoutY="751.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Rectangle id="Node_21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="344.0" layoutY="743.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
+   <Polygon fill="#ffb700" layoutX="255.0" layoutY="122.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="211.0" layoutY="194.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="708.0" layoutY="120.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="167.0" layoutY="272.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="119.0" layoutY="345.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="79.0" layoutY="420.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="123.0" layoutY="495.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="165.0" layoutY="570.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="213.0" layoutY="643.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="258.0" layoutY="720.0" points="0.0, -15.742584228515625, 6.9639892578125, -21.334396362304688, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="753.0" layoutY="194.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="798.0" layoutY="271.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="842.0" layoutY="345.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="889.0" layoutY="422.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="843.0" layoutY="495.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="797.0" layoutY="568.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="753.0" layoutY="643.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="708.0" layoutY="718.0" points="0.0, -15.742584228515625, -6.997894287109375, -20.868865966796875, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="728.0" layoutY="160.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="772.0" layoutY="235.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="817.0" layoutY="311.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="862.0" layoutY="386.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="680.0" layoutY="84.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="594.0" layoutY="85.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="507.0" layoutY="85.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="325.0" layoutY="85.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="415.0" layoutY="85.0" points="8.47174072265625, -20.86883544921875, 0.0, -16.53125, 0.0, -26.16455078125" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="108.0" layoutY="384.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="642.0" layoutY="754.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="284.0" layoutY="754.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="375.0" layoutY="754.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="465.0" layoutY="753.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="555.0" layoutY="754.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="461.0" layoutY="84.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="552.0" layoutY="85.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="641.0" layoutY="85.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="283.0" layoutY="85.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="242.0" layoutY="159.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="195.0" layoutY="233.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="149.0" layoutY="307.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="106.0" layoutY="453.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="149.0" layoutY="530.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="198.0" layoutY="604.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="241.0" layoutY="681.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="829.0" layoutY="516.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="427.0" layoutY="743.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="873.0" layoutY="443.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="785.0" layoutY="592.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="739.0" layoutY="665.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="692.0" layoutY="741.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="608.0" layoutY="746.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="519.0" layoutY="745.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+   <Polygon fill="#ffb700" layoutX="338.0" layoutY="744.0" points="-3.04278564453125, -8.419342041015625, -11.47479248046875, -3.74310302734375, -11.47479248046875, -13.86492919921875" stroke="#ffb700" strokeType="INSIDE" />
+
    <Label layoutX="244.0" layoutY="25.0" text="1" textFill="ORANGE">
       <font>
          <Font size="25.0" />
@@ -1435,4 +1489,5 @@
          <Font size="25.0" />
       </font>
    </Label>
+   <Polygon fill="#ffb700" layoutX="375.0" layoutY="84.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
 </AnchorPane>
