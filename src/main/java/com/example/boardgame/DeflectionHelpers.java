@@ -1,12 +1,15 @@
 package com.example.boardgame;
 
 import javafx.scene.Node;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Sphere;
 
-public class CircleCalculations {
+import java.awt.*;
+
+public class DeflectionHelpers {
     public static boolean isInside(Sphere x, Line l) {
         double radius = x.getRadius();
 
@@ -22,7 +25,6 @@ public class CircleCalculations {
         double radius = c.getRadius();
         Pane p = (Pane) c.getParent();
         int checker = 0;
-
         //Distance formula to check if the ray actually hit the circle
         double distance = Math.sqrt(Math.pow((c.getLayoutX() - l.getEndX()), 2) + Math.pow((c.getLayoutY() - l.getEndY()), 2));
         if (distance <= radius) {
@@ -74,4 +76,22 @@ public class CircleCalculations {
 
         return checker;
     }
+
+    public static void printResults(int result, TextArea textBox, Node node){
+        switch (result){
+            case 0:
+                textBox.appendText("Ray hit nothing and exited at " + node.getId() + "\n");
+                System.out.println("Ray hit nothing and exited at " + node.getId());
+                break;
+            case 1:
+                System.out.println("Ray deflected at 60 degrees, hit nothing and exited at " + node.getId());
+                textBox.appendText("Ray deflected at 60 degrees, hit nothing and exited at " + node.getId() + "\n");
+                break;
+            case 2:
+                System.out.println("Ray deflected at 120 degrees, hit nothing and exited at " + node.getId());
+                textBox.appendText("Ray deflected at 120 degrees, hit nothing and exited at " + node.getId() + "\n");
+                break;
+        }
+    }
+
 }

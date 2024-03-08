@@ -3,6 +3,8 @@ import static org.junit.Assert.*;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -78,7 +80,6 @@ public class JunitTest {
         Thread t = new Thread(runnable);
         t.start();
     }
-
     @Test
     public void testPlacingAtoms(){
 
@@ -90,10 +91,10 @@ public class JunitTest {
         mockParent.getChildren().add(mockButton);
 
         //Creates a mock action where a button is pressed
-        ActionEvent mockEvent = new ActionEvent(mockButton, null);
+       // MouseEvent mockEvent = new
 
         // Create an instance of GameController
-        GameController testing = new GameController();
+      //  GameController testing = new GameController();
 
         // Call handleButtonClick
        // Sphere sphere1 = testing.handleButtonClick(mockEvent);
