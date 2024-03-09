@@ -1,26 +1,18 @@
 package com.example.boardgame;
 import static org.junit.Assert.*;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseButton;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Sphere;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 public class JunitTest {
 
@@ -64,14 +56,14 @@ public class JunitTest {
     public void testSwitchToBoard() throws IOException {
         Runnable runnable = () -> {
         //check if file exists
-        String boardPath = GameController.class.getResource("Board.fxml").getFile();
+        String boardPath = MenuControllers.class.getResource("Board.fxml").getFile();
         File f = new File(boardPath);
         assertTrue(f.exists());
 
         Parent ex = new Parent(){};
 
         Scene exScene = new Scene(ex);
-        GameController gc = new GameController();
+        MenuControllers gc = new MenuControllers();
 
         assertNotNull(gc.getStage().getScene()); //scene set
         assertTrue(gc.getStage().isShowing()); //stage is showing

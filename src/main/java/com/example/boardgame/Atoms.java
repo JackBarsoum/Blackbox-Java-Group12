@@ -2,6 +2,7 @@ package com.example.boardgame;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -62,6 +63,9 @@ public class Atoms {
                 }
 
             }
+            Button b = (javafx.scene.control.Button) e.getSource();
+            b.setVisible(!b.isVisible());
+            b.setDisable(true);
         }
     }
 }

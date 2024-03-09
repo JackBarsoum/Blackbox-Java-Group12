@@ -7,6 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -42,33 +45,9 @@ public class GameController {
     @FXML
     public TextArea textBox; //Text box where results of rays shots will be displayed
 
-    @FXML
-    private Stage stage;
-    private Scene scene;
-    private URL boardURL;
-
-    private static Button b;
-
-    @FXML
-    void leave(ActionEvent event) {
-        System.out.println("Quitting Game");
-        System.exit(0);
-    }
-
-    @FXML
-    void switchtoBoard(ActionEvent event) throws IOException {
-        b = (Button) event.getSource();
-        boardURL = getClass().getResource("Board.fxml");
-        Parent root = FXMLLoader.load(boardURL);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-       // stage.setFullScreen(true);
-        stage.show();
-    }
-
     public static int checkTest = 0;
     public void checkTest(MouseEvent e){
+        Button b = MenuControllers.getB();
         if(b.getId().equals("Test") && checkTest == 0){
             TextArea textArea = textBox;
             textArea.appendText("TESTING MODE ACTIVE\n");
@@ -780,11 +759,30 @@ public class GameController {
         Atoms.invisbleAtoms(event, getAtomcount(), spherepane);
     }
 
-    public Stage getStage() {
-        return stage;
+
+    @FXML
+    public void pauseGame(KeyEvent k) throws IOException {
+        KeyCode key = k.getCode();
+        if(key == KeyCode.ESCAPE){
+            pausePopUp();
+        }
     }
 
-    public URL getBoardURL() {
-        return boardURL;
+    @FXML
+    public static Stage stage2 = new Stage();
+    private Scene scene2;
+    private URL boardURL2;
+
+
+    @FXML
+    void pausePopUp()throws  IOException{
+        boardURL2 = getClass().getResource("Pause.fxml");
+        Parent root = FXMLLoader.load(boardURL2);
+        Image icon = new Image(this.getClass().getResource("GameIcon.jpeg").toExternalForm());
+        stage2.getIcons().add(icon);
+        stage2.setTitle("BlackBoard Pause");
+        scene2 = new Scene(root);
+        stage2.setScene(scene2);
+        stage2.show();
     }
 }
