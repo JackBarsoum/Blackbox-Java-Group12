@@ -122,7 +122,12 @@ public class GameController {
         double dy = Math.sin(angleRadians);
 
         double tempendX = newLine.getEndX();
-        double tempendY = newLine.getEndY() + 8.5;
+        double tempendY;
+        if(newLine.getBoundsInParent().intersects(b.getBoundsInParent())) {
+            tempendY = newLine.getEndY() + 8.5;
+        }else{
+            tempendY = newLine.getEndY();
+        }
 
         newLine.setStartX(tempendX);
         newLine.setStartY(tempendY);
@@ -419,7 +424,7 @@ public class GameController {
                                             color = Color.BLACK;
                                             direction_tester = Color.BLACK;
                                             p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(e, newLine, p, b, -2, Color.BLACK);
+                                            extendRayHorizontalHelper(e, newLine, p, b, -3, Color.BLACK);
                                             return;
                                         } else {
                                             angleRadians = Math.toRadians(180);
