@@ -184,7 +184,7 @@ public class GameController {
                                         color = Color.GREEN;
                                         if (checkTest != 0) System.out.println("Horizontaltest2");
                                         p.getChildren().add(oldLine);
-                                        extendLineDiagonalUpHelper(e, newLine, p, b, -57, Color.YELLOW);
+                                        extendLineDiagonalUpHelper(e, newLine, p, b, -121, Color.YELLOW);
                                         return;
                                     }
                                 } else {
