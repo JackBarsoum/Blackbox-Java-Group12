@@ -13,7 +13,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.net.Socket;
 import java.net.URL;
 
 import static java.lang.System.exit;
@@ -97,7 +96,6 @@ public class GameController {
 
         newLine.setStartX(b.getLayoutX() + b.getWidth());
         newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
-        System.out.println(b.getHeight() / 2);
         newLine.setEndX(newLine.getStartX());
         newLine.setEndY(b.getLayoutY());
         direction_tester = Color.BLACK;
@@ -107,7 +105,7 @@ public class GameController {
             extendRayHorizontalHelper(e, newLine, p, b, 0, direction_tester);
         } else if (b.getLayoutX() > 250) //Case for being to the right
         {
-            System.out.println(b.getLayoutX());
+
             extendRayHorizontalHelper(e, newLine, p, b, 180, direction_tester);
         }
     }
@@ -149,9 +147,6 @@ public class GameController {
 
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
-                    if(i < 30){
-                        System.out.println(newLine.getEndX());
-                    }
                     i++;
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && b != node) {
                         // Line intersects with another rectangle
@@ -176,13 +171,13 @@ public class GameController {
                                 oldLine.setEndX(newLine.getEndX());
 
                                 //If the ray deflects at the top of the sphere of influence
-                                if (newLine.getEndY() - 10 < node.getLayoutY()) {
+                                if (newLine.getEndY()  < node.getLayoutY()) {
                                     if (newLine.getEndX() > node.getLayoutX()) {
                                         if (checkTest != 0) System.out.println("Horizontaltest1");
                                         angleRadians = Math.toRadians(-58);
                                         color = Color.YELLOW;
                                         p.getChildren().add(oldLine);
-                                        extendLineDiagonalUpHelper(e, newLine, p, b, -121, Color.GREEN);
+                                        extendLineDiagonalUpHelper(e, newLine, p, b, -60, Color.GREEN);
                                         return;
                                     } else {
                                         angleRadians = Math.toRadians(-58);
@@ -416,7 +411,7 @@ public class GameController {
 
                                 //The color
                                 //If the ray deflects at the top of the sphere of influence
-                                if (newLine.getEndY() - 10 < node.getLayoutY()) {
+                                if (newLine.getEndY() + 10 < node.getLayoutY()) {
                                     if (x == 58) {
                                         if(newLine.getEndX() > node.getLayoutX()){
                                             if(checkTest != 0)System.out.println("Downtest1");
