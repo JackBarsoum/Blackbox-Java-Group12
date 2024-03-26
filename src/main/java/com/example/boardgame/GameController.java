@@ -432,10 +432,10 @@ public class GameController {
                                     } else {
                                         if (newLine.getEndX() > node.getLayoutX()) {
                                             if(checkTest != 0)System.out.println("Downtest6");
-                                            angleRadians = Math.toRadians(0);
+                                            angleRadians = Math.toRadians(-2);
                                             color = Color.BLACK;
                                             p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(e, newLine, p, b, 1, Color.BLACK);
+                                            extendRayHorizontalHelper(e, newLine, p, b, -2, Color.BLACK);
                                             return;
                                         } else {
                                             angleRadians = Math.toRadians(179);
