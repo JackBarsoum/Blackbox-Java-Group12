@@ -119,13 +119,11 @@ public class GameController {
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);
 
+        System.out.println(dy);
+
         double tempendX = newLine.getEndX();
-        double tempendY;
-        if(newLine.getBoundsInParent().intersects(b.getBoundsInParent())) {
-            tempendY = newLine.getEndY() + 8.5;
-        }else{
-            tempendY = newLine.getEndY();
-        }
+        double tempendY =  newLine.getEndY();
+
 
         newLine.setStartX(tempendX);
         newLine.setStartY(tempendY);
@@ -142,9 +140,8 @@ public class GameController {
 
         do {
             //If the ray deflects off the circle of influence and goes up the board instead
-                newLine.setEndX(newLine.getEndX() + dx);
-                newLine.setEndY(newLine.getStartY());
-
+            newLine.setEndX(newLine.getEndX() + dx);
+            newLine.setEndY(newLine.getEndY() + dy);
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     i++;
@@ -174,33 +171,25 @@ public class GameController {
                                 if (newLine.getEndY()  < node.getLayoutY()) {
                                     if (newLine.getEndX() > node.getLayoutX()) {
                                         if (checkTest != 0) System.out.println("Horizontaltest1");
-                                        angleRadians = Math.toRadians(-58);
-                                        color = Color.YELLOW;
-                                        p.getChildren().add(oldLine);
-                                        extendLineDiagonalUpHelper(e, newLine, p, b, -60, Color.GREEN);
+                                        if (checkTest != 0) p.getChildren().add(oldLine);
+                                        extendLineDiagonalUpHelper(e, newLine, p, b, -58, Color.YELLOW);
                                         return;
                                     } else {
-                                        angleRadians = Math.toRadians(-58);
-                                        color = Color.GREEN;
                                         if (checkTest != 0) System.out.println("Horizontaltest2");
-                                        p.getChildren().add(oldLine);
-                                        extendLineDiagonalUpHelper(e, newLine, p, b, -121, Color.YELLOW);
+                                        if (checkTest != 0) p.getChildren().add(oldLine);
+                                        extendLineDiagonalUpHelper(e, newLine, p, b, -123, Color.GREEN);
                                         return;
                                     }
                                 } else {
                                     if (newLine.getEndX() > node.getLayoutX()) {
                                         if (checkTest != 0) System.out.println("Horizontaltest3");
-                                        angleRadians = Math.toRadians(58);
-                                        color = Color.BLUE;
                                         direction_tester = Color.YELLOW;
-                                        p.getChildren().add(oldLine);
+                                        if (checkTest != 0) p.getChildren().add(oldLine);
                                         extendLineDiagonalDownHelper(e, newLine, p, b, 122, Color.RED);
                                         return;
                                     } else {
-                                        angleRadians = Math.toRadians(58);
-                                        color = Color.RED;
                                         if (checkTest != 0) System.out.println("Horizontaltest4");
-                                        p.getChildren().add(oldLine);
+                                        if (checkTest != 0) p.getChildren().add(oldLine);
                                         direction_tester = Color.GREEN;
                                         extendLineDiagonalDownHelper(e, newLine, p, b, 58, Color.BLUE);
                                         return;
@@ -233,17 +222,13 @@ public class GameController {
                             //If the ray deflects at the top of the sphere of influence
                             if (newLine.getEndY() < averageY) {
                                 if(x == 0) {
-                                    color = Color.YELLOW;
                                     if(checkTest != 0) System.out.println("Horizontal120test");
-                                    angleRadians = Math.toRadians(-60);
                                     p.getChildren().add(oldLine);
                                     extendLineDiagonalUpHelper(e, newLine, p, b, -60, Color.YELLOW);
                                     return;
                                 }
                                 else {
                                     if(checkTest != 0)System.out.println("Horizontal120test1");
-                                    angleRadians = Math.toRadians(-58);
-                                    color = Color.GREEN;
                                     p.getChildren().add(oldLine);
                                     extendLineDiagonalUpHelper(e, newLine, p, b, -120, Color.GREEN);
                                     return;
@@ -281,7 +266,6 @@ public class GameController {
                     }
                 }
             }
-
         } while (flag != 1);
 
 
@@ -415,59 +399,44 @@ public class GameController {
                                     if (x == 58) {
                                         if(newLine.getEndX() > node.getLayoutX()){
                                             if(checkTest != 0)System.out.println("Downtest1");
-                                            angleRadians = Math.toRadians(0);
-                                            color = Color.BLACK;
-                                            direction_tester = Color.BLACK;
-                                            p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(e, newLine, p, b, -3, Color.BLACK);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
+                                            extendRayHorizontalHelper(e, newLine, p, b, 1, Color.BLACK);
                                             return;
                                         } else {
-                                            angleRadians = Math.toRadians(180);
-                                            color = Color.BLACK;
                                             if(checkTest != 0)System.out.println("Downtest2");
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
                                             extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
                                             return;
                                         }
                                     } else {
                                         if (newLine.getEndX() > node.getLayoutX()) {
                                             if(checkTest != 0)System.out.println("Downtest6");
-                                            angleRadians = Math.toRadians(-2);
-                                            color = Color.BLACK;
                                             p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(e, newLine, p, b, -2, Color.BLACK);
+                                            extendRayHorizontalHelper(e, newLine, p, b, 1, Color.BLACK);
                                             return;
                                         } else {
-                                            angleRadians = Math.toRadians(179);
                                             if(checkTest != 0)System.out.println("Downtest7");
-                                            color = Color.BLACK;
-                                            p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
+                                            extendRayHorizontalHelper(e, newLine, p, b, 179, Color.BLACK);
                                             return;
                                         }
                                     }
                                     //If the ray deflects at the side of the sphere of influence
                                 } else {
                                     if (x == 60) {
-                                        angleRadians = Math.toRadians(60);
                                         if (checkTest != 0) System.out.println("Tester");
-                                        color = Color.BLACK;
                                         return;
 
                                     } else {
                                         if (newLine.getEndX() > node.getLayoutX()) {
-                                            angleRadians = Math.toRadians(58);
                                             if (checkTest != 0) System.out.println("Downtest8");
-                                            color = Color.RED;
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
                                             direction_tester = Color.GREEN;
                                             extendLineDiagonalDownHelper(e, newLine, p, b, 58, Color.RED);
                                             return;
                                         } else {
-                                            angleRadians = Math.toRadians(121);
                                             if (checkTest != 0) System.out.println("Downtest9");
-                                            color = Color.BLUE;
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
                                             direction_tester = Color.YELLOW;
                                             extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.BLUE);
                                             return;
@@ -569,8 +538,8 @@ public class GameController {
         textBox.appendText("Ray shot from " + b.getId() + "\n");
         System.out.println("Ray shot from " + b.getId());
         // Set the starting point of the line
-        double startX = 0;
-        double startY  = 0;
+        double startX;
+        double startY;
 
         if(right){
             startX = b.getLayoutX() + b.getWidth() / 2 + 4;
@@ -698,16 +667,12 @@ public class GameController {
                                     if(x == 59) {
                                         if(newLine.getEndX() < node.getLayoutX()) {
                                             if(checkTest != 0) System.out.println("Hello1");
-                                            angleRadians = Math.toRadians(1);
-                                            color = Color.BLACK;
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
                                             extendRayHorizontalHelper(e, newLine, p, b, 1, Color.BLACK);
                                             return;
                                         }else{
-                                            angleRadians = Math.toRadians(180);
-                                            System.out.println("Hell on Earth2");
-                                            color = Color.BLACK;
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0)System.out.println("Hell on Earth2");
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
                                             extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
                                             return;
                                         }
@@ -715,17 +680,13 @@ public class GameController {
                                     else{
                                         if(newLine.getEndX() < node.getLayoutX()) {
                                             if(checkTest != 0) System.out.println("Hello2");
-                                            angleRadians = Math.toRadians(1);
-                                            color = Color.BLACK;
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
                                             extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
                                             return;
                                         }else{
-                                            angleRadians = Math.toRadians(179);
                                             if(checkTest != 0) System.out.println("Hell on Earth1");
-                                            color = Color.BLACK;
-                                            p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(e, newLine, p, b, 0, Color.BLACK);
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
+                                            extendRayHorizontalHelper(e, newLine, p, b, -2, Color.BLACK);
                                             return;
                                         }
                                     }
@@ -738,15 +699,13 @@ public class GameController {
                                     else {
                                         if (newLine.getEndX() < node.getLayoutX()) {
                                             if(checkTest != 0) System.out.println("Lol");
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0)p.getChildren().add(oldLine);
                                             direction_tester = Color.YELLOW;
                                             extendLineDiagonalUpHelper(e, newLine, p, b, -59, Color.YELLOW);
                                             return;
                                         } else {
-                                            angleRadians = Math.toRadians(121);
                                             if(checkTest != 0)  System.out.println("LOL2");
-                                            color = Color.GREEN;
-                                            p.getChildren().add(oldLine);
+                                            if (checkTest != 0)p.getChildren().add(oldLine);
                                             direction_tester = Color.GREEN;
                                             extendLineDiagonalUpHelper(e, newLine, p, b, -121, Color.GREEN);
                                             return;

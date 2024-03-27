@@ -56,7 +56,7 @@ public class DeflectionHelpers {
                 if(up)
                 {
                     lineTest.setEndX(lineTest.getEndX() - dx);
-                    lineTest.setEndY(lineTest.getEndY() - dy);
+                    lineTest.setEndY(lineTest.getEndY() + dy);
                 }
                 else
                 {
