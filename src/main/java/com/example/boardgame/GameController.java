@@ -95,9 +95,9 @@ public class GameController {
         textBox.appendText("Ray shot from " + b.getId() + "\n");
 
         newLine.setStartX(b.getLayoutX() + b.getWidth());
-        newLine.setStartY(b.getLayoutY() + b.getHeight() / 2);
+        newLine.setStartY(b.getLayoutY() + 10);
         newLine.setEndX(newLine.getStartX());
-        newLine.setEndY(b.getLayoutY());
+        newLine.setEndY(newLine.getStartY());
         direction_tester = Color.BLACK;
 
         if (b.getLayoutX() <= 250) //Case for being on the left side
@@ -137,6 +137,7 @@ public class GameController {
         int flag = 0;
         Node prevNode = null;
         int i = 0;
+        int j = 0;
 
         do {
             //If the ray deflects off the circle of influence and goes up the board instead
@@ -266,6 +267,7 @@ public class GameController {
                     }
                 }
             }
+         //   j++;
         } while (flag != 1);
 
 
