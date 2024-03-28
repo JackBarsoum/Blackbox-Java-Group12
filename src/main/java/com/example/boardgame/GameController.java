@@ -102,6 +102,8 @@ public class GameController {
 
         if (b.getLayoutX() <= 250) //Case for being on the left side
         {
+            newLine.setStartY(newLine.getStartY() - 2);
+            newLine.setEndY(newLine.getStartY());
             extendRayHorizontalHelper(e, newLine, p, b, 0, direction_tester);
         } else if (b.getLayoutX() > 250) //Case for being to the right
         {

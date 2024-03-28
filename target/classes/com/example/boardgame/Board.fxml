@@ -1067,13 +1067,13 @@
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="740.0" layoutY="249.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="695.0" layoutY="173.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Line disable="true" endX="88.0" endY="7.62939453125E-6" fill="ORANGE" layoutX="650.0" layoutY="99.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="ORANGE" strokeWidth="2.0" />
-   <Rectangle id="Node_43" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="749.0" layoutY="162.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_43" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="749.0" layoutY="163.5" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Rectangle id="Node_45" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="700.0" layoutY="89.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Rectangle id="Node_39" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="843.0" layoutY="314.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-   <Rectangle id="Node_37" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="888.0" layoutY="390.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_37" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="888.0" layoutY="389.5" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Rectangle id="Node_35" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="836.0" layoutY="464.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-   <Rectangle id="Node_33" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="793.0" layoutY="536.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-   <Rectangle id="Node_31" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="751.0" layoutY="611.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_33" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="793.0" layoutY="538.5" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_31" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="751.0" layoutY="614.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Rectangle id="Node_29" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="704.0" layoutY="686.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="756.0" layoutY="274.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="711.0" layoutY="199.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
@@ -1114,13 +1114,13 @@
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="167.0" layoutY="100.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Rectangle id="Node_2" arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="220" layoutY="92.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="122.0" layoutY="172.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-   <Rectangle id="Node_4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" layoutX="180" layoutY="164.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" layoutX="180" layoutY="165.5" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="91.99998474121094" endY="7.62939453125E-6" layoutX="76.0" layoutY="250.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-   <Rectangle id="Node_6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" layoutX="138.0" layoutY="242.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" layoutX="138.0" layoutY="241.5" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="30.0" layoutY="323.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Rectangle id="Node_8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" layoutX="90" layoutY="316.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="92.99999237060547" layoutX="-15.0" layoutY="399.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-   <Rectangle id="Node_10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutX="45.0" layoutY="392.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutX="45.0" layoutY="391.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="197.0" layoutY="48.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Rectangle id="Node_1" fx:id="Node_1" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="17.0" layoutX="252.0" layoutY="45.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
    <Line endX="88.0" endY="7.62939453125E-6" layoutX="156.0" layoutY="122.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
@@ -1130,13 +1130,13 @@
    <Line endX="92.96944427490234" endY="-1.1840691566467285" layoutX="18.0" layoutY="345.0" rotate="60.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Rectangle id="Node_9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="72.0" layoutY="331.0" onMouseClicked="#extendLineDiagonalDown" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="60.0" stroke="YELLOW" strokeType="INSIDE" width="38.0" />
    <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="30.0" layoutY="474.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-   <Rectangle id="Node_12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutX="89.0" layoutY="469.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutX="89.0" layoutY="466.5" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="91.99998474121094" layoutX="76.0" layoutY="549.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-   <Rectangle id="Node_14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" layoutX="132.0" layoutY="542.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" layoutX="132.0" layoutY="541.5" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="91.00001525878906" layoutX="122.0" layoutY="622.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Rectangle id="Node_16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutX="182.0" layoutY="616.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="93.00003051757812" endY="1.0" layoutX="165.0" layoutY="698.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
-   <Rectangle id="Node_18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="44.0" layoutX="222.0" layoutY="684.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
+   <Rectangle id="Node_18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="44.0" layoutX="222.0" layoutY="687.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
    <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="18.0" layoutY="450.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
    <Rectangle id="Node_11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="72.0" layoutY="442.0" onMouseClicked="#extendLineDiagonalUp" onMousePressed="#diagonaldirectionright" opacity="0.0" rotate="120.0" stroke="BLUE" strokeType="INSIDE" width="38.0" />
    <Line endX="91.99999237060547" endY="-3.0517578125E-5" layoutX="61.0" layoutY="526.0" rotate="120.0" startX="58.84291076660156" startY="7.62939453125E-6" stroke="#ffb700" strokeWidth="2.0" />
