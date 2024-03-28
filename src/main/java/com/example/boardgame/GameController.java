@@ -87,6 +87,7 @@ public class GameController {
 
     @FXML
     void extendLineHorizontal(MouseEvent e) {
+        System.out.println("Hello");
         Line newLine = new Line();
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
@@ -104,11 +105,34 @@ public class GameController {
         {
             newLine.setStartY(newLine.getStartY() - 2);
             newLine.setEndY(newLine.getStartY());
-            extendRayHorizontalHelper(e, newLine, p, b, 0, direction_tester);
+            if(DeflectionHelpers.startsInside(newLine, p, 0, 0) == 1){
+                double angleRadians = Math.toRadians(0);
+                double dx = Math.cos(angleRadians);
+                double dy = Math.sin(angleRadians);
+                for (int i = 0; i < 50; i++) {
+                    newLine.setEndX(newLine.getEndX() + dx);
+                    newLine.setEndY(newLine.getEndY() + dy);
+                }
+                textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                p.getChildren().add(newLine);
+            }else {
+                extendRayHorizontalHelper(e, newLine, p, b, 0, direction_tester);
+            }
         } else if (b.getLayoutX() > 250) //Case for being to the right
         {
-
-            extendRayHorizontalHelper(e, newLine, p, b, 180, direction_tester);
+            if(DeflectionHelpers.startsInside(newLine, p, 180, 2) == 1){
+                double angleRadians = Math.toRadians(180);
+                double dx = Math.cos(angleRadians);
+                double dy = Math.sin(angleRadians);
+                for (int i = 0; i < 85; i++) {
+                    newLine.setEndX(newLine.getEndX() + dx);
+                    newLine.setEndY(newLine.getEndY() + dy);
+                }
+                textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                p.getChildren().add(newLine);
+            }else {
+                extendRayHorizontalHelper(e, newLine, p, b, 180, direction_tester);
+            }
         }
     }
 
@@ -303,8 +327,6 @@ public class GameController {
             startX = b.getLayoutX() + b.getWidth() / 2 - 8;
             startY = b.getLayoutY() + b.getHeight() / 2 + 10;
         }
-        if(checkTest != 0) System.out.println(startX);
-        if(checkTest != 0) System.out.println(startY);
 
         newLine.setStartX(startX);
         newLine.setStartY(startY);
@@ -314,10 +336,43 @@ public class GameController {
         newLine.setEndY(startY);
 
         if (left) {
-            extendLineDiagonalDownHelper(e,newLine,p,b,121,direction_tester);
-
+            int result = DeflectionHelpers.startsInside(newLine, p, 121,0);
+            if (result == 1 || result == 3) {
+                double angleRadians = Math.toRadians(121);
+                double dx = Math.cos(angleRadians);
+                double dy = Math.sin(angleRadians);
+                for (int i = 0; i < 50; i++) {
+                    newLine.setEndX(newLine.getEndX() + dx);
+                    newLine.setEndY(newLine.getEndY() + dy);
+                }
+                if(result == 1) {
+                    textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                }else{
+                    textBox.appendText("Ray hit an atom\n");
+                }
+                p.getChildren().add(newLine);
+            } else {
+                extendLineDiagonalDownHelper(e, newLine, p, b, 121, direction_tester);
+            }
         } else if (right) {
-            extendLineDiagonalDownHelper(e,newLine,p,b,59,direction_tester);
+            int result = DeflectionHelpers.startsInside(newLine, p, 59,1);
+            if (result == 1 || result == 3) {
+                double angleRadians = Math.toRadians(59);
+                double dx = Math.cos(angleRadians);
+                double dy = Math.sin(angleRadians);
+                for (int i = 0; i < 50; i++) {
+                    newLine.setEndX(newLine.getEndX() + dx);
+                    newLine.setEndY(newLine.getEndY() + dy);
+                }
+                if(result == 1) {
+                    textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                }else {
+                    textBox.appendText("Ray hit and atom\n");
+                }
+                p.getChildren().add(newLine);
+            } else {
+                extendLineDiagonalDownHelper(e, newLine, p, b, 59, direction_tester);
+            }
         }
     }
 
@@ -561,9 +616,45 @@ public class GameController {
         newLine.setEndY(startY);
 
         if (left) {
-            extendLineDiagonalUpHelper(e, newLine, p, b, -59, direction_tester);
+            int result = DeflectionHelpers.startsInside(newLine, p, -59,3);
+            if (result == 1 || result == 3) {
+                System.out.println("Hello");
+                double angleRadians = Math.toRadians(-59);
+                double dx = Math.cos(angleRadians);
+                double dy = Math.sin(angleRadians);
+                for (int i = 0; i < 60; i++) {
+                    newLine.setEndX(newLine.getEndX() - dx);
+                    newLine.setEndY(newLine.getEndY() + dy);
+                }
+                if(result == 1) {
+                    textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                }else{
+                    textBox.appendText("Ray hit an atom\n");
+                }
+                p.getChildren().add(newLine);
+            } else {
+                extendLineDiagonalUpHelper(e, newLine, p, b, -59, direction_tester);
+            }
         } else if (right) {
-            extendLineDiagonalUpHelper(e, newLine, p, b, -121, direction_tester);
+            int result = DeflectionHelpers.startsInside(newLine, p, -121,4);
+            if (result == 1 || result == 3) {
+                System.out.println("Hello");
+                double angleRadians = Math.toRadians(-121);
+                double dx = Math.cos(angleRadians);
+                double dy = Math.sin(angleRadians);
+                for (int i = 0; i < 50; i++) {
+                    newLine.setEndX(newLine.getEndX() - dx);
+                    newLine.setEndY(newLine.getEndY() + dy);
+                }
+                if(result == 1) {
+                    textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                }else{
+                    textBox.appendText("Ray hit an atom");
+                }
+                p.getChildren().add(newLine);
+            } else {
+                extendLineDiagonalUpHelper(e, newLine, p, b, -121, direction_tester);
+            }
         }
     }
 

@@ -21,6 +21,35 @@ public class DeflectionHelpers {
         }
     }
 
+    public static int startsInside(Line l, Pane p, int angle, int direction) {
+        int result = 0;
+        double distance = 0;
+        for (Node node : p.getChildren()) {
+            if (l.getBoundsInParent().intersects(node.getBoundsInParent()) && node instanceof Circle) {
+                switch (direction){
+                    case 0,3: distance = Math.sqrt(Math.pow((node.getLayoutX() - l.getStartX()), 2) + Math.pow((node.getLayoutY() - l.getStartY()), 2));
+                    case 1, 2, 4: distance = Math.sqrt(Math.pow((l.getStartX() - node.getLayoutX()), 2) + Math.pow((l.getStartY() - node.getLayoutY()), 2));
+                }
+                if(distance < 85){
+                    if(direction == 0 || direction == 2 || direction == 1) {
+                        if (isInsideC((Circle) node, l, angle, false) == 2){
+                            return 3;
+                        }
+                    } else{
+                        System.out.println(320423);
+                        if (isInsideC((Circle) node, l, angle, true) == 2){
+                            System.out.println("Hello");
+                            return 3;
+                        }
+                    }
+                    return 1;
+                }
+            }
+        }
+        return result;
+    }
+
+
     public static int isInsideC(Circle c, Line l, int angle, boolean up) {
         double radius = c.getRadius();
         Pane p = (Pane) c.getParent();
