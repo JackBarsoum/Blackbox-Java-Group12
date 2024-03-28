@@ -370,7 +370,6 @@ public class GameController {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     i++;
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && node.getBoundsInParent().intersects(newLine.getBoundsInParent())) {
-                        String node_exit;
                         // Line intersects with another rectangle
                         DeflectionHelpers.printResults(deflection_account, textBox, node);
                         flag = 1;
@@ -640,6 +639,7 @@ public class GameController {
                         // Line intersects with another rectangle
                         DeflectionHelpers.printResults(deflection_account, textBox, node);
                         flag = 1;
+                        break;
                     } else if (node instanceof Circle && checker != 2 && i > 30) {
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, true);
                         if(checker != -1){
