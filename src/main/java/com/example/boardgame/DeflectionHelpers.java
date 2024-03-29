@@ -140,20 +140,35 @@ public class DeflectionHelpers {
             for (Node node : p.getChildren()) {
                 if (node != prevNode && node instanceof Circle) {
                     Circle circle = (Circle) node;
+                    double radius = circle.getRadius();
 
                     for (int j = 0; j < 20; j++) {
                         newLine.setEndX(newLine.getEndX() + dx);
                         newLine.setEndY(newLine.getEndY() + dy);
                     // Check if the tempLine intersects with the circle's bounds
-                    if (tempLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
+                    if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
+                        double distance = Math.sqrt(Math.pow((circle.getLayoutX() - newLine.getEndX()), 2) + Math.pow((circle.getLayoutY() - newLine.getEndY()), 2));
+                        System.out.println(distance);
+                        System.out.println("RADIUS " + radius);
+                        if (distance <= radius) {
                             correct = 1;
                             break;
+                        } else {
+                            //If it doesn't hit the circle at all
+                            correct = 0;
+                        }
                         // If two circles are intersecting, return true
                         }
                     }
+                    System.out.println("Correctness = " + correct);
                     double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
+                    System.out.println("Node 1 Layout: " + node.getLayoutY());
+                    System.out.println("Node 2 Layout: " + prevNode.getLayoutY());
+                    System.out.println("Average: " + averageY);
 
-                    if(newLine.getEndY() > averageY - 5 && newLine.getEndY() < averageY + 5){
+                    System.out.println("Line end: " + newLine.getEndY());
+
+                    if(newLine.getEndY() > averageY - 5 && newLine.getEndY() < averageY + 5  && correct == 1){
                        return 3;
                     }
                 }
