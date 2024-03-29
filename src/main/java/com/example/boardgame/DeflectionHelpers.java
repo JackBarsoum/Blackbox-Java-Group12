@@ -37,9 +37,7 @@ public class DeflectionHelpers {
                             return 3;
                         }
                     } else {
-                        System.out.println(320423);
                         if (isInsideC((Circle) node, l, angle, true) == 2) {
-                            System.out.println("Hello");
                             return 3;
                         }
                     }
@@ -142,14 +140,12 @@ public class DeflectionHelpers {
                     Circle circle = (Circle) node;
                     double radius = circle.getRadius();
 
-                    for (int j = 0; j < 20; j++) {
+                    for (int j = 0; j < 10; j++) {
                         newLine.setEndX(newLine.getEndX() + dx);
                         newLine.setEndY(newLine.getEndY() + dy);
                     // Check if the tempLine intersects with the circle's bounds
                     if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
                         double distance = Math.sqrt(Math.pow((circle.getLayoutX() - newLine.getEndX()), 2) + Math.pow((circle.getLayoutY() - newLine.getEndY()), 2));
-                        System.out.println(distance);
-                        System.out.println("RADIUS " + radius);
                         if (distance <= radius) {
                             correct = 1;
                             break;
@@ -183,7 +179,44 @@ public class DeflectionHelpers {
             return 1;
         }
 
+        public static int checkTriple(Line newLine, int x, Pane p, Node node1, Node node2){
+            double angleRadians = Math.toRadians(x);
+            double dx = Math.cos(angleRadians);
+            double dy = Math.sin(angleRadians);
+            Line tempLine = new Line();
+            int correct = 0;
 
-        // No intersection with two circles found after all iterations
+            tempLine.setStartX(newLine.getEndX());
+            tempLine.setStartY(newLine.getEndY());
+
+            for (Node node : p.getChildren()) {
+                if (node != node1 && node != node2 && node instanceof Circle circle) {
+                    double radius = circle.getRadius();
+                    System.out.println("Hello!!");
+
+                    for (int j = 0; j < 20; j++) {
+                        newLine.setEndX(newLine.getEndX() + dx);
+                        newLine.setEndY(newLine.getEndY() + dy);
+                        // Check if the tempLine intersects with the circle's bounds
+                        if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
+                            double distance = Math.sqrt(Math.pow((circle.getLayoutX() - newLine.getEndX()), 2) + Math.pow((circle.getLayoutY() - newLine.getEndY()), 2));
+                            if (distance <= radius) {
+                                correct = 1;
+                                break;
+                            } else {
+                                //If it doesn't hit the circle at all
+                                correct = 0;
+                            }
+                            // If two circles are intersecting, return true
+                        }
+                    }
+                }
+
+        }
+            newLine.setEndX(tempLine.getStartX());
+            newLine.setEndY(tempLine.getStartY());
+            return correct;
+
+}
 
     }

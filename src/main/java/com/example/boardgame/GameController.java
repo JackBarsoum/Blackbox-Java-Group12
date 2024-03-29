@@ -509,6 +509,12 @@ public class GameController {
                         }
                         //Case if the ray hit 2 circles of influence at the same time
                     } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x, false) != -1 && node != prevNode && i > 40) {
+                        if(DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode) == 1){
+                            if (checkTest != 0) System.out.println("OH BABY A TRIPLE!!");
+                            textBox.appendText("Ray reflected 180 degress and exited at " + b.getId());
+                            flag = 1;
+                            break;
+                        }
                         deflection_account = 2;
                         if (line_flag == 0) {
                             //Same as the case above, store the ray before the deflection in a new line
@@ -826,6 +832,12 @@ public class GameController {
                         }
                         //Case if the ray hit 2 circles of influence at the same time
                     } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x,true) != -1 && node != prevNode && i > 30) {
+                        if(DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode) == 1){
+                           if (checkTest != 0) System.out.println("OH BABY A TRIPLE!!");
+                           textBox.appendText("Ray reflected 180 degress and exited at " + b.getId());
+                           flag = 1;
+                           break;
+                        }
                         deflection_account = 2;
                         if (line_flag == 0) {
                             //Same as the case above, store the ray before the deflection in a new line
