@@ -36,9 +36,6 @@ public class Atoms {
             parent.getChildren().add(sphere);
             parent.getChildren().add(sphere1);
             GameController.setAtomcount();
-
-
-
             return sphere;
         }
         return null;
@@ -57,11 +54,10 @@ public class Atoms {
                     sphere.setVisible(!sphere.isVisible());
                 } else if (child instanceof Circle) {
                     Circle circle = (Circle) child;
-
                     circle.setVisible(!circle.isVisible());
                 }
-
             }
+            GameController.setAtomcount(6);
         }
     }
 }

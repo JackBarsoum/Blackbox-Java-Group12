@@ -19,7 +19,6 @@ import static java.lang.System.exit;
 
 
 public class GameController {
-    private boolean up = false;
     private Color direction_tester;
     private boolean right = false;
     private boolean left = false;
@@ -29,8 +28,8 @@ public class GameController {
     public int getAtomcount(){
         return atomcount;
     }
-    public void setAtomcount(int atomcount1) {
-        this.atomcount = atomcount1;
+    public static void setAtomcount(int atomcount1) {
+        atomcount = atomcount1;
     }
 
     static void setSpherepane(Pane spherepane1) {
@@ -46,13 +45,12 @@ public class GameController {
 
     @FXML
     private Stage stage;
-    private Scene scene;
     private URL boardURL;
 
     private static Button b;
 
     @FXML
-    void leave(ActionEvent event) {
+    void leave() {
         System.out.println("Quitting Game");
         exit(0);
     }
@@ -61,16 +59,17 @@ public class GameController {
     void switchtoBoard(ActionEvent event) throws IOException {
         b = (Button) event.getSource();
         boardURL = getClass().getResource("Board.fxml");
+        assert boardURL != null;
         Parent root = FXMLLoader.load(boardURL);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         // stage.setFullScreen(true);
         stage.show();
     }
 
     public static int checkTest = 0;
-    public void checkTest(MouseEvent e){
+    public void checkTest(){
         if(b.getId().equals("Test") && checkTest == 0){
             TextArea textArea = textBox;
             textArea.appendText("TESTING MODE ACTIVE\n");
@@ -81,8 +80,7 @@ public class GameController {
     @FXML
     public Sphere handleButtonClick(MouseEvent event) {
         // create a new sphere
-        Sphere sphere = Atoms.placeAtomsinHex(event, getAtomcount());
-        return sphere;
+        return Atoms.placeAtomsinHex(event, getAtomcount());
     }
 
     @FXML
@@ -163,8 +161,6 @@ public class GameController {
         int flag = 0;
         Node prevNode = null;
         int i = 0;
-        int j = 0;
-
         do {
             //If the ray deflects off the circle of influence and goes up the board instead
             newLine.setEndX(newLine.getEndX() + dx);
@@ -184,50 +180,58 @@ public class GameController {
                             deflection_account = 1;
                         }
                         prevNode = node;
-                        if (checker == 1) {
-                            if (line_flag == 0) {
-                                oldLine.setStroke(Color.GREEN);
-                                newLine.setStroke(Color.YELLOW);
+                        System.out.println(DeflectionHelpers.checkifDouble(p, newLine, x, prevNode));
+                        if(DeflectionHelpers.checkifDouble(p, newLine, x, prevNode) != 3) {
+                            if (checker == 1) {
+                                if (line_flag == 0) {
+                                    oldLine.setStroke(Color.GREEN);
+                                    newLine.setStroke(Color.YELLOW);
 
-                                oldLine.setStartY(newLine.getStartY());
-                                oldLine.setStartX(newLine.getStartX());
-                                oldLine.setEndY(newLine.getEndY());
-                                oldLine.setEndX(newLine.getEndX());
+                                    oldLine.setStartY(newLine.getStartY());
+                                    oldLine.setStartX(newLine.getStartX());
+                                    oldLine.setEndY(newLine.getEndY());
+                                    oldLine.setEndX(newLine.getEndX());
 
-                                //If the ray deflects at the top of the sphere of influence
-                                if (newLine.getEndY()  < node.getLayoutY()) {
-                                    if (newLine.getEndX() > node.getLayoutX()) {
-                                        if (checkTest != 0) System.out.println("Horizontaltest1");
-                                        if (checkTest != 0) p.getChildren().add(oldLine);
-                                        extendLineDiagonalUpHelper(e, newLine, p, b, -58, Color.YELLOW);
-                                        return;
+                                    //If the ray deflects at the top of the sphere of influence
+                                    if (newLine.getEndY() < node.getLayoutY()) {
+                                        if (newLine.getEndX() > node.getLayoutX()) {
+                                            if (checkTest != 0) System.out.println("Horizontaltest1");
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
+                                            extendLineDiagonalUpHelper(e, newLine, p, b, -58, Color.YELLOW);
+                                            return;
+                                        } else {
+                                            if (checkTest != 0) System.out.println("Horizontaltest2");
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
+                                            extendLineDiagonalUpHelper(e, newLine, p, b, -123, Color.GREEN);
+                                            return;
+                                        }
                                     } else {
-                                        if (checkTest != 0) System.out.println("Horizontaltest2");
-                                        if (checkTest != 0) p.getChildren().add(oldLine);
-                                        extendLineDiagonalUpHelper(e, newLine, p, b, -123, Color.GREEN);
-                                        return;
+                                        if (newLine.getEndX() > node.getLayoutX()) {
+                                            if (checkTest != 0) System.out.println("Horizontaltest3");
+                                            direction_tester = Color.YELLOW;
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
+                                            extendLineDiagonalDownHelper(e, newLine, p, b, 122, Color.RED);
+                                            return;
+                                        } else {
+                                            if (checkTest != 0) System.out.println("Horizontaltest4");
+                                            if (checkTest != 0) p.getChildren().add(oldLine);
+                                            direction_tester = Color.GREEN;
+                                            extendLineDiagonalDownHelper(e, newLine, p, b, 58, Color.BLUE);
+                                            return;
+                                        }
                                     }
-                                } else {
-                                    if (newLine.getEndX() > node.getLayoutX()) {
-                                        if (checkTest != 0) System.out.println("Horizontaltest3");
-                                        direction_tester = Color.YELLOW;
-                                        if (checkTest != 0) p.getChildren().add(oldLine);
-                                        extendLineDiagonalDownHelper(e, newLine, p, b, 122, Color.RED);
-                                        return;
-                                    } else {
-                                        if (checkTest != 0) System.out.println("Horizontaltest4");
-                                        if (checkTest != 0) p.getChildren().add(oldLine);
-                                        direction_tester = Color.GREEN;
-                                        extendLineDiagonalDownHelper(e, newLine, p, b, 58, Color.BLUE);
-                                        return;
-                                    }
+
+                                    //Set trajectory of the deflected ray
                                 }
+                                //Circle has been hit by the ray
+                                line_flag += 2;
 
-                                //Set trajectory of the deflected ray
                             }
-                            //Circle has been hit by the ray
-                            line_flag += 2;
-
+                        }else if(DeflectionHelpers.checkifDouble(p, newLine, x, prevNode) == 3){
+                           if (checkTest != 0) System.out.println("Ray was reflected at 180 degrees and exited at " + b.getId());
+                           textBox.appendText("Ray was reflected at 180 degrees and exited at " + b.getId());
+                            flag = 1;
+                            break;
                         }
                     }  //Case if the ray hit 2 circles of influence at the same time
                     else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x, false) != -1 && node != prevNode && i > 50) {
@@ -244,7 +248,6 @@ public class GameController {
                             oldLine.setEndX(newLine.getEndX());
 
                             double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
-
 
                             //If the ray deflects at the top of the sphere of influence
                             if (newLine.getEndY() < averageY) {
@@ -264,7 +267,7 @@ public class GameController {
                             } else {
                                 if(x == 0) {
                                     if(checkTest != 0)System.out.println("Horizontal120test2");
-                                    angleRadians = Math.toRadians(60);
+                                    angleRadians = Math.toRadians(120);
                                     color = Color.BLUE;
                                 }
                                 else {
@@ -293,7 +296,6 @@ public class GameController {
                     }
                 }
             }
-         //   j++;
         } while (flag != 1);
 
 
@@ -378,7 +380,6 @@ public class GameController {
 
     void extendLineDiagonalDownHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color)
     {
-        up = false;
         int checker = 0;
         int line_flag = 0;
         int deflection_account = 0; // This used to help display what happened to the array, e.g if this is equal to 1 the ray is deflected by 60
@@ -678,7 +679,6 @@ public class GameController {
     void extendLineDiagonalUpHelper(MouseEvent e, Line newLine,Pane p, Rectangle b,int x,Color color)
     {
         int deflection_account = 0;
-        up = true;
         int checker = 0;
         int line_flag = 0;
         //Set the trajectory of the ray
@@ -781,7 +781,7 @@ public class GameController {
                                         }else{
                                             if(checkTest != 0) System.out.println("Hell on Earth1");
                                             if (checkTest != 0) p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(e, newLine, p, b, -2, Color.BLACK);
+                                            extendRayHorizontalHelper(e, newLine, p, b, 0, Color.BLACK);
                                             return;
                                         }
                                     }
