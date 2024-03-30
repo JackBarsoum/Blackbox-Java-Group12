@@ -629,10 +629,10 @@ public class GameController {
                 extendLineDiagonalUpHelper(e, newLine, p, b, -59, direction_tester);
             }
         } else if (right) {
-            int result = DeflectionHelpers.startsInside(newLine, p, -121, 4);
+            int result = DeflectionHelpers.startsInside(newLine, p, -120, 4);
             if (result == 1 || result == 3) {
                 System.out.println("Hello");
-                double angleRadians = Math.toRadians(-121);
+                double angleRadians = Math.toRadians(-120);
                 double dx = Math.cos(angleRadians);
                 double dy = Math.sin(angleRadians);
                 for (int i = 0; i < 50; i++) {
@@ -851,7 +851,7 @@ public class GameController {
                             } else {
                                 if (direction_tester == Color.GREEN) {
                                     if (checkTest != 0) System.out.println("Side1");
-                                    angleRadians = Math.toRadians(0);
+                                    angleRadians = Math.toRadians(1);
 
                                 } else {
                                     angleRadians = Math.toRadians(180);
