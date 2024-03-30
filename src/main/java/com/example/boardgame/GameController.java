@@ -105,6 +105,7 @@ public class GameController {
         Line newLine = new Line();
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
+        b.setDisable(true);
         Pane p = (Pane) b.getParent();
         if(checkTest != 0) System.out.println("Ray shot from " + b.getId() + "\n");
         textBox.appendText("Ray shot from " + b.getId() + "\n");
@@ -373,6 +374,7 @@ public class GameController {
         Line newLine = new Line();
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
+        b.setDisable(true);
         Pane p = (Pane) b.getParent();
 
         textBox.appendText("Ray shot from " + b.getId() + "\n");
@@ -688,6 +690,7 @@ public class GameController {
         Line newLine = new Line();
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
+        b.setDisable(true);
         Pane p = (Pane) b.getParent();
 
         textBox.appendText("Ray shot from " + b.getId() + "\n");
