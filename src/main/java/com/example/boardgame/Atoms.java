@@ -52,7 +52,8 @@ public class Atoms {
                     Sphere sphere = (Sphere) child;
                     //make the sphere invisible/visible depending on the return of isVisible
                     sphere.setVisible(!sphere.isVisible());
-                } else if (child instanceof Circle) {
+                    //Check for radius is because we do not want to get rid of markers
+                } else if (child instanceof Circle && ((Circle) child).getRadius() > 10) {
                     Circle circle = (Circle) child;
                     circle.setVisible(!circle.isVisible());
                 }

@@ -187,12 +187,11 @@ public class DeflectionHelpers {
         tempLine.setStartY(newLine.getEndY());
 
         for (Node node : p.getChildren()) {
-            if (node != node1 && node != node2 && node instanceof Circle && node2 != node1 && node.getLayoutX() != node1.getLayoutX() && node2.getLayoutX() != node.getLayoutX()) {
-                Circle circle = (Circle) node;
+            if (node != node1 && node != node2 && node instanceof Circle circle && node2 != node1 && node.getLayoutX() != node1.getLayoutX() && node2.getLayoutX() != node.getLayoutX()) {
                 double radius = circle.getRadius();
                 System.out.println("Hello!!");
 
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < 6; j++) {
                     newLine.setEndX(newLine.getEndX() + dx);
                     newLine.setEndY(newLine.getEndY() + dy);
                     // Check if the tempLine intersects with the circle's bounds
@@ -200,7 +199,6 @@ public class DeflectionHelpers {
                         double distance = Math.sqrt(Math.pow((circle.getLayoutX() - newLine.getEndX()), 2) + Math.pow((circle.getLayoutY() - newLine.getEndY()), 2));
                         if (distance <= radius) {
                             correct = 1;
-                            System.out.println("Correct");
                             break;
                         } else {
                             //If it doesn't hit the circle at all

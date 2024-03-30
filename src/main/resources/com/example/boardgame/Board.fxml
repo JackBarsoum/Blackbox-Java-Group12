@@ -1490,4 +1490,12 @@
       </font>
    </Label>
    <Polygon fill="#ffb700" layoutX="375.0" layoutY="84.0" points="0.0, -15.742584228515625, -8.248504638671875, -21.34063720703125, 0.0, -26.20000457763672" stroke="#ffb700" strokeType="INSIDE" />
+   <TextArea fx:id="textBoxScore" editable="false" layoutX="963.0" layoutY="13.0" prefHeight="17.0" prefWidth="454.0" promptText="This is the area where the results of you ray shots will be displayed" styleClass="text-area" stylesheets="@Scene.css">
+      <effect>
+         <DropShadow />
+      </effect>
+      <font>
+         <Font size="96.0" />
+      </font>
+   </TextArea>
 </AnchorPane>
