@@ -252,7 +252,7 @@ public class GameController {
                                         } else {
                                             if (checkTest != 0) System.out.println("Horizontaltest2");
                                             if (checkTest != 0) p.getChildren().add(oldLine);
-                                            extendLineDiagonalUpHelper(e, newLine, p, b, -123, Color.GREEN);
+                                            extendLineDiagonalUpHelper(e, newLine, p, b, -120, Color.GREEN);
                                             return;
                                         }
                                     } else {
