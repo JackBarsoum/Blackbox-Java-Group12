@@ -187,11 +187,12 @@ public class DeflectionHelpers {
         tempLine.setStartY(newLine.getEndY());
 
         for (Node node : p.getChildren()) {
-            if (node != node1 && node != node2 && node instanceof Circle circle && node2 != node1 && node.getLayoutX() != node1.getLayoutX() && node2.getLayoutX() != node.getLayoutX()) {
+            if (node != node1 && node != node2 && node instanceof Circle && node2 != node1 && node.getLayoutX() != node1.getLayoutX() && node2.getLayoutX() != node.getLayoutX()) {
+                Circle circle = (Circle) node;
                 double radius = circle.getRadius();
                 System.out.println("Hello!!");
 
-                for (int j = 0; j < 6; j++) {
+                for (int j = 0; j < 10; j++) {
                     newLine.setEndX(newLine.getEndX() + dx);
                     newLine.setEndY(newLine.getEndY() + dy);
                     // Check if the tempLine intersects with the circle's bounds
