@@ -631,14 +631,14 @@ public class GameController {
                                 }
                                 // If the ray deflects at the side of the sphere of influence
                             } else {
-                                if (x == 59) {
+                                if (x == 121) {
                                     if (checkTest != 0) System.out.println("HHello");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
-                                    extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
+                                    extendRayHorizontalHelper(e, newLine, p, b, 0, Color.BLACK);
                                 } else {
                                     if (checkTest != 0) System.out.println("HHHHHELLOOOO");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
-                                    extendRayHorizontalHelper(e, newLine, p, b, 0, Color.BLACK);
+                                    extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
                                 }
                                 return;
                             }

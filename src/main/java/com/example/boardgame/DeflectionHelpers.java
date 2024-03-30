@@ -196,8 +196,7 @@ public class DeflectionHelpers {
                     if(up){
                         newLine.setEndX(newLine.getEndX() - dx);
                         newLine.setEndY(newLine.getEndY() + dy);
-                        System.out.println(newLine.getEndX());
-                        System.out.println(newLine.getEndY());
+
                     }else {
                         newLine.setEndX(newLine.getEndX() + dx);
                         newLine.setEndY(newLine.getEndY() + dy);
@@ -205,8 +204,6 @@ public class DeflectionHelpers {
                     // Check if the tempLine intersects with the circle's bounds
                     if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
                         double distance = Math.sqrt(Math.pow((circle.getLayoutX() - newLine.getEndX()), 2) + Math.pow((circle.getLayoutY() - newLine.getEndY()), 2));
-                        System.out.println(distance);
-                        System.out.println("Radius" +  radius);
                         if (distance <= radius) {
                             correct = 1;
                             newLine.setEndX(tempLine.getStartX());
