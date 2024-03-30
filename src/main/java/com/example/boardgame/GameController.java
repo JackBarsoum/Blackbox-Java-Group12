@@ -247,12 +247,14 @@ public class GameController {
                                         if (newLine.getEndX() > node.getLayoutX()) {
                                             if (checkTest != 0) System.out.println("Horizontaltest1");
                                             if (checkTest != 0) p.getChildren().add(oldLine);
+                                            direction_tester = Color.YELLOW;
                                             extendLineDiagonalUpHelper(e, newLine, p, b, -58, Color.YELLOW);
                                             return;
                                         } else {
                                             if (checkTest != 0) System.out.println("Horizontaltest2");
                                             if (checkTest != 0) p.getChildren().add(oldLine);
-                                            extendLineDiagonalUpHelper(e, newLine, p, b, -120, Color.GREEN);
+                                            direction_tester = Color.GREEN;
+                                            extendLineDiagonalUpHelper(e, newLine, p, b, -121, Color.GREEN);
                                             return;
                                         }
                                     } else {
