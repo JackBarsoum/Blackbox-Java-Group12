@@ -3,6 +3,7 @@ package com.example.boardgame;
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Sphere;
@@ -176,7 +177,7 @@ public class DeflectionHelpers {
         return 1;
     }
 
-    public static int checkTriple(Line newLine, int x, Pane p, Node node1, Node node2){
+    public static int checkTriple(Line newLine, int x, Pane p, Node node1, Node node2, boolean up){
         double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);
@@ -191,15 +192,26 @@ public class DeflectionHelpers {
                 double radius = circle.getRadius();
                 System.out.println("Hello!!");
 
-                for (int j = 0; j < 6; j++) {
-                    newLine.setEndX(newLine.getEndX() + dx);
-                    newLine.setEndY(newLine.getEndY() + dy);
+                for (int j = 0; j < 10; j++) {
+                    if(up){
+                        newLine.setEndX(newLine.getEndX() - dx);
+                        newLine.setEndY(newLine.getEndY() + dy);
+                        System.out.println(newLine.getEndX());
+                        System.out.println(newLine.getEndY());
+                    }else {
+                        newLine.setEndX(newLine.getEndX() + dx);
+                        newLine.setEndY(newLine.getEndY() + dy);
+                    }
                     // Check if the tempLine intersects with the circle's bounds
                     if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
                         double distance = Math.sqrt(Math.pow((circle.getLayoutX() - newLine.getEndX()), 2) + Math.pow((circle.getLayoutY() - newLine.getEndY()), 2));
+                        System.out.println(distance);
+                        System.out.println("Radius" +  radius);
                         if (distance <= radius) {
                             correct = 1;
-                            break;
+                            newLine.setEndX(tempLine.getStartX());
+                            newLine.setEndY(tempLine.getStartY());
+                            return correct;
                         } else {
                             //If it doesn't hit the circle at all
                             correct = 0;
