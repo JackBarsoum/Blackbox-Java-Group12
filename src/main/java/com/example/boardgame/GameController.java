@@ -250,26 +250,28 @@ public class GameController {
                                     if (checkTest != 0) System.out.println("Horizontal120test");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
                                     extendLineDiagonalUpHelper(e, newLine, p, b, -60, Color.YELLOW);
-                                    return;
                                 } else {
                                     if (checkTest != 0) System.out.println("Horizontal120test1");
                                     if(checkTest != 0) p.getChildren().add(oldLine);
                                     extendLineDiagonalUpHelper(e, newLine, p, b, -120, Color.GREEN);
-                                    return;
                                 }
+                                return;
                                 // If the ray deflects at the side of the sphere of influence
                             } else {
                                 if (x == 0) {
                                     if (checkTest != 0) System.out.println("Horizontal120test2");
-                                    angleRadians = Math.toRadians(120);
-                                    color = Color.BLUE;
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.BLUE);
+                                    return;
                                 } else {
                                     angleRadians = Math.toRadians(59);
                                     if (checkTest != 0) System.out.println("Horizontal120test3");
-                                    color = Color.RED;
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendLineDiagonalDownHelper(e, newLine, p, b, 58, Color.RED);
+                                    return;
                                 }
                             }
-
+/*
                             // Set trajectory of the deflected ray
                             dx = Math.cos(angleRadians);
                             dy = Math.sin(angleRadians);
@@ -278,6 +280,8 @@ public class GameController {
                             newLine.setStartY(newLine.getEndY());
                             newLine.setEndX(newLine.getEndX() + dx);
                             newLine.setEndY(newLine.getEndY() + dy);
+
+ */
                         }
                         line_flag += 2;
                     }
@@ -302,7 +306,10 @@ public class GameController {
                 p.getChildren().add(newLine);
             }
         }
+
+
     }
+
 
     @FXML
     void extendLineDiagonalDown(MouseEvent e) {
@@ -448,8 +455,7 @@ public class GameController {
                                         if (newLine.getEndX() > node.getLayoutX()) {
                                             if (checkTest != 0) System.out.println("Downtest1");
                                             if (checkTest != 0) p.getChildren().add(oldLine);
-                                            extendRayHorizontalHelper(
-                                                    e, newLine, p, b, 1, Color.BLACK);
+                                            extendRayHorizontalHelper(e, newLine, p, b, 1, Color.BLACK);
                                             return;
                                         } else {
                                             if (checkTest != 0) System.out.println("Downtest2");
@@ -527,23 +533,28 @@ public class GameController {
                             // If the ray deflects at the top of the sphere of influence
                             if (newLine.getEndY() < averageY && right || newLine.getEndY() < averageY && left) {
                                 if (direction_tester == Color.GREEN) {
-                                    color = Color.GREEN;
                                     if (checkTest != 0) System.out.println("Downtest12");
-                                    angleRadians = Math.toRadians(123);
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendLineDiagonalUpHelper(e, newLine, p, b, -123, Color.GREEN);
+                                    return;
                                 } else if (direction_tester == Color.YELLOW) {
                                     if (checkTest != 0) System.out.println("Downtest13");
-                                    angleRadians = Math.toRadians(59);
-                                    color = Color.YELLOW;
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendLineDiagonalUpHelper(e, newLine, p, b, -59, Color.YELLOW);
+                                    return;
                                 }
                                 // If the ray deflects at the side of the sphere of influence
                             } else {
                                 if (x == 59) {
                                     if (checkTest != 0) System.out.println("HHello");
-                                    angleRadians = Math.toRadians(180);
-                                } else
-                                    angleRadians = Math.toRadians(0);
-                                if (checkTest != 0) System.out.println("HHHHHELLOOOO");
-                                color = Color.BLACK;
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
+                                } else {
+                                    if (checkTest != 0) System.out.println("HHHHHELLOOOO");
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendRayHorizontalHelper(e, newLine, p, b, 0, Color.BLACK);
+                                }
+                                return;
                             }
 
                             // Set trajectory of the deflected ray
@@ -629,10 +640,10 @@ public class GameController {
                 extendLineDiagonalUpHelper(e, newLine, p, b, -59, direction_tester);
             }
         } else if (right) {
-            int result = DeflectionHelpers.startsInside(newLine, p, -120, 4);
+            int result = DeflectionHelpers.startsInside(newLine, p, -121, 4);
             if (result == 1 || result == 3) {
                 System.out.println("Hello");
-                double angleRadians = Math.toRadians(-120);
+                double angleRadians = Math.toRadians(-121);
                 double dx = Math.cos(angleRadians);
                 double dy = Math.sin(angleRadians);
                 for (int i = 0; i < 50; i++) {
@@ -667,8 +678,7 @@ public class GameController {
         left = false;
     }
 
-    void extendLineDiagonalUpHelper(
-            MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color) {
+    void extendLineDiagonalUpHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color) {
         int deflection_account = 0;
         int checker = 0;
         int line_flag = 0;
@@ -840,23 +850,28 @@ public class GameController {
                                 // color = Color.BLACK;
                                 if (direction_tester == Color.GREEN) {
                                     if (checkTest != 0) System.out.println("Test2.1");
-                                    color = Color.RED;
-                                    angleRadians = Math.toRadians(238);
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.RED);
+                                    return;
                                 } else if (direction_tester == Color.YELLOW) {
                                     if (checkTest != 0) System.out.println("Test2.2");
-                                    angleRadians = Math.toRadians(302);
-                                    color = Color.BLUE;
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.BLUE);
+                                    return;
                                 }
                                 // If the ray deflects at the side of the sphere of influence
                             } else {
                                 if (direction_tester == Color.GREEN) {
                                     if (checkTest != 0) System.out.println("Side1");
-                                    angleRadians = Math.toRadians(1);
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendRayHorizontalHelper(e, newLine, p, b, 179, Color.BLACK);
 
                                 } else {
-                                    angleRadians = Math.toRadians(180);
+                                    if (checkTest != 0) System.out.println("Side2");
+                                    if (checkTest != 0) p.getChildren().add(oldLine);
+                                    extendRayHorizontalHelper(e, newLine, p, b, 1, Color.BLACK);
                                 }
-                                color = Color.BLACK;
+                                return;
                             }
 
                             // Set trajectory of the deflected ray
