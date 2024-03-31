@@ -230,7 +230,7 @@ public class GameController {
                         }
                         prevNode = node;
                         //** This is for the 180 case.Check to see that if a ray hit a Circle of Influence that there is not another one directly on top of it
-                        if (DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, 0) != 3) {
+                        if (DeflectionHelpers.checkifDouble(p, newLine, x, prevNode) != 3) {
                             if (checker == 1) {
                                 if (line_flag == 0) {
                                     oldLine.setStroke(Color.GREEN);
@@ -276,7 +276,7 @@ public class GameController {
                                 // Circle has been hit by the ray
                                 line_flag += 2;
                             }
-                        } else if (DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, 0) == 3) {
+                        } else if (DeflectionHelpers.checkifDouble(p, newLine, x, prevNode) == 3) {
                             if (checkTest != 0) System.out.println("Ray was reflected at 180 degrees and exited at " + b.getId());
                             textBox.appendText("Ray was reflected at 180 degrees and exited at " + b.getId());
                             flag = 1;
@@ -319,6 +319,7 @@ public class GameController {
                                     extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.BLUE);
                                     return;
                                 } else {
+                                    angleRadians = Math.toRadians(59);
                                     if (checkTest != 0) System.out.println("Horizontal120test3");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
                                     extendLineDiagonalDownHelper(e, newLine, p, b, 58, Color.RED);
@@ -844,14 +845,11 @@ public class GameController {
                         flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2 && i > 30) {
-
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, true);
                         if (checker != -1) {
                             deflection_account = 1;
                         }
                         prevNode = node;
-
-                        System.out.println(DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, 1));
                         if (checker == 1) {
                             if (line_flag == 0) {
                                 if (direction_tester == Color.GREEN) {
