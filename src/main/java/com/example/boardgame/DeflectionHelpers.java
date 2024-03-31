@@ -3,7 +3,6 @@ package com.example.boardgame;
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Sphere;
@@ -119,7 +118,7 @@ public class DeflectionHelpers {
         }
     }
 
-    public static int checkifDouble(Pane p, Line newLine, int x, Node prevNode) {
+    public static int checkifDouble(Pane p, Line newLine, int x, Node prevNode, int verison) {
         double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);
@@ -132,21 +131,24 @@ public class DeflectionHelpers {
         for (Node node : p.getChildren()) {
             if (node != prevNode && node instanceof Circle) {
                 Circle circle = (Circle) node;
-                double radius = circle.getRadius();
+                System.out.println("NODE CIRCLE " + circle.getLayoutX());
+                System.out.println("Y" + circle.getLayoutY());
 
-                for (int j = 0; j < 10; j++) {
+                double radius = 90;
+                System.out.println(radius);
+                for (int j = 0; j < 5; j++) {
                     newLine.setEndX(newLine.getEndX() + dx);
                     newLine.setEndY(newLine.getEndY() + dy);
                     // Check if the tempLine intersects with the circle's bounds
-                    if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
+                    if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent()) && circle.getLayoutX() > prevNode.getLayoutX() - 5 && circle.getLayoutX() < prevNode.getLayoutX() + 5) {
                         double distance = Math.sqrt(Math.pow((circle.getLayoutX() - newLine.getEndX()), 2) + Math.pow((circle.getLayoutY() - newLine.getEndY()), 2));
-                        if (distance <= radius) {
+                        System.out.println("Distance: " + distance);
+                        if (distance <= radius + 10) {
                             correct = 1;
                             break;
                         } else {
                             //If it doesn't hit the circle at all
                             correct = 0;
-                            break;
                         }
                         // If two circles are intersecting, return true
                     }
@@ -154,7 +156,7 @@ public class DeflectionHelpers {
 
                 double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
                 double averageX = (node.getLayoutX() + prevNode.getLayoutX()) / 2;
-                if(correct == 1) {
+                if (correct == 1) {
                     System.out.println("AverageX: " + averageX);
                     System.out.println("Line endX: " + newLine.getEndX());
                     System.out.println("AverageY: " + averageY);
@@ -162,20 +164,21 @@ public class DeflectionHelpers {
 
                 }
 
-                if(newLine.getEndY() > averageY - 6 && newLine.getEndY() < averageY + 6  && correct == 1 && newLine.getEndX() > averageX - 50  && newLine.getEndX() < averageX + 50){
+                if (newLine.getEndY() > averageY - 10 && newLine.getEndY() < averageY + 10 && correct == 1) {
                     return 3;
                 }
             }
         }
-        if(correct == 1){
+            if (correct == 1) {
+                newLine.setEndX(tempLine.getStartX());
+                newLine.setEndY(tempLine.getStartY());
+                return 0;
+            }
             newLine.setEndX(tempLine.getStartX());
             newLine.setEndY(tempLine.getStartY());
-            return 0;
+            return 1;
         }
-        newLine.setEndX(tempLine.getStartX());
-        newLine.setEndY(tempLine.getStartY());
-        return 1;
-    }
+
 
     public static int checkTriple(Line newLine, int x, Pane p, Node node1, Node node2, boolean up){
         double angleRadians = Math.toRadians(x);
