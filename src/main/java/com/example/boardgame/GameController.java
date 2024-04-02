@@ -503,7 +503,7 @@ public class GameController {
                         }
                         flag = 1;
                         break;
-                    } else if (node instanceof Circle && checker != 2 && i > 30) {
+                    } else if (node instanceof Circle && checker != 2 && i > 50) {
                         reflected = true;
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, false);
                         if (checker != -1) {
@@ -587,7 +587,7 @@ public class GameController {
                             line_flag += 2;
                         }
                         // Case if the ray hit 2 circles of influence at the same time
-                    } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x, false) != -1 && node != prevNode && i > 40) {
+                    } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x, false) != -1 && node != prevNode && i > 50) {
                         reflected = true;
                         if (DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode, false) == 1) {
                             if (checkTest != 0) System.out.println("OH BABY A TRIPLE!!");
@@ -635,12 +635,13 @@ public class GameController {
                                     if (checkTest != 0) System.out.println("HHello");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
                                     extendRayHorizontalHelper(e, newLine, p, b, 0, Color.BLACK);
+                                    return;
                                 } else {
                                     if (checkTest != 0) System.out.println("HHHHHELLOOOO");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
                                     extendRayHorizontalHelper(e, newLine, p, b, 180, Color.BLACK);
+                                    return;
                                 }
-                                return;
                             }
 
                             // Set trajectory of the deflected ray
