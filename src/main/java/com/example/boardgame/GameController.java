@@ -994,7 +994,7 @@ public class GameController {
 
         // If the ray was deflected then both the line before and after the ray was deflected will need to be printed
         if (checkTest != 0) {
-            if (line_flag != 1 && dFlag != 4) {
+            if (line_flag != 1) {
                 p.getChildren().add(oldLine);
                 p.getChildren().add(newLine);
             }
