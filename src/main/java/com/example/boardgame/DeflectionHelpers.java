@@ -137,7 +137,7 @@ public class DeflectionHelpers {
                 } else if (!diagonal) {
                     double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
                     double averageX = (node.getLayoutX() + prevNode.getLayoutX()) / 2;
-                    if (newLine.getEndY() > averageY - 10 && newLine.getEndY() < averageY + 10 && correct == 1 && newLine.getEndX() > averageX - 60 && newLine.getEndX() < averageX + 60) {
+                    if (newLine.getEndY() > averageY - 10 && newLine.getEndY() < averageY + 10 && correct == 1 && newLine.getEndX() > averageX - 60 && newLine.getEndX() < averageX + 60 && circle.getLayoutX() == circle2.getLayoutX()) {
                         return 3;
                     }
                 }
