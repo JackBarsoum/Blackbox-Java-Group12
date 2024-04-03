@@ -131,6 +131,26 @@ public class GameController {
                 }
                 textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                 p.getChildren().add(newLine);
+                Circle newCircleEnd = new Circle();
+                Circle newCircleStart = new Circle();
+                if(!reflected) {
+                    newCircleEnd.setFill(Color.GREY);
+                    newCircleStart.setFill(Color.GREY);
+                }
+                else
+                {
+                    newCircleEnd.setFill(circleColor);
+                    newCircleStart.setFill(circleColor);
+                    reflected = false;
+                }
+                newCircleStart.setRadius(10);
+                newCircleEnd.setRadius(10);
+                newCircleStart.setCenterY(originalLineY);
+                newCircleStart.setCenterX(originalLineX);
+                newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                p.getChildren().add(newCircleEnd);
+                p.getChildren().add(newCircleStart);
             } else {
                 //Otherwise it is not inside a circle of influence, or it will hit an atom when shot
                 extendRayHorizontalHelper(e, newLine, p, b, 0, direction_tester);
@@ -148,6 +168,26 @@ public class GameController {
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
                 textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                Circle newCircleEnd = new Circle();
+                Circle newCircleStart = new Circle();
+                if(!reflected) {
+                    newCircleEnd.setFill(Color.GREY);
+                    newCircleStart.setFill(Color.GREY);
+                }
+                else
+                {
+                    newCircleEnd.setFill(circleColor);
+                    newCircleStart.setFill(circleColor);
+                    reflected = false;
+                }
+                newCircleStart.setRadius(10);
+                newCircleEnd.setRadius(10);
+                newCircleStart.setCenterY(originalLineY);
+                newCircleStart.setCenterX(originalLineX);
+                newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                p.getChildren().add(newCircleEnd);
+                p.getChildren().add(newCircleStart);
                 p.getChildren().add(newLine);
             } else {
                 extendRayHorizontalHelper(e, newLine, p, b, 180, direction_tester);
@@ -156,10 +196,11 @@ public class GameController {
     }
 
     void extendRayHorizontalHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color) {
+        Circle startcircle = new Circle();
         int checker = 0;
         int line_flag = 0;
         int deflection_account = 0; // This used to help display what happened to the array, e.g. if this is equal to 1 the ray is deflected by 60
-
+        Pane forcircle = (Pane) b.getParent();
         // Set the trajectory of the ray
         double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
@@ -205,8 +246,8 @@ public class GameController {
                         newCircleStart.setCenterX(originalLineX);
                         newCircleEnd.setCenterX(newLine.getEndX() + dx);
                         newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                        p.getChildren().add(newCircleEnd);
-                        p.getChildren().add(newCircleStart);
+                        forcircle.getChildren().add(newCircleEnd);
+                        forcircle.getChildren().add(newCircleStart);
                         // Line intersects with another rectangle
                         DeflectionHelpers.printResults(deflection_account, textBox, node);
                         flag = 1;
@@ -221,6 +262,7 @@ public class GameController {
                         prevNode = node;
                         //** This is for the 180 case.Check to see that if a ray hit a Circle of Influence that there is not another one directly on top of it
                         if (DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, false, false) != 3) {
+                            reflected = true;
                             if (checker == 1) {
                                 if (line_flag == 0) {
                                     oldLine.setStroke(Color.GREEN);
@@ -267,7 +309,21 @@ public class GameController {
                                 line_flag += 2;
                             }
                         } else if (DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, false, false) == 3) {
+                            reflected = true;
                             if (checkTest != 0) System.out.println("Ray was reflected at 180 degrees and exited at " + b.getId());
+                            Circle newCircleStart = new Circle();
+                            if(!reflected) {
+                                newCircleStart.setFill(Color.GREY);
+                            }
+                            else
+                            {
+                                newCircleStart.setFill(circleColor);
+                                reflected = false;
+                            }
+                            newCircleStart.setRadius(10);
+                            newCircleStart.setCenterY(originalLineY);
+                            newCircleStart.setCenterX(originalLineX);
+                            forcircle.getChildren().add(newCircleStart);
                             textBox.appendText("Ray was reflected at 180 degrees and exited at " + b.getId());
                             flag = 1;
                             break;
@@ -318,8 +374,14 @@ public class GameController {
                         }
                         line_flag += 2;
                     }
+
                     // Handle the case where the line hits another circle at the same location
                     else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2 && i > 30) { // If the node hits the atom
+                        startcircle.setCenterX(originalLineX);
+                        startcircle.setCenterY(originalLineY);
+                        startcircle.setStroke(Color.WHITE);
+                        startcircle.setRadius(10);
+                        startcircle.setFill(Color.BLACK);
                         textBox.appendText("Ray hit an atom" + "\n");
                         System.out.println("Ray hit at an atom");
                         flag = 1;
@@ -338,11 +400,12 @@ public class GameController {
                 p.getChildren().add(newLine);
             }
         }
-
-
+        forcircle.getChildren().add(startcircle);
     }
     @FXML
     void extendLineDiagonalDown(MouseEvent e) {
+        Circle startcircle = new Circle();
+        reflected = false;
         RayShotScore();
         RandomColorGen();
         Line newLine = new Line();
@@ -382,11 +445,38 @@ public class GameController {
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
                 if (result == 1) {
+                   // reflected = true;
+                    Circle newCircleEnd = new Circle();
+                    Circle newCircleStart = new Circle();
+                    if(!reflected) {
+                        newCircleEnd.setFill(Color.GREY);
+                        newCircleStart.setFill(Color.GREY);
+                    }
+                    else
+                    {
+                        newCircleEnd.setFill(circleColor);
+                        newCircleStart.setFill(circleColor);
+                        reflected = false;
+                    }
+                    newCircleStart.setRadius(10);
+                    newCircleEnd.setRadius(10);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                    newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                  //  p.getChildren().add(newCircleEnd);
+                    p.getChildren().add(newCircleStart);
                     textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                 } else {
+                    startcircle.setCenterX(originalLineX);
+                    startcircle.setCenterY(originalLineY);
+                    startcircle.setStroke(Color.WHITE);
+                    startcircle.setRadius(10);
+                    startcircle.setFill(Color.BLACK);
                     textBox.appendText("Ray hit an atom\n");
                 }
                 p.getChildren().add(newLine);
+                p.getChildren().add(startcircle);
             } else {
                 extendLineDiagonalDownHelper(e, newLine, p, b, 121, direction_tester);
             }
@@ -401,7 +491,35 @@ public class GameController {
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
                 if (result == 1) {textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                   // reflected = true;
+                    Circle newCircleEnd = new Circle();
+                    Circle newCircleStart = new Circle();
+                    if(!reflected) {
+                        newCircleEnd.setFill(Color.GREY);
+                        newCircleStart.setFill(Color.GREY);
+                    }
+                    else
+                    {
+                        newCircleEnd.setFill(circleColor);
+                        newCircleStart.setFill(circleColor);
+                        reflected = false;
+                    }
+                    newCircleStart.setRadius(10);
+                    newCircleEnd.setRadius(10);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                    newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                    p.getChildren().add(newCircleEnd);
+                    p.getChildren().add(newCircleStart);
                 } else {
+                    //Circle startcircle = new Circle();
+                    startcircle.setCenterX(originalLineX);
+                    startcircle.setCenterY(originalLineY);
+                    startcircle.setStroke(Color.WHITE);
+                    startcircle.setRadius(10);
+                    startcircle.setFill(Color.BLACK);
+                    p.getChildren().add(startcircle);
                     textBox.appendText("Ray hit and atom\n");
                 }
                 p.getChildren().add(newLine);
@@ -412,6 +530,7 @@ public class GameController {
     }
 
     void extendLineDiagonalDownHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color) {
+        Circle startcircle = new Circle();
         int checker = 0;
         int line_flag = 0;
         int deflection_account = 0; // This used to help display what happened to the array, e.g if this
@@ -468,10 +587,12 @@ public class GameController {
                         if(!reflected) {
                             newCircleEnd.setFill(Color.GREY);
                             newCircleStart.setFill(Color.GREY);
+                            startcircle.setFill(Color.GREY);
                         }
                         else {
                             newCircleEnd.setFill(circleColor);
                             newCircleStart.setFill(circleColor);
+                            startcircle.setFill(circleColor);
                             reflected = false;
                         }
                         newCircleStart.setCenterX(originalLineX);
@@ -479,7 +600,7 @@ public class GameController {
                         p.getChildren().add(newCircleStart);
                         p.getChildren().add(newCircleEnd);
                         DeflectionHelpers.printResults(deflection_account, textBox, node);
-                        line_flag += 1;
+                        line_flag = 1;
                         flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2 && i > 40) {
@@ -569,6 +690,24 @@ public class GameController {
                         reflected = true;
                         if (DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode, false) == 1) {
                             if (checkTest != 0) System.out.println("OH BABY A TRIPLE!!");
+                            if(!reflected) {
+                               // newCircleEnd.setFill(Color.GREY);
+                                newCircleStart.setFill(Color.GREY);
+                            }
+                            else
+                            {
+                              //  newCircleEnd.setFill(circleColor);
+                                newCircleStart.setFill(circleColor);
+                                reflected = false;
+                            }
+                            newCircleStart.setRadius(10);
+                          //  newCircleEnd.setRadius(10);
+                            newCircleStart.setCenterY(originalLineY);
+                            newCircleStart.setCenterX(originalLineX);
+                          //  newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                            //newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                          //  p.getChildren().add(newCircleEnd);
+                            p.getChildren().add(newCircleStart);
                             textBox.appendText("Ray reflected 180 degress and exited at " + b.getId());
                             flag = 1;
                             break;
@@ -636,6 +775,11 @@ public class GameController {
                     // location
                     else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2) { // If the node hits the atom
                         textBox.appendText("Ray hit an atom" + "\n");
+                        startcircle.setCenterX(originalLineX);
+                        startcircle.setCenterY(originalLineY);
+                        startcircle.setStroke(Color.WHITE);
+                        startcircle.setRadius(10);
+                        startcircle.setFill(Color.BLACK);
                         System.out.println("Ray hit at an atom");
                         flag = 1;
                     }
@@ -654,6 +798,7 @@ public class GameController {
                 p.getChildren().add(newLine);
             }
         }
+        p.getChildren().add(startcircle);
     }
 
     @FXML
@@ -685,9 +830,11 @@ public class GameController {
 
         newLine.setStartX(startX);
         newLine.setStartY(startY);
-        newCircleStart.setCenterX(startX);
-        newCircleStart.setCenterY(startY);
-        p.getChildren().add(newCircleStart);
+        originalLineY = startY;
+        originalLineX = startX;
+//        newCircleStart.setCenterX(startX);
+//        newCircleStart.setCenterY(startY);
+//        p.getChildren().add(newCircleStart);
 
         // Set the initial end point (same as start point)
         newLine.setEndX(startX);
@@ -705,9 +852,34 @@ public class GameController {
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
                 if (result == 1) {textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                    Circle newCircleEnd = new Circle();
+                    if(!reflected) {
+                        newCircleEnd.setFill(Color.GREY);
+                        newCircleStart.setFill(Color.GREY);
+                    }
+                    else
+                    {
+                        newCircleEnd.setFill(circleColor);
+                        newCircleStart.setFill(circleColor);
+                        reflected = false;
+                    }
+                    newCircleStart.setRadius(10);
+                    newCircleEnd.setRadius(10);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                    newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                    p.getChildren().add(newCircleEnd);
+                    p.getChildren().add(newCircleStart);
                 } else {
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setStroke(Color.WHITE);
+                    newCircleStart.setRadius(10);
+                    newCircleStart.setFill(Color.BLACK);
                     textBox.appendText("Ray hit an atom\n");
                 }
+                p.getChildren().add(newCircleStart);
                 p.getChildren().add(newLine);
             } else {
                 extendLineDiagonalUpHelper(e, newLine, p, b, -59, direction_tester);
@@ -725,9 +897,34 @@ public class GameController {
                 }
                 if (result == 1) {
                     textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                    Circle newCircleEnd = new Circle();
+                    if(!reflected) {
+                        newCircleEnd.setFill(Color.GREY);
+                        newCircleStart.setFill(Color.GREY);
+                    }
+                    else
+                    {
+                        newCircleEnd.setFill(circleColor);
+                        newCircleStart.setFill(circleColor);
+                        reflected = false;
+                    }
+                    newCircleStart.setRadius(10);
+                    newCircleEnd.setRadius(10);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                    newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                    p.getChildren().add(newCircleEnd);
+                    p.getChildren().add(newCircleStart);
                 } else {
                     textBox.appendText("Ray hit an atom");
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setStroke(Color.WHITE);
+                    newCircleStart.setRadius(10);
+                    newCircleStart.setFill(Color.BLACK);
                 }
+                p.getChildren().add(newCircleStart);
                 p.getChildren().add(newLine);
             } else {
                 extendLineDiagonalUpHelper(e, newLine, p, b, -121, direction_tester);
@@ -762,6 +959,7 @@ public class GameController {
     }
 
     void extendLineDiagonalUpHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color) {
+        Circle startcircle = new Circle();
         int deflection_account = 0;
         int checker = 0;
         int line_flag = 0;
@@ -813,14 +1011,31 @@ public class GameController {
                     i++;
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color) {
                         // Line intersects with another rectangle
-                        newCircleEnd.setCenterX(newLine.getEndX());
-                        newCircleEnd.setCenterY(newLine.getEndY());
+                        Circle newCircleStart = new Circle();
+                        if(!reflected) {
+                            newCircleEnd.setFill(Color.GREY);
+                            newCircleStart.setFill(Color.GREY);
+                        }
+                        else
+                        {
+                            newCircleEnd.setFill(circleColor);
+                            newCircleStart.setFill(circleColor);
+                            reflected = false;
+                        }
+                        newCircleStart.setRadius(10);
+                        newCircleEnd.setRadius(10);
+                        newCircleStart.setCenterY(originalLineY);
+                        newCircleStart.setCenterX(originalLineX);
+                        newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                        newCircleEnd.setCenterY(newLine.getEndY() + dy);
                         p.getChildren().add(newCircleEnd);
+                        p.getChildren().add(newCircleStart);
                         DeflectionHelpers.printResults(deflection_account, textBox, node);
                         flag = 1;
                         line_flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2 && i > 60) {
+                        reflected = true;
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, true);
                         if (checker != -1) {
                             deflection_account = 1;
@@ -917,6 +1132,25 @@ public class GameController {
                        if (DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode, true) == 1) {
                             if (checkTest != 0) System.out.println("OH BABY A TRIPLE!!");
                             textBox.appendText("Ray reflected 180 degress and exited at " + b.getId());
+                           Circle newCircleStart = new Circle();
+                           if(!reflected) {
+                               newCircleEnd.setFill(Color.GREY);
+                               newCircleStart.setFill(Color.GREY);
+                           }
+                           else
+                           {
+                               newCircleEnd.setFill(circleColor);
+                               newCircleStart.setFill(circleColor);
+                               reflected = false;
+                           }
+                           newCircleStart.setRadius(10);
+                           newCircleEnd.setRadius(10);
+                           newCircleStart.setCenterY(originalLineY);
+                           newCircleStart.setCenterX(originalLineX);
+                           newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                           newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                           p.getChildren().add(newCircleEnd);
+                           p.getChildren().add(newCircleStart);
                             flag = 1;
                             break;
                         }
@@ -984,6 +1218,12 @@ public class GameController {
                     // Handle the case where the line hits another circle at the same location
                     else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2) { // If the node hits the atom
                         textBox.appendText("Ray hit an atom" + "\n");
+                        startcircle.setCenterX(originalLineX);
+                        startcircle.setCenterY(originalLineY);
+                        startcircle.setStroke(Color.WHITE);
+                        startcircle.setRadius(10);
+                        startcircle.setFill(Color.BLACK);
+                        System.out.println("Ray hit an atom");
                         System.out.println("Ray hit an atom");
                         flag = 1;
                     }
@@ -1002,6 +1242,7 @@ public class GameController {
                 p.getChildren().add(newLine);
             }
         }
+        p.getChildren().add(startcircle);
     }
 
     @FXML
