@@ -1,11 +1,8 @@
 package com.example.boardgame;
 import static java.lang.System.exit;
-import static java.lang.System.in;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,8 +45,7 @@ public class GameController {
     }
 
     @FXML
-    public TextArea
-            textBox; // Text box where results of rays shots will be displayed
+    public TextArea textBox; // Text box where results of rays shots will be displayed
 
     @FXML public TextArea textBoxScore;
 
@@ -112,8 +108,6 @@ public class GameController {
         if(checkTest != 0) System.out.println("Ray shot from " + b.getId() + "\n");
         textBox.appendText("Ray shot from " + b.getId() + "\n");
         RandomColorGen();
-//        newCircle.setFill(circleColor);
-//        newCircle.setRadius(10);
         newLine.setStartX(b.getLayoutX() + b.getWidth());
         newLine.setStartY(b.getLayoutY() + 10);
         newLine.setEndX(newLine.getStartX());
@@ -124,9 +118,6 @@ public class GameController {
         {
             originalLineX = b.getLayoutX() + b.getWidth();
             originalLineY = b.getLayoutY() + 10;
-//            newCircle.setCenterX(b.getLayoutX() + b.getWidth());
-//            newCircle.setCenterY(b.getLayoutY() + 10);
-//            p.getChildren().add(newCircle);
             newLine.setStartY(newLine.getStartY() - 2);
             newLine.setEndY(newLine.getStartY());
             //If this returns one the node is already in a Circle of Influence so the ray will either be reflected 180 or will hit an atom
@@ -148,9 +139,6 @@ public class GameController {
         {
             originalLineX = b.getLayoutX() + b.getWidth();
             originalLineY = b.getLayoutY() + 10;
-//            newCircle.setCenterX(b.getLayoutX());
-//            newCircle.setCenterY(b.getLayoutY() + 10);
-//            p.getChildren().add(newCircle);
             if (DeflectionHelpers.startsInside(newLine, p, 180, 2) == 1) {
                 double angleRadians = Math.toRadians(180);
                 double dx = Math.cos(angleRadians);
@@ -353,8 +341,6 @@ public class GameController {
 
 
     }
-
-
     @FXML
     void extendLineDiagonalDown(MouseEvent e) {
         RayShotScore();
@@ -462,10 +448,6 @@ public class GameController {
 
         int i = 0;
         int dFlag = 0;
-        double holdX = 0;
-        double holdY = 0;
-        int dCheck = 0;
-
         do {
             // If the ray deflects off the circle of influence and goes up the board
             // instead
@@ -496,30 +478,26 @@ public class GameController {
                         newCircleStart.setCenterY(originalLineY);
                         p.getChildren().add(newCircleStart);
                         p.getChildren().add(newCircleEnd);
-                        if(dFlag != 4) {
-                            DeflectionHelpers.printResults(deflection_account, textBox, node);
-                        }else {
-                            textBox.appendText("Ray reflected at 180 degrees\n");
-                        }
+                        DeflectionHelpers.printResults(deflection_account, textBox, node);
+                        line_flag += 1;
                         flag = 1;
                         break;
-                    } else if (node instanceof Circle && checker != 2 && i > 50) {
+                    } else if (node instanceof Circle && checker != 2 && i > 40) {
                         reflected = true;
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, false);
                         if (checker != -1) {
                             deflection_account = 1;
                         }
                         prevNode = node;
-
-                        if(dFlag != 4) dFlag = DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, false, true);
-
-                        System.out.println(dFlag);
-                        if(dCheck == 0 && dFlag == 4){
-                            holdX = newLine.getEndX();
-                            holdY = newLine.getEndY();
-                            dCheck++;
+                        if(dFlag != 1) {
+                            dFlag = DeflectionHelpers.checkifDouble(p, newLine, x, node, false, true);
                         }
-                        if (checker == 1 && dFlag != 3 && dFlag != 4) {
+                        if(dFlag == 4){
+                            textBox.appendText("Ray deflected 180\n");
+                            flag = 1;
+                            break;
+                        }
+                        if (checker == 1) {
                             if (line_flag == 0) {
                                 if (direction_tester == Color.GREEN) {
                                     oldLine.setStroke(Color.RED);
@@ -587,7 +565,7 @@ public class GameController {
                             line_flag += 2;
                         }
                         // Case if the ray hit 2 circles of influence at the same time
-                    } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x, false) != -1 && node != prevNode && i > 50) {
+                    } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x, false) != -1 && node != prevNode && i > 40) {
                         reflected = true;
                         if (DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode, false) == 1) {
                             if (checkTest != 0) System.out.println("OH BABY A TRIPLE!!");
@@ -643,7 +621,6 @@ public class GameController {
                                     return;
                                 }
                             }
-
                             // Set trajectory of the deflected ray
                             dx = Math.cos(angleRadians);
                             dy = Math.sin(angleRadians);
@@ -670,14 +647,10 @@ public class GameController {
         // If the ray was deflected then both the line before and after the ray was
         // deflected will need to be
         if (checkTest != 0) {
-            if (line_flag != 1 && dFlag != 4) {
+            if (line_flag != 1) {
                 p.getChildren().add(oldLine);
                 p.getChildren().add(newLine);
-            } else if(dFlag == 4){
-                newLine.setEndX(holdX + dx * 2.5);
-                newLine.setEndY(holdY + dy * 2.5);
-                p.getChildren().add(newLine);
-            }else {
+            } else {
                 p.getChildren().add(newLine);
             }
         }
@@ -823,11 +796,6 @@ public class GameController {
 
         int i = 0;
         int dFlag = 0;
-        double holdX = 0;
-        double holdY = 0;
-        int dCheck = 0;
-
-
         do {
             // If the ray deflects off the circle of influence and goes up the board
             // instead
@@ -848,12 +816,9 @@ public class GameController {
                         newCircleEnd.setCenterX(newLine.getEndX());
                         newCircleEnd.setCenterY(newLine.getEndY());
                         p.getChildren().add(newCircleEnd);
-                        if(dFlag == 4){
-                            textBox.appendText("Ray deflected at 180 degrees\n");
-                        }else {
-                            DeflectionHelpers.printResults(deflection_account, textBox, node);
-                        }
+                        DeflectionHelpers.printResults(deflection_account, textBox, node);
                         flag = 1;
+                        line_flag = 1;
                         break;
                     } else if (node instanceof Circle && checker != 2 && i > 60) {
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, true);
@@ -862,20 +827,21 @@ public class GameController {
                         }
                         prevNode = node;
 
-                       if(dFlag != 4) dFlag = DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, true, true);
-
-                       if(dCheck == 0 && dFlag ==4){
-                           holdX = newLine.getEndX();
-                           holdY = newLine.getEndY();
-                           dCheck++;
-                       }
-
-                       if (checker == 1 && dFlag != 3 && dFlag != 4) {
-                                if (line_flag == 0) {
-                                    if (direction_tester == Color.GREEN) {
-                                        oldLine.setStroke(Color.RED);
-                                        newLine.setStroke(Color.BLUE);
-                                    } else if (direction_tester == Color.YELLOW) {
+                        if(dFlag != 1) {
+                            dFlag = DeflectionHelpers.checkifDouble(p, newLine, x, node, true, true);
+                        }
+                        if(dFlag == 4){
+                            textBox.appendText("Ray deflected 180\n");
+                            flag = 1;
+                            line_flag += 2;
+                            break;
+                        }
+                       if (checker == 1) {
+                           if (line_flag == 0) {
+                               if (direction_tester == Color.GREEN) {
+                                   oldLine.setStroke(Color.RED);
+                                   newLine.setStroke(Color.BLUE);
+                               } else if (direction_tester == Color.YELLOW) {
                                         oldLine.setStroke(Color.BLUE);
                                         newLine.setStroke(Color.RED);
                                     }
@@ -954,7 +920,6 @@ public class GameController {
                             flag = 1;
                             break;
                         }
-                        System.out.println("HHHHELLLLO");
                         deflection_account = 2;
                         if (line_flag == 0) {
                             // Same as the case above, store the ray before the deflection in
@@ -1013,16 +978,10 @@ public class GameController {
                             newLine.setStartY(newLine.getEndY());
                             newLine.setEndX(newLine.getEndX() - dx);
                             newLine.setEndY(newLine.getEndY() - dy);
-                            if(dFlag == 4){
-                                textBox.appendText("Ray deflected 180\n");
-                                flag = 1;
-                                break;
-                            }
                         }
                         line_flag += 2;
                     }
-                    // Handle the case where the line hits another circle at the same
-                    // location
+                    // Handle the case where the line hits another circle at the same location
                     else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2) { // If the node hits the atom
                         textBox.appendText("Ray hit an atom" + "\n");
                         System.out.println("Ray hit an atom");
@@ -1033,15 +992,10 @@ public class GameController {
 
         } while (flag != 1);
 
-        // If the ray was deflected then both the line before and after the ray was
-        // deflected will need to be printed
+        // If the ray was deflected then both the line before and after the ray was deflected will need to be printed
         if (checkTest != 0) {
             if (line_flag != 1 && dFlag != 4) {
                 p.getChildren().add(oldLine);
-                p.getChildren().add(newLine);
-            } else if(dFlag == 4){
-                newLine.setEndX(holdX + dx * 2.5);
-                newLine.setEndY(holdY + dy * 2.5);
                 p.getChildren().add(newLine);
             }
             else {
