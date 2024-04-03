@@ -114,7 +114,7 @@ public class DeflectionHelpers {
                     if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent()) && circle.getRadius() == 90) {
                         double distance = Math.hypot(circle.getLayoutX() - newLine.getEndX(), circle.getLayoutY() - newLine.getEndY());
                         double distance1 = Math.hypot(circle2.getLayoutX() - newLine.getEndX(), circle2.getLayoutY() - newLine.getEndY());
-                        if ((distance <= radius + 10 && distance1 <= radius + 10) || (diagonal && distance <= radius + 20 && distance1 <= radius + 20)) {
+                        if ((distance <= radius + 15 && distance1 <= radius + 15 ) || (diagonal && distance <= radius + 20 && distance1 <= radius + 20)) {
                             correct = 1;
                             break;
                         } else {
