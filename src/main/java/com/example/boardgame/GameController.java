@@ -1054,7 +1054,6 @@ public class GameController {
                            newCircleStart.setCenterX(originalLineX);
                            newCircleEnd.setCenterX(newLine.getEndX() + dx);
                            newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                           p.getChildren().add(newCircleEnd);
                            p.getChildren().add(newCircleStart);
                             flag = 1;
                             break;
