@@ -99,7 +99,7 @@ public class GameController {
     @FXML
     void extendLineHorizontal(MouseEvent e) {
         RayShotScore();
-        //Circle newCircle = new Circle();
+        Circle newCircleStart = new Circle();
         Line newLine = new Line();
         newLine.setStroke(Color.RED);
         Rectangle b = (Rectangle) e.getSource();
@@ -116,12 +116,13 @@ public class GameController {
 
         if (b.getLayoutX() <= 250) // Case for being on the left side
         {
+            int result = DeflectionHelpers.startsInside(newLine, p, 0, 0);
             originalLineX = b.getLayoutX() + b.getWidth();
             originalLineY = b.getLayoutY() + 10;
             newLine.setStartY(newLine.getStartY() - 2);
             newLine.setEndY(newLine.getStartY());
             //If this returns one the node is already in a Circle of Influence so the ray will either be reflected 180 or will hit an atom
-            if (DeflectionHelpers.startsInside(newLine, p, 0, 0) == 1) {
+            if (result == 1 || result == 3) {
                 double angleRadians = Math.toRadians(0);
                 double dx = Math.cos(angleRadians);
                 double dy = Math.sin(angleRadians);
@@ -129,47 +130,65 @@ public class GameController {
                     newLine.setEndX(newLine.getEndX() + dx);
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
-                textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
-                p.getChildren().add(newLine);
-            //    Circle newCircleEnd = new Circle();
-                Circle newCircleStart = new Circle();
-            //    newCircleEnd.setFill(circleColor);newCircleStart.setFill(circleColor);
-                newCircleStart.setRadius(10);
-//                newCircleEnd.setRadius(10);
-                newCircleStart.setCenterY(originalLineY);
-                newCircleStart.setCenterX(originalLineX);
-//                newCircleEnd.setCenterX(newLine.getEndX() + dx);
-//                newCircleEnd.setCenterY(newLine.getEndY() + dy);
-              //  p.getChildren().add(newCircleEnd);
+                if (result == 1) {
+                    textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                    Circle newCircleEnd = new Circle();
+                    newCircleEnd.setFill(circleColor);
+                    newCircleStart.setFill(circleColor);
+                    newCircleStart.setRadius(10);
+                    newCircleEnd.setRadius(10);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                    newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                    //  p.getChildren().add(newCircleEnd);
+                    // p.getChildren().add(newCircleStart);
+                } else {
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setStroke(Color.WHITE);
+                    newCircleStart.setRadius(10);
+                    newCircleStart.setFill(Color.BLACK);
+                    textBox.appendText("Ray hit an atom\n");
+                }
                 p.getChildren().add(newCircleStart);
-            } else {
+                p.getChildren().add(newLine);
+            }else {
                 //Otherwise it is not inside a circle of influence, or it will hit an atom when shot
                 extendRayHorizontalHelper(e, newLine, p, b, 0, direction_tester);
             }
         } else if (b.getLayoutX() > 250) // Case for being to the right
         {
+            int result = DeflectionHelpers.startsInside(newLine, p, 180, 2);
             originalLineX = b.getLayoutX() + b.getWidth();
             originalLineY = b.getLayoutY() + 10;
-            if (DeflectionHelpers.startsInside(newLine, p, 180, 2) == 1) {
+            if (result == 1 || result == 3) {
                 double angleRadians = Math.toRadians(180);
                 double dx = Math.cos(angleRadians);
                 double dy = Math.sin(angleRadians);
-                for (int i = 0; i < 85; i++) {
+                for (int i = 0; i < 50; i++) {
                     newLine.setEndX(newLine.getEndX() + dx);
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
-                textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
-             //   Circle newCircleEnd = new Circle();
-                Circle newCircleStart = new Circle();
-             //   newCircleEnd.setFill(circleColor);
-                newCircleStart.setFill(circleColor);
-                newCircleStart.setRadius(10);
-               // newCircleEnd.setRadius(10);
-                newCircleStart.setCenterY(originalLineY);
-                newCircleStart.setCenterX(originalLineX);
-                //newCircleEnd.setCenterX(newLine.getEndX() + dx);
-                //newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                //p.getChildren().add(newCircleEnd);
+                if (result == 1) {
+                    textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                    Circle newCircleEnd = new Circle();
+                    newCircleEnd.setFill(circleColor);
+                    newCircleStart.setFill(circleColor);
+                    newCircleStart.setRadius(10);
+                    newCircleEnd.setRadius(10);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                    newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                } else {
+                    newCircleStart.setCenterX(originalLineX);
+                    newCircleStart.setCenterY(originalLineY);
+                    newCircleStart.setStroke(Color.WHITE);
+                    newCircleStart.setRadius(10);
+                    newCircleStart.setFill(Color.BLACK);
+                    textBox.appendText("Ray hit an atom\n");
+                }
                 p.getChildren().add(newCircleStart);
                 p.getChildren().add(newLine);
             } else {
@@ -784,18 +803,17 @@ public class GameController {
                     newLine.setEndX(newLine.getEndX() - dx);
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
-                if (result == 1) {textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
+                if (result == 1) {
+                    textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                     Circle newCircleEnd = new Circle();
-                        newCircleEnd.setFill(circleColor);
-                        newCircleStart.setFill(circleColor);
+                    newCircleEnd.setFill(circleColor);
+                    newCircleStart.setFill(circleColor);
                     newCircleStart.setRadius(10);
                     newCircleEnd.setRadius(10);
                     newCircleStart.setCenterY(originalLineY);
                     newCircleStart.setCenterX(originalLineX);
                     newCircleEnd.setCenterX(newLine.getEndX() + dx);
                     newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                  //  p.getChildren().add(newCircleEnd);
-                   // p.getChildren().add(newCircleStart);
                 } else {
                     newCircleStart.setCenterX(originalLineX);
                     newCircleStart.setCenterY(originalLineY);

@@ -24,8 +24,7 @@ public class DeflectionHelpers {
                     default -> 0;
                 };
                 if (distance < 85) {
-                    if ((direction == 0 || direction == 2 || direction == 1) && isInsideC((Circle) node, l, angle, false) == 2 ||
-                            (direction != 0 && direction != 2 && direction != 1) && isInsideC((Circle) node, l, angle, true) == 2) {
+                    if ((direction == 0 || direction == 2 || direction == 1) && isInsideC((Circle) node, l, angle, false) == 2 || (direction != 0 && direction != 2 && direction != 1) && isInsideC((Circle) node, l, angle, true) == 2) {
                         return 3;
                     } else {
                         return 1;
