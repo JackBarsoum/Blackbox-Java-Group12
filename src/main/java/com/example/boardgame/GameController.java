@@ -684,9 +684,11 @@ public class GameController {
 
                             double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
                             averageY -= 45;
+                            System.out.println("ENDY: " + newLine.getEndY());
+                            System.out.println("Get average: " + averageY);
 
                             // If the ray deflects at the top of the sphere of influence
-                            if (newLine.getEndY() < averageY && right || newLine.getEndY() < averageY && left) {
+                            if (newLine.getEndY() < averageY || newLine.getEndY() < averageY) {
                                 if (direction_tester == Color.GREEN) {
                                     if (checkTest != 0) System.out.println("Downtest12");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
