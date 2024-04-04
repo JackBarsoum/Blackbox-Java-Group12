@@ -36,6 +36,7 @@ public class Atoms {
             parent.getChildren().add(sphere);
             parent.getChildren().add(sphere1);
             GameController.setAtomcount();
+            hexagon.setDisable(true);
             return sphere;
         }
         return null;
