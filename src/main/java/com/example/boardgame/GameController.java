@@ -832,7 +832,7 @@ public class GameController {
                     newCircleEnd.setCenterX(newLine.getEndX() + dx);
                     newCircleEnd.setCenterY(newLine.getEndY() + dy);
                    // p.getChildren().add(newCircleEnd);
-                    p.getChildren().add(newCircleStart);
+                 //   p.getChildren().add(newCircleStart);
                 } else {
                     textBox.appendText("Ray hit an atom");
                     newCircleStart.setCenterX(originalLineX);
