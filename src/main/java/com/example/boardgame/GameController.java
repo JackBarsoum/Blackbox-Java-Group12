@@ -553,6 +553,10 @@ public class GameController {
                         }
                         if(dFlag == 4){
                             textBox.appendText("Ray deflected 180\n");
+                            newCircleStart.setFill(circleColor);
+                            newCircleStart.setCenterX(originalLineX);
+                            newCircleStart.setCenterY(originalLineY);
+                            p.getChildren().add(newCircleStart);
                             flag = 1;
                             break;
                         }
@@ -886,6 +890,7 @@ public class GameController {
         Circle newCircleEnd = new Circle();
         newCircleEnd.setFill(circleColor);
         newCircleEnd.setRadius(10);
+        startcircle.setRadius(10);
 
         newLine.setStartX(tempendX);
         newLine.setStartY(tempendY);
@@ -951,6 +956,10 @@ public class GameController {
                         }
                         if(dFlag == 4){
                             textBox.appendText("Ray deflected 180\n");
+                            startcircle.setFill(circleColor);
+                            startcircle.setCenterX(originalLineX);
+                            startcircle.setCenterY(originalLineY);
+                            p.getChildren().add(startcircle);
                             flag = 1;
                             line_flag += 2;
                             break;
