@@ -134,7 +134,7 @@ public class GameController {
                     textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                     Circle newCircleEnd = new Circle();
                     newCircleEnd.setFill(circleColor);
-                    newCircleStart.setFill(circleColor);
+                    newCircleStart.setFill(Color.WHITE);
                     newCircleStart.setRadius(10);
                     newCircleEnd.setRadius(10);
                     newCircleStart.setCenterY(originalLineY);
@@ -174,7 +174,7 @@ public class GameController {
                     textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                     Circle newCircleEnd = new Circle();
                     newCircleEnd.setFill(circleColor);
-                    newCircleStart.setFill(circleColor);
+                    newCircleStart.setFill(Color.WHITE);
                     newCircleStart.setRadius(10);
                     newCircleEnd.setRadius(10);
                     newCircleStart.setCenterY(originalLineY);
@@ -303,7 +303,7 @@ public class GameController {
                         } else if (DeflectionHelpers.checkifDouble(p, newLine, x, prevNode, false, false) == 3) {
                             if (checkTest != 0) System.out.println("Ray was reflected at 180 degrees and exited at " + b.getId());
                             Circle newCircleStart = new Circle();
-                                newCircleStart.setFill(circleColor);
+                                newCircleStart.setFill(Color.WHITE);
                             newCircleStart.setRadius(10);
                             newCircleStart.setCenterY(originalLineY);
                             newCircleStart.setCenterX(originalLineX);
@@ -431,7 +431,7 @@ public class GameController {
                     Circle newCircleEnd = new Circle();
                     Circle newCircleStart = new Circle();
                         newCircleEnd.setFill(circleColor);
-                        newCircleStart.setFill(circleColor);
+                        newCircleStart.setFill(Color.WHITE);
                     newCircleStart.setRadius(10);
                     newCircleEnd.setRadius(10);
                     newCircleStart.setCenterY(originalLineY);
@@ -469,7 +469,7 @@ public class GameController {
                     Circle newCircleEnd = new Circle();
                     Circle newCircleStart = new Circle();
                         newCircleEnd.setFill(circleColor);
-                        newCircleStart.setFill(circleColor);
+                        newCircleStart.setFill(Color.WHITE);
                     newCircleStart.setRadius(10);
                     newCircleEnd.setRadius(10);
                     newCircleStart.setCenterY(originalLineY);
@@ -572,7 +572,7 @@ public class GameController {
                         }
                         if(dFlag == 4){
                             textBox.appendText("Ray deflected 180\n");
-                            newCircleStart.setFill(circleColor);
+                            newCircleStart.setFill(Color.WHITE);
                             newCircleStart.setCenterX(originalLineX);
                             newCircleStart.setCenterY(originalLineY);
                             p.getChildren().add(newCircleStart);
@@ -651,7 +651,7 @@ public class GameController {
                         if (DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode, false) == 1) {
                             if (checkTest != 0) System.out.println("OH BABY A TRIPLE!!");
                               //  newCircleEnd.setFill(circleColor);
-                                newCircleStart.setFill(circleColor);
+                                newCircleStart.setFill(Color.WHITE);
                             newCircleStart.setRadius(10);
                           //  newCircleEnd.setRadius(10);
                             newCircleStart.setCenterY(originalLineY);
@@ -686,7 +686,7 @@ public class GameController {
                             averageY -= 45;
 
                             // If the ray deflects at the top of the sphere of influence
-                            if (newLine.getEndY() < averageY || newLine.getEndY() < averageY) {
+                            if (newLine.getEndY() < averageY) {
                                 if (direction_tester == Color.GREEN) {
                                     if (checkTest != 0) System.out.println("Downtest12");
                                     if (checkTest != 0) p.getChildren().add(oldLine);
@@ -807,7 +807,7 @@ public class GameController {
                     textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                     Circle newCircleEnd = new Circle();
                     newCircleEnd.setFill(circleColor);
-                    newCircleStart.setFill(circleColor);
+                    newCircleStart.setFill(Color.WHITE);
                     newCircleStart.setRadius(10);
                     newCircleEnd.setRadius(10);
                     newCircleStart.setCenterY(originalLineY);
@@ -842,7 +842,7 @@ public class GameController {
                     textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                     Circle newCircleEnd = new Circle();
                         newCircleEnd.setFill(circleColor);
-                        newCircleStart.setFill(circleColor);
+                        newCircleStart.setFill(Color.WHITE);
                     newCircleStart.setRadius(10);
                     newCircleEnd.setRadius(10);
                     newCircleStart.setCenterY(originalLineY);
@@ -850,7 +850,7 @@ public class GameController {
                     newCircleEnd.setCenterX(newLine.getEndX() + dx);
                     newCircleEnd.setCenterY(newLine.getEndY() + dy);
                    // p.getChildren().add(newCircleEnd);
-                    p.getChildren().add(newCircleStart);
+                   // p.getChildren().add(newCircleStart);
                 } else {
                     textBox.appendText("Ray hit an atom");
                     newCircleStart.setCenterX(originalLineX);
@@ -974,7 +974,7 @@ public class GameController {
                         }
                         if(dFlag == 4){
                             textBox.appendText("Ray deflected 180\n");
-                            startcircle.setFill(circleColor);
+                            startcircle.setFill(Color.WHITE);
                             startcircle.setCenterX(originalLineX);
                             startcircle.setCenterY(originalLineY);
                             p.getChildren().add(startcircle);
@@ -1065,7 +1065,7 @@ public class GameController {
                             textBox.appendText("Ray reflected 180 degress and exited at " + b.getId());
                            Circle newCircleStart = new Circle();
                                newCircleEnd.setFill(circleColor);
-                               newCircleStart.setFill(circleColor);
+                               newCircleStart.setFill(Color.WHITE);
                            newCircleStart.setRadius(10);
                            newCircleEnd.setRadius(10);
                            newCircleStart.setCenterY(originalLineY);
@@ -1098,7 +1098,7 @@ public class GameController {
                             averageY += 45;
 
                             // If the ray deflects at the bottom of the sphere of influence
-                            if (newLine.getEndY() > averageY && right || newLine.getEndY() > averageY && left) {
+                            if (newLine.getEndY() > averageY) {
                                 // color = Color.BLACK;
                                 if (direction_tester == Color.GREEN) {
                                     if (checkTest != 0) System.out.println("Test2.1");
