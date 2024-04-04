@@ -131,16 +131,16 @@ public class GameController {
                 }
                 textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
                 p.getChildren().add(newLine);
-                Circle newCircleEnd = new Circle();
+            //    Circle newCircleEnd = new Circle();
                 Circle newCircleStart = new Circle();
-                newCircleEnd.setFill(circleColor);newCircleStart.setFill(circleColor);
+            //    newCircleEnd.setFill(circleColor);newCircleStart.setFill(circleColor);
                 newCircleStart.setRadius(10);
-                newCircleEnd.setRadius(10);
+//                newCircleEnd.setRadius(10);
                 newCircleStart.setCenterY(originalLineY);
                 newCircleStart.setCenterX(originalLineX);
-                newCircleEnd.setCenterX(newLine.getEndX() + dx);
-                newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                p.getChildren().add(newCircleEnd);
+//                newCircleEnd.setCenterX(newLine.getEndX() + dx);
+//                newCircleEnd.setCenterY(newLine.getEndY() + dy);
+              //  p.getChildren().add(newCircleEnd);
                 p.getChildren().add(newCircleStart);
             } else {
                 //Otherwise it is not inside a circle of influence, or it will hit an atom when shot
@@ -159,17 +159,17 @@ public class GameController {
                     newLine.setEndY(newLine.getEndY() + dy);
                 }
                 textBox.appendText("Ray deflected at 180 and exited at " + b.getId() + "\n");
-                Circle newCircleEnd = new Circle();
+             //   Circle newCircleEnd = new Circle();
                 Circle newCircleStart = new Circle();
-                newCircleEnd.setFill(circleColor);
+             //   newCircleEnd.setFill(circleColor);
                 newCircleStart.setFill(circleColor);
                 newCircleStart.setRadius(10);
-                newCircleEnd.setRadius(10);
+               // newCircleEnd.setRadius(10);
                 newCircleStart.setCenterY(originalLineY);
                 newCircleStart.setCenterX(originalLineX);
-                newCircleEnd.setCenterX(newLine.getEndX() + dx);
-                newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                p.getChildren().add(newCircleEnd);
+                //newCircleEnd.setCenterX(newLine.getEndX() + dx);
+                //newCircleEnd.setCenterY(newLine.getEndY() + dy);
+                //p.getChildren().add(newCircleEnd);
                 p.getChildren().add(newCircleStart);
                 p.getChildren().add(newLine);
             } else {
@@ -457,7 +457,7 @@ public class GameController {
                     newCircleStart.setCenterX(originalLineX);
                     newCircleEnd.setCenterX(newLine.getEndX() + dx);
                     newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                    p.getChildren().add(newCircleEnd);
+                  //  p.getChildren().add(newCircleEnd);
                     p.getChildren().add(newCircleStart);
                 } else {
                     //Circle startcircle = new Circle();
@@ -794,7 +794,7 @@ public class GameController {
                     newCircleStart.setCenterX(originalLineX);
                     newCircleEnd.setCenterX(newLine.getEndX() + dx);
                     newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                    p.getChildren().add(newCircleEnd);
+                  //  p.getChildren().add(newCircleEnd);
                     p.getChildren().add(newCircleStart);
                 } else {
                     newCircleStart.setCenterX(originalLineX);
@@ -831,7 +831,7 @@ public class GameController {
                     newCircleStart.setCenterX(originalLineX);
                     newCircleEnd.setCenterX(newLine.getEndX() + dx);
                     newCircleEnd.setCenterY(newLine.getEndY() + dy);
-                    p.getChildren().add(newCircleEnd);
+                   // p.getChildren().add(newCircleEnd);
                     p.getChildren().add(newCircleStart);
                 } else {
                     textBox.appendText("Ray hit an atom");
