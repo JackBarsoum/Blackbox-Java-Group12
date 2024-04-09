@@ -2,6 +2,7 @@ package com.example.boardgame;
 import static java.lang.System.exit;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Random;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -1169,7 +1170,7 @@ public class GameController {
 
     @FXML
     public void toggleAtoms(ActionEvent event) {
-        Atoms.invisbleAtoms(event, getAtomcount(), spherepane);
+        Atoms.invisibleAtoms(event, getAtomcount(), spherepane);
     }
 
     public Stage getStage() {

@@ -10,15 +10,21 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Sphere;
 
-public class Atoms {
-    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount){
-        if (atomcount < 6) {
-            Polygon hexagon = (Polygon) event.getSource();
-            Sphere sphere = new Sphere(30);
-            Circle sphere1 = new Circle(90);
-            double x = hexagon.getLayoutX();
-            double y = hexagon.getLayoutY();
+import java.util.ArrayList;
 
+public class Atoms {
+    private static boolean gamestart = false;
+    //Red spheres are the one the experimenter places
+    private static ArrayList<Sphere> spheres_red = new ArrayList<>();
+    private static ArrayList<Sphere> spheres_guess = new ArrayList<>();
+    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount){
+        Polygon hexagon = (Polygon) event.getSource();
+        Sphere sphere = new Sphere(30);
+        double x = hexagon.getLayoutX();
+        double y = hexagon.getLayoutY();
+        Pane parent = (Pane) hexagon.getParent();
+        if (atomcount < 6) {
+            Circle sphere1 = new Circle(90);
             // set the sphere color to red
             sphere.setMaterial(new PhongMaterial(Color.RED));
             sphere.setLayoutX(x);
@@ -28,25 +34,43 @@ public class Atoms {
             sphere1.setStroke(Color.WHITE);
             sphere1.setFill(Color.TRANSPARENT);
             sphere1.setMouseTransparent(true);
-
             // get the parent node of the button
-            Pane parent = (Pane) hexagon.getParent();
             GameController.setSpherepane((Pane) hexagon.getParent());
             // replace the button with the sphere
             parent.getChildren().add(sphere);
             parent.getChildren().add(sphere1);
             GameController.setAtomcount();
             hexagon.setDisable(true);
+            spheres_red.add(sphere);
             return sphere;
+        }
+        else if (spheres_guess.size() < spheres_red.size() && gamestart)
+        {
+            // set the sphere color to red
+            sphere.setMaterial(new PhongMaterial(Color.LIGHTGREY));
+            sphere.setLayoutX(x);
+            sphere.setLayoutY(y);
+            // get the parent node of the button
+            GameController.setSpherepane((Pane) hexagon.getParent());
+            // replace the button with the sphere
+            parent.getChildren().add(sphere);
+            GameController.setAtomcount();
+            hexagon.setDisable(true);
+            spheres_guess.add(sphere);
         }
         return null;
     }
 
-    public static void invisbleAtoms(ActionEvent e, int atomcount, Pane spherepane) {
+    public static void invisibleAtoms(ActionEvent e, int atomcount, Pane spherepane) {
         //If we have a normal amount of atoms placed
         if (atomcount >= 3 && atomcount <= 6) {
             //go through all the children of the pane spherepane
             for (Node child : spherepane.getChildren()) {
+
+                if(child instanceof Polygon)
+                {
+                    child.setDisable(false);
+                }
                 //if the child is a sphere
                 if (child instanceof Sphere) {
                     //make the child a sphere so we can use sphere methods
@@ -59,6 +83,7 @@ public class Atoms {
                     circle.setVisible(!circle.isVisible());
                 }
             }
+            gamestart = true;
             GameController.setAtomcount(6);
         }
     }
