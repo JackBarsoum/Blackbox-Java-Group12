@@ -1,8 +1,12 @@
 package com.example.boardgame;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
@@ -17,7 +21,9 @@ public class Atoms {
     //Red spheres are the one the experimenter places
     private static ArrayList<Sphere> spheres_red = new ArrayList<>();
     private static ArrayList<Sphere> spheres_guess = new ArrayList<>();
-    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount){
+
+
+    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount) {
         Polygon hexagon = (Polygon) event.getSource();
         Sphere sphere = new Sphere(30);
         double x = hexagon.getLayoutX();
@@ -43,9 +49,7 @@ public class Atoms {
             hexagon.setDisable(true);
             spheres_red.add(sphere);
             return sphere;
-        }
-        else if (spheres_guess.size() < spheres_red.size() && gamestart)
-        {
+        } else if (spheres_guess.size() < spheres_red.size() && gamestart) {
             // set the sphere color to red
             sphere.setMaterial(new PhongMaterial(Color.LIGHTGREY));
             sphere.setLayoutX(x);
@@ -67,8 +71,7 @@ public class Atoms {
             //go through all the children of the pane spherepane
             for (Node child : spherepane.getChildren()) {
 
-                if(child instanceof Polygon)
-                {
+                if (child instanceof Polygon) {
                     child.setDisable(false);
                 }
                 //if the child is a sphere
@@ -85,6 +88,16 @@ public class Atoms {
             }
             gamestart = true;
             GameController.setAtomcount(6);
+        } else if (gamestart) {
+            gamestart = false;
+            for (int i = 0; i < spheres_red.size(); i++)
+            {
+                if(spheres_red.get(i).getLayoutX() != spheres_guess.get(i).getLayoutX() && spheres_red.get(i).getLayoutY() != spheres_guess.get(i).getLayoutY())
+                {
+                    GameController.addScore5();
+                }
+            }
+
         }
     }
 }

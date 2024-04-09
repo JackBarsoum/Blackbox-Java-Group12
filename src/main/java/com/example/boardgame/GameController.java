@@ -33,6 +33,10 @@ public class GameController {
     public int getAtomcount() {
         return atomcount;
     }
+
+    public static int getScore(){return score;}
+
+    public static void addScore5(){score += 5;}
     public static void setAtomcount(int atomcount1) {
         atomcount = atomcount1;
     }
@@ -49,6 +53,13 @@ public class GameController {
     public TextArea textBox; // Text box where results of rays shots will be displayed
 
     @FXML public TextArea textBoxScore;
+
+    @FXML
+    public void printScore()
+    {
+        textBoxScore.clear();
+        textBoxScore.appendText("Score: "+score);
+    }
 
     @FXML private Stage stage;
     private URL boardURL;
