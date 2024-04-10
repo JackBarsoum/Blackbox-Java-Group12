@@ -176,7 +176,9 @@ public class DeflectionHelpers {
                     // Check if the tempLine intersects with the circle's bounds
                     if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent())) {
                         double distance = Math.hypot(circle.getLayoutX() - newLine.getEndX(), circle.getLayoutY() - newLine.getEndY());
-                        if (distance <= radius) {
+                        double distance1 = Math.hypot(node1.getLayoutX() - newLine.getEndX(), node1.getLayoutY() - newLine.getEndY());
+                        double distance2 = Math.hypot(node2.getLayoutX() - newLine.getEndX(), node2.getLayoutY() - newLine.getEndY());
+                        if (distance <= radius && distance2 <= radius && distance1 <= radius) {
                             correct = 1;
                             newLine.setEndX(tempLine.getStartX());
                             newLine.setEndY(tempLine.getStartY());

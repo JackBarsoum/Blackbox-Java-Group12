@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BoardGame" />
-        <module name="Blackbox-Java-Group12" />
       </profile>
     </annotationProcessing>
   </component>
