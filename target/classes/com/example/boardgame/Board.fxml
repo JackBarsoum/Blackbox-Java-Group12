@@ -1047,7 +1047,7 @@
          <Double fx:value="-25.0" />
       </points>
    </Polygon>
-   <Button fx:id="toggle" layoutX="937.0" layoutY="638.0" mnemonicParsing="false" onAction="#toggleAtoms" onMouseReleased="#printScore" prefHeight="48.0" prefWidth="115.0" stylesheets="@Scene.css" text="Start/End">
+   <Button fx:id="start_end_button" layoutX="963.0" layoutY="635.0" mnemonicParsing="false" onAction="#toggleAtoms" prefHeight="48.0" prefWidth="200.0" stylesheets="@Scene.css" text="START">
       <font>
          <Font size="10.0" />
       </font>
