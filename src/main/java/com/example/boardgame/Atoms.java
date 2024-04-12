@@ -11,18 +11,15 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Sphere;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Atoms {
     private static boolean gamestart = false;
-    private static int atomcounter = 0;
-    private static int counter = 0;
+    private static int count_gamestate = 0;
     //Red spheres are the one the experimenter places
-    private static final ArrayList<Sphere> spheres_red = new ArrayList<>();
-    private static final ArrayList<Sphere> spheres_guess = new ArrayList<>();
+    private static ArrayList<Sphere> spheres_red = new ArrayList<>();
+    private static ArrayList<Sphere> spheres_guess = new ArrayList<>();
 
-
-    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount, Button start_end_button) {
+    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount) {
         Polygon hexagon = (Polygon) event.getSource();
         Sphere sphere = new Sphere(30);
         double x = hexagon.getLayoutX();
@@ -47,9 +44,8 @@ public class Atoms {
             GameController.setAtomcount();
             hexagon.setDisable(true);
             spheres_red.add(sphere);
-            atomcounter++;
             return sphere;
-        } else if (spheres_guess.size() < spheres_red.size() && gamestart && !Objects.equals(start_end_button.getText(), "Start Guessing")) {
+        } else if (spheres_guess.size() < spheres_red.size() && gamestart) {
             // set the sphere color to red
             sphere.setMaterial(new PhongMaterial(Color.LIGHTGREY));
             sphere.setLayoutX(x);
@@ -65,51 +61,61 @@ public class Atoms {
         return null;
     }
 
-    public static void invisibleAtoms(int atomcount, Pane spherepane, Button startButton) {
+    public static void invisibleAtoms(int atomcount, Pane spherepane, Button start_end_button) {
+        if(count_gamestate == 0)
+        {
+            start_end_button.setText("Start Guessing");
+        }
+        if(count_gamestate == 1)
+        {
+            start_end_button.setText("End Game");
+        }
+
         //If we have a normal amount of atoms placed
-        counter++;
-            if (atomcount >= 3 && atomcount <= 6) {
-                //go through all the children of the pane spherepane
-                for (Node child : spherepane.getChildren()) {
+        if (atomcount >= 3 && atomcount <= 6) {
+            //go through all the children of the pane spherepane
+            for (Node child : spherepane.getChildren()) {
 
-                    if (child instanceof Polygon) {
-                        child.setDisable(false);
-                    }
-                    //if the child is a sphere
-                    if (child instanceof Sphere sphere) {
-                        //make the child a sphere, so we can use sphere methods
-                        //make the sphere invisible/visible depending on the return of isVisible
-                        if (GameController.checkTest == 0) {
-                            sphere.setVisible(!sphere.isVisible());
-                        }
-                        //Check for radius is because we do not want to get rid of markers
-                    } else if (child instanceof Circle circle && ((Circle) child).getRadius() > 10) {
-                        if (GameController.checkTest == 0) {
-                            circle.setVisible(!circle.isVisible());
-                        }
-                    }
+                if (child instanceof Polygon) {
+                    child.setDisable(false);
                 }
-                gamestart = true;
-                GameController.setAtomcount(6);
-                startButton.setText("Start Guessing");
-            }
-            if (gamestart && GameController.getAtomcount() == 6 && counter >= 2) {
-                if(counter == 2) {
-                    startButton.setText("End Game");
-                    gamestart = true;
-                    return;
-                }
-                    gamestart = false;
-                    if(atomcounter > spheres_guess.size()){
-                        System.out.println("Finish making guesses");
-                    }else {
-                        for (int i = 0; i < spheres_red.size(); i++) {
-                            if (spheres_red.get(i).getLayoutX() != spheres_guess.get(i).getLayoutX() && spheres_red.get(i).getLayoutY() != spheres_guess.get(i).getLayoutY()) {
-                                GameController.addScore5();
-                            }
-                        }
-                    }
+                //if the child is a sphere
+                if (child instanceof Sphere) {
+                    //make the child a sphere so we can use sphere methods
+                    Sphere sphere = (Sphere) child;
+                    //make the sphere invisible/visible depending on the return of isVisible
+                    sphere.setVisible(!sphere.isVisible());
+                    //Check for radius is because we do not want to get rid of markers
+                } else if (child instanceof Circle && ((Circle) child).getRadius() > 10) {
+                    Circle circle = (Circle) child;
+                    circle.setVisible(!circle.isVisible());
                 }
             }
+            gamestart = true;
+            GameController.setAtomcount(6);
+        } else if (gamestart) {
+            int count = 0;
+            gamestart = false;
+            for (int i = 0; i < spheres_red.size(); i++)
+            {
+                for (int j = 0; j < spheres_guess.size(); j++)
+                {
+                    if(spheres_red.get(i).getLayoutX() == spheres_guess.get(j).getLayoutX() && spheres_red.get(i).getLayoutY() == spheres_guess.get(j).getLayoutY())
+                    {
+                        count++;
+                    }
+                }
+
+            }
+            if(count < spheres_red.size())
+            {
+                for (int p = 0; p < (spheres_red.size()-count);p++)
+                {
+                    GameController.addScore5();
+                }
+            }
+
+        }
+        count_gamestate++;
     }
-
+}

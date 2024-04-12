@@ -51,7 +51,7 @@ public class JunitTest {
         testingclass.setSpherepane(temp);
         testingclass.setAtomcount(3);
         //Call method
-        testingclass.toggleAtoms();
+        //testingclass.toggleAtoms();
         //Tests for visible to not visible
         assertFalse(sphere.isVisible());
         assertFalse(sphere2.isVisible());

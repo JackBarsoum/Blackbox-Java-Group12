@@ -37,11 +37,12 @@ public class GameController {
 
     public static int getScore(){return score;}
 
-    public static void addScore5(){score += 5;}
+    public static void addScore5(){
+        score += 5;}
     public static void setAtomcount(int atomcount1) {
         atomcount = atomcount1;
     }
-
+    public static Pane getSpherepane(){return spherepane;}
     static void setSpherepane(Pane spherepane1) {
         spherepane = spherepane1;
     }
@@ -103,10 +104,11 @@ public class GameController {
         textBoxScore.appendText("Score: "+score);
     }
 
+
     @FXML
     public Sphere handleButtonClick(MouseEvent event) {
         // create a new sphere
-        return Atoms.placeAtomsinHex(event, getAtomcount(), start_end_button);
+        return Atoms.placeAtomsinHex(event, getAtomcount());
     }
 
     @FXML
@@ -609,7 +611,7 @@ public class GameController {
 
     @FXML
     public void toggleAtoms() {
-        Atoms.invisibleAtoms(getAtomcount(), spherepane, start_end_button);
+        Atoms.invisibleAtoms(getAtomcount(), spherepane,start_end_button);
         if(atomcount == 6){
             gameStatus = 1;
         }
