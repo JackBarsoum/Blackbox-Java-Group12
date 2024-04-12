@@ -28,7 +28,7 @@ public class GameController {
     static double originalLineX;
     static double originalLineY;
     public Button start_end_button;
-    public boolean gameStatus = false;
+    public int gameStatus = 0;
   //  boolean reflected = false;
 
     public int getAtomcount() {
@@ -111,7 +111,7 @@ public class GameController {
 
     @FXML
     void extendLineHorizontal(MouseEvent e) {
-        if(gameStatus) {
+        if(gameStatus == 1) {
             RayShotScore();
             Line newLine = new Line();
             newLine.setStroke(Color.RED);
@@ -210,7 +210,7 @@ public class GameController {
 
     @FXML
     void extendLineDiagonalDown(MouseEvent e) {
-        if(gameStatus) {
+        if(gameStatus == 1) {
             RayShotScore();
             RandomColorGen();
             Line newLine = new Line();
@@ -305,7 +305,7 @@ public class GameController {
 
     @FXML
     void extendLineDiagonalUp(MouseEvent e) {
-        if(gameStatus) {
+        if(gameStatus == 1) {
             RayShotScore();
             Circle newCircleStart = new Circle();
             RandomColorGen();
@@ -610,7 +610,7 @@ public class GameController {
     public void toggleAtoms() {
         Atoms.invisibleAtoms(getAtomcount(), spherepane, start_end_button);
         if(atomcount == 6){
-            gameStatus = true;
+            gameStatus = 1;
         }
     }
 

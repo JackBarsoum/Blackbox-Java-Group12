@@ -89,6 +89,7 @@ public class Atoms {
                 startButton.setText("Finish Guessing");
             } else if (gamestart) {
                 gamestart = false;
+                startButton.setText("Show History");
                 for (int i = 0; i < spheres_red.size(); i++) {
                     if (spheres_red.get(i).getLayoutX() != spheres_guess.get(i).getLayoutX() && spheres_red.get(i).getLayoutY() != spheres_guess.get(i).getLayoutY()) {
                         GameController.addScore5();
