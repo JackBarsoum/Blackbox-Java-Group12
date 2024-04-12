@@ -1,7 +1,6 @@
 package com.example.boardgame;
 
 import javafx.scene.Node;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -54,7 +53,7 @@ public class DeflectionHelpers {
             for (int i = 0; i < 90; i++) {
                 if (up) {
                     lineTest.setEndX(lineTest.getEndX() - dx);
-                    lineTest.setEndY(lineTest.getEndY() + dy);
+                    lineTest.setEndY(lineTest.getEndY() - dy);
                 } else {
                     lineTest.setEndX(lineTest.getEndX() + dx);
                     lineTest.setEndY(lineTest.getEndY() + dy);
@@ -71,23 +70,6 @@ public class DeflectionHelpers {
         return checker;
     }
 
-    public static void printResults(int result, TextArea textBox, Node node) {
-        switch (result) {
-            case 0:
-                textBox.appendText("Ray hit nothing and exited at " + node.getId() + "\n");
-                System.out.println("Ray hit nothing and exited at " + node.getId());
-                break;
-            case 1:
-                System.out.println("Ray deflected at 60 degrees, hit nothing and exited at " + node.getId());
-                textBox.appendText("Ray deflected at 60 degrees, hit nothing and exited at " + node.getId() + "\n");
-                break;
-            case 2:
-                System.out.println("Ray deflected at 120 degrees, hit nothing and exited at " + node.getId());
-                textBox.appendText("Ray deflected at 120 degrees, hit nothing and exited at " + node.getId() + "\n");
-                break;
-        }
-    }
-
     public static int checkifDouble(Pane p, Line newLine, int x, Node prevNode, boolean up, boolean diagonal) {
         double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
@@ -99,15 +81,20 @@ public class DeflectionHelpers {
         tempLine.setStartY(newLine.getEndY());
 
         for (Node node : p.getChildren()) {
-            if (node != prevNode && node instanceof Circle) {
-                Circle circle = (Circle) node;
+            if (node != prevNode && node instanceof Circle circle) {
                 Circle circle2 = (Circle) prevNode;
                 double radius = circle.getRadius();
 
                 for (int j = 0; j < 10; j++) {
-                    if (up) newLine.setEndX(newLine.getEndX() - dx);
-                    else newLine.setEndX(newLine.getEndX() + dx);
-                    newLine.setEndY(newLine.getEndY() + dy);
+                    if (up) {
+                        newLine.setEndX(newLine.getEndX() - dx);
+                        newLine.setEndY(newLine.getEndY() - dy);
+                    }
+                    else {
+                        newLine.setEndX(newLine.getEndX() + dx);
+                        newLine.setEndY(newLine.getEndY() + dy);
+                    }
+
 
                     // Check if the tempLine intersects with the circle's bounds
                     if (newLine.getBoundsInParent().intersects(circle.getBoundsInParent()) && circle.getRadius() == 90) {
