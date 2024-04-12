@@ -31,7 +31,7 @@ public class GameController {
     public int gameStatus = 0;
   //  boolean reflected = false;
 
-    public int getAtomcount() {
+    public static int getAtomcount() {
         return atomcount;
     }
 
@@ -106,7 +106,7 @@ public class GameController {
     @FXML
     public Sphere handleButtonClick(MouseEvent event) {
         // create a new sphere
-        return Atoms.placeAtomsinHex(event, getAtomcount());
+        return Atoms.placeAtomsinHex(event, getAtomcount(), start_end_button);
     }
 
     @FXML
@@ -167,7 +167,7 @@ public class GameController {
                     //If the ray hits nothing
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && b != node) {
                         RayHelpers.markerHelper(circleColor, newLine, p, x);
-                        textBox.appendText("Ray deflected and exited at \n" + b.getId()); // Line intersects with another rectangle
+                        textBox.appendText("Ray deflected and exited at "+ node.getId() + "\n"); // Line intersects with another rectangle
                         flag = 1; break;
                         //If the ray comes in contact with a circle of influence
                     } else if (node instanceof Circle && checker != 2 && i > 70) {
@@ -194,7 +194,7 @@ public class GameController {
                     }
                     // Handle case when a horizontal Ray hit an atom
                     else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2 && i > 30) { // If the node hits the atom
-                        textBox.appendText("Ray hit an atom" + "\n");
+                        textBox.appendText("Ray hit an atom \n");
                         RayHelpers.placeBlackMarker(p);
                         flag = 1; break;
                     }
@@ -261,7 +261,7 @@ public class GameController {
                     i++;
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && node.getBoundsInParent().intersects(newLine.getBoundsInParent())) {
                         RayHelpers.markerHelper(circleColor, newLine, p, x); // Line intersects with another rectangle
-                        textBox.appendText("Ray deflected and exited at \n" + b.getId());
+                        textBox.appendText("Ray deflected and exited at " + node.getId() + "\n");
                         flag = 1;break;
                     } else if (node instanceof Circle && checker != 2 && i > 70) {
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, false);
@@ -327,7 +327,7 @@ public class GameController {
                     RayHelpers.setStartsIndsideHelper(result, newLine, p, b, textBox, 2);
                 } else {
                     direction_tester = Color.YELLOW;
-                    extendLineDiagonalUpHelper(e, newLine, 59, direction_tester);
+                    extendLineDiagonalUpHelper(e, newLine, b,59, direction_tester);
                 }
             } else if (right) {
                 int result = DeflectionHelpers.startsInside(newLine, p, 121, 4);
@@ -335,15 +335,14 @@ public class GameController {
                     RayHelpers.setStartsIndsideHelper(result, newLine, p, b, textBox, 2);
                 } else {
                     direction_tester = Color.GREEN;
-                    extendLineDiagonalUpHelper(e, newLine, 121, direction_tester);
+                    extendLineDiagonalUpHelper(e, newLine, b, 121, direction_tester);
                 }
             }
         }
     }
-    void extendLineDiagonalUpHelper(MouseEvent e, Line newLine, int x, Color color) {
+    void extendLineDiagonalUpHelper(MouseEvent e, Line newLine, Rectangle b, int x, Color color) {
         int checker = 0;
         newLine.setStroke(Color.RED);
-        Rectangle b = (Rectangle) e.getSource();
         Pane p = (Pane) b.getParent();
         RayHelpers.setStartofRay(newLine); // Set the trajectory of the ray
         // Needed to hold the original line if the ray deflects
@@ -363,11 +362,11 @@ public class GameController {
             for (Node node : p.getChildren()) {
                 if (newLine.getBoundsInParent().intersects(node.getBoundsInParent())) {
                     i++;
-                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color) {
+                    if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && node.getBoundsInParent().intersects(newLine.getBoundsInParent())) {
                         RayHelpers.markerHelper(circleColor, newLine, p, x);
-                        textBox.appendText("Ray deflected and exited at \n" + b.getId());
+                        textBox.appendText("Ray deflected and exited at " + node.getId() + "\n");
                         flag = 1;break;
-                    } else if (node instanceof Circle && checker != 2 && i > 60) {
+                    } else if (node instanceof Circle && checker != 2 && i > 60 ) {
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, x, true);
                         prevNode = node;
                         if (dFlag != 1) dFlag = DeflectionHelpers.checkifDouble(p, newLine, x, node, true, true);
@@ -384,7 +383,7 @@ public class GameController {
                         // Case if the ray hit 2 circles of influence at the same time
                     } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, x, true) != -1 && node != prevNode && i > 60) {
                         if (DeflectionHelpers.checkTriple(newLine, x, p, node, prevNode, true) == 1) {
-                            textBox.appendText("Ray reflected 180 degress and exited at " + b.getId());
+                            textBox.appendText("Ray reflected 180 degrees and exited at " + b.getId());
                             RayHelpers.placeWhiteMarker(p, textBox, b);
                             flag = 1;break;
                         }
@@ -411,10 +410,10 @@ public class GameController {
         if (newLine.getEndY() < node.getLayoutY()) {
             if (newLine.getEndX() > node.getLayoutX()) {
                 RayHelpers.deflection(Color.YELLOW, oldLine, checkTest, p);
-                this.extendLineDiagonalUpHelper(e, newLine, 59, Color.YELLOW);
+                this.extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
             } else {
                 RayHelpers.deflection(Color.GREEN, oldLine, checkTest, p);
-                this.extendLineDiagonalUpHelper(e, newLine, 121, Color.GREEN);
+                this.extendLineDiagonalUpHelper(e, newLine, b, 121, Color.GREEN);
             }
         } else {
             if (newLine.getEndX() > node.getLayoutX()) {
@@ -472,11 +471,11 @@ public class GameController {
             if (x == 59) {
                 if (checkTest != 0) System.out.println("Downtest12");
                 if (checkTest != 0) p.getChildren().add(oldLine);
-                extendLineDiagonalUpHelper(e, newLine,  121, Color.GREEN);
+                extendLineDiagonalUpHelper(e, newLine,  b, 121, Color.GREEN);
             } else {
                 if (checkTest != 0) System.out.println("Downtest13");
                 if (checkTest != 0) p.getChildren().add(oldLine);
-                extendLineDiagonalUpHelper(e, newLine, 59, Color.YELLOW);
+                extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
             }
             // If the ray deflects at the side of the sphere of influence
         } else {
@@ -506,7 +505,7 @@ public class GameController {
         }
         RayHelpers.deflection(deflectionColor, oldLine, checkTest, p);
         if (newLine.getEndY() < averageY) {
-            extendLineDiagonalUpHelper(e, newLine, angle, deflectionColor);
+            extendLineDiagonalUpHelper(e, newLine, b, angle, deflectionColor);
         }
         else {
             extendLineDiagonalDownHelper(e, newLine, p, b, angle, deflectionColor);
@@ -540,12 +539,14 @@ public class GameController {
         } else {
             if (newLine.getEndX() < node.getLayoutX()) {
                 if (checkTest != 0) System.out.println("Lol");
+                direction_tester = Color.YELLOW;
                 if (checkTest != 0) p.getChildren().add(oldLine);
-                extendLineDiagonalUpHelper(e, newLine, 59, Color.YELLOW);
+                extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
             } else {
                 if (checkTest != 0) System.out.println("LOL2");
                 if (checkTest != 0) p.getChildren().add(oldLine);
-                extendLineDiagonalUpHelper(e, newLine, 121, Color.GREEN);
+                direction_tester = Color.GREEN;
+                extendLineDiagonalUpHelper(e, newLine, b, 121, Color.GREEN);
             }
         }
     }

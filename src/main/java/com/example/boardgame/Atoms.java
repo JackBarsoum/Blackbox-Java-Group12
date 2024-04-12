@@ -11,15 +11,18 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Sphere;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Atoms {
     private static boolean gamestart = false;
+    private static int atomcounter = 0;
+    private static int counter = 0;
     //Red spheres are the one the experimenter places
     private static final ArrayList<Sphere> spheres_red = new ArrayList<>();
     private static final ArrayList<Sphere> spheres_guess = new ArrayList<>();
 
 
-    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount) {
+    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount, Button start_end_button) {
         Polygon hexagon = (Polygon) event.getSource();
         Sphere sphere = new Sphere(30);
         double x = hexagon.getLayoutX();
@@ -44,8 +47,9 @@ public class Atoms {
             GameController.setAtomcount();
             hexagon.setDisable(true);
             spheres_red.add(sphere);
+            atomcounter++;
             return sphere;
-        } else if (spheres_guess.size() < spheres_red.size() && gamestart) {
+        } else if (spheres_guess.size() < spheres_red.size() && gamestart && !Objects.equals(start_end_button.getText(), "Start Guessing")) {
             // set the sphere color to red
             sphere.setMaterial(new PhongMaterial(Color.LIGHTGREY));
             sphere.setLayoutX(x);
@@ -63,6 +67,7 @@ public class Atoms {
 
     public static void invisibleAtoms(int atomcount, Pane spherepane, Button startButton) {
         //If we have a normal amount of atoms placed
+        counter++;
             if (atomcount >= 3 && atomcount <= 6) {
                 //go through all the children of the pane spherepane
                 for (Node child : spherepane.getChildren()) {
@@ -86,16 +91,25 @@ public class Atoms {
                 }
                 gamestart = true;
                 GameController.setAtomcount(6);
-                startButton.setText("Finish Guessing");
-            } else if (gamestart) {
-                gamestart = false;
-                startButton.setText("Show History");
-                for (int i = 0; i < spheres_red.size(); i++) {
-                    if (spheres_red.get(i).getLayoutX() != spheres_guess.get(i).getLayoutX() && spheres_red.get(i).getLayoutY() != spheres_guess.get(i).getLayoutY()) {
-                        GameController.addScore5();
+                startButton.setText("Start Guessing");
+            }
+            if (gamestart && GameController.getAtomcount() == 6 && counter >= 2) {
+                if(counter == 2) {
+                    startButton.setText("End Game");
+                    gamestart = true;
+                    return;
+                }
+                    gamestart = false;
+                    if(atomcounter > spheres_guess.size()){
+                        System.out.println("Finish making guesses");
+                    }else {
+                        for (int i = 0; i < spheres_red.size(); i++) {
+                            if (spheres_red.get(i).getLayoutX() != spheres_guess.get(i).getLayoutX() && spheres_red.get(i).getLayoutY() != spheres_guess.get(i).getLayoutY()) {
+                                GameController.addScore5();
+                            }
+                        }
                     }
                 }
-
             }
     }
-}
+
