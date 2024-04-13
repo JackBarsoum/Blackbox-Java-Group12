@@ -724,6 +724,10 @@ public class GameController {
         }
     }
 
+    private void reenableHex(){
+        // TODO
+    }
+
 
     public void restart(){
         Atoms.removeAtoms();
@@ -733,7 +737,7 @@ public class GameController {
 
         textBox.clear();
         scoreList.add(getScore());
-        textBox.appendText("PLAYER " + (scoreList.size()+1));
+        textBox.appendText("PLAYER " + (scoreList.size()+1) + "\n");
 
         setScore(0);
     }
