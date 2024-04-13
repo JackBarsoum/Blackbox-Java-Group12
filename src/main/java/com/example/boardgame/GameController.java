@@ -2,7 +2,10 @@ package com.example.boardgame;
 import static java.lang.System.exit;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Random;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,9 +30,16 @@ public class GameController {
     private Color circleColor;
     static double originalLineX;
     static double originalLineY;
+
+    public static ArrayList<Line> lines = new ArrayList<>();
+    public static ArrayList<Rectangle> arrows = new ArrayList<>();
     public Button start_end_button;
+
+    public Scene scene;
     public int gameStatus = 0;
   //  boolean reflected = false;
+
+    private ArrayList<Integer> scoreList = new ArrayList<>();
 
     public static int getAtomcount() {
         return atomcount;
@@ -81,7 +91,7 @@ public class GameController {
         assert boardURL != null;
         Parent root = FXMLLoader.load(boardURL);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -119,6 +129,7 @@ public class GameController {
             newLine.setStroke(Color.RED);
             Rectangle b = (Rectangle) e.getSource();
             b.setDisable(true);
+            arrows.add(b);
             Pane p = (Pane) b.getParent();
             textBox.appendText("Ray shot from " + b.getId() + "\n");
             RandomColorGen();
@@ -205,8 +216,12 @@ public class GameController {
         } while (flag != 1);
         // If the ray was deflected then both the line before and after the ray was deflected will need to be
         if (checkTest != 0) {
+            System.out.println("adding lines");
             p.getChildren().add(oldLine);
             p.getChildren().add(newLine);
+
+            lines.add(oldLine);
+            lines.add(newLine);
         }
     }
 
@@ -219,6 +234,7 @@ public class GameController {
             newLine.setStroke(Color.RED);
             Rectangle b = (Rectangle) e.getSource();
             b.setDisable(true);
+            arrows.add(b);
             Pane p = (Pane) b.getParent();
 
             textBox.appendText("Ray shot from " + b.getId() + "\n");
@@ -300,8 +316,11 @@ public class GameController {
         } while (flag != 1);
         // If the ray was deflected then both the line before and after the ray was deflected will need to be
         if (checkTest != 0) {
-                p.getChildren().add(oldLine);
-                p.getChildren().add(newLine);
+            p.getChildren().add(oldLine);
+            p.getChildren().add(newLine);
+
+            lines.add(oldLine);
+            lines.add(newLine);
         }
     }
 
@@ -317,6 +336,7 @@ public class GameController {
             newLine.setStroke(Color.RED);
             Rectangle b = (Rectangle) e.getSource();
             b.setDisable(true);
+            arrows.add(b);
             Pane p = (Pane) b.getParent();
 
             textBox.appendText("Ray shot from " + b.getId() + "\n");
@@ -404,6 +424,9 @@ public class GameController {
         if (checkTest != 0) {
             p.getChildren().add(oldLine);
             p.getChildren().add(newLine);
+
+            lines.add(oldLine);
+            lines.add(newLine);
         }
     }
 
@@ -432,21 +455,33 @@ public class GameController {
         if (newLine.getEndY() + 10 < node.getLayoutY()) {
             if (x == 59) {
                 if (newLine.getEndX() > node.getLayoutX()) {
-                    if (checkTest != 0) p.getChildren().add(oldLine);
+                    if (checkTest != 0) {
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine, 1, Color.BLACK);
                 } else {
-                    if (checkTest != 0) p.getChildren().add(oldLine);
+                    if (checkTest != 0){
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine,  180, Color.BLACK);
                 }
             } else {
                 if (newLine.getEndX() > node.getLayoutX()) {
                     if (checkTest != 0) System.out.println("Downtest6");
-                    if(checkTest != 0) p.getChildren().add(oldLine);
+                    if(checkTest != 0){
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
                     return;
                 } else {
                     if (checkTest != 0) System.out.println("Downtest7");
-                    if (checkTest != 0) p.getChildren().add(oldLine);
+                    if (checkTest != 0){
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine, 179, Color.BLACK);
                 }
             }
@@ -454,12 +489,18 @@ public class GameController {
         } else {
             if (newLine.getEndX() > node.getLayoutX()) {
                 if (checkTest != 0) System.out.println("Downtest8");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 direction_tester = Color.GREEN;
                 extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.RED);
             } else {
                 if (checkTest != 0) System.out.println("Downtest9");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 direction_tester = Color.YELLOW;
                 extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.BLUE);
             }
@@ -472,22 +513,34 @@ public class GameController {
         if (newLine.getEndY() < averageY) {
             if (x == 59) {
                 if (checkTest != 0) System.out.println("Downtest12");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendLineDiagonalUpHelper(e, newLine,  b, 121, Color.GREEN);
             } else {
                 if (checkTest != 0) System.out.println("Downtest13");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
             }
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (x == 121) {
                 if (checkTest != 0) System.out.println("HHello");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
             } else {
                 if (checkTest != 0) System.out.println("HHHHHELLOOOO");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendRayHorizontalHelper(e, newLine, 180, Color.BLACK);
             }
         }
@@ -519,21 +572,33 @@ public class GameController {
             if (x == 59) {
                 if (newLine.getEndX() < node.getLayoutX()) {
                     if (checkTest != 0) System.out.println("Hello1");
-                    if (checkTest != 0) p.getChildren().add(oldLine);
+                    if (checkTest != 0){
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine, 180, Color.BLACK);
                 } else {
                     if (checkTest != 0) System.out.println("Hell on Earth2");
-                    if (checkTest != 0) p.getChildren().add(oldLine);
+                    if (checkTest != 0){
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
                 }
             } else {
                 if (newLine.getEndX() < node.getLayoutX()) {
                     if (checkTest != 0) System.out.println("Hello2");
-                    if (checkTest != 0) p.getChildren().add(oldLine);
+                    if (checkTest != 0){
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine, 181, Color.BLACK);
                 } else {
                     if (checkTest != 0) System.out.println("Hell on Earth1");
-                    if (checkTest != 0) p.getChildren().add(oldLine);
+                    if (checkTest != 0){
+                        p.getChildren().add(oldLine);
+                        lines.add(oldLine);
+                    }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
                 }
             }
@@ -542,11 +607,17 @@ public class GameController {
             if (newLine.getEndX() < node.getLayoutX()) {
                 if (checkTest != 0) System.out.println("Lol");
                 direction_tester = Color.YELLOW;
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
             } else {
                 if (checkTest != 0) System.out.println("LOL2");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 direction_tester = Color.GREEN;
                 extendLineDiagonalUpHelper(e, newLine, b, 121, Color.GREEN);
             }
@@ -561,22 +632,34 @@ public class GameController {
         if (newLine.getEndY() > averageY) {
             if (x == 121) {
                 if (checkTest != 0) System.out.println("Test2.1");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.RED);
             } else {
                 if (checkTest != 0) System.out.println("Test2.2");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.BLUE);
             }
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (x == 121) {
                 if (checkTest != 0) System.out.println("Side1");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendRayHorizontalHelper(e, newLine, 179, Color.BLACK);
             } else {
                 if (checkTest != 0) System.out.println("Side2");
-                if (checkTest != 0) p.getChildren().add(oldLine);
+                if (checkTest != 0){
+                    p.getChildren().add(oldLine);
+                    lines.add(oldLine);
+                }
                 extendRayHorizontalHelper(e, newLine, 1, Color.BLACK);
             }
         }
@@ -617,8 +700,50 @@ public class GameController {
         }
     }
 
+    private void removeLines(){
+
+        Platform.runLater(() -> { // avoid threading issues
+            for (Line line : lines) {
+                Parent parent = line.getParent();
+                if (parent instanceof Pane) {
+                    ((Pane) parent).getChildren().remove(line);
+                    System.out.println("Line removed");
+                } else {
+                    throw new UnsupportedOperationException("failed to remove line");
+                }
+            }
+
+            lines.clear(); // Clear arrayList
+        });
+
+    }
+
+    private void reenableArrows(){
+        for(Rectangle arrow : arrows){
+            arrow.setDisable(false);
+        }
+    }
+
+
+    public void restart(){
+        Atoms.removeAtoms();
+        removeLines();
+        RayHelpers.removeRayMarkers();
+        reenableArrows();
+
+        textBox.clear();
+        scoreList.add(getScore());
+        textBox.appendText("PLAYER " + (scoreList.size()+1));
+
+        setScore(0);
+    }
+
     public Stage getStage() {
         return stage;
+    }
+
+    public void setScore(int x){
+        score = x;
     }
 
     public URL getBoardURL() {

@@ -1,12 +1,19 @@
 package com.example.boardgame;
+import javafx.application.Platform;
+import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Sphere;
+
+import java.util.ArrayList;
 
 public class RayHelpers {
+
+    public static ArrayList<Circle> rayMarkerList = new ArrayList<>();
 
     public static void setStartofRay(Line newLine) {
 
@@ -103,10 +110,15 @@ public class RayHelpers {
         }
         p.getChildren().add(newCircleStart);
         p.getChildren().add(newLine);
+        GameController.lines.add(newLine);
+        rayMarkerList.add(newCircleStart);
     }
 
     public static void deflection (Color direction, Line oldLine, int CheckTesting, Pane p){
-        if (CheckTesting != 0) p.getChildren().add(oldLine);
+        if (CheckTesting != 0){
+            p.getChildren().add(oldLine);
+            GameController.lines.add(oldLine);
+        }
         GameController.direction_tester = direction;
     }
 
@@ -126,6 +138,8 @@ public class RayHelpers {
         newCircleEnd.setCenterY(newLine.getEndY() + dy);
         p.getChildren().add(newCircleEnd);
         p.getChildren().add(newCircleStart);
+        rayMarkerList.add(newCircleEnd);
+        rayMarkerList.add(newCircleStart);
     }
 
     public static void placeWhiteMarker(Pane p, TextArea textBox, Rectangle b){
@@ -135,6 +149,7 @@ public class RayHelpers {
         newCircleStart.setCenterY(GameController.originalLineY);
         newCircleStart.setCenterX(GameController.originalLineX);
         p.getChildren().add(newCircleStart);
+        rayMarkerList.add(newCircleStart);
         textBox.appendText("Ray reflected 180 degrees and exited at " + b.getId());
     }
 
@@ -146,6 +161,7 @@ public class RayHelpers {
         startcircle.setRadius(10);
         startcircle.setFill(Color.BLACK);
         p.getChildren().add(startcircle);
+        rayMarkerList.add(startcircle);
     }
 
     public static void moveRay(Line newLine, int angle, boolean positive)
@@ -161,6 +177,24 @@ public class RayHelpers {
             newLine.setEndX(newLine.getEndX() - dx);
             newLine.setEndY(newLine.getEndY() - dy);
         }
+    }
+
+    public static void removeRayMarkers(){
+        Platform.runLater(() -> { //to avoid threading issues
+
+            //remove red spheres
+            for (Circle c : rayMarkerList) {
+                Parent parent = c.getParent();
+                if (parent instanceof Pane) {
+                    ((Pane) parent).getChildren().remove(c);
+                    System.out.println("marker removed");
+                } else {
+                    throw new UnsupportedOperationException("failed to remove marker");
+                }
+            }
+
+            rayMarkerList.clear();
+        });
     }
 
 }

@@ -1,6 +1,9 @@
 package com.example.boardgame;
 
+import javafx.application.Platform;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -17,6 +20,7 @@ public class Atoms {
     private static int count_gamestate = 0;
     //Red spheres are the one the experimenter places
     private static ArrayList<Sphere> spheres_red = new ArrayList<>();
+    private static ArrayList<Circle> circles = new ArrayList<>();
     private static ArrayList<Sphere> spheres_guess = new ArrayList<>();
 
     public static Sphere placeAtomsinHex(MouseEvent event, int atomcount) {
@@ -44,6 +48,7 @@ public class Atoms {
             GameController.setAtomcount();
             hexagon.setDisable(true);
             spheres_red.add(sphere);
+            circles.add(sphere1);
             return sphere;
         } else if (spheres_guess.size() < spheres_red.size() && gamestart) {
             // set the sphere color to red
@@ -117,5 +122,50 @@ public class Atoms {
 
         }
         count_gamestate++;
+    }
+
+    public static void removeAtoms(){
+
+        Platform.runLater(() -> { //to avoid threading issues
+
+            //remove red spheres
+            for (Sphere s : spheres_red) {
+                Parent parent = s.getParent();
+                if (parent instanceof Pane) {
+                    ((Pane) parent).getChildren().remove(s);
+                    System.out.println("Sphere removed");
+                } else {
+                    throw new UnsupportedOperationException("failed to remove sphere");
+                }
+            }
+
+            //remove guessed spheres
+            for (Sphere s : spheres_guess) {
+                Parent parent = s.getParent();
+                if (parent instanceof Pane) {
+                    ((Pane) parent).getChildren().remove(s);
+                    System.out.println("Sphere removed");
+                } else {
+                    throw new UnsupportedOperationException("failed to remove sphere");
+                }
+            }
+
+            //remove guessed spheres
+            for (Circle c : circles) {
+                Parent parent = c.getParent();
+                if (parent instanceof Pane) {
+                    ((Pane) parent).getChildren().remove(c);
+                    System.out.println("Circle removed");
+                } else {
+                    throw new UnsupportedOperationException("failed to remove circle");
+                }
+            }
+
+            //reset ArrayLists
+            spheres_red.clear();
+            spheres_guess.clear();
+            circles.clear();
+
+        });
     }
 }

@@ -1498,4 +1498,9 @@
          <Font size="96.0" />
       </font>
    </TextArea>
+   <Button fx:id="start_end_button1" layoutX="963.0" layoutY="711.0" mnemonicParsing="false" onAction="#restart" prefHeight="48.0" prefWidth="200.0" stylesheets="@Scene.css" text="Next Player">
+      <font>
+         <Font size="10.0" />
+      </font>
+   </Button>
 </AnchorPane>
