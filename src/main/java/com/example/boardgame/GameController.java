@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +13,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -435,18 +437,18 @@ public class GameController {
         if (newLine.getEndY() < node.getLayoutY()) {
             if (newLine.getEndX() > node.getLayoutX()) {
                 RayHelpers.deflection(Color.YELLOW, oldLine, checkTest, p);
-                this.extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
+                extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
             } else {
                 RayHelpers.deflection(Color.GREEN, oldLine, checkTest, p);
-                this.extendLineDiagonalUpHelper(e, newLine, b, 121, Color.GREEN);
+                extendLineDiagonalUpHelper(e, newLine, b, 121, Color.GREEN);
             }
         } else {
             if (newLine.getEndX() > node.getLayoutX()) {
                 RayHelpers.deflection(Color.YELLOW, oldLine, checkTest, p);
-                this.extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.RED);
+                extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.RED);
             } else {
                 RayHelpers.deflection(Color.GREEN, oldLine, checkTest, p);
-                this.extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.BLUE);
+                extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.BLUE);
             }
         }
     }
@@ -753,4 +755,36 @@ public class GameController {
     public URL getBoardURL() {
         return boardURL;
     }
+
+    @FXML
+    public void pauseGame(KeyEvent k) throws IOException {
+        KeyCode key = k.getCode();
+        if(key == KeyCode.ESCAPE){
+            pausePopUp();
+        }
+    }
+    @FXML
+    public static Stage stage2 = new Stage();
+    @FXML
+    void pausePopUp()throws  IOException{
+        URL boardURL2 = getClass().getResource("Pause.fxml");
+        assert boardURL2 != null;
+        Parent root = FXMLLoader.load(boardURL2);
+        Image icon = new Image(this.getClass().getResource("GameIcon.jpeg").toExternalForm());
+        stage2.getIcons().add(icon);
+        stage2.setTitle("BlackBoard Pause");
+        Scene scene2 = new Scene(root);
+        stage2.setScene(scene2);
+        stage2.show();
+    }
+    @FXML
+    void quit(){
+        exit(0);
+    }
+
+    @FXML
+    void pauseContinue(){
+        stage2.close();
+    }
+
 }
