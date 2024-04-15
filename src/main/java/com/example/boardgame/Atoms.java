@@ -22,7 +22,11 @@ public class Atoms {
     private static ArrayList<Sphere> spheres_red = new ArrayList<>();
     private static ArrayList<Circle> circles = new ArrayList<>();
     private static ArrayList<Sphere> spheres_guess = new ArrayList<>();
-
+    public static void resetvalues()
+    {
+        gamestart = false;
+        count_gamestate = 0;
+    }
     public static Sphere placeAtomsinHex(MouseEvent event, int atomcount) {
         Polygon hexagon = (Polygon) event.getSource();
         Sphere sphere = new Sphere(30);
@@ -124,8 +128,7 @@ public class Atoms {
         count_gamestate++;
     }
 
-    public static void removeAtoms(){
-
+    public static void removeAtoms(Pane spherepane){
         Platform.runLater(() -> { //to avoid threading issues
 
             //remove red spheres
@@ -160,7 +163,14 @@ public class Atoms {
                     throw new UnsupportedOperationException("failed to remove circle");
                 }
             }
+            //Allow you to click polygons again
+            for (Node child : spherepane.getChildren()) {
 
+                if (child instanceof Polygon) {
+                    child.setDisable(false);
+                }
+            }
+            resetvalues();
             //reset ArrayLists
             spheres_red.clear();
             spheres_guess.clear();

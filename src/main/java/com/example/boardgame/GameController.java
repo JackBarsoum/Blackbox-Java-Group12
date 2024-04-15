@@ -732,7 +732,7 @@ public class GameController {
 
 
     public void restart(){
-        Atoms.removeAtoms();
+        Atoms.removeAtoms(spherepane);
         removeLines();
         RayHelpers.removeRayMarkers();
         reenableArrows();
@@ -740,8 +740,10 @@ public class GameController {
         textBox.clear();
         scoreList.add(getScore());
         textBox.appendText("PLAYER " + (scoreList.size()+1) + "\n");
-
+        setAtomcount(0);
+        start_end_button.setText("Start");
         setScore(0);
+        printScore();
     }
 
     public Stage getStage() {
