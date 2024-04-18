@@ -779,11 +779,11 @@ public class GameController {
             start_end_button.setVisible(true);
             printScore();
         } else if(player2Score < 0){
+            printScore();
             player2Score = getScore();
             start_end_button.setVisible(false);
             nextPlayer.setText("Quit");
             calculateScore();
-            printScore();
         } else{
             quit();
         }
