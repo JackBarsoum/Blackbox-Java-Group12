@@ -107,7 +107,7 @@ public class GameController {
         stage.show();
     }
 
-    public static int checkTest = 0;
+    public static int checkTest = 1;
     public void checkTest() {
         //This method would check if user is in test mode or not
         //If the message below will appear letting them know
@@ -137,6 +137,7 @@ public class GameController {
         if(gameStatus == 1) {
             RayShotScore();
             Line newLine = new Line();
+            newLine.setVisible(false);
             newLine.setStroke(Color.RED);
             Rectangle b = (Rectangle) e.getSource();
             b.setDisable(true);
@@ -181,6 +182,8 @@ public class GameController {
         Pane p = (Pane) b.getParent();
         RayHelpers.setStartofRay(newLine);
         Line oldLine = new Line(); // Needed to hold the original line if the ray deflects
+        oldLine.setVisible(false);
+        newLine.setVisible(false);
         Node prevNode = null;
         do {
             // If the ray deflects off the circle of influence and goes up or down the board
@@ -230,7 +233,8 @@ public class GameController {
             System.out.println("adding lines");
             p.getChildren().add(oldLine);
             p.getChildren().add(newLine);
-
+            oldLine.setVisible(false);
+            newLine.setVisible(false);
             lines.add(oldLine);
             lines.add(newLine);
         }
@@ -242,6 +246,7 @@ public class GameController {
             RayShotScore();
             RandomColorGen();
             Line newLine = new Line();
+            newLine.setVisible(false);
             newLine.setStroke(Color.RED);
             Rectangle b = (Rectangle) e.getSource();
             b.setDisable(true);
@@ -274,6 +279,8 @@ public class GameController {
     void extendLineDiagonalDownHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color) {
         int checker = 0;
         Line oldLine = new Line();
+        oldLine.setVisible(false);
+        newLine.setVisible(false);
         RayHelpers.setStartofRay(newLine);
         if (direction_tester == Color.GREEN) {
             color = Color.RED;
@@ -329,7 +336,8 @@ public class GameController {
         if (checkTest != 0) {
             p.getChildren().add(oldLine);
             p.getChildren().add(newLine);
-
+            oldLine.setVisible(false);
+            newLine.setVisible(false);
             lines.add(oldLine);
             lines.add(newLine);
         }
@@ -344,6 +352,7 @@ public class GameController {
             newCircleStart.setFill(circleColor);
             newCircleStart.setRadius(10);
             Line newLine = new Line();
+            newLine.setVisible(false);
             newLine.setStroke(Color.RED);
             Rectangle b = (Rectangle) e.getSource();
             b.setDisable(true);
@@ -380,6 +389,8 @@ public class GameController {
         RayHelpers.setStartofRay(newLine); // Set the trajectory of the ray
         // Needed to hold the original line if the ray deflects
         Line oldLine = new Line();
+        oldLine.setVisible(false);
+        newLine.setVisible(false);
         oldLine.setStroke(Color.PURPLE);
         // What colour nodes the ray needs to be hitting to exit
         if (direction_tester == Color.GREEN) {
@@ -435,7 +446,8 @@ public class GameController {
         if (checkTest != 0) {
             p.getChildren().add(oldLine);
             p.getChildren().add(newLine);
-
+            oldLine.setVisible(false);
+            newLine.setVisible(false);
             lines.add(oldLine);
             lines.add(newLine);
         }
@@ -463,17 +475,21 @@ public class GameController {
     }
 
     public void one_circle_deflection_down(MouseEvent e, Line newLine, Line oldLine, Node node, Pane p, Rectangle b, int x){
+        oldLine.setVisible(false);
+        newLine.setVisible(false);
         if (newLine.getEndY() + 10 < node.getLayoutY()) {
             if (x == 59) {
                 if (newLine.getEndX() > node.getLayoutX()) {
                     if (checkTest != 0) {
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 1, Color.BLACK);
                 } else {
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine,  180, Color.BLACK);
@@ -483,6 +499,7 @@ public class GameController {
                     if (checkTest != 0) System.out.println("Downtest6");
                     if(checkTest != 0){
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
@@ -490,6 +507,7 @@ public class GameController {
                     if (checkTest != 0) System.out.println("Downtest7");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 179, Color.BLACK);
@@ -501,6 +519,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Downtest8");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 direction_tester = Color.GREEN;
@@ -509,6 +528,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Downtest9");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 direction_tester = Color.YELLOW;
@@ -518,6 +538,8 @@ public class GameController {
     }
 
     public void two_circle_deflection_down(MouseEvent e, Node node, Node prevNode, Line oldLine, Line newLine, Pane p, Rectangle b, int x){
+        oldLine.setVisible(false);
+        newLine.setVisible(false);
         double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
         averageY -= 45;
         if (newLine.getEndY() < averageY) {
@@ -525,6 +547,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Downtest12");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendLineDiagonalUpHelper(e, newLine,  b, 121, Color.GREEN);
@@ -532,6 +555,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Downtest13");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
@@ -542,6 +566,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("HHello");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
@@ -549,6 +574,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("HHHHHELLOOOO");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendRayHorizontalHelper(e, newLine, 180, Color.BLACK);
@@ -558,6 +584,8 @@ public class GameController {
 
 
     public void two_circle_deflection(MouseEvent e, Line newLine, Line oldLine, Pane p, Rectangle b, Node node, Node prevNode, int x){
+        oldLine.setVisible(false);
+        newLine.setVisible(false);
         double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
         Color deflectionColor;
         int angle;
@@ -584,6 +612,7 @@ public class GameController {
                     if (checkTest != 0) System.out.println("Hello1");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 180, Color.BLACK);
@@ -591,6 +620,7 @@ public class GameController {
                     if (checkTest != 0) System.out.println("Hell on Earth2");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
@@ -600,6 +630,7 @@ public class GameController {
                     if (checkTest != 0) System.out.println("Hello2");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 181, Color.BLACK);
@@ -607,6 +638,7 @@ public class GameController {
                     if (checkTest != 0) System.out.println("Hell on Earth1");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
+                        oldLine.setVisible(false);
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
@@ -619,6 +651,7 @@ public class GameController {
                 direction_tester = Color.YELLOW;
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
@@ -626,6 +659,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("LOL2");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 direction_tester = Color.GREEN;
@@ -635,6 +669,8 @@ public class GameController {
     }
 
     public void two_deflection_helper_up(MouseEvent e, Node node, Node prevNode, Pane p, Rectangle b, int x, Line newLine, Line oldLine) {
+        oldLine.setVisible(false);
+        newLine.setVisible(false);
         double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
         averageY += 45;
 
@@ -644,6 +680,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Test2.1");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.RED);
@@ -651,6 +688,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Test2.2");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendLineDiagonalDownHelper(e, newLine, p, b, 121, Color.BLUE);
@@ -661,6 +699,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Side1");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendRayHorizontalHelper(e, newLine, 179, Color.BLACK);
@@ -668,6 +707,7 @@ public class GameController {
                 if (checkTest != 0) System.out.println("Side2");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
+                    oldLine.setVisible(false);
                     lines.add(oldLine);
                 }
                 extendRayHorizontalHelper(e, newLine, 1, Color.BLACK);

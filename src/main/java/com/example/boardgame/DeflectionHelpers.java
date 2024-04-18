@@ -15,6 +15,7 @@ public class DeflectionHelpers {
     }
 
     public static int startsInside(Line l, Pane p, int angle, int direction) {
+        l.setVisible(false);
         for (Node node : p.getChildren()) {
             if (l.getBoundsInParent().intersects(node.getBoundsInParent()) && node instanceof Circle) {
                 double distance = switch (direction) {
@@ -36,6 +37,7 @@ public class DeflectionHelpers {
 
 
     public static int isInsideC(Circle c, Line l, int angle, boolean up) {
+        l.setVisible(false);
         double radius = c.getRadius();
         Pane p = (Pane) c.getParent();
         double distance = Math.hypot(c.getLayoutX() - l.getEndX(), c.getLayoutY() - l.getEndY());
@@ -71,6 +73,7 @@ public class DeflectionHelpers {
     }
 
     public static int checkifDouble(Pane p, Line newLine, int x, Node prevNode, boolean up, boolean diagonal) {
+        newLine.setVisible(false);
         double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);
@@ -135,6 +138,7 @@ public class DeflectionHelpers {
     }
 
     public static int checkTriple(Line newLine, int x, Pane p, Node node1, Node node2, boolean up) {
+        newLine.setVisible(false);
         double angleRadians = Math.toRadians(x);
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);

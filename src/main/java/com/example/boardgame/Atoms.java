@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Sphere;
 
@@ -70,19 +71,26 @@ public class Atoms {
         }
         return null;
     }
-
-    public static void invisibleAtoms(int atomcount, Pane spherepane, Button start_end_button, Button nextPlayer) {
-        if(count_gamestate == 0)
+    public static void showHistory(Pane spherepane)
+    {
+        for (Node p: spherepane.getChildren())
         {
-            start_end_button.setText("Start Guessing");
-            start_end_button.setVisible(true);
+            if(p instanceof Sphere || p instanceof Line)
+            {
+                p.setVisible(true);
+            }
         }
-        else if(count_gamestate == 1)
+    }
+    public static void invisibleAtoms(int atomcount, Pane spherepane, Button start_end_button, Button nextPlayer) {
+        if(count_gamestate == 1)
+        {
+            showHistory(spherepane);
+        }
+        else if(count_gamestate == 0)
         {
             start_end_button.setText("Reveal Board");
         }
-
-        else if(count_gamestate == 2 && !secondPlayer){
+        else if(count_gamestate == 1 && !secondPlayer){
             start_end_button.setVisible(false);
             nextPlayer.setVisible(true);
             secondPlayer = true;
@@ -95,7 +103,8 @@ public class Atoms {
 
 
         //If we have a normal amount of atoms placed
-        if (atomcount >= 3 && atomcount <= 6) {
+        if (atomcount >= 3 && atomcount <= 6 && count_gamestate == 0) {
+            count_gamestate++;
             //go through all the children of the pane spherepane
             for (Node child : spherepane.getChildren()) {
 
@@ -117,6 +126,7 @@ public class Atoms {
             gamestart = true;
             GameController.setAtomcount(6);
         } else if (gamestart) {
+            count_gamestate++;
             int count = 0;
             gamestart = false;
             for (int i = 0; i < spheres_red.size(); i++)
@@ -139,7 +149,6 @@ public class Atoms {
             }
 
         }
-        count_gamestate++;
     }
 
     public static void removeAtoms(Pane spherepane){
