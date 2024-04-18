@@ -29,6 +29,8 @@ public class GameController {
     private static int atomcount = 0;
     private static Pane spherepane;
     private static int score = 0;
+    private int player1Score = -1;
+    private int player2Score = -1;
     private Color circleColor;
     static double originalLineX;
     static double originalLineY;
@@ -36,12 +38,11 @@ public class GameController {
     public static ArrayList<Line> lines = new ArrayList<>();
     public static ArrayList<Rectangle> arrows = new ArrayList<>();
     public Button start_end_button;
+    public Button nextPlayer;
 
     public Scene scene;
     public int gameStatus = 0;
   //  boolean reflected = false;
-
-    private ArrayList<Integer> scoreList = new ArrayList<>();
 
     public static int getAtomcount() {
         return atomcount;
@@ -477,7 +478,6 @@ public class GameController {
                         lines.add(oldLine);
                     }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
-                    return;
                 } else {
                     if (checkTest != 0) System.out.println("Downtest7");
                     if (checkTest != 0){
@@ -702,6 +702,31 @@ public class GameController {
         }
     }
 
+    private void calculateScore(){
+        textBox.appendText("FINAL SCORE: " + player1Score + " - " + player2Score + "\n");
+        if(player1Score < player2Score){
+            textBox.appendText("""
+                    PLAYER 1 WINS!!!
+                       \\\\
+                       (o>
+                    \\\\_//)
+                      \\_/_)
+                        _|_\t winner winner chicken dinner
+                    """);
+        } else if(player2Score < player1Score){
+            textBox.appendText("""
+                    PLAYER 2 WINS!!!
+                       \\\\
+                       (o>
+                    \\\\_//)
+                      \\_/_)
+                        _|_\t winner winner chicken dinner
+                    """);
+        } else{
+            textBox.appendText("IT'S A TIE!! EVERYONE'S A WINNER :D\n");
+        }
+    }
+
     private void removeLines(){
 
         Platform.runLater(() -> { // avoid threading issues
@@ -726,10 +751,6 @@ public class GameController {
         }
     }
 
-    private void reenableHex(){
-        // TODO
-    }
-
 
     public void restart(){
         Atoms.removeAtoms(spherepane);
@@ -738,10 +759,21 @@ public class GameController {
         reenableArrows();
 
         textBox.clear();
-        scoreList.add(getScore());
-        textBox.appendText("PLAYER " + (scoreList.size()+1) + "\n");
+        if(player1Score < 0){
+            player1Score = getScore();
+            textBox.appendText("PLAYER 2");
+            nextPlayer.setText("Final results");
+            start_end_button.setText("Start");
+        } else if(player2Score < 0){
+            player2Score = getScore();
+            start_end_button.setVisible(false);
+            nextPlayer.setText("Quit");
+            calculateScore();
+        } else{
+            quit();
+        }
+
         setAtomcount(0);
-        start_end_button.setText("Start");
         setScore(0);
         printScore();
     }
