@@ -3,7 +3,6 @@ package com.example.boardgame;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -18,6 +17,8 @@ import java.util.ArrayList;
 public class Atoms {
     private static boolean gamestart = false;
     private static int count_gamestate = 0;
+    public static boolean secondPlayer = false;
+
     //Red spheres are the one the experimenter places
     private static ArrayList<Sphere> spheres_red = new ArrayList<>();
     private static ArrayList<Circle> circles = new ArrayList<>();
@@ -70,15 +71,28 @@ public class Atoms {
         return null;
     }
 
-    public static void invisibleAtoms(int atomcount, Pane spherepane, Button start_end_button) {
+    public static void invisibleAtoms(int atomcount, Pane spherepane, Button start_end_button, Button nextPlayer) {
         if(count_gamestate == 0)
         {
             start_end_button.setText("Start Guessing");
+            start_end_button.setVisible(true);
         }
-        if(count_gamestate == 1)
+        else if(count_gamestate == 1)
         {
-            start_end_button.setText("End Game");
+            start_end_button.setText("Reveal Board");
         }
+
+        else if(count_gamestate == 2 && !secondPlayer){
+            start_end_button.setVisible(false);
+            nextPlayer.setVisible(true);
+            secondPlayer = true;
+            count_gamestate = -1; //resetting gamestate
+        } else{
+            start_end_button.setVisible(false);
+            nextPlayer.setVisible(true);
+        }
+
+
 
         //If we have a normal amount of atoms placed
         if (atomcount >= 3 && atomcount <= 6) {
@@ -90,7 +104,7 @@ public class Atoms {
                 }
                 //if the child is a sphere
                 if (child instanceof Sphere) {
-                    //make the child a sphere so we can use sphere methods
+                    //make the child a sphere, so we can use sphere methods
                     Sphere sphere = (Sphere) child;
                     //make the sphere invisible/visible depending on the return of isVisible
                     sphere.setVisible(!sphere.isVisible());
@@ -177,5 +191,9 @@ public class Atoms {
             circles.clear();
 
         });
+    }
+
+    public static int getCount_gamestate() {
+        return count_gamestate;
     }
 }

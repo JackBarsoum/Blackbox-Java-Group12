@@ -39,6 +39,7 @@ public class GameController {
     public static ArrayList<Rectangle> arrows = new ArrayList<>();
     public Button start_end_button;
     public Button nextPlayer;
+    public Button boardButton;
 
     public Scene scene;
     public int gameStatus = 0;
@@ -46,6 +47,13 @@ public class GameController {
 
     public static int getAtomcount() {
         return atomcount;
+    }
+
+    public GameController() {
+    }
+
+    public GameController(int player1Score) {
+        this.player1Score = player1Score;
     }
 
     public static int getScore(){return score;}
@@ -696,14 +704,16 @@ public class GameController {
 
     @FXML
     public void toggleAtoms() {
-        Atoms.invisibleAtoms(getAtomcount(), spherepane,start_end_button);
+        Atoms.invisibleAtoms(getAtomcount(), spherepane,start_end_button, nextPlayer);
         if(atomcount == 6){
             gameStatus = 1;
         }
+
     }
 
     private void calculateScore(){
-        textBox.appendText("FINAL SCORE: " + player1Score + " - " + player2Score + "\n");
+        textBoxScore.clear();
+        textBoxScore.appendText("FINAL SCORE: " + player1Score + " - " + player2Score + "\n");
         if(player1Score < player2Score){
             textBox.appendText("""
                     PLAYER 1 WINS!!!
@@ -759,23 +769,27 @@ public class GameController {
         reenableArrows();
 
         textBox.clear();
+
         if(player1Score < 0){
             player1Score = getScore();
-            textBox.appendText("PLAYER 2");
-            nextPlayer.setText("Final results");
+            textBox.appendText("PLAYER 2\n");
+            nextPlayer.setVisible(false);
+            nextPlayer.setText("Final Results");
             start_end_button.setText("Start");
+            start_end_button.setVisible(true);
+            printScore();
         } else if(player2Score < 0){
             player2Score = getScore();
             start_end_button.setVisible(false);
             nextPlayer.setText("Quit");
             calculateScore();
+            printScore();
         } else{
             quit();
         }
 
         setAtomcount(0);
         setScore(0);
-        printScore();
     }
 
     public Stage getStage() {
