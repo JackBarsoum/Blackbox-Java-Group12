@@ -1498,7 +1498,7 @@
          <Font size="96.0" />
       </font>
    </TextArea>
-   <Button fx:id="nextPlayer" layoutX="963.0" layoutY="711.0" mnemonicParsing="false" onAction="#restart" prefHeight="48.0" prefWidth="200.0" stylesheets="@Scene.css" text="Next Player" visible="false">
+   <Button fx:id="nextPlayer" layoutX="963.0" layoutY="635.0" mnemonicParsing="false" onAction="#restart" prefHeight="48.0" prefWidth="200.0" stylesheets="@Scene.css" text="Next Player" visible="false">
       <font>
          <Font size="10.0" />
       </font>
