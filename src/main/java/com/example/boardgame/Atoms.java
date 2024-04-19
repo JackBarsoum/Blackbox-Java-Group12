@@ -75,7 +75,7 @@ public class Atoms {
     {
         for (Node p: spherepane.getChildren())
         {
-            if(p instanceof Sphere || p instanceof Line)
+            if(p instanceof Sphere || p instanceof Line || p instanceof Circle)
             {
                 p.setVisible(true);
             }
