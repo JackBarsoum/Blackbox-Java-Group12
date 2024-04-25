@@ -15,6 +15,10 @@ import javafx.scene.shape.Sphere;
 
 import java.util.ArrayList;
 
+/**
+ * @author Jack Barsoum, Oisin Lynch, Carol
+ * This class handles the logic behind Atoms in our code this includes the circle of influence as well
+ */
 public class Atoms {
     private static boolean gamestart = false;
     private static int count_gamestate = 0;
@@ -29,6 +33,13 @@ public class Atoms {
         gamestart = false;
         count_gamestate = 0;
     }
+    /**
+     *
+     * @param event the original mouse event where the user clicked
+     * @param atomcount the current count of how many atoms exist on the board
+     * @return sphere returns a sphere unless in the case where we have the max allowed atoms placed
+     * This method handles the logic of placing an atom and its corresponding circle of influence
+     */
     public static Sphere placeAtomsinHex(MouseEvent event, int atomcount) {
         Polygon hexagon = (Polygon) event.getSource();
         Sphere sphere = new Sphere(30);
@@ -71,6 +82,13 @@ public class Atoms {
         }
         return null;
     }
+
+    /**
+     *
+     * @param spherepane the pane that contains all of our lines, circles and spheres
+     * This method goes through all nodes in our pane and sets the visibility of
+     * Spheres,Circles and lines to true to reveal our game history
+     */
     public static void showHistory(Pane spherepane)
     {
         for (Node p: spherepane.getChildren())
@@ -81,6 +99,16 @@ public class Atoms {
             }
         }
     }
+
+    /**
+     *
+     * @param atomcount the current count of the number of atoms
+     * @param spherepane the pane with all our spheres,lines and circles
+     * @param start_end_button the button to start/end our game
+     * @param nextPlayer the button to create player 2
+     * This method turns atoms invisible depending on our game state and
+     * handles the logic for the state of our button text and when to reveal history
+     */
     public static void invisibleAtoms(int atomcount, Pane spherepane, Button start_end_button, Button nextPlayer) {
         if(count_gamestate == 1)
         {
@@ -151,6 +179,12 @@ public class Atoms {
         }
     }
 
+    /**
+     *
+     * @param spherepane the pane with all of our spheres,circles and lines
+     * This method handles the removal of atoms for when we want to reset the board
+     * for player 2
+     */
     public static void removeAtoms(Pane spherepane){
         Platform.runLater(() -> { //to avoid threading issues
 

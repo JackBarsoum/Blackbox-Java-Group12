@@ -22,6 +22,18 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
 
+/**
+ * @author Jack Barsoum, Oisin Lynch, Carol
+ * This method handles the main logic of our game. Being the following
+ * 1. Ray logic (creating the line and firing it)
+ * 2. Advanced Ray Logic (How to react to the flags of our DeflectionHelper methods)
+ * 3. Color Logic (The color of markers being placed depending on the result of the ray)
+ * 4. The current score of the player playing
+ * 5. Final score logic (Comparing the scores of the 2 players and determining a winner)
+ * 6. Displaying our score to the players
+ * 7. Resetting the board
+ * 8. Pausing and quitting the game
+ */
 public class GameController {
     public static Color direction_tester;
     public static boolean right = false;
@@ -95,6 +107,13 @@ public class GameController {
         exit(0);
     }
 
+    /**
+     *
+     * @param event the original event for swapping to our board
+     * @throws IOException if the board cannot be loaded
+     * This method swaps us from the menu to the board when the play button is clicked
+     * on the menu
+     */
     @FXML
     void switchtoBoard(ActionEvent event) throws IOException {
         b = (Button) event.getSource();
@@ -132,6 +151,11 @@ public class GameController {
         return Atoms.placeAtomsinHex(event, getAtomcount());
     }
 
+    /**
+     *
+     * @param e the mouse event where the user clicked to fire the ray
+     * This method fires a ray horizontal noting the id and if we need to deflect/absorb
+     */
     @FXML
     void extendLineHorizontal(MouseEvent e) {
         if(gameStatus == 1) {
@@ -176,6 +200,14 @@ public class GameController {
         }
     }
 
+    /**
+     * @param e our original mouse event from where we fired the ray
+     * @param newLine our original ray before we are potentially changing the direction
+     * @param x our current angle for the ray
+     * @param color the color of the stroke for the  ray
+     * (used for logic where we check stroke color for rectangle to see if we hit the end)
+     * This method helps our original horizontal by handling more complex scenarios e.g deflections
+     */
     void extendRayHorizontalHelper(MouseEvent e, Line newLine, int x, Color color) {
         Rectangle b = (Rectangle) e.getSource();
         int checker = 0, flag = 0, i = 0; // This used to help display what happened to the array, e.g. if this is equal to 1 the ray is deflected by 60
@@ -239,7 +271,11 @@ public class GameController {
             lines.add(newLine);
         }
     }
-
+    /**
+     *
+     * @param e the mouse event where the user clicked to fire the ray
+     * This method fires a ray diagonally down noting the id and if we need to deflect/absorb
+     */
     @FXML
     void extendLineDiagonalDown(MouseEvent e) {
         if(gameStatus == 1) {
@@ -275,7 +311,16 @@ public class GameController {
             }
         }
     }
-
+    /**
+     * @param e our original mouse event from where we fired the ray
+     * @param newLine our original ray before we are potentially changing the direction
+     * @param x our current angle for the ray
+     * @param color the color of the stroke for the  ray
+     * @param b the invisible rectangle from where we shot our ray
+     * @param p the pane containing all rays, circles of influence and atoms
+     * (used for logic where we check stroke color for rectangle to see if we hit the end)
+     * This method helps our original diagonal down by handling more complex scenarios e.g deflections
+     */
     void extendLineDiagonalDownHelper(MouseEvent e, Line newLine, Pane p, Rectangle b, int x, Color color) {
         int checker = 0;
         Line oldLine = new Line();
@@ -342,7 +387,11 @@ public class GameController {
             lines.add(newLine);
         }
     }
-
+    /**
+     *
+     * @param e the mouse event where the user clicked to fire the ray
+     * This method fires a ray diagonally up noting the id and if we need to deflect/absorb
+     */
     @FXML
     void extendLineDiagonalUp(MouseEvent e) {
         if(gameStatus == 1) {
@@ -382,6 +431,15 @@ public class GameController {
             }
         }
     }
+/**
+ * @param e our original mouse event from where we fired the ray
+ * @param newLine our original ray before we are potentially changing the direction
+ * @param x our current angle for the ray
+ * @param color the color of the stroke for the  ray
+ * @param b the invisible rectangle from where we shot our ray
+ * (used for logic where we check stroke color for rectangle to see if we hit the end)
+ * This method helps our original diagonal up by handling more complex scenarios e.g deflections
+ */
     void extendLineDiagonalUpHelper(MouseEvent e, Line newLine, Rectangle b, int x, Color color) {
         int checker = 0;
         newLine.setStroke(Color.RED);
@@ -453,7 +511,16 @@ public class GameController {
         }
     }
 
-
+    /**
+     *
+     * @param e the mouse event from where we originally clicked to fire a ray
+     * @param newLine our ray after a deflection has occurred
+     * @param oldLine our ray before a deflection has occurred
+     * @param node a circle of influence we have collided with
+     * @param p the pane with all of our circle of influences, atoms and rays
+     * @param b the original invisible rectangle where we fired our ray from
+     * This method handles the case of deflecting off one circle of influence
+     */
     public void one_circle_deflection(MouseEvent e, Line newLine, Line oldLine, Node node, Pane p, Rectangle b){
         if (newLine.getEndY() < node.getLayoutY()) {
             if (newLine.getEndX() > node.getLayoutX()) {
@@ -473,7 +540,18 @@ public class GameController {
             }
         }
     }
-
+    /**
+     *
+     * @param e the mouse event from where we originally clicked to fire a ray
+     * @param newLine our ray after a deflection has occurred
+     * @param oldLine our ray before a deflection has occurred
+     * @param node a circle of influence we have collided with
+     * @param p the pane with all of our circle of influences, atoms and rays
+     * @param b the original invisible rectangle where we fired our ray from
+     * @param x the current angle of our ray
+     * This method handles the case of deflecting off one circle of influence
+     * specifically in a down scenario
+     */
     public void one_circle_deflection_down(MouseEvent e, Line newLine, Line oldLine, Node node, Pane p, Rectangle b, int x){
         oldLine.setVisible(false);
         newLine.setVisible(false);
@@ -536,7 +614,19 @@ public class GameController {
             }
         }
     }
-
+    /**
+     *
+     * @param e the mouse event from where we originally clicked to fire a ray
+     * @param newLine our ray after a deflection has occurred
+     * @param oldLine our ray before a deflection has occurred
+     * @param node a circle of influence we have collided with
+     * @param p the pane with all of our circle of influences, atoms and rays
+     * @param b the original invisible rectangle where we fired our ray from
+     * @param x the current angle of our ray
+     * @param prevNode the second circle of influence we have collided with
+     * This method handles the case of deflecting off two circle of influences
+     * specifically in a down scenario
+     */
     public void two_circle_deflection_down(MouseEvent e, Node node, Node prevNode, Line oldLine, Line newLine, Pane p, Rectangle b, int x){
         oldLine.setVisible(false);
         newLine.setVisible(false);
@@ -582,7 +672,17 @@ public class GameController {
         }
     }
 
-
+    /**
+     * @param e the mouse event from where we originally clicked to fire a ray
+     * @param newLine our ray after a deflection has occurred
+     * @param oldLine our ray before a deflection has occurred
+     * @param node a circle of influence we have collided with
+     * @param p the pane with all of our circle of influences, atoms and rays
+     * @param b the original invisible rectangle where we fired our ray from
+     * @param x the current angle of our ray
+     * @param prevNode the second circle of influence we have collided with
+     * This method handles the case of deflecting off two circle of influences
+     */
     public void two_circle_deflection(MouseEvent e, Line newLine, Line oldLine, Pane p, Rectangle b, Node node, Node prevNode, int x){
         oldLine.setVisible(false);
         newLine.setVisible(false);
@@ -604,7 +704,18 @@ public class GameController {
             extendLineDiagonalDownHelper(e, newLine, p, b, angle, deflectionColor);
         }
     }
-
+    /**
+     *
+     * @param e the mouse event from where we originally clicked to fire a ray
+     * @param newLine our ray after a deflection has occurred
+     * @param oldLine our ray before a deflection has occurred
+     * @param node a circle of influence we have collided with
+     * @param p the pane with all of our circle of influences, atoms and rays
+     * @param b the original invisible rectangle where we fired our ray from
+     * @param x the current angle of our ray
+     * This method handles the case of deflecting off one circle of influence
+     * specifically in a up scenario
+     */
     public void one_deflection_helper_up(MouseEvent e, Node node, Line oldLine, Line newLine, Pane p, Rectangle b, int x){
         if (newLine.getEndY() - 10 > node.getLayoutY()) {
             if (x == 59) {
@@ -667,7 +778,19 @@ public class GameController {
             }
         }
     }
-
+    /**
+     *
+     * @param e the mouse event from where we originally clicked to fire a ray
+     * @param newLine our ray after a deflection has occurred
+     * @param oldLine our ray before a deflection has occurred
+     * @param node a circle of influence we have collided with
+     * @param p the pane with all of our circle of influences, atoms and rays
+     * @param b the original invisible rectangle where we fired our ray from
+     * @param x the current angle of our ray
+     * @param prevNode the second circle of influence we have collided with
+     * This method handles the case of deflecting off two circle of influences
+     * specifically in a up scenario
+     */
     public void two_deflection_helper_up(MouseEvent e, Node node, Node prevNode, Pane p, Rectangle b, int x, Line newLine, Line oldLine) {
         oldLine.setVisible(false);
         newLine.setVisible(false);
@@ -853,6 +976,12 @@ public class GameController {
     }
     @FXML
     public static Stage stage2 = new Stage();
+
+    /**
+     *
+     * @throws IOException in case we cannot load the pause menu
+     * Method that pops up our pause menu when user presses esc key
+     */
     @FXML
     void pausePopUp()throws  IOException{
         URL boardURL2 = getClass().getResource("Pause.fxml");
