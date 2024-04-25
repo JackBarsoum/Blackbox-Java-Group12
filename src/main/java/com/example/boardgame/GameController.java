@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Jack Barsoum, Oisin Lynch, Carol
- * This method handles the main logic of our game. Being the following
+ * This class handles the main logic of our game. Being the following
  * 1. Ray logic (creating the line and firing it)
  * 2. Advanced Ray Logic (How to react to the flags of our DeflectionHelper methods)
  * 3. Color Logic (The color of markers being placed depending on the result of the ray)
