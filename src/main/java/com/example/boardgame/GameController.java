@@ -262,7 +262,6 @@ public class GameController {
         } while (flag != 1);
         // If the ray was deflected then both the line before and after the ray was deflected will need to be
         if (checkTest != 0) {
-            System.out.println("adding lines");
             p.getChildren().add(oldLine);
             p.getChildren().add(newLine);
             oldLine.setVisible(false);
@@ -574,7 +573,6 @@ public class GameController {
                 }
             } else {
                 if (newLine.getEndX() > node.getLayoutX()) {
-                    if (checkTest != 0) System.out.println("Downtest6");
                     if(checkTest != 0){
                         p.getChildren().add(oldLine);
                         oldLine.setVisible(false);
@@ -582,7 +580,6 @@ public class GameController {
                     }
                     extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
                 } else {
-                    if (checkTest != 0) System.out.println("Downtest7");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
                         oldLine.setVisible(false);
@@ -594,7 +591,6 @@ public class GameController {
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (newLine.getEndX() > node.getLayoutX()) {
-                if (checkTest != 0) System.out.println("Downtest8");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -603,7 +599,6 @@ public class GameController {
                 direction_tester = Color.GREEN;
                 extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.RED);
             } else {
-                if (checkTest != 0) System.out.println("Downtest9");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -634,7 +629,6 @@ public class GameController {
         averageY -= 45;
         if (newLine.getEndY() < averageY) {
             if (x == 59) {
-                if (checkTest != 0) System.out.println("Downtest12");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -642,7 +636,6 @@ public class GameController {
                 }
                 extendLineDiagonalUpHelper(e, newLine,  b, 121, Color.GREEN);
             } else {
-                if (checkTest != 0) System.out.println("Downtest13");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -653,7 +646,6 @@ public class GameController {
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (x == 121) {
-                if (checkTest != 0) System.out.println("HHello");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -661,7 +653,6 @@ public class GameController {
                 }
                 extendRayHorizontalHelper(e, newLine, 0, Color.BLACK);
             } else {
-                if (checkTest != 0) System.out.println("HHHHHELLOOOO");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -720,7 +711,6 @@ public class GameController {
         if (newLine.getEndY() - 10 > node.getLayoutY()) {
             if (x == 59) {
                 if (newLine.getEndX() < node.getLayoutX()) {
-                    if (checkTest != 0) System.out.println("Hello1");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
                         oldLine.setVisible(false);
@@ -728,7 +718,6 @@ public class GameController {
                     }
                     extendRayHorizontalHelper(e, newLine, 180, Color.BLACK);
                 } else {
-                    if (checkTest != 0) System.out.println("Hell on Earth2");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
                         oldLine.setVisible(false);
@@ -738,7 +727,6 @@ public class GameController {
                 }
             } else {
                 if (newLine.getEndX() < node.getLayoutX()) {
-                    if (checkTest != 0) System.out.println("Hello2");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
                         oldLine.setVisible(false);
@@ -746,7 +734,6 @@ public class GameController {
                     }
                     extendRayHorizontalHelper(e, newLine, 181, Color.BLACK);
                 } else {
-                    if (checkTest != 0) System.out.println("Hell on Earth1");
                     if (checkTest != 0){
                         p.getChildren().add(oldLine);
                         oldLine.setVisible(false);
@@ -758,7 +745,6 @@ public class GameController {
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (newLine.getEndX() < node.getLayoutX()) {
-                if (checkTest != 0) System.out.println("Lol");
                 direction_tester = Color.YELLOW;
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
@@ -767,7 +753,6 @@ public class GameController {
                 }
                 extendLineDiagonalUpHelper(e, newLine, b, 59, Color.YELLOW);
             } else {
-                if (checkTest != 0) System.out.println("LOL2");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -800,7 +785,6 @@ public class GameController {
         // If the ray deflects at the bottom of the sphere of influence
         if (newLine.getEndY() > averageY) {
             if (x == 121) {
-                if (checkTest != 0) System.out.println("Test2.1");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -808,7 +792,6 @@ public class GameController {
                 }
                 extendLineDiagonalDownHelper(e, newLine, p, b, 59, Color.RED);
             } else {
-                if (checkTest != 0) System.out.println("Test2.2");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -819,7 +802,6 @@ public class GameController {
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (x == 121) {
-                if (checkTest != 0) System.out.println("Side1");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -827,7 +809,6 @@ public class GameController {
                 }
                 extendRayHorizontalHelper(e, newLine, 179, Color.BLACK);
             } else {
-                if (checkTest != 0) System.out.println("Side2");
                 if (checkTest != 0){
                     p.getChildren().add(oldLine);
                     oldLine.setVisible(false);
@@ -907,7 +888,6 @@ public class GameController {
                 Parent parent = line.getParent();
                 if (parent instanceof Pane) {
                     ((Pane) parent).getChildren().remove(line);
-                    System.out.println("Line removed");
                 } else {
                     throw new UnsupportedOperationException("failed to remove line");
                 }

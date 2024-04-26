@@ -193,7 +193,6 @@ public class Atoms {
                 Parent parent = s.getParent();
                 if (parent instanceof Pane) {
                     ((Pane) parent).getChildren().remove(s);
-                    System.out.println("Sphere removed");
                 } else {
                     throw new UnsupportedOperationException("failed to remove sphere");
                 }
@@ -204,7 +203,6 @@ public class Atoms {
                 Parent parent = s.getParent();
                 if (parent instanceof Pane) {
                     ((Pane) parent).getChildren().remove(s);
-                    System.out.println("Sphere removed");
                 } else {
                     throw new UnsupportedOperationException("failed to remove sphere");
                 }
@@ -215,7 +213,6 @@ public class Atoms {
                 Parent parent = c.getParent();
                 if (parent instanceof Pane) {
                     ((Pane) parent).getChildren().remove(c);
-                    System.out.println("Circle removed");
                 } else {
                     throw new UnsupportedOperationException("failed to remove circle");
                 }
