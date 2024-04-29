@@ -6,7 +6,18 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Sphere;
 
+/**
+ * @author Jack Barsoum, Oisin Lynch, Carol
+ * This class handles the tricky logic of deflection cases
+ */
 public class DeflectionHelpers {
+    /**
+     *
+     * @param x the current sphere we are near
+     * @param l our current line/ray
+     * @return a boolean showing if our line/ray is currently in a sphere
+     * This method checks to see if our ray is currently in a sphere
+     */
     public static boolean isInside(Sphere x, Line l) {
         double radius = x.getRadius();
 
@@ -14,6 +25,16 @@ public class DeflectionHelpers {
         return distance <= radius;
     }
 
+    /**
+     *
+     * @param l our current line/ray
+     * @param p the pane which contains all the circles of influence
+     * @param angle the current angle of our line
+     * @param direction the current direction of our line
+     * @return an integer flag stating if we started inside a circle of influence or not
+     * This method checks the state of our ray and the circle of influence
+     * it potentially starts in
+     */
     public static int startsInside(Line l, Pane p, int angle, int direction) {
         l.setVisible(false);
         for (Node node : p.getChildren()) {
@@ -35,7 +56,16 @@ public class DeflectionHelpers {
         return 0;
     }
 
-
+    /**
+     *
+     * @param c the circle of influence we are near
+     * @param l our current line/ray
+     * @param angle the angle our ray is heading
+     * @param up boolean to see if the ray is heading up or down
+     * @return an integer flag depending on the current condition of our line and circle of influence
+     * This method aims to check the state of a line and if it is currently inside a
+     * circle of influence
+     */
     public static int isInsideC(Circle c, Line l, int angle, boolean up) {
         l.setVisible(false);
         double radius = c.getRadius();
@@ -72,6 +102,19 @@ public class DeflectionHelpers {
         return checker;
     }
 
+    /**
+     *
+     * @param p the pane containing all the circle of influences
+     * @param newLine our current line/ray
+     * @param x an integer containing information on the current angle of our ray
+     * @param prevNode the second potential circle/circle of influence
+     * @param up a boolean to see if our ray is heading up or down
+     * @param diagonal a boolean to see if our ray is heading diagonal or horizontal
+     * @return an integer flag depending on the current condition of our line
+     * and the circle of influence
+     * This method aims to check the state of our ray and if it is currently inside two
+     * circle of influences
+     */
     public static int checkifDouble(Pane p, Line newLine, int x, Node prevNode, boolean up, boolean diagonal) {
         newLine.setVisible(false);
         double angleRadians = Math.toRadians(x);
@@ -137,6 +180,19 @@ public class DeflectionHelpers {
         return correct;
     }
 
+    /**
+     *
+     * @param newLine our current line/ray
+     * @param x an integer containing information on the current angle of our ray
+     * @param p the pane containing all the circle of influences
+     * @param node1 one of the potential circle of influences near our ray
+     * @param node2 one of the potential circle of influences near our ray
+     * @param up a boolean containing information if our ray is heading up or down
+     * @return an integer flag depending on the state of the line and the
+     * amount of circle of influences it touches
+     * This method aims to check the state of the ray and if it is currently inside three
+     * circle of influences
+     */
     public static int checkTriple(Line newLine, int x, Pane p, Node node1, Node node2, boolean up) {
         newLine.setVisible(false);
         double angleRadians = Math.toRadians(x);
