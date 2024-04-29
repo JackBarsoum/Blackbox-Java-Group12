@@ -39,6 +39,7 @@ public class GameController {
     public static ArrayList<Rectangle> arrows = new ArrayList<>();
     public Button start_end_button;
     public Button nextPlayer;
+    public Button quit;
     public Button boardButton;
 
     public Scene scene;
@@ -92,7 +93,8 @@ public class GameController {
     @FXML
     void leave() {
         System.out.println("Quitting Game");
-        exit(0);
+        Stage stage = (Stage) quit.getScene().getWindow(); // Assuming quitButton is your quit button
+        stage.close();
     }
 
     @FXML

@@ -1053,7 +1053,7 @@
       </font>
    </Button>
    <Rectangle id="Node_41" arcHeight="5.0" arcWidth="5.0" height="28.0" layoutX="793.0" layoutY="239.0" onMouseClicked="#extendLineHorizontal" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="38.0" />
-   <TextArea fx:id="textBox" editable="false" layoutX="963.0" layoutY="227.0" prefHeight="275.0" prefWidth="454.0" promptText="This is the area where the results of you ray shots will be displayed" styleClass="text-area" stylesheets="@Scene.css">
+   <TextArea id="textBox" fx:id="textBox" editable="false" layoutX="963.0" layoutY="227.0" prefHeight="275.0" prefWidth="454.0" promptText="This is the area where the results of you ray shots will be displayed" styleClass="text-area" stylesheets="@Scene.css">
       <effect>
          <DropShadow />
       </effect>

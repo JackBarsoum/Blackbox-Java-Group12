@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="730.0" style="-fx-background-color: black;" stylesheets="Scene.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.boardgame.GameController">
    <children>
-      <Button fx:id="play" layoutX="145.0" layoutY="161.0" mnemonicParsing="false" onAction="#switchtoBoard" stylesheets="@Scene.css" text="Play" textOverrun="CLIP">
+      <Button id="play" fx:id="play" layoutX="145.0" layoutY="161.0" mnemonicParsing="false" onAction="#switchtoBoard" stylesheets="@Scene.css" text="Play" textOverrun="CLIP">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="quit" layoutX="144.0" layoutY="381.0" mnemonicParsing="false" onAction="#leave" stylesheets="@Scene.css" text="Quit">
+      <Button id="quit" fx:id="quit" layoutX="144.0" layoutY="381.0" mnemonicParsing="false" onAction="#leave" stylesheets="@Scene.css" text="Quit">
          <font>
             <Font name="Bodoni MT Black" size="12.0" />
          </font>

@@ -4,14 +4,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.io.IOException;
+
     public class Menu extends Application {
+
+        private static Stage primaryStage;
+
         public Menu() {
         }
 
@@ -24,6 +24,16 @@ import java.io.IOException;
             stage.setTitle("BlackBoard");
             stage.setScene(scene);
             stage.show();
+
+            primaryStage = stage;
+        }
+
+        public static void setPrimaryStage(Stage stage) {
+            primaryStage = stage;
+        }
+
+        public static Stage getPrimaryStage() {
+            return primaryStage;
         }
 
         public static void main(String[] args) {
