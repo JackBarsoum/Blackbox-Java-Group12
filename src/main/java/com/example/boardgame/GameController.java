@@ -993,4 +993,11 @@ public class GameController {
         stage2.close();
     }
 
+
+    //FOR TESTING PURPOSES ONLY
+    @FXML
+    public void clearTextBox(){
+        textBox.clear();
+    }
+
 }

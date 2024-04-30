@@ -78,43 +78,31 @@ public class MenuTest extends ApplicationTest {
     @Test
     public void testSpherePlacement(){
         verifyThat("#play", isVisible());
-        clickOn("#play");
-        waitForFxEvents();
 
 
-
-        clickOn("#hex_16_4", MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#play", "#hex_16_4");
         assertEquals(1, GameController.getAtomcount());
 
 
-        clickOn("#hex_8_7", MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#hex_8_7");
         assertEquals(2, GameController.getAtomcount());
 
-        clickOn("#hex_4_3", MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#hex_4_3");
         assertEquals(3, GameController.getAtomcount());
 
         clickOn("#start_end_button", MouseButton.PRIMARY);
         waitForFxEvents();
 
 
-        clickOn("#hex_14_1", MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#hex_14_1");
         Assertions.assertNotEquals(3, GameController.getAtomcount());
     }
 
     @Test
-    public void test60ray(){
+    public void test60Ray(){
         verifyThat("#play", isVisible());
-        clickOn("#play");
-        waitForFxEvents();
 
-        clickOn("#hex_16_4", MouseButton.PRIMARY);
-        clickOn("#hex_6_2", MouseButton.PRIMARY);
-        clickOn("#hex_6_5", MouseButton.PRIMARY);
-        //placeAtoms();
+        clickMultiple("#play", "#start_end_button", "#hex_16_4", "#hex_6_2", "#hex_6_5");
         clickOn("#start_end_button", MouseButton.PRIMARY);
 
         clickOn("#Node_40");
@@ -125,18 +113,21 @@ public class MenuTest extends ApplicationTest {
         assertEquals("Ray shot from Node_40\nRay deflected and exited at Node_28", textArea.getText().trim());
     }
 
-    public void placeAtoms(){
-        Point2D point = new Point2D(950,700);
-        Point2D point2 = new Point2D(800,500);
-        Point2D point3 = new Point2D(800,300);
+    @Test
+    public void test180Ray(){
+        verifyThat("#play", isVisible());
 
-        clickOn(point.x, point.y, MouseButton.PRIMARY);
-        waitForFxEvents();
-        clickOn(point2.x, point2.y, MouseButton.PRIMARY);
-        waitForFxEvents();
-        clickOn(point3.x, point3.y, MouseButton.PRIMARY);
-        waitForFxEvents();
-        clickOn("#start_end_button", MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#play", "#hex_6_2", "#hex_4_3", "#hex_8_8", "#start_end_button", "#Node_1");
+
+        TextArea textArea = lookup("#textBox").query();
+        assertEquals("Ray shot from Node_1\nRay deflected 180\nRay reflected 180 degrees and exited at Node_1",
+                textArea.getText());
+    }
+
+    public void clickMultiple(String... hex) {
+        for (String id : hex) {
+            clickOn(id, MouseButton.PRIMARY);
+            waitForFxEvents();
+        }
     }
 }
