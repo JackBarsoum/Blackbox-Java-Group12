@@ -16,7 +16,7 @@ import javafx.scene.shape.Sphere;
 import java.util.ArrayList;
 
 /**
- * @author Jack Barsoum, Oisin Lynch, Carol
+ * @author Jack Barsoum, Oisin Lynch, Carol Ezzeddine
  * This class handles the logic behind Atoms in our code this includes the circle of influence as well
  */
 public class Atoms {

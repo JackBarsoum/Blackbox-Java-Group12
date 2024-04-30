@@ -18,6 +18,8 @@ import org.junit.jupiter.api.Test;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
+import org.testfx.util.WaitForAsyncUtils;
+
 import java.io.IOException;
 
 import static com.sun.javafx.scene.NodeHelper.intersects;
@@ -79,21 +81,18 @@ public class MenuTest extends ApplicationTest {
         clickOn("#play");
         waitForFxEvents();
 
-        Point2D point = new Point2D(600,700);
-        Point2D point2 = new Point2D(500,350);
-        Point2D point3 = new Point2D(400,300);
-        Point2D point4 = new Point2D(350,300);
 
-        clickOn(point.x, point.y, MouseButton.PRIMARY);
+
+        clickOn("#hex_16_4", MouseButton.PRIMARY);
         waitForFxEvents();
         assertEquals(1, GameController.getAtomcount());
 
 
-        clickOn(point2.x, point2.y, MouseButton.PRIMARY);
+        clickOn("#hex_8_7", MouseButton.PRIMARY);
         waitForFxEvents();
         assertEquals(2, GameController.getAtomcount());
 
-        clickOn(point3.x, point3.y, MouseButton.PRIMARY);
+        clickOn("#hex_4_3", MouseButton.PRIMARY);
         waitForFxEvents();
         assertEquals(3, GameController.getAtomcount());
 
@@ -101,7 +100,7 @@ public class MenuTest extends ApplicationTest {
         waitForFxEvents();
 
 
-        clickOn(point4.x, point4.y, MouseButton.PRIMARY);
+        clickOn("#hex_14_1", MouseButton.PRIMARY);
         waitForFxEvents();
         Assertions.assertNotEquals(3, GameController.getAtomcount());
     }
@@ -112,7 +111,11 @@ public class MenuTest extends ApplicationTest {
         clickOn("#play");
         waitForFxEvents();
 
-        placeAtoms();
+        clickOn("#hex_16_4", MouseButton.PRIMARY);
+        clickOn("#hex_6_2", MouseButton.PRIMARY);
+        clickOn("#hex_6_5", MouseButton.PRIMARY);
+        //placeAtoms();
+        clickOn("#start_end_button", MouseButton.PRIMARY);
 
         clickOn("#Node_40");
         waitForFxEvents();
@@ -123,9 +126,9 @@ public class MenuTest extends ApplicationTest {
     }
 
     public void placeAtoms(){
-        Point2D point = new Point2D(600,700);
-        Point2D point2 = new Point2D(500,350);
-        Point2D point3 = new Point2D(400,300);
+        Point2D point = new Point2D(950,700);
+        Point2D point2 = new Point2D(800,500);
+        Point2D point3 = new Point2D(800,300);
 
         clickOn(point.x, point.y, MouseButton.PRIMARY);
         waitForFxEvents();

@@ -23,7 +23,7 @@ import javafx.scene.shape.*;
 import javafx.stage.Stage;
 
 /**
- * @author Jack Barsoum, Oisin Lynch, Carol
+ * @author Jack Barsoum, Oisin Lynch, Carol Ezzeddine
  * This class handles the main logic of our game. Being the following
  * 1. Ray logic (creating the line and firing it)
  * 2. Advanced Ray Logic (How to react to the flags of our DeflectionHelper methods)
@@ -88,13 +88,16 @@ public class GameController {
     @FXML
     public TextArea textBox; // Text box where results of rays shots will be displayed
 
-    @FXML public TextArea textBoxScore;
+    @FXML public TextArea textBoxScore; // Displays the player score separately above textBox
 
+    /**
+     * prints the score in textBoxScore by appending score variable
+     */
     @FXML
     public void printScore()
     {
         textBoxScore.clear();
-        textBoxScore.appendText("Score: "+score);
+        textBoxScore.appendText("Score: " + score);
     }
 
     @FXML private Stage stage;
@@ -139,11 +142,15 @@ public class GameController {
         }
     }
 
+    /**
+     * Increments the score in textBoxScore after every ray shot
+     * Used when a ray is shot in extendLineHorizontal(), extendLineDiagonalDown() and extendLineDiagonalUp()
+     */
     private void RayShotScore()
     {
         textBoxScore.clear();
         score++;
-        textBoxScore.appendText("Score: "+score);
+        textBoxScore.appendText("Score: " + score);
     }
 
 
@@ -161,7 +168,7 @@ public class GameController {
     @FXML
     void extendLineHorizontal(MouseEvent e) {
         if(gameStatus == 1) {
-            RayShotScore();
+            RayShotScore(); //update score
             Line newLine = new Line();
             newLine.setVisible(false);
             newLine.setStroke(Color.RED);
