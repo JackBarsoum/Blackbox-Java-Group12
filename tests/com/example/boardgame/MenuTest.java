@@ -18,6 +18,8 @@ import org.junit.jupiter.api.Test;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
+import org.testfx.util.WaitForAsyncUtils;
+
 import java.io.IOException;
 
 import static com.sun.javafx.scene.NodeHelper.intersects;
@@ -76,43 +78,32 @@ public class MenuTest extends ApplicationTest {
     @Test
     public void testSpherePlacement(){
         verifyThat("#play", isVisible());
-        clickOn("#play");
-        waitForFxEvents();
 
-        Point2D point = new Point2D(600,700);
-        Point2D point2 = new Point2D(500,350);
-        Point2D point3 = new Point2D(400,300);
-        Point2D point4 = new Point2D(350,300);
 
-        clickOn(point.x, point.y, MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#play", "#hex_16_4");
         assertEquals(1, GameController.getAtomcount());
 
 
-        clickOn(point2.x, point2.y, MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#hex_8_7");
         assertEquals(2, GameController.getAtomcount());
 
-        clickOn(point3.x, point3.y, MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#hex_4_3");
         assertEquals(3, GameController.getAtomcount());
 
         clickOn("#start_end_button", MouseButton.PRIMARY);
         waitForFxEvents();
 
 
-        clickOn(point4.x, point4.y, MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#hex_14_1");
         Assertions.assertNotEquals(3, GameController.getAtomcount());
     }
 
     @Test
-    public void test60ray(){
+    public void test60Ray(){
         verifyThat("#play", isVisible());
-        clickOn("#play");
-        waitForFxEvents();
 
-        placeAtoms();
+        clickMultiple("#play", "#start_end_button", "#hex_16_4", "#hex_6_2", "#hex_6_5");
+        clickOn("#start_end_button", MouseButton.PRIMARY);
 
         clickOn("#Node_40");
         waitForFxEvents();
@@ -122,18 +113,21 @@ public class MenuTest extends ApplicationTest {
         assertEquals("Ray shot from Node_40\nRay deflected and exited at Node_28", textArea.getText().trim());
     }
 
-    public void placeAtoms(){
-        Point2D point = new Point2D(600,700);
-        Point2D point2 = new Point2D(500,350);
-        Point2D point3 = new Point2D(400,300);
+    @Test
+    public void test180Ray(){
+        verifyThat("#play", isVisible());
 
-        clickOn(point.x, point.y, MouseButton.PRIMARY);
-        waitForFxEvents();
-        clickOn(point2.x, point2.y, MouseButton.PRIMARY);
-        waitForFxEvents();
-        clickOn(point3.x, point3.y, MouseButton.PRIMARY);
-        waitForFxEvents();
-        clickOn("#start_end_button", MouseButton.PRIMARY);
-        waitForFxEvents();
+        clickMultiple("#play", "#hex_6_2", "#hex_4_3", "#hex_8_8", "#start_end_button", "#Node_1");
+
+        TextArea textArea = lookup("#textBox").query();
+        assertEquals("Ray shot from Node_1\nRay deflected 180\nRay reflected 180 degrees and exited at Node_1",
+                textArea.getText());
+    }
+
+    public void clickMultiple(String... hex) {
+        for (String id : hex) {
+            clickOn(id, MouseButton.PRIMARY);
+            waitForFxEvents();
+        }
     }
 }
