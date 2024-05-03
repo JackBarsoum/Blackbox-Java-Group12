@@ -48,7 +48,6 @@ public class Atoms {
         Pane parent = (Pane) hexagon.getParent();
         if (atomcount < 6) {
             Circle sphere1 = new Circle(90);
-            // set the sphere color to red
             sphere.setMaterial(new PhongMaterial(Color.RED));
             sphere.setLayoutX(x);
             sphere.setLayoutY(y);
@@ -57,9 +56,7 @@ public class Atoms {
             sphere1.setStroke(Color.WHITE);
             sphere1.setFill(Color.TRANSPARENT);
             sphere1.setMouseTransparent(true);
-            // get the parent node of the button
             GameController.setSpherepane((Pane) hexagon.getParent());
-            // replace the button with the sphere
             parent.getChildren().add(sphere);
             parent.getChildren().add(sphere1);
             GameController.setAtomcount();
@@ -68,7 +65,6 @@ public class Atoms {
             circles.add(sphere1);
             return sphere;
         } else if (spheres_guess.size() < spheres_red.size() && gamestart) {
-            // set the sphere color to red
             sphere.setMaterial(new PhongMaterial(Color.LIGHTGREY));
             sphere.setLayoutX(x);
             sphere.setLayoutY(y);
