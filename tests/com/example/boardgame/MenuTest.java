@@ -1,35 +1,25 @@
 package com.example.boardgame;
 
-import com.sun.javafx.geom.Point2D;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseButton;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.testfx.api.FxToolkit;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
-import org.testfx.util.WaitForAsyncUtils;
 
 import java.io.IOException;
 
-import static com.sun.javafx.scene.NodeHelper.intersects;
-import static javafx.scene.shape.Shape.intersect;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
-import static org.testfx.matcher.base.NodeMatchers.hasChildren;
 import static org.testfx.util.NodeQueryUtils.isVisible;
 import static org.testfx.util.WaitForAsyncUtils.waitForFxEvents;
 
+@Execution(ExecutionMode.CONCURRENT)
 public class MenuTest extends ApplicationTest {
 
     private Stage stage;
@@ -45,10 +35,7 @@ public class MenuTest extends ApplicationTest {
     }
 
 
-    @AfterEach
-    public void tearDown() throws Exception {
-        FxToolkit.cleanupStages();
-    }
+
 
 
     @Test
@@ -123,6 +110,7 @@ public class MenuTest extends ApplicationTest {
         assertEquals("Ray shot from Node_1\nRay deflected 180\nRay reflected 180 degrees and exited at Node_1",
                 textArea.getText());
     }
+
 
     public void clickMultiple(String... hex) {
         for (String id : hex) {

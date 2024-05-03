@@ -7,7 +7,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Sphere;
 
 import java.util.ArrayList;
 
@@ -69,10 +68,11 @@ public class RayHelpers {
         newLine.setEndY(newLine.getStartY());
     }
 
-    public static void setStartsIndsideHelper(int result, Line newLine, Pane p, Rectangle rectangle, TextArea textBox, int diagonal) {
+    public static void setStartsIndsideHelper(int result, Line newLine, Rectangle inputNode, TextArea textBox, int diagonal) {
+        Pane boardPane = (Pane) inputNode.getParent();
         int angle = 0;
         if (diagonal == 0) {
-            if (rectangle.getLayoutX() > 250) {
+            if (inputNode.getLayoutX() > 250) {
                 angle = 180;
             }
         }else if (diagonal == 1) {
@@ -102,23 +102,21 @@ public class RayHelpers {
             }
         }
         if (result == 1) {
-            textBox.appendText("Ray deflected at 180 and exited at " + rectangle.getId() + "\n");
-            placeWhiteMarker(p, textBox, rectangle);
+            textBox.appendText("Ray reflected and exited at " + inputNode.getId() + "\n");
+            placeWhiteMarker(textBox, inputNode);
         } else {
-           placeBlackMarker(p);
+           placeBlackMarker(boardPane);
            textBox.appendText("Ray hit an atom\n");
         }
-        p.getChildren().add(newCircleStart);
-        p.getChildren().add(newLine);
+        boardPane.getChildren().add(newCircleStart);
+        boardPane.getChildren().add(newLine);
         GameController.lines.add(newLine);
         rayMarkerList.add(newCircleStart);
     }
 
-    public static void deflection (Color direction, Line oldLine, int CheckTesting, Pane p){
-        if (CheckTesting != 0){
+    public static void deflection (Color direction, Line oldLine, Pane p){
             p.getChildren().add(oldLine);
             GameController.lines.add(oldLine);
-        }
         GameController.direction_tester = direction;
     }
 
@@ -142,15 +140,16 @@ public class RayHelpers {
         rayMarkerList.add(newCircleStart);
     }
 
-    public static void placeWhiteMarker(Pane p, TextArea textBox, Rectangle b){
+    public static void placeWhiteMarker(TextArea textBox, Rectangle inputNode){
+        Pane boardPane = (Pane) inputNode.getParent();
         Circle newCircleStart = new Circle();
         newCircleStart.setFill(Color.WHITE);
         newCircleStart.setRadius(10);
         newCircleStart.setCenterY(GameController.originalLineY);
         newCircleStart.setCenterX(GameController.originalLineX);
-        p.getChildren().add(newCircleStart);
+        boardPane.getChildren().add(newCircleStart);
         rayMarkerList.add(newCircleStart);
-        textBox.appendText("Ray reflected 180 degrees and exited at " + b.getId());
+        textBox.appendText("Ray reflected and exited at " + inputNode.getId() + "\n");
     }
 
     public static void placeBlackMarker(Pane p){
@@ -195,6 +194,12 @@ public class RayHelpers {
 
             rayMarkerList.clear();
         });
+    }
+
+    public static void addRay(Pane boardPane, Line oldLine){
+        boardPane.getChildren().add(oldLine);
+        oldLine.setVisible(false);
+        GameController.lines.add(oldLine);
     }
 
 }

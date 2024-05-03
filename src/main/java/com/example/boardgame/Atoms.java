@@ -36,11 +36,11 @@ public class Atoms {
     /**
      *
      * @param event the original mouse event where the user clicked
-     * @param atomcount the current count of how many atoms exist on the board
      * @return sphere returns a sphere unless in the case where we have the max allowed atoms placed
      * This method handles the logic of placing an atom and its corresponding circle of influence
      */
-    public static Sphere placeAtomsinHex(MouseEvent event, int atomcount) {
+    public static Sphere placeAtomsinHex(MouseEvent event) {
+        int atomcount = GameController.getAtomcount();
         Polygon hexagon = (Polygon) event.getSource();
         Sphere sphere = new Sphere(30);
         double x = hexagon.getLayoutX();
@@ -102,14 +102,14 @@ public class Atoms {
 
     /**
      *
-     * @param atomcount the current count of the number of atoms
      * @param spherepane the pane with all our spheres,lines and circles
      * @param start_end_button the button to start/end our game
      * @param nextPlayer the button to create player 2
      * This method turns atoms invisible depending on our game state and
      * handles the logic for the state of our button text and when to reveal history
      */
-    public static void invisibleAtoms(int atomcount, Pane spherepane, Button start_end_button, Button nextPlayer) {
+    public static void invisibleAtoms(Pane spherepane, Button start_end_button, Button nextPlayer) {
+        int atomcount = GameController.getAtomcount();
         if(count_gamestate == 1)
         {
             showHistory(spherepane);
@@ -117,25 +117,15 @@ public class Atoms {
         else if(count_gamestate == 0)
         {
             start_end_button.setText("Reveal Board");
-        }
-        else if(count_gamestate == 1 && !secondPlayer){
-            start_end_button.setVisible(false);
-            nextPlayer.setVisible(true);
-            secondPlayer = true;
-            count_gamestate = -1; //resetting gamestate
         } else{
             start_end_button.setVisible(false);
             nextPlayer.setVisible(true);
         }
-
-
-
         //If we have a normal amount of atoms placed
         if (atomcount >= 3 && atomcount <= 6 && count_gamestate == 0) {
             count_gamestate++;
             //go through all the children of the pane spherepane
             for (Node child : spherepane.getChildren()) {
-
                 if (child instanceof Polygon) {
                     child.setDisable(false);
                 }
@@ -161,12 +151,13 @@ public class Atoms {
             {
                 for (int j = 0; j < spheres_guess.size(); j++)
                 {
-                    if(spheres_red.get(i).getLayoutX() == spheres_guess.get(j).getLayoutX() && spheres_red.get(i).getLayoutY() == spheres_guess.get(j).getLayoutY())
+                    boolean sphereXequal = spheres_red.get(i).getLayoutX() == spheres_guess.get(j).getLayoutX();
+                    boolean sphereYequal = spheres_red.get(i).getLayoutY() == spheres_guess.get(j).getLayoutY();
+                    if(sphereXequal && sphereYequal)
                     {
                         count++;
                     }
                 }
-
             }
             if(count < spheres_red.size())
             {
@@ -175,10 +166,8 @@ public class Atoms {
                     GameController.addScore5();
                 }
             }
-
         }
     }
-
     /**
      *
      * @param spherepane the pane with all of our spheres,circles and lines
@@ -231,9 +220,5 @@ public class Atoms {
             circles.clear();
 
         });
-    }
-
-    public static int getCount_gamestate() {
-        return count_gamestate;
     }
 }
