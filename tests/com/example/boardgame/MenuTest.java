@@ -56,7 +56,7 @@ public class MenuTest extends ApplicationTest {
         clickOn("#quit");
 
         // Wait for the stage to close
-       waitForFxEvents();
+        waitForFxEvents();
 
         // Check if the stage is closed
         assertFalse(Menu.getPrimaryStage().isShowing());
@@ -104,11 +104,25 @@ public class MenuTest extends ApplicationTest {
     public void test180Ray(){
         verifyThat("#play", isVisible());
 
-        clickMultiple("#play", "#hex_6_2", "#hex_4_3", "#hex_8_8", "#start_end_button", "#Node_1");
+        clickMultiple("#play", "#hex_6_2", "#hex_4_3", "#hex_8_8", "#hex_12_2", "#hex_12_3", "#hex_13_3", "#start_end_button", "#Node_1");
 
         TextArea textArea = lookup("#textBox").query();
-        assertEquals("Ray shot from Node_1\nRay deflected 180\nRay reflected 180 degrees and exited at Node_1",
-                textArea.getText());
+        assertEquals("Ray shot from Node_1\nRay reflected and exited at Node_1\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_28", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_28\nRay reflected and exited at Node_28\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_17", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_17\nRay reflected and exited at Node_17\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_41", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_41\nRay reflected and exited at Node_41\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_38", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_38\nRay reflected and exited at Node_38\n", textArea.getText());
+
+
+
     }
 
 

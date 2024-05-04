@@ -102,7 +102,6 @@ public class RayHelpers {
             }
         }
         if (result == 1) {
-            textBox.appendText("Ray reflected and exited at " + inputNode.getId() + "\n");
             placeWhiteMarker(textBox, inputNode);
         } else {
            placeBlackMarker(boardPane);

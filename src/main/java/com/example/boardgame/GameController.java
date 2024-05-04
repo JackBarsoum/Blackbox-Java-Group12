@@ -455,7 +455,6 @@ public class GameController {
                         // Case if the ray hit 2 circles of influence at the same time
                     } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, rayAngle, true) != -1 && node != prevNode && i > 60) {
                         if (DeflectionHelpers.checkTriple(newLine, rayAngle, node, prevNode, true) == 1) {
-                            textBox.appendText("Ray reflected and exited at " + inputNode.getId());
                             RayHelpers.placeWhiteMarker(textBox, inputNode);
                             flag = 1;break;
                         }

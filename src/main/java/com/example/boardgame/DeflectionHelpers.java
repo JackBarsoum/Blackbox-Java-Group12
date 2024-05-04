@@ -109,14 +109,14 @@ public class DeflectionHelpers {
      * @param newLine our current line/ray
      * @param angle_of_ray an integer containing information on the current angle of our ray
      * @param prevNode the second potential circle/circle of influence
-     * @param direction_upOrdown a boolean to see if our ray is heading up or down
-     * @param direction_diagOrhoriz a boolean to see if our ray is heading diagonal or horizontal
+     * @param direction_up a boolean to see if our ray is heading up or down
+     * @param direction_diag a boolean to see if our ray is heading diagonal or horizontal
      * @return an integer flag depending on the current condition of our line
      * and the circle of influence
      * This method aims to check the state of our ray and if it is currently inside two
      * circle of influences
      */
-    public static int checkifDouble(Line newLine, int angle_of_ray, Node prevNode, boolean direction_upOrdown, boolean direction_diagOrhoriz) {
+    public static int checkifDouble(Line newLine, int angle_of_ray, Node prevNode, boolean direction_up, boolean direction_diag) {
         Pane p = (Pane) prevNode.getParent();
         newLine.setVisible(false);
         double angleRadians = Math.toRadians(angle_of_ray);
@@ -134,7 +134,7 @@ public class DeflectionHelpers {
                 double radius = circle.getRadius();
 
                 for (int j = 0; j < 10; j++) {
-                    if (direction_upOrdown) {
+                    if (direction_up) {
                         newLine.setEndX(newLine.getEndX() - dx);
                         newLine.setEndY(newLine.getEndY() - dy);
                     }
@@ -149,7 +149,7 @@ public class DeflectionHelpers {
                         double distance = Math.hypot(circle.getLayoutX() - newLine.getEndX(), circle.getLayoutY() - newLine.getEndY());
                         double distance1 = Math.hypot(circle2.getLayoutX() - newLine.getEndX(), circle2.getLayoutY() - newLine.getEndY());
                         boolean inBounds1 = distance <= radius + 15 && distance1 <= radius + 15;
-                        boolean inBounds2 = direction_diagOrhoriz && distance <= radius + 20 && distance1 <= radius + 20;
+                        boolean inBounds2 = direction_diag && distance <= radius + 20 && distance1 <= radius + 20;
                         if (inBounds1 || inBounds2) {
                             correct = 1;
                             break;
@@ -162,15 +162,15 @@ public class DeflectionHelpers {
 
                 double distBetweenCircles = Math.hypot(circle.getLayoutX() - circle2.getLayoutX(), circle.getLayoutY() - circle2.getLayoutY());
                 boolean circleXequal = circle.getLayoutX() == circle2.getLayoutX();
-                if ((circleXequal && direction_diagOrhoriz && correct == 1) || (direction_diagOrhoriz && distBetweenCircles <= 90 && correct == 1)) {
+                if ((circleXequal && direction_diag && correct == 1) || (direction_diag && distBetweenCircles <= 90 && correct == 1)) {
                     newLine.setEndX(tempLine.getStartX());
                     newLine.setEndY(tempLine.getStartY());
                     return 1;
-                } else if (correct == 1 && direction_diagOrhoriz && distBetweenCircles > 90) {
+                } else if (correct == 1 && direction_diag && distBetweenCircles > 90) {
                     newLine.setEndX(tempLine.getStartX());
                     newLine.setEndY(tempLine.getStartY());
                     return 4;
-                } else if (!direction_diagOrhoriz) {
+                } else if (!direction_diag) {
                     double averageY = (node.getLayoutY() + prevNode.getLayoutY()) / 2;
                     double averageX = (node.getLayoutX() + prevNode.getLayoutX()) / 2;
                     boolean xCorrect = circle.getLayoutX() == circle2.getLayoutX();
@@ -193,13 +193,13 @@ public class DeflectionHelpers {
      * @param angleRay an integer containing information on the current angle of our ray
      * @param node1 one of the potential circle of influences near our ray
      * @param node2 one of the potential circle of influences near our ray
-     * @param direction_upOrdown a boolean containing information if our ray is heading up or down
+     * @param direction_up a boolean containing information if our ray is heading up or down
      * @return an integer flag depending on the state of the line and the
      * amount of circle of influences it touches
      * This method aims to check the state of the ray and if it is currently inside three
      * circle of influences
      */
-    public static int checkTriple(Line newLine, int angleRay, Node node1, Node node2, boolean direction_upOrdown) {
+    public static int checkTriple(Line newLine, int angleRay, Node node1, Node node2, boolean direction_up) {
         Pane p = (Pane) node1.getParent();
         newLine.setVisible(false);
         double angleRadians = Math.toRadians(angleRay);
@@ -221,9 +221,9 @@ public class DeflectionHelpers {
                 double radius = circle.getRadius();
 
                 for (int j = 0; j < 10; j++) {
-                    if (direction_upOrdown) {
+                    if (direction_up) {
                         newLine.setEndX(newLine.getEndX() - dx);
-                        newLine.setEndY(newLine.getEndY() + dy);
+                        newLine.setEndY(newLine.getEndY() - dy);
                     } else {
                         newLine.setEndX(newLine.getEndX() + dx);
                         newLine.setEndY(newLine.getEndY() + dy);
