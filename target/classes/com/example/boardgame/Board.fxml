@@ -342,7 +342,7 @@
       </points>
    </Polygon>
 
-   <Polygon fill="BLACK" layoutX="258.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+   <Polygon id="hex_8_2" fill="BLACK" layoutX="258.0" layoutY="324.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
       <points>
          <Double fx:value="0.0" />
          <Double fx:value="-50.0" />
@@ -682,7 +682,7 @@
          <Double fx:value="-25.0" />
       </points>
    </Polygon>
-   <Polygon fill="BLACK" layoutX="528.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+   <Polygon id="hex_12_5" fill="BLACK" layoutX="528.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
       <points>
          <Double fx:value="0.0" />
          <Double fx:value="-50.0" />
@@ -698,7 +698,7 @@
          <Double fx:value="-25.0" />
       </points>
    </Polygon>
-   <Polygon fill="BLACK" layoutX="618.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+   <Polygon id="hex_12_6" fill="BLACK" layoutX="618.0" layoutY="474.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
       <points>
          <Double fx:value="0.0" />
          <Double fx:value="-50.0" />
@@ -811,7 +811,7 @@
          <Double fx:value="-25.0" />
       </points>
    </Polygon>
-   <Polygon fill="BLACK" layoutX="573.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
+   <Polygon id="hex_14_5" fill="BLACK" layoutX="573.0" layoutY="549.0" onMouseClicked="#handleButtonClick" stroke="YELLOW" strokeType="INSIDE" strokeWidth="3.0">
       <points>
          <Double fx:value="0.0" />
          <Double fx:value="-50.0" />

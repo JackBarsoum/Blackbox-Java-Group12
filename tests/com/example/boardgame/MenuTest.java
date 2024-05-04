@@ -101,7 +101,7 @@ public class MenuTest extends ApplicationTest {
     }
 
     @Test
-    public void test180Ray(){
+    public void test180Reflection(){
         verifyThat("#play", isVisible());
 
         clickMultiple("#play", "#hex_6_2", "#hex_4_3", "#hex_8_8", "#hex_12_2", "#hex_12_3", "#hex_13_3", "#start_end_button", "#Node_1");
@@ -120,10 +120,30 @@ public class MenuTest extends ApplicationTest {
         textArea.clear();
         clickOn("#Node_38", MouseButton.PRIMARY);
         assertEquals("Ray shot from Node_38\nRay reflected and exited at Node_38\n", textArea.getText());
-
-
-
     }
+
+    @Test
+    public void test120Deflection(){
+        verifyThat("#play", isVisible());
+
+        clickMultiple("#play", "#hex_6_2", "#hex_12_5", "#hex_8_2", "#hex_12_6", "#hex_14_5", "#start_end_button");
+
+        TextArea textArea = lookup("#textBox").query();
+        clickOn("#Node_5", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_5\nRay deflected and exited at Node_6\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_53", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_53\nRay deflected and exited at Node_44\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_30", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_30\nRay deflected and exited at Node_33\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_14", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_14\nRay deflected and exited at Node_21\n", textArea.getText());
+        textArea.clear();
+    }
+
+
 
 
     public void clickMultiple(String... hex) {

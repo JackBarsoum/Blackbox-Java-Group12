@@ -24,8 +24,6 @@ import java.io.IOException;
             stage.setTitle("BlackBoard");
             stage.setScene(scene);
             stage.show();
-
-            primaryStage = stage;
         }
 
         public static void setPrimaryStage(Stage stage) {
