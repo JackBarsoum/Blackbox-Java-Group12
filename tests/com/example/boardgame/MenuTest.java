@@ -143,6 +143,27 @@ public class MenuTest extends ApplicationTest {
         textArea.clear();
     }
 
+    @Test
+    public void textComplexCases(){
+        verifyThat("#play", isVisible());
+
+        clickMultiple("#play", "#hex_8_1", "#hex_6_3", "#hex_14_5", "#hex_8_7", "#hex_10_4", "#hex_10_5","#start_end_button");
+
+        TextArea textArea = lookup("#textBox").query();
+        clickOn("#Node_3", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_3\nRay deflected and exited at Node_15\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_51", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_51\nRay deflected and exited at Node_35\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_19", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_19\nRay deflected and exited at Node_21\n", textArea.getText());
+        textArea.clear();
+        clickOn("#Node_30", MouseButton.PRIMARY);
+        assertEquals("Ray shot from Node_30\nRay deflected and exited at Node_37\n", textArea.getText());
+        textArea.clear();
+    }
+
 
 
 
