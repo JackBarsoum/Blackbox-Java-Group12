@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class Atoms {
     private static boolean gamestart = false;
     private static int count_gamestate = 0;
-    public static boolean secondPlayer = false;
 
     //Red spheres are the one the experimenter places
     private static ArrayList<Sphere> spheres_red = new ArrayList<>();
