@@ -67,9 +67,7 @@ public class Atoms {
             sphere.setMaterial(new PhongMaterial(Color.LIGHTGREY));
             sphere.setLayoutX(x);
             sphere.setLayoutY(y);
-            // get the parent node of the button
             GameController.setSpherepane((Pane) hexagon.getParent());
-            // replace the button with the sphere
             parent.getChildren().add(sphere);
             GameController.setAtomcount();
             hexagon.setDisable(true);

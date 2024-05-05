@@ -296,6 +296,7 @@ public class GameController {
      * @param rayAngle our current angle for the ray
      * @param color the color of the stroke for the  ray
      * @param inputNode the invisible rectangle from where we shot our ray
+     * This method helps our original diagonal down by handling more complex scenarios e.g deflections
      */
     void extendLineDiagonalDownHelper(Line newLine, Rectangle inputNode, int rayAngle, Color color) {
         Pane boardPane = (Pane) inputNode.getParent();
@@ -477,7 +478,6 @@ public class GameController {
     }
 
     /**
-     *
      * @param newLine our ray after a deflection has occurred
      * @param oldLine our ray before a deflection has occurred
      * @param node a circle of influence we have collided with
@@ -505,7 +505,6 @@ public class GameController {
         }
     }
     /**
-     *
      * @param newLine our ray after a deflection has occurred
      * @param oldLine our ray before a deflection has occurred
      * @param node a circle of influence we have collided with
@@ -550,7 +549,6 @@ public class GameController {
         }
     }
     /**
-     *
      * @param newLine our ray after a deflection has occurred
      * @param oldLine our ray before a deflection has occurred
      * @param node a circle of influence we have collided with
@@ -618,7 +616,6 @@ public class GameController {
         }
     }
     /**
-     *
      * @param newLine our ray after a deflection has occurred
      * @param oldLine our ray before a deflection has occurred
      * @param node a circle of influence we have collided with
@@ -661,7 +658,6 @@ public class GameController {
         }
     }
     /**
-     *
      * @param  newLine our ray after a deflection has occurred
      * @param  oldLine our ray before a deflection has occurred
      * @param  node a circle of influence we have collided with
