@@ -12,7 +12,6 @@ import javafx.scene.shape.Sphere;
  */
 public class DeflectionHelpers {
     /**
-     *
      * @param x the current sphere we are near
      * @param l our current line/ray
      * @return a boolean showing if our line/ray is currently in a sphere
@@ -26,10 +25,9 @@ public class DeflectionHelpers {
     }
 
     /**
-     *
-     * @param l our current line/ray
+     * @param l         our current line/ray
      * @param boardPane the pane which contains all the circles of influence
-     * @param angle the current angle of our line
+     * @param angle     the current angle of our line
      * @param direction the current direction of our line
      * @return an integer flag stating if we started inside a circle of influence or not
      * This method checks the state of our ray and the circle of influence
@@ -59,11 +57,10 @@ public class DeflectionHelpers {
     }
 
     /**
-     *
-     * @param c the circle of influence we are near
-     * @param l our current line/ray
+     * @param c     the circle of influence we are near
+     * @param l     our current line/ray
      * @param angle the angle our ray is heading
-     * @param up boolean to see if the ray is heading up or down
+     * @param up    boolean to see if the ray is heading up or down
      * @return an integer flag depending on the current condition of our line and circle of influence
      * This method aims to check the state of a line and if it is currently inside a
      * circle of influence
@@ -105,11 +102,10 @@ public class DeflectionHelpers {
     }
 
     /**
-     *
-     * @param newLine our current line/ray
-     * @param angle_of_ray an integer containing information on the current angle of our ray
-     * @param prevNode the second potential circle/circle of influence
-     * @param direction_up a boolean to see if our ray is heading up or down
+     * @param newLine        our current line/ray
+     * @param angle_of_ray   an integer containing information on the current angle of our ray
+     * @param prevNode       the second potential circle/circle of influence
+     * @param direction_up   a boolean to see if our ray is heading up or down
      * @param direction_diag a boolean to see if our ray is heading diagonal or horizontal
      * @return an integer flag depending on the current condition of our line
      * and the circle of influence
@@ -137,8 +133,7 @@ public class DeflectionHelpers {
                     if (direction_up) {
                         newLine.setEndX(newLine.getEndX() - dx);
                         newLine.setEndY(newLine.getEndY() - dy);
-                    }
-                    else {
+                    } else {
                         newLine.setEndX(newLine.getEndX() + dx);
                         newLine.setEndY(newLine.getEndY() + dy);
                     }
@@ -188,11 +183,10 @@ public class DeflectionHelpers {
     }
 
     /**
-     *
-     * @param newLine our current line/ray
-     * @param angleRay an integer containing information on the current angle of our ray
-     * @param node1 one of the potential circle of influences near our ray
-     * @param node2 one of the potential circle of influences near our ray
+     * @param newLine      our current line/ray
+     * @param angleRay     an integer containing information on the current angle of our ray
+     * @param node1        one of the potential circle of influences near our ray
+     * @param node2        one of the potential circle of influences near our ray
      * @param direction_up a boolean containing information if our ray is heading up or down
      * @return an integer flag depending on the state of the line and the
      * amount of circle of influences it touches

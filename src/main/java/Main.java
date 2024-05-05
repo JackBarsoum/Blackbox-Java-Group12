@@ -1,14 +1,12 @@
 /**
  * COMP20050 - Software Engineering Project 2 2023/2024
-
+ * <p>
  * Group 12 - Cognitive Kaleidoscope
-
+ * <p>
  * Oisin Lynch - 22363963
  * Jack Barsoum - 22331151
  * Carol Ezzeddine - 21208471
-
  **/
-
 
 
 import com.example.boardgame.Menu;

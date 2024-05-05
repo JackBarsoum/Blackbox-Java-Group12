@@ -36,10 +36,6 @@ public class MenuTest extends ApplicationTest {
         primaryStage.show();
     }
 
-
-
-
-
     @Test
     public void testPlayButton() {
         //If the play button works a new scene will be displayed and the start_end_button will be visible
@@ -65,7 +61,7 @@ public class MenuTest extends ApplicationTest {
     }
 
     @Test
-    public void testSpherePlacement(){
+    public void testSpherePlacement() {
         verifyThat("#play", isVisible());
 
 
@@ -88,7 +84,7 @@ public class MenuTest extends ApplicationTest {
     }
 
     @Test
-    public void test60Ray(){
+    public void test60Ray() {
         verifyThat("#play", isVisible());
 
         clickMultiple("#play", "#hex_2_3", "#hex_6_4", "#hex_10_5", "#hex_14_4", "#hex_18_3", "#start_end_button");
@@ -131,7 +127,7 @@ public class MenuTest extends ApplicationTest {
         waitForFxEvents();
         assertEquals("Ray shot from Node_3\nRay deflected and exited at Node_17", textArea.getText().trim());
         textArea.clear();
-        
+
         //up diagonal right
         clickOn("#Node_21");
         waitForFxEvents();
@@ -143,7 +139,7 @@ public class MenuTest extends ApplicationTest {
     }
 
     @Test
-    public void test180Reflection(){
+    public void test180Reflection() {
         verifyThat("#play", isVisible());
 
         clickMultiple("#play", "#hex_6_2", "#hex_4_3", "#hex_8_8", "#hex_12_2", "#hex_12_3", "#hex_13_3", "#start_end_button", "#Node_1");
@@ -165,7 +161,7 @@ public class MenuTest extends ApplicationTest {
     }
 
     @Test
-    public void test120Deflection(){
+    public void test120Deflection() {
         verifyThat("#play", isVisible());
 
         clickMultiple("#play", "#hex_6_2", "#hex_12_5", "#hex_8_2", "#hex_12_6", "#hex_14_5", "#start_end_button");
@@ -186,10 +182,10 @@ public class MenuTest extends ApplicationTest {
     }
 
     @Test
-    public void textComplexCases(){
+    public void textComplexCases() {
         verifyThat("#play", isVisible());
 
-        clickMultiple("#play", "#hex_8_1", "#hex_6_3", "#hex_14_5", "#hex_8_7", "#hex_10_4", "#hex_10_5","#start_end_button");
+        clickMultiple("#play", "#hex_8_1", "#hex_6_3", "#hex_14_5", "#hex_8_7", "#hex_10_4", "#hex_10_5", "#start_end_button");
 
         TextArea textArea = lookup("#textBox").query();
         clickOn("#Node_3", MouseButton.PRIMARY);
@@ -208,7 +204,7 @@ public class MenuTest extends ApplicationTest {
 
     //Tests score throughout and at the end of the game
     @Test
-    public void testScore(){
+    public void testScore() {
         verifyThat("#play", isVisible());
 
         clickMultiple("#play", "#hex_4_4", "#hex_10_3", "#hex_16_2", "#hex_16_3", "#start_end_button");
@@ -218,7 +214,7 @@ public class MenuTest extends ApplicationTest {
         assertEquals(0, GameController.getScore());
 
         //shoot and guess
-        clickMultiple("#Node_13", "#Node_6", "#Node_37", "#Node_46",  "#hex_16_3", "#hex_4_4", "#hex_8_7", "#hex_14_5", "#start_end_button");
+        clickMultiple("#Node_13", "#Node_6", "#Node_37", "#Node_46", "#hex_16_3", "#hex_4_4", "#hex_8_7", "#hex_14_5", "#start_end_button");
         assertEquals("Score: 14", scoreTextArea.getText());
         assertEquals(14, GameController.getScore());
 
@@ -237,7 +233,7 @@ public class MenuTest extends ApplicationTest {
 
     //Tests intricacies such as moving onto player 2, winner, TextArea texts, atomcount and node disabling
     @Test
-    public void testMisc(){
+    public void testMisc() {
         verifyThat("#play", isVisible());
 
         clickMultiple("#play", "#hex_4_4", "#hex_10_3", "#hex_16_2", "#hex_16_3");
@@ -249,7 +245,7 @@ public class MenuTest extends ApplicationTest {
         assertFalse(hex46.isDisabled());
 
         //shoot and guess
-        clickMultiple("#Node_13", "#Node_6", "#Node_37", "#Node_46",  "#hex_16_3", "#hex_4_4", "#hex_8_7", "#hex_14_5", "#start_end_button");
+        clickMultiple("#Node_13", "#Node_6", "#Node_37", "#Node_46", "#hex_16_3", "#hex_4_4", "#hex_8_7", "#hex_14_5", "#start_end_button");
         assertTrue(hex46.isDisabled());
 
         //---------------------------------------- NEXT PLAYER ---------------------------------------
@@ -257,7 +253,7 @@ public class MenuTest extends ApplicationTest {
         assertEquals(0, GameController.getAtomcount()); //atoms reset
         assertFalse(hex46.isDisabled());
 
-        clickMultiple( "#hex_12_4", "#hex_12_5", "#hex_12_6");
+        clickMultiple("#hex_12_4", "#hex_12_5", "#hex_12_6");
         assertEquals(3, GameController.getAtomcount());
 
         clickOn("#start_end_button", MouseButton.PRIMARY);
@@ -270,7 +266,6 @@ public class MenuTest extends ApplicationTest {
         assertTrue(textArea.getText().contains("PLAYER 1 WINS!!!"));
         assertFalse(textArea.getText().contains("PLAYER 2 WINS!!!")); //double-checking
     }
-
 
 
     public void clickMultiple(String... hex) {

@@ -1,9 +1,12 @@
 package com.example.boardgame;
+
 import static java.lang.System.exit;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,6 +57,7 @@ public class GameController {
     public Button quit;
     public Scene scene;
     public int gameStatus = 0;
+
     public static int getAtomcount() {
         return atomcount;
     }
@@ -61,10 +65,14 @@ public class GameController {
     public GameController() {
     }
 
-    public static int getScore(){return score;}
+    public static int getScore() {
+        return score;
+    }
 
-    public static void addScore5(){
-        score += 5;}
+    public static void addScore5() {
+        score += 5;
+    }
+
     public static void setAtomcount(int atomcount1) {
         atomcount = atomcount1;
     }
@@ -80,19 +88,20 @@ public class GameController {
     @FXML
     public TextArea textBox; // Where results of rays shots will be displayed
 
-    @FXML public TextArea textBoxScore; // Displays the player score separately above textBox
+    @FXML
+    public TextArea textBoxScore; // Displays the player score separately above textBox
 
     /**
      * prints the score in textBoxScore by appending score variable
      */
     @FXML
-    public void printScore()
-    {
+    public void printScore() {
         textBoxScore.clear();
         textBoxScore.appendText("Score: " + score);
     }
 
-    @FXML private Stage stage;
+    @FXML
+    private Stage stage;
     private URL boardURL;
 
     @FXML
@@ -103,11 +112,10 @@ public class GameController {
     }
 
     /**
-     *
      * @param event the original event for swapping to our board
      * @throws IOException if the board cannot be loaded
-     * This method swaps us from the menu to the board when the play button is clicked
-     * on the menu
+     *                     This method swaps us from the menu to the board when the play button is clicked
+     *                     on the menu
      */
     @FXML
     void switchtoBoard(ActionEvent event) throws IOException {
@@ -124,8 +132,7 @@ public class GameController {
      * Increments the score in textBoxScore after every ray shot
      * Used when a ray is shot in extendLineHorizontal(), extendLineDiagonalDown() and extendLineDiagonalUp()
      */
-    private void RayShotScore()
-    {
+    private void RayShotScore() {
         textBoxScore.clear();
         score++;
         textBoxScore.appendText("Score: " + score);
@@ -139,13 +146,12 @@ public class GameController {
     }
 
     /**
-     *
      * @param e the mouse event where the user clicked to fire the ray
-     * This method fires a ray horizontal noting the id and if we need to deflect/absorb
+     *          This method fires a ray horizontal noting the id and if we need to deflect/absorb
      */
     @FXML
     void extendLineHorizontal(MouseEvent e) {
-        if(gameStatus == 1) {
+        if (gameStatus == 1) {
             RayShotScore(); //update score
             Line newLine = new Line();
             newLine.setVisible(false);
@@ -188,11 +194,11 @@ public class GameController {
     }
 
     /**
-     * @param newLine our original ray before we are potentially changing the direction
-     * @param rayAngle our current angle for the ray
+     * @param newLine       our original ray before we are potentially changing the direction
+     * @param rayAngle      our current angle for the ray
      * @param exitNodeColor the color of the stroke for the  ray
-     * (used for logic where we check stroke color for rectangle to see if we hit the end)
-     * This method helps our original horizontal by handling more complex scenarios e.g deflections
+     *                      (used for logic where we check stroke color for rectangle to see if we hit the end)
+     *                      This method helps our original horizontal by handling more complex scenarios e.g deflections
      */
     void extendRayHorizontalHelper(Rectangle inputNode, Line newLine, int rayAngle, Color exitNodeColor) {
         int checker = 0, flag = 0, i = 0; // This used to help display what happened to the array, e.g. if this is equal to 1 the ray is deflected by 60
@@ -211,8 +217,9 @@ public class GameController {
                     //If the ray hits nothing
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == exitNodeColor && inputNode != node) {
                         RayHelpers.markerHelper(circleColor, newLine, boardPane, rayAngle);
-                        textBox.appendText("Ray deflected and exited at "+ node.getId() + "\n"); // Line intersects with another rectangle
-                        flag = 1; break;
+                        textBox.appendText("Ray deflected and exited at " + node.getId() + "\n"); // Line intersects with another rectangle
+                        flag = 1;
+                        break;
                         //If the ray comes in contact with a circle of influence
                     } else if (node instanceof Circle && checker != 2 && i > 70) {
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, rayAngle, false);
@@ -222,12 +229,13 @@ public class GameController {
                             if (checker == 1) {
                                 RayHelpers.setOldRay(oldLine, newLine, Color.GREEN);
                                 newLine.setStroke(Color.YELLOW);
-                                one_circle_deflection(newLine, oldLine, node,inputNode);
+                                one_circle_deflection(newLine, oldLine, node, inputNode);
                                 return;
                             }
                         } else if (DeflectionHelpers.checkifDouble(newLine, rayAngle, prevNode, false, false) == 3) {
                             RayHelpers.placeWhiteMarker(textBox, inputNode);
-                            flag = 1; break;
+                            flag = 1;
+                            break;
                         }
                     }
                     // Case if the ray hit 2 circles of influence at the same time
@@ -240,25 +248,26 @@ public class GameController {
                     else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2 && i > 30) { // If the node hits the atom
                         textBox.appendText("Ray hit an atom \n");
                         RayHelpers.placeBlackMarker(boardPane);
-                        flag = 1; break;
+                        flag = 1;
+                        break;
                     }
                 }
             }
         } while (flag != 1);
         // If the ray was deflected then both the line before and after the ray was deflected will need to be
-            RayHelpers.addRay(boardPane, oldLine);
-            boardPane.getChildren().add(newLine);
-            newLine.setVisible(false);
-            lines.add(newLine);
+        RayHelpers.addRay(boardPane, oldLine);
+        boardPane.getChildren().add(newLine);
+        newLine.setVisible(false);
+        lines.add(newLine);
     }
+
     /**
-     *
      * @param e the mouse event where the user clicked to fire the ray
-     * This method fires a ray diagonally down noting the id and if we need to deflect/absorb
+     *          This method fires a ray diagonally down noting the id and if we need to deflect/absorb
      */
     @FXML
     void extendLineDiagonalDown(MouseEvent e) {
-        if(gameStatus == 1) {
+        if (gameStatus == 1) {
             RayShotScore();
             RandomColorGen();
             Line newLine = new Line();
@@ -291,12 +300,13 @@ public class GameController {
             }
         }
     }
+
     /**
-     * @param newLine our original ray before we are potentially changing the direction
-     * @param rayAngle our current angle for the ray
-     * @param color the color of the stroke for the  ray
+     * @param newLine   our original ray before we are potentially changing the direction
+     * @param rayAngle  our current angle for the ray
+     * @param color     the color of the stroke for the  ray
      * @param inputNode the invisible rectangle from where we shot our ray
-     * This method helps our original diagonal down by handling more complex scenarios e.g deflections
+     *                  This method helps our original diagonal down by handling more complex scenarios e.g deflections
      */
     void extendLineDiagonalDownHelper(Line newLine, Rectangle inputNode, int rayAngle, Color color) {
         Pane boardPane = (Pane) inputNode.getParent();
@@ -321,14 +331,16 @@ public class GameController {
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && node.getBoundsInParent().intersects(newLine.getBoundsInParent())) {
                         RayHelpers.markerHelper(circleColor, newLine, boardPane, rayAngle); // Line intersects with another rectangle
                         textBox.appendText("Ray deflected and exited at " + node.getId() + "\n");
-                        flag = 1;break;
+                        flag = 1;
+                        break;
                     } else if (node instanceof Circle && checker != 2 && i > 70) {
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, rayAngle, false);
                         prevNode = node;
-                        if(dFlag != 1) dFlag = DeflectionHelpers.checkifDouble(newLine, rayAngle, node, false, true);
-                        if(dFlag == 4){
+                        if (dFlag != 1) dFlag = DeflectionHelpers.checkifDouble(newLine, rayAngle, node, false, true);
+                        if (dFlag == 4) {
                             RayHelpers.placeWhiteMarker(textBox, inputNode);
-                            flag = 1;break;
+                            flag = 1;
+                            break;
                         }
                         if (checker == 1) {
                             RayHelpers.setOldRay(oldLine, newLine, Color.RED);
@@ -339,7 +351,8 @@ public class GameController {
                     } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, rayAngle, false) != -1 && node != prevNode && i > 70) {
                         if (DeflectionHelpers.checkTriple(newLine, rayAngle, node, prevNode, false) == 1) {
                             RayHelpers.placeWhiteMarker(textBox, inputNode);
-                            flag = 1;break;
+                            flag = 1;
+                            break;
                         }
                         RayHelpers.setOldRay(oldLine, newLine, Color.RED);
                         two_circle_deflection_down(node, prevNode, oldLine, newLine, inputNode, rayAngle);
@@ -349,25 +362,26 @@ public class GameController {
                     else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2) { // If the node hits the atom
                         textBox.appendText("Ray hit an atom" + "\n");
                         RayHelpers.placeBlackMarker(boardPane);
-                        flag = 1;break;
+                        flag = 1;
+                        break;
                     }
                 }
             }
         } while (flag != 1);
         // If the ray was deflected then both the line before and after the ray was deflected will need to be
-            RayHelpers.addRay(boardPane, oldLine);
-            boardPane.getChildren().add(newLine);
-            newLine.setVisible(false);
-            lines.add(newLine);
+        RayHelpers.addRay(boardPane, oldLine);
+        boardPane.getChildren().add(newLine);
+        newLine.setVisible(false);
+        lines.add(newLine);
     }
+
     /**
-     *
      * @param e the mouse event where the user clicked to fire the ray
-     * This method fires a ray diagonally up noting the id and if we need to deflect/absorb
+     *          This method fires a ray diagonally up noting the id and if we need to deflect/absorb
      */
     @FXML
     void extendLineDiagonalUp(MouseEvent e) {
-        if(gameStatus == 1) {
+        if (gameStatus == 1) {
             RayShotScore();
             Circle newCircleStart = new Circle();
             RandomColorGen();
@@ -391,7 +405,7 @@ public class GameController {
                     RayHelpers.setStartsIndsideHelper(result, newLine, b, textBox, 2);
                 } else {
                     direction_tester = Color.YELLOW;
-                    extendLineDiagonalUpHelper(newLine, b,59, direction_tester);
+                    extendLineDiagonalUpHelper(newLine, b, 59, direction_tester);
                 }
             } else if (right) {
                 int result = DeflectionHelpers.startsInside(newLine, p, 121, 4);
@@ -404,13 +418,14 @@ public class GameController {
             }
         }
     }
+
     /**
-     * @param newLine our original ray before we are potentially changing the direction
-     * @param rayAngle our current angle for the ray
-     * @param color the color of the stroke for the  ray
+     * @param newLine   our original ray before we are potentially changing the direction
+     * @param rayAngle  our current angle for the ray
+     * @param color     the color of the stroke for the  ray
      * @param inputNode the invisible rectangle from where we shot our ray
-     * (used for logic where we check stroke color for rectangle to see if we hit the end)
-     * This method helps our original diagonal up by handling more complex scenarios e.g deflections
+     *                  (used for logic where we check stroke color for rectangle to see if we hit the end)
+     *                  This method helps our original diagonal up by handling more complex scenarios e.g deflections
      */
     void extendLineDiagonalUpHelper(Line newLine, Rectangle inputNode, int rayAngle, Color color) {
         int checker = 0;
@@ -439,14 +454,16 @@ public class GameController {
                     if (node instanceof Rectangle && ((Rectangle) node).getStroke() == color && node.getBoundsInParent().intersects(newLine.getBoundsInParent())) {
                         RayHelpers.markerHelper(circleColor, newLine, boardPane, rayAngle);
                         textBox.appendText("Ray deflected and exited at " + node.getId() + "\n");
-                        flag = 1;break;
-                    } else if (node instanceof Circle && checker != 2 && i > 60 ) {
+                        flag = 1;
+                        break;
+                    } else if (node instanceof Circle && checker != 2 && i > 60) {
                         checker = DeflectionHelpers.isInsideC((Circle) node, newLine, rayAngle, true);
                         prevNode = node;
                         if (dFlag != 1) dFlag = DeflectionHelpers.checkifDouble(newLine, rayAngle, node, true, true);
                         if (dFlag == 4) {
                             RayHelpers.placeWhiteMarker(textBox, inputNode);
-                            flag = 1;break;
+                            flag = 1;
+                            break;
                         }
                         if (checker == 1) {
                             RayHelpers.setOldRay(oldLine, newLine, Color.RED);
@@ -457,34 +474,36 @@ public class GameController {
                     } else if (node instanceof Circle && DeflectionHelpers.isInsideC((Circle) node, newLine, rayAngle, true) != -1 && node != prevNode && i > 60) {
                         if (DeflectionHelpers.checkTriple(newLine, rayAngle, node, prevNode, true) == 1) {
                             RayHelpers.placeWhiteMarker(textBox, inputNode);
-                            flag = 1;break;
+                            flag = 1;
+                            break;
                         }
                         RayHelpers.setOldRay(oldLine, newLine, Color.BLUE);
-                        two_deflection_helper_up(node, prevNode,inputNode, rayAngle, newLine, oldLine);
+                        two_deflection_helper_up(node, prevNode, inputNode, rayAngle, newLine, oldLine);
                         return;
                     } else if (node instanceof Sphere && DeflectionHelpers.isInside((Sphere) node, newLine) && checker == 2) {
                         RayHelpers.placeBlackMarker(boardPane);
                         textBox.appendText("Ray hit an atom\n");
-                        flag = 1;break;
+                        flag = 1;
+                        break;
                     }
                 }
             }
         } while (flag != 1);
 
-            RayHelpers.addRay(boardPane, oldLine);
-            boardPane.getChildren().add(newLine);
-            newLine.setVisible(false);
-            lines.add(newLine);
+        RayHelpers.addRay(boardPane, oldLine);
+        boardPane.getChildren().add(newLine);
+        newLine.setVisible(false);
+        lines.add(newLine);
     }
 
     /**
-     * @param newLine our ray after a deflection has occurred
-     * @param oldLine our ray before a deflection has occurred
-     * @param node a circle of influence we have collided with
+     * @param newLine   our ray after a deflection has occurred
+     * @param oldLine   our ray before a deflection has occurred
+     * @param node      a circle of influence we have collided with
      * @param inputNode the original invisible rectangle where we fired our ray from
-     * This method handles the case of deflecting off one circle of influence
+     *                  This method handles the case of deflecting off one circle of influence
      */
-    public void one_circle_deflection(Line newLine, Line oldLine, Node node, Rectangle inputNode){
+    public void one_circle_deflection(Line newLine, Line oldLine, Node node, Rectangle inputNode) {
         Pane boardPane = (Pane) inputNode.getParent();
         if (newLine.getEndY() < node.getLayoutY()) {
             if (newLine.getEndX() > node.getLayoutX()) {
@@ -504,61 +523,63 @@ public class GameController {
             }
         }
     }
+
     /**
-     * @param newLine our ray after a deflection has occurred
-     * @param oldLine our ray before a deflection has occurred
-     * @param node a circle of influence we have collided with
+     * @param newLine   our ray after a deflection has occurred
+     * @param oldLine   our ray before a deflection has occurred
+     * @param node      a circle of influence we have collided with
      * @param inputNode the original invisible rectangle where we fired our ray from
-     * @param rayAngle the current angle of our ray
-     * This method handles the case of deflecting off one circle of influence
-     * specifically in a down scenario
+     * @param rayAngle  the current angle of our ray
+     *                  This method handles the case of deflecting off one circle of influence
+     *                  specifically in a down scenario
      */
-    public void one_circle_deflection_down(Line newLine, Line oldLine, Node node, Rectangle inputNode, int rayAngle){
+    public void one_circle_deflection_down(Line newLine, Line oldLine, Node node, Rectangle inputNode, int rayAngle) {
         Pane boardPane = (Pane) inputNode.getParent();
         oldLine.setVisible(false);
         newLine.setVisible(false);
         if (newLine.getEndY() + 10 < node.getLayoutY()) {
             if (rayAngle == 59) {
                 if (newLine.getEndX() > node.getLayoutX()) {
-                       RayHelpers.addRay(boardPane, oldLine);
+                    RayHelpers.addRay(boardPane, oldLine);
                     extendRayHorizontalHelper(inputNode, newLine, 1, Color.BLACK);
                 } else {
-                       RayHelpers.addRay(boardPane, oldLine);
-                    extendRayHorizontalHelper(inputNode, newLine,  180, Color.BLACK);
+                    RayHelpers.addRay(boardPane, oldLine);
+                    extendRayHorizontalHelper(inputNode, newLine, 180, Color.BLACK);
                 }
             } else {
                 if (newLine.getEndX() > node.getLayoutX()) {
-                       RayHelpers.addRay(boardPane, oldLine);
+                    RayHelpers.addRay(boardPane, oldLine);
                     extendRayHorizontalHelper(inputNode, newLine, 0, Color.BLACK);
                 } else {
-                        RayHelpers.addRay(boardPane, oldLine);
+                    RayHelpers.addRay(boardPane, oldLine);
                     extendRayHorizontalHelper(inputNode, newLine, 179, Color.BLACK);
                 }
             }
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (newLine.getEndX() > node.getLayoutX()) {
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 direction_tester = Color.GREEN;
                 extendLineDiagonalDownHelper(newLine, inputNode, 59, Color.RED);
             } else {
-                   RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 direction_tester = Color.YELLOW;
                 extendLineDiagonalDownHelper(newLine, inputNode, 121, Color.BLUE);
             }
         }
     }
+
     /**
-     * @param newLine our ray after a deflection has occurred
-     * @param oldLine our ray before a deflection has occurred
-     * @param node a circle of influence we have collided with
+     * @param newLine   our ray after a deflection has occurred
+     * @param oldLine   our ray before a deflection has occurred
+     * @param node      a circle of influence we have collided with
      * @param inputNode the original invisible rectangle where we fired our ray from
-     * @param rayAngle the current angle of our ray
-     * @param prevNode the second circle of influence we have collided with
-     * This method handles the case of deflecting off two circle of influences
-     * specifically in a down scenario
+     * @param rayAngle  the current angle of our ray
+     * @param prevNode  the second circle of influence we have collided with
+     *                  This method handles the case of deflecting off two circle of influences
+     *                  specifically in a down scenario
      */
-    public void two_circle_deflection_down(Node node, Node prevNode, Line oldLine, Line newLine, Rectangle inputNode, int rayAngle){
+    public void two_circle_deflection_down(Node node, Node prevNode, Line oldLine, Line newLine, Rectangle inputNode, int rayAngle) {
         Pane boardPane = (Pane) inputNode.getParent();
         oldLine.setVisible(false);
         newLine.setVisible(false);
@@ -566,34 +587,34 @@ public class GameController {
         averageY -= 45;
         if (newLine.getEndY() < averageY) {
             if (rayAngle == 59) {
-                    RayHelpers.addRay(boardPane, oldLine);
-                extendLineDiagonalUpHelper(newLine,  inputNode, 121, Color.GREEN);
+                RayHelpers.addRay(boardPane, oldLine);
+                extendLineDiagonalUpHelper(newLine, inputNode, 121, Color.GREEN);
             } else {
-                   RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendLineDiagonalUpHelper(newLine, inputNode, 59, Color.YELLOW);
             }
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (rayAngle == 121) {
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendRayHorizontalHelper(inputNode, newLine, 0, Color.BLACK);
             } else {
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendRayHorizontalHelper(inputNode, newLine, 180, Color.BLACK);
             }
         }
     }
 
     /**
-     * @param newLine our ray after a deflection has occurred
-     * @param oldLine our ray before a deflection has occurred
-     * @param node a circle of influence we have collided with
+     * @param newLine   our ray after a deflection has occurred
+     * @param oldLine   our ray before a deflection has occurred
+     * @param node      a circle of influence we have collided with
      * @param inputNode the original invisible rectangle where we fired our ray from
-     * @param rayAngle the current angle of our ray
-     * @param prevNode the second circle of influence we have collided with
-     * This method handles the case of deflecting off two circle of influences
+     * @param rayAngle  the current angle of our ray
+     * @param prevNode  the second circle of influence we have collided with
+     *                  This method handles the case of deflecting off two circle of influences
      */
-    public void two_circle_deflection(Line newLine, Line oldLine, Rectangle inputNode, Node node, Node prevNode, int rayAngle){
+    public void two_circle_deflection(Line newLine, Line oldLine, Rectangle inputNode, Node node, Node prevNode, int rayAngle) {
         Pane boardPane = (Pane) inputNode.getParent();
         oldLine.setVisible(false);
         newLine.setVisible(false);
@@ -610,37 +631,37 @@ public class GameController {
         RayHelpers.deflection(deflectionColor, oldLine, boardPane);
         if (newLine.getEndY() < averageY) {
             extendLineDiagonalUpHelper(newLine, inputNode, angle, deflectionColor);
-        }
-        else {
+        } else {
             extendLineDiagonalDownHelper(newLine, inputNode, angle, deflectionColor);
         }
     }
+
     /**
-     * @param newLine our ray after a deflection has occurred
-     * @param oldLine our ray before a deflection has occurred
-     * @param node a circle of influence we have collided with
+     * @param newLine   our ray after a deflection has occurred
+     * @param oldLine   our ray before a deflection has occurred
+     * @param node      a circle of influence we have collided with
      * @param inputNode the original invisible rectangle where we fired our ray from
-     * @param rayAngle the current angle of our ray
-     * This method handles the case of deflecting off one circle of influence
-     * specifically in a up scenario
+     * @param rayAngle  the current angle of our ray
+     *                  This method handles the case of deflecting off one circle of influence
+     *                  specifically in a up scenario
      */
-    public void one_deflection_helper_up(Node node, Line oldLine, Line newLine, Rectangle inputNode, int rayAngle){
+    public void one_deflection_helper_up(Node node, Line oldLine, Line newLine, Rectangle inputNode, int rayAngle) {
         Pane boardPane = (Pane) inputNode.getParent();
         if (newLine.getEndY() - 10 > node.getLayoutY()) {
             if (rayAngle == 59) {
                 if (newLine.getEndX() < node.getLayoutX()) {
-                        RayHelpers.addRay(boardPane, oldLine);
+                    RayHelpers.addRay(boardPane, oldLine);
                     extendRayHorizontalHelper(inputNode, newLine, 180, Color.BLACK);
                 } else {
-                        RayHelpers.addRay(boardPane, oldLine);
+                    RayHelpers.addRay(boardPane, oldLine);
                     extendRayHorizontalHelper(inputNode, newLine, 0, Color.BLACK);
                 }
             } else {
                 if (newLine.getEndX() < node.getLayoutX()) {
-                        RayHelpers.addRay(boardPane, oldLine);
+                    RayHelpers.addRay(boardPane, oldLine);
                     extendRayHorizontalHelper(inputNode, newLine, 181, Color.BLACK);
                 } else {
-                        RayHelpers.addRay(boardPane, oldLine);
+                    RayHelpers.addRay(boardPane, oldLine);
                     extendRayHorizontalHelper(inputNode, newLine, 0, Color.BLACK);
                 }
             }
@@ -648,24 +669,25 @@ public class GameController {
         } else {
             if (newLine.getEndX() < node.getLayoutX()) {
                 direction_tester = Color.YELLOW;
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendLineDiagonalUpHelper(newLine, inputNode, 59, Color.YELLOW);
             } else {
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 direction_tester = Color.GREEN;
                 extendLineDiagonalUpHelper(newLine, inputNode, 121, Color.GREEN);
             }
         }
     }
+
     /**
-     * @param  newLine our ray after a deflection has occurred
-     * @param  oldLine our ray before a deflection has occurred
-     * @param  node a circle of influence we have collided with
-     * @param  inputNode the original invisible rectangle where we fired our ray from
-     * @param  rayAngle the current angle of our ray
-     * @param prevNode the second circle of influence we have collided with
-     * This method handles the case of deflecting off two circle of influences
-     * specifically in a up scenario
+     * @param newLine   our ray after a deflection has occurred
+     * @param oldLine   our ray before a deflection has occurred
+     * @param node      a circle of influence we have collided with
+     * @param inputNode the original invisible rectangle where we fired our ray from
+     * @param rayAngle  the current angle of our ray
+     * @param prevNode  the second circle of influence we have collided with
+     *                  This method handles the case of deflecting off two circle of influences
+     *                  specifically in a up scenario
      */
     public void two_deflection_helper_up(Node node, Node prevNode, Rectangle inputNode, int rayAngle, Line newLine, Line oldLine) {
         Pane boardPane = (Pane) inputNode.getParent();
@@ -677,32 +699,31 @@ public class GameController {
         // If the ray deflects at the bottom of the sphere of influence
         if (newLine.getEndY() > averageY) {
             if (rayAngle == 121) {
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendLineDiagonalDownHelper(newLine, inputNode, 59, Color.RED);
             } else {
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendLineDiagonalDownHelper(newLine, inputNode, 121, Color.BLUE);
             }
             // If the ray deflects at the side of the sphere of influence
         } else {
             if (rayAngle == 121) {
-                    RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendRayHorizontalHelper(inputNode, newLine, 179, Color.BLACK);
             } else {
-                   RayHelpers.addRay(boardPane, oldLine);
+                RayHelpers.addRay(boardPane, oldLine);
                 extendRayHorizontalHelper(inputNode, newLine, 1, Color.BLACK);
             }
         }
     }
 
-    void RandomColorGen()
-    {
+    void RandomColorGen() {
         Random random = new Random();
         //Plus 1 is so that we never get black as that is saved for absorbed
-        int r = random.nextInt(255)+1;
-        int g = random.nextInt(255)+1;
-        int b = random.nextInt(255)+1;
-        circleColor = Color.rgb(r,g,b);
+        int r = random.nextInt(255) + 1;
+        int g = random.nextInt(255) + 1;
+        int b = random.nextInt(255) + 1;
+        circleColor = Color.rgb(r, g, b);
     }
 
     // Case for up left
@@ -724,17 +745,17 @@ public class GameController {
 
     @FXML
     public void toggleAtoms() {
-        Atoms.invisibleAtoms(spherepane,start_end_button, nextPlayer);
-        if(atomcount == 6){
+        Atoms.invisibleAtoms(spherepane, start_end_button, nextPlayer);
+        if (atomcount == 6) {
             gameStatus = 1;
         }
 
     }
 
-    private void calculateScore(){
+    private void calculateScore() {
         textBoxScore.clear();
         textBoxScore.appendText("FINAL SCORE: " + player1Score + " - " + player2Score + "\n");
-        if(player1Score < player2Score){
+        if (player1Score < player2Score) {
             textBox.appendText("""
                     PLAYER 1 WINS!!!
                        \\\\
@@ -743,7 +764,7 @@ public class GameController {
                       \\_/_)
                         _|_\t winner winner chicken dinner
                     """);
-        } else if(player2Score < player1Score){
+        } else if (player2Score < player1Score) {
             textBox.appendText("""
                     PLAYER 2 WINS!!!
                        \\\\
@@ -752,12 +773,12 @@ public class GameController {
                       \\_/_)
                         _|_\t winner winner chicken dinner
                     """);
-        } else{
+        } else {
             textBox.appendText("IT'S A TIE!! EVERYONE'S A WINNER :D\n");
         }
     }
 
-    private void removeLines(){
+    private void removeLines() {
 
         Platform.runLater(() -> { // avoid threading issues
             for (Line line : lines) {
@@ -774,14 +795,14 @@ public class GameController {
 
     }
 
-    private void reenableArrows(){
-        for(Rectangle arrow : arrows){
+    private void reenableArrows() {
+        for (Rectangle arrow : arrows) {
             arrow.setDisable(false);
         }
     }
 
 
-    public void restart(){
+    public void restart() {
         Atoms.removeAtoms(spherepane);
         removeLines();
         RayHelpers.removeRayMarkers();
@@ -789,7 +810,7 @@ public class GameController {
 
         textBox.clear();
 
-        if(player1Score < 0){
+        if (player1Score < 0) {
             player1Score = getScore();
             textBox.appendText("PLAYER 2\n");
             nextPlayer.setVisible(false);
@@ -797,13 +818,13 @@ public class GameController {
             start_end_button.setText("Start");
             start_end_button.setVisible(true);
             printScore();
-        } else if(player2Score < 0){
+        } else if (player2Score < 0) {
             printScore();
             player2Score = getScore();
             start_end_button.setVisible(false);
             nextPlayer.setText("Quit");
             calculateScore();
-        } else{
+        } else {
             quit();
         }
 
@@ -815,7 +836,7 @@ public class GameController {
         return stage;
     }
 
-    public void setScore(int x){
+    public void setScore(int x) {
         score = x;
     }
 
@@ -826,20 +847,20 @@ public class GameController {
     @FXML
     public void pauseGame(KeyEvent k) throws IOException {
         KeyCode key = k.getCode();
-        if(key == KeyCode.ESCAPE){
+        if (key == KeyCode.ESCAPE) {
             pausePopUp();
         }
     }
+
     @FXML
     public static Stage stage2 = new Stage();
 
     /**
-     *
      * @throws IOException in case we cannot load the pause menu
-     * Method that pops up our pause menu when user presses esc key
+     *                     Method that pops up our pause menu when user presses esc key
      */
     @FXML
-    void pausePopUp()throws  IOException{
+    void pausePopUp() throws IOException {
         URL boardURL2 = getClass().getResource("Pause.fxml");
         assert boardURL2 != null;
         Parent root = FXMLLoader.load(boardURL2);
@@ -850,13 +871,14 @@ public class GameController {
         stage2.setScene(scene2);
         stage2.show();
     }
+
     @FXML
-    void quit(){
+    void quit() {
         exit(0);
     }
 
     @FXML
-    void pauseContinue(){
+    void pauseContinue() {
         stage2.close();
     }
 

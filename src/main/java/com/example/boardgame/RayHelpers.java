@@ -1,4 +1,5 @@
 package com.example.boardgame;
+
 import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
@@ -25,9 +26,9 @@ public class RayHelpers {
         newLine.setEndX(newLine.getStartX());
     }
 
-    public static void setStartofDiagonalHelper(Rectangle b, Line newLine, boolean direction){
+    public static void setStartofDiagonalHelper(Rectangle b, Line newLine, boolean direction) {
         double startX = 0, startY = 0;
-        if(direction) {
+        if (direction) {
             if (GameController.right) {
                 startX = b.getLayoutX() + b.getWidth() / 2 + 8;
                 startY = b.getLayoutY() + b.getHeight() / 2 + 10;
@@ -35,7 +36,7 @@ public class RayHelpers {
                 startX = b.getLayoutX() + b.getWidth() / 2 - 8;
                 startY = b.getLayoutY() + b.getHeight() / 2 + 10;
             }
-        }else {
+        } else {
             if (GameController.right) {
                 startX = b.getLayoutX() + b.getWidth() / 2 + 4;
                 startY = b.getLayoutY() + b.getHeight() / 2 - 13;
@@ -75,16 +76,16 @@ public class RayHelpers {
             if (inputNode.getLayoutX() > 250) {
                 angle = 180;
             }
-        }else if (diagonal == 1) {
-            if(GameController.left){
+        } else if (diagonal == 1) {
+            if (GameController.left) {
                 angle = 121;
-            }else {
+            } else {
                 angle = 59;
             }
-        }else {
-            if(GameController.left){
+        } else {
+            if (GameController.left) {
                 angle = 59;
-            }else {
+            } else {
                 angle = 121;
             }
         }
@@ -93,10 +94,10 @@ public class RayHelpers {
         double dx = Math.cos(angleRadians);
         double dy = Math.sin(angleRadians);
         for (int i = 0; i < 50; i++) {
-            if(diagonal != 2) {
+            if (diagonal != 2) {
                 newLine.setEndX(newLine.getEndX() + dx);
                 newLine.setEndY(newLine.getEndY() + dy);
-            }else{
+            } else {
                 newLine.setEndX(newLine.getEndX() - dx);
                 newLine.setEndY(newLine.getEndY() - dy);
             }
@@ -104,8 +105,8 @@ public class RayHelpers {
         if (result == 1) {
             placeWhiteMarker(textBox, inputNode);
         } else {
-           placeBlackMarker(boardPane);
-           textBox.appendText("Ray hit an atom\n");
+            placeBlackMarker(boardPane);
+            textBox.appendText("Ray hit an atom\n");
         }
         boardPane.getChildren().add(newCircleStart);
         boardPane.getChildren().add(newLine);
@@ -113,13 +114,13 @@ public class RayHelpers {
         rayMarkerList.add(newCircleStart);
     }
 
-    public static void deflection (Color direction, Line oldLine, Pane p){
-            p.getChildren().add(oldLine);
-            GameController.lines.add(oldLine);
+    public static void deflection(Color direction, Line oldLine, Pane p) {
+        p.getChildren().add(oldLine);
+        GameController.lines.add(oldLine);
         GameController.direction_tester = direction;
     }
 
-    public static void markerHelper(Color circleColor, Line newLine, Pane p, double angle){
+    public static void markerHelper(Color circleColor, Line newLine, Pane p, double angle) {
         double actualAngle = Math.toRadians(angle);
         double dx = Math.cos(actualAngle);
         double dy = Math.sin(actualAngle);
@@ -139,7 +140,7 @@ public class RayHelpers {
         rayMarkerList.add(newCircleStart);
     }
 
-    public static void placeWhiteMarker(TextArea textBox, Rectangle inputNode){
+    public static void placeWhiteMarker(TextArea textBox, Rectangle inputNode) {
         Pane boardPane = (Pane) inputNode.getParent();
         Circle newCircleStart = new Circle();
         newCircleStart.setFill(Color.WHITE);
@@ -151,7 +152,7 @@ public class RayHelpers {
         textBox.appendText("Ray reflected and exited at " + inputNode.getId() + "\n");
     }
 
-    public static void placeBlackMarker(Pane p){
+    public static void placeBlackMarker(Pane p) {
         Circle startcircle = new Circle();
         startcircle.setCenterX(GameController.originalLineX);
         startcircle.setCenterY(GameController.originalLineY);
@@ -162,22 +163,21 @@ public class RayHelpers {
         rayMarkerList.add(startcircle);
     }
 
-    public static void moveRay(Line newLine, int angle, boolean positive)
-    {
+    public static void moveRay(Line newLine, int angle, boolean positive) {
         double movingangle = Math.toRadians(angle);
         double dx = Math.cos(movingangle);
         double dy = Math.sin(movingangle);
 
-        if(positive) {
+        if (positive) {
             newLine.setEndX(newLine.getEndX() + dx);
             newLine.setEndY(newLine.getEndY() + dy);
-        }else{
+        } else {
             newLine.setEndX(newLine.getEndX() - dx);
             newLine.setEndY(newLine.getEndY() - dy);
         }
     }
 
-    public static void removeRayMarkers(){
+    public static void removeRayMarkers() {
         Platform.runLater(() -> { //to avoid threading issues
 
             //remove red spheres
@@ -194,7 +194,7 @@ public class RayHelpers {
         });
     }
 
-    public static void addRay(Pane boardPane, Line oldLine){
+    public static void addRay(Pane boardPane, Line oldLine) {
         boardPane.getChildren().add(oldLine);
         oldLine.setVisible(false);
         GameController.lines.add(oldLine);
