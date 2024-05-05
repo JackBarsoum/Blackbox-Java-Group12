@@ -185,7 +185,6 @@ public class RayHelpers {
                 Parent parent = c.getParent();
                 if (parent instanceof Pane) {
                     ((Pane) parent).getChildren().remove(c);
-                    System.out.println("marker removed");
                 } else {
                     throw new UnsupportedOperationException("failed to remove marker");
                 }

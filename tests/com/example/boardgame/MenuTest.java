@@ -164,6 +164,36 @@ public class MenuTest extends ApplicationTest {
         textArea.clear();
     }
 
+    @Test
+    public void testScore(){
+        verifyThat("#play", isVisible());
+
+        clickMultiple("#play", "#hex_4_4", "#hex_10_3", "#hex_16_2", "#hex_16_3", "#start_end_button");
+        TextArea scoreTextArea = lookup("#scoreTextBox").query();
+        TextArea textArea = lookup("#textBox").query();
+
+        assertEquals("Score: 0", scoreTextArea.getText());
+        assertEquals(0, GameController.getScore());
+
+        clickOn("#start_end_button", MouseButton.PRIMARY);
+        assertEquals("Score: 20", scoreTextArea.getText());
+        assertEquals(20, GameController.getScore());
+
+        clickMultiple("#start_end_button", "#nextPlayer", "#hex_12_4", "#hex_12_5", "#hex_12_6", "#start_end_button");
+
+        assertEquals("Score: 0", scoreTextArea.getText());
+        assertEquals(0, GameController.getScore());
+        assertEquals("PLAYER 2\n", textArea.getText());
+
+        clickMultiple("#Node_46", "#Node_35", "#Node_40", "#hex_6_2", "#hex_6_3", "#hex_6_4", "#start_end_button");
+        assertEquals("Score: 18", scoreTextArea.getText());
+        assertEquals(18, GameController.getScore());
+
+        clickMultiple("#start_end_button", "#nextPlayer");
+        assertEquals("FINAL SCORE: 20 - 18\n", scoreTextArea.getText());
+        assertTrue(textArea.getText().contains("PLAYER 2 WINS!!!"));
+        assertFalse(textArea.getText().contains("PLAYER 1 WINS!!!")); //double-checking
+    }
 
 
 
